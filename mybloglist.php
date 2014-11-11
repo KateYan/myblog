@@ -25,8 +25,8 @@
 
 				mysql_select_db("myblog",$con);
 
-				$result=mysql_query("SELECT Arti_ID,Arti_Title FROM article");			/*查找所有的数据库条目*/
-				$row=mysql_fetch_row($result);											/*把结果集存为字符串数组*/
+				$result=mysql_query("SELECT Arti_ID,Arti_Title,userID FROM article");			/*查找所有的数据库条目*/
+				$row=mysql_fetch_row($result);                  /*把结果集存为字符串数组*/
 
 				mysql_data_seek($result, 0);
 				$i=1;
@@ -42,8 +42,13 @@
 								echo '</span>';
 							echo '</div>';
 
+							$showeditor=mysql_query("SELECT UserName FROM user WHERE UserID='".$row[2]."'"); 
+							$box=mysql_fetch_row($showeditor);
+							$editor=str_replace("'", "''", $box[0]);
+
 							echo '<div class="col-md-1" style="width:20%">';
 								echo '<span style="float:right">';
+									echo '<a href="">'.$editor." ".'</a>';
 									echo '<a href="edit.php?edit='.$row[0].'" class="btn btn-xs btn-info">';/*每一行末尾插入一个连接button, GET ID 给edit,s送到edit.php*/
 									echo "Edit".'</a>';
 								echo '</span>';
