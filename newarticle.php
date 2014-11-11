@@ -1,19 +1,10 @@
-		<?php 
+<?php 
 
-		error_reporting(E_ALL ^ E_DEPRECATED);
-		$url = "127.0.0.1";
-		$user = "root"; 			
-		$password = "1122";
+	error_reporting(E_ALL ^ E_DEPRECATED);
+	include 'connectdb.php';
 
-		$con = mysql_connect($url,$user,$password);
-		if(!$con){
-			die("fail to connect".mysql_error());
-		}
-
-		mysql_select_db("myblog",$con);
-
-		session_start();
-
+	session_start();
+	if (isset($_SESSION["userid"])) {
 		if (isset($_POST["save"])) {
 			$title=str_replace("'", "''", $_POST["title"]);/*如果点击保存，用POST获取title和content内容*/
 			$content=str_replace("'", "''", $_POST["content"]);/*因为可能包含单引号，用str_replace函数将其替换为双引号，否则无法存入数据库*/
@@ -21,10 +12,8 @@
 
 			mysql_query("INSERT INTO article(Arti_Title, Arti_Content, userID) VALUES ('$title','$content','$userid')");/*插入数据库表*/
 		}
-
-		mysql_close($con);
-
-		?>
+	}
+?>
 <html>
 <head>
 	<meta name="viewpoint" content="width=device-width,initial-scale=1.0" />
@@ -53,7 +42,7 @@
 
 
 		<div class="row">
-			<a href="mybloglist.php" class="col-md-10 col-md-offset-1">
+			<a href="main.php" class="col-md-10 col-md-offset-1">
 				<br><button class="btn btn-success"  name="goback" value="Go Back">Return to main page</button><!--无值传递链接按钮，返回list页面-->
 			</a>
 		</div>		

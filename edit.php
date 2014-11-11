@@ -1,16 +1,7 @@
+
 <?php 
 	error_reporting(E_ALL ^ E_DEPRECATED);
-	$url = "127.0.0.1";
-	$user = "root"; 			
-	$password = "1122";
-
-	$con = mysql_connect($url,$user,$password);
-	if(!$con){
-		die("fail to connect".mysql_error());
-	}
-
-	mysql_select_db("myblog",$con);
-
+	include 'connectdb.php';
 	session_start();
 ?>
 
@@ -56,13 +47,14 @@
 
 						mysql_query("INSERT INTO article(Arti_Title, Arti_Content, userID) VALUES ('$title','$content','$userid')");/*修改后存为新的条目*/
 						mysql_query("DELETE FROM article WHERE Arti_ID='".$edit."'");/*新条目存储后将旧的连同ID一起删除*/
+						mysql_close($con);
 					}
 					?>
 			</div>
 		</div>
 
 		<div class="row">
-			<a href="mybloglist.php" class="col-md-10 col-md-offset-1">
+			<a href="main.php" class="col-md-10 col-md-offset-1">
 				<br><button class="btn btn-success"  name="goback" value="Go Back">Return to main page</button><!--无值传递链接按钮，返回list页面-->
 			</a>
 		</div>			

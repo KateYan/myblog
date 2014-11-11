@@ -1,3 +1,12 @@
+<?php 
+	error_reporting(E_ALL ^ E_DEPRECATED);
+	include 'connectdb.php';
+	session_start();
+	if (isset($_POST["logout"])) {
+		$_SESSION=array();
+	}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,24 +21,11 @@
 		<h1 class="page-header">All Articles:</h1>
 		<div class="col-md-7 col-md-offset-1">
 			<ul class="list-group">
-			<?php 
-				error_reporting(E_ALL ^ E_DEPRECATED);
-				$url = "127.0.0.1";
-				$user = "root"; 
-				$password = "1122";
-
-				$con = mysql_connect($url,$user,$password);
-				if(!$con){
-					die("fail to connect".mysql_error());
-				}
-
-				mysql_select_db("myblog",$con);
-
-				$result=mysql_query("SELECT Arti_ID,Arti_Title,userID FROM article");			/*查找所有的数据库条目*/
+			<?php 		
+				$result=mysql_query("SELECT Arti_ID, Arti_Title,userID FROM article");			/*查找所有的数据库条目*/
 				$row=mysql_fetch_row($result);                  /*把结果集存为字符串数组*/
 
-				mysql_data_seek($result, 0);
-				$i=1;
+				mysql_data_seek($result, 0);		
 				while($row=mysql_fetch_row($result)) { 
 					echo '<li class="list-group-item">';
 						echo '<div class="row">';
@@ -49,23 +45,28 @@
 							echo '<div class="col-md-1" style="width:20%">';
 								echo '<span style="float:right">';
 									echo '<a href="">'.$editor.'</a>';
-									echo '<a href="edit.php?edit='.$row[0].'" class="btn btn-xs btn-info">';/*每一行末尾插入一个连接button, GET ID 给edit,s送到edit.php*/
-									echo "Edit".'</a>';
 								echo '</span>';
 							echo '</div>';
 						echo '</div>';
 					echo '</li>';
-					$i++;
 				}
 			?>
 		</ul></div>
 
 		<div class="col-md-4">
 		<?php
-			echo '<a class="btn btn-success" href="newarticle.php" value="Write a new one">';	/*无值传递，链接按钮到newarticle.php*/
-			echo "Write a new one";
-			echo '</a>';
-			mysql_close($con);
+			if (!isset($_SESSION["userid"])) {       /*如果没登陆则login*/
+				echo '<a class="btn btn-success" href="login.php" value="Log in to manage">';	/*无值传递，链接按钮到newarticle.php*/
+				echo "Log in to manage";
+				echo '</a>';
+				mysql_close($con);			
+			}
+			else { 
+				echo '<a class="btn btn-success" href="newarticle.php" value="newarticle">'."Write a new one".'</a>';
+				echo "<br><br>";
+				echo '<a class="btn btn-primary" href="loged.php" value="manage center">'."Manage Center".'</a>';
+
+			}
 		?>	
 		</div>
 	</div>

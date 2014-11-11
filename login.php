@@ -1,17 +1,7 @@
 
 	<?php 
 		error_reporting(E_ALL ^ E_DEPRECATED);
-		$url = "127.0.0.1";
-		$user = "root"; 
-		$password = "1122";
-
-		$con = mysql_connect($url,$user,$password);
-		if(!$con){
-			die("fail to connect".mysql_error());
-		}
-
-		mysql_select_db("myblog",$con);
-
+		include 'connectdb.php';
 		session_start();
 		$error_msg="";
 
@@ -29,20 +19,28 @@
 						/*setcookie("userid",$row[0],time()+(60*60*24*30));   /*设置cookie和时间*/
 						/*setcookie("username",$row[1],time()+(60*60*24*30));*/
 						echo $_SESSION["userid"];
-						$home_url="newarticle.php";       /*设置页面重定向地址*/
+						$home_url="loged.php";       /*设置页面重定向地址*/
 						header('Location:'.$home_url);
 					}
 					else{ /*没有查找到存在对应条目，即结果集为空*/
 						$error_msg="Sorry, you must enter a valid username and password to log in.";/*报告错误信息*/
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<strong>'."Warning! ".'</strong>';
+						echo $error_msg;
+						echo '</div>';
 					}
 				}
 				else{ /*如果用户名和密码没有全部输入*/
 					$error_msg="Sorry, you must enter a valid username and password to log in.";/*报告错误信息*/
+					echo '<div class="alert alert-warning" role="alert">';
+					echo '<strong>'."Warning! ".'</strong>';
+					echo $error_msg;
+					echo '</div>';
 				}
 			}
 		}
 		else{ /*如果已有用户登录，直接跳转到list页面*/
-			$home_url="mybloglist.php";
+			$home_url="main.php";
 			header('Location:'.$home_url);
 		}
  	?>
@@ -65,7 +63,7 @@
 			<label class="control-label" for="password">Password</label>
 				<input form="logininfo" class="form-control" type="text" name="password" placeholder="Enter your password"><br>
 			<button class="btn btn-primary" form="logininfo" name="inconfirm">Log in</button>
-			<a class="btn btn-success" href="mybloglist.php">Return</a>
+			<a class="btn btn-success" href="main.php">Return</a>
 		</div>
 	</div>
 	<script type="text/javascript" src="bootstrap-3.3.0/dist/js/jquery-1.11.1.js"></script>
