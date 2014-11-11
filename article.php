@@ -3,8 +3,8 @@
 <head>
 	<meta name="viewpoint" content="width=device-width,initial-scale=1.0" />
 	<title>Whole Article</title>
-	<link href="bootstrap.css" rel="stylesheet type="text/css"">
-	<link href="bootstrap-them.css" rel="stylesheet type="text/css"">
+	<link href="bootstrap-3.3.0/dist/css/bootstrap.css" rel="stylesheet type="text/css"">
+	<link href="bootstrap-3.3.0/dist/css/bootstrap-them.css" rel="stylesheet type="text/css"">
 </head>
 <body>
 	<div class="container">
@@ -44,5 +44,7 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="bootstrap-3.3.0/dist/js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="bootstrap-3.3.0/dist/js/bootstrap.js"></script>
 </body>
 </html>

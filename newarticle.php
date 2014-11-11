@@ -28,9 +28,9 @@
 <html>
 <head>
 	<meta name="viewpoint" content="width=device-width,initial-scale=1.0" />
-	<title>Create New</title>
-	<link href="bootstrap.css" rel="stylesheet type="text/css"">
-	<link href="bootstrap-them.css" rel="stylesheet type="text/css"">
+	<title>Create New Article</title>
+	<link href="bootstrap-3.3.0/dist/css/bootstrap.css" rel="stylesheet type="text/css"">
+	<link href="bootstrap-3.3.0/dist/css/bootstrap-them.css" rel="stylesheet type="text/css"">
 </head>
 
 <body>
@@ -56,8 +56,9 @@
 			<a href="mybloglist.php" class="col-md-10 col-md-offset-1">
 				<br><button class="btn btn-success"  name="goback" value="Go Back">Return to main page</button><!--无值传递链接按钮，返回list页面-->
 			</a>
-		</div>
-			
+		</div>		
 	</div>
+	<script type="text/javascript" src="bootstrap-3.3.0/dist/js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="bootstrap-3.3.0/dist/js/bootstrap.js"></script>
 </body>
 </html>
