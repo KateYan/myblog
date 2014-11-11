@@ -48,7 +48,7 @@
 
 							echo '<div class="col-md-1" style="width:20%">';
 								echo '<span style="float:right">';
-									echo '<a href="">'.$editor." ".'</a>';
+									echo '<a href="">'.$editor.'</a>';
 									echo '<a href="edit.php?edit='.$row[0].'" class="btn btn-xs btn-info">';/*每一行末尾插入一个连接button, GET ID 给edit,s送到edit.php*/
 									echo "Edit".'</a>';
 								echo '</span>';

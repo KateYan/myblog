@@ -55,7 +55,6 @@
 						$userid=$_SESSION["userid"];
 
 						mysql_query("INSERT INTO article(Arti_Title, Arti_Content, userID) VALUES ('$title','$content','$userid')");/*修改后存为新的条目*/
-						echo $edit;
 						mysql_query("DELETE FROM article WHERE Arti_ID='".$edit."'");/*新条目存储后将旧的连同ID一起删除*/
 					}
 					?>
