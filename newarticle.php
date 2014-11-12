@@ -1,18 +1,20 @@
-<?php 
+<?php
 
-	error_reporting(E_ALL ^ E_DEPRECATED);
-	include 'connectdb.php';
+error_reporting(E_ALL^E_DEPRECATED);
+include 'connectdb.php';
 
-	session_start();
-	if (isset($_SESSION["userid"])) {
-		if (isset($_POST["save"])) {
-			$title=str_replace("'", "''", $_POST["title"]);/*如果点击保存，用POST获取title和content内容*/
-			$content=str_replace("'", "''", $_POST["content"]);/*因为可能包含单引号，用str_replace函数将其替换为双引号，否则无法存入数据库*/
-			$userid=$_SESSION["userid"];
+session_start();
+if (isset($_SESSION["userid"])) {
+	if (isset($_POST["save"])) {
+		$title = str_replace("'", "''", $_POST["title"]);/*如果点击保存，用POST获取title和content内容*/
+		$content = str_replace("'", "''", $_POST["content"]);/*因为可能包含单引号，用str_replace函数将其替换为双引号，否则无法存入数据库*/
+		$userid = $_SESSION["userid"];
 
-			mysql_query("INSERT INTO article(Arti_Title, Arti_Content, userID) VALUES ('$title','$content','$userid')");/*插入数据库表*/
-		}
+		mysql_query("INSERT INTO article(Arti_Title, Arti_Content, userID) VALUES ('$title','$content','$userid')");/*插入数据库表*/
+		$home_url = "loged.php";
+		header('Location:' . $home_url);
 	}
+}
 ?>
 <html>
 <head>
@@ -45,7 +47,7 @@
 			<a href="main.php" class="col-md-10 col-md-offset-1">
 				<br><button class="btn btn-success"  name="goback" value="Go Back">Return to main page</button><!--无值传递链接按钮，返回list页面-->
 			</a>
-		</div>		
+		</div>
 	</div>
 	<script type="text/javascript" src="bootstrap-3.3.0/dist/js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="bootstrap-3.3.0/dist/js/bootstrap.js"></script>
