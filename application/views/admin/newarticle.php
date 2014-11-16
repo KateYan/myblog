@@ -1,6 +1,6 @@
 <div class="row">
     <?php
-    $attributes=array('class'=>'col-md-10 col-md-offset-1','id'=>'editting');
+    $attributes=array('class'=>'col-md-10 col-md-offset-1','id'=>'newedit');
     echo form_open('site/newarticle',$attributes);
     ?>
         <label class="control-label" for="title">Title: </label>

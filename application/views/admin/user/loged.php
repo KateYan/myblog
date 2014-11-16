@@ -21,8 +21,8 @@
 
             echo '<div class="col-md-1" style="width:20%">';
             echo '<span style="float:right">';
-            echo '<a href="">' . "edit ". '</a>';
-            echo '<a href="">' . "delete ". '</a>';
+            echo '<a href="edit?edit_id='.$row->Arti_ID.'">' . "edit ". '</a>';
+            echo '<a href="?delete_id='.$row->Arti_ID.'">' . "delete ". '</a>';
             echo '</span>';
             echo '</div>';
             echo '</div>';
