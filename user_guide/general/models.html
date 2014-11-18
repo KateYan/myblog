@@ -1,251 +1,271 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Models : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>模型 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="models.html" tppabs="http://codeigniter.org.cn/user_guide/general/models.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Models
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;模型    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/general/models.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/general/models.html'" tppabs="http://ellislab.com/codeigniter/user-guide/general/models.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>模型</h1>
 
-<h1>Models</h1>
-
-<p>Models are <strong>optionally</strong> available for those who want to use a more traditional MVC approach.</p>
-
-
+<p>模型对于那些想用传统MVC方式的人来说是<strong>可选</strong>的。</p>
 
 <ul>
-<li><a href="#what">What is a Model?</a></li>
-<li><a href="#anatomy">Anatomy of a Model</a></li>
-<li><a href="#loading">Loading a Model</a></li>
-<li><a href="#auto_load_model">Auto-Loading a Model</a> </li>
-<li><a href="#conn">Connecting to your Database</a></li>
+<li><a href="#what">什么是模型?</a></li>
+<li><a href="#anatomy">剖析模型</a></li>
+<li><a href="#loading">载入模型</a></li>
+<li><a href="#auto_load_model">自动载入模型</a></li>
+<li><a href="#conn">连接数据库</a></li>
+
 </ul>
 
 
+<h2><a name="what"></a>什么是模型?</h2>
 
-<h2><a name="what"></a>What is a Model?</h2>
-
-<p>Models are PHP classes that are designed to work with information in your database.  For example, let's say
-you use CodeIgniter to manage a blog.  You might have a model class that contains functions to insert, update, and
-retrieve your blog data. Here is an example of what such a model class might look like:</p>
+<p>模型是专门用来和数据库打交道的PHP类。例如，假设你想用CodeIgniter来做一个Blog。你可以写一个模型类，里面包含插入、更新、删除Blog数据的方法。下面的例子将向你展示一个普通的模型类:</p>
 
 <code>
-class&nbsp;Blogmodel&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
+class&nbsp;Blogmodel&nbsp;extends&nbsp;CI_Model&nbsp;&#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $title&nbsp;&nbsp; = '';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $content = '';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;var $date&nbsp;&nbsp;&nbsp; = '';<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;__construct()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Call the Model constructor<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;get_last_ten_entries()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query = $this->db->get('entries', 10);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $query->result();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query = $this-&gt;db-&gt;get('entries', 10);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $query-&gt;result();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;insert_entry()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->title&nbsp;&nbsp; = $_POST['title']; // please read the below note<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->content = $_POST['content'];<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->date&nbsp;&nbsp;&nbsp; = time();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;title&nbsp;&nbsp; = $_POST['title']; // 请阅读下方的备注<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;content = $_POST['content'];<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;date&nbsp;&nbsp;&nbsp; = time();<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->db->insert('entries',&nbsp;$this);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;db-&gt;insert('entries',&nbsp;$this);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;update_entry()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->title&nbsp;&nbsp; = $_POST['title'];<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->content = $_POST['content'];<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->date&nbsp;&nbsp;&nbsp; = time();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;title&nbsp;&nbsp; = $_POST['title'];<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;content = $_POST['content'];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;date&nbsp;&nbsp;&nbsp; = time();<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->db->update('entries',&nbsp;$this, array('id' => $_POST['id']));<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;db-&gt;update('entries',&nbsp;$this, array('id' => $_POST['id']));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 <br />
-}</code>
+&#125;</code>
 
-<p>Note: The functions in the above example use the <a href="../database/active_record.html">Active Record</a> database functions.</p>
-<p class="important"><strong>Note:</strong> For the sake of simplicity in this example we're using $_POST directly.  This is generally bad practice, and a more common approach would be to use the <a href="../libraries/input.html">Input Class</a> $this-&gt;input-&gt;post('title')</p>
-<h2><a name="anatomy"></a>Anatomy of a Model</h2>
+<p>注意: 上面用到的函数是 <a href="../database/active_record.html" tppabs="http://codeigniter.org.cn/user_guide/database/active_record.html">Active Record</a> 数据库函数.</p>
 
-<p>Model classes are stored in your <dfn>application/models/</dfn> folder.  They can be nested within sub-folders if you
-want this type of organization.</p>
+<p class="important"><strong>备注:</strong> 为了简单一点，我们直接使用了$_POST。不过，这不太好，平时我们应该使用 <a href="../libraries/input.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/input.html">输入类</a>：$this-&gt;input-&gt;post('title')</p>
 
-<p>The basic prototype for a model class is this:</p>
+
+<h2><a name="anatomy"></a>剖析模型</h2>
+
+<p>模型类文件存放在 <dfn>application/models/</dfn> 文件夹。 如果你愿意，可以在里面建立子文件夹。</p>
+
+<p>最基本的模型类必须像这样:</p>
 
 
 <code>
-class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
+class&nbsp;<var>Model_name</var>&nbsp;extends&nbsp;CI_Model&nbsp;&#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;</code>
 
-<p>Where <var>Model_name</var> is the name of your class.  Class names <strong>must</strong> have the first letter capitalized with the rest of the name lowercase.
-Make sure your class extends the base Model class.</p>
+<p><var>Model_name</var> 是模型类的名字。  类名的首字母<strong>必须</strong>大写，其他字母小写。
+并且确保你的类继承了基本模型类(Base Model Class)。</p>
 
-<p>The file name will be a lower case version of your class name.  For example, if your class is this:</p>
+<p>文件名应该是模型类名的小写版。比如，如果你的类是:</p>
 
 <code>
-class&nbsp;<var>User_model</var>&nbsp;extends&nbsp;CI_Model&nbsp;{<br />
+class&nbsp;<var>User_model</var>&nbsp;extends&nbsp;CI_Model&nbsp;&#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;<var>__construct</var>()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</code>
 
-<p>Your file will be this:</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;</code>
+
+<p>类的文件名应该是：</p>
 
 <code>application/models/<var>user_model.php</var></code>
 
 
+<h2><a name="loading"></a>载入模型</h2>
 
-<h2><a name="loading"></a>Loading a Model</h2>
+<p>模型可以在 <a href="controllers.html" tppabs="http://codeigniter.org.cn/user_guide/general/controllers.html">控制器</a> 中被引用。
+就像这样:</p>
 
-<p>Your models will typically be loaded and called from within your <a href="controllers.html">controller</a> functions.
-To load a model you will use the following function:</p>
+<code>$this-&gt;load-&gt;model('<var>Model_name</var>');</code>
 
-<code>$this->load->model('<var>Model_name</var>');</code>
+<p>如果模型文件在子文件夹下，引用的时候要带上相对路径名。例如：如果你有一个模型 <dfn>application/models/blog/queries.php</dfn>。
+下面的代码可以引用它:</p>
 
-<p>If your model is located in a sub-folder, include the relative path from your models folder.  For example, if
-you have a model located at <dfn>application/models/blog/queries.php</dfn> you'll load it using:</p>
-
-<code>$this->load->model('<var>blog/queries</var>');</code>
+<code>$this-&gt;load-&gt;model('<var>blog/queries</var>');</code>
 
 
-<p>Once loaded, you will access your model functions using an object with the same name as your class:</p>
+<p>模型一旦被载入，你就能通过下面的方法使用它:</p>
 
 <code>
-$this->load->model('<var>Model_name</var>');<br />
+$this-&gt;load-&gt;model('<var>Model_name</var>');<br />
 <br />
-$this-><var>Model_name</var>->function();
+$this-&gt;<var>Model_name</var>-&gt;function();
 </code>
 
-<p>If you would like your model assigned to a different object name you can specify it via the second parameter of the loading
-function:</p>
-
+<p>在默认的情况下模型名称就直接被引入作为对象名，就如上面所示。当然，如果你愿意，可以起个更好记的对象名！那么，可以在加载模型函数中指定第二个参数来设定，例如：</p>
 
 <code>
-$this->load->model('<var>Model_name</var>', '<kbd>fubar</kbd>');<br />
+$this-&gt;load-&gt;model('<var>Model_name</var>', '<kbd>fubar</kbd>');<br />
 <br />
-$this-><kbd>fubar</kbd>->function();
+$this-&gt;<kbd>fubar</kbd>-&gt;function();
 </code>
 
-<p>Here is an example of a controller, that loads a model, then serves a view:</p>
+<p>这里有个控制器的例子，加载一个模型，然后通过视图显示出来</p>
+
+
 
 <code>
-class&nbsp;Blog_controller&nbsp;extends&nbsp;CI_Controller&nbsp;{<br />
+class&nbsp;Blog_controller&nbsp;extends&nbsp;CI_Controller&nbsp;&#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;blog()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->model('Blog');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;model('Blog');<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['query'] = $this->Blog->get_last_ten_entries();<br /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('blog', $data);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['query'] = $this-&gt;Blog-&gt;get_last_ten_entries();<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('blog', $data);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;</code>
 
-<h2><a name="auto_load_model" id="auto_load_model"></a>Auto-loading Models</h2>
-<p>If you find that you need a particular model globally throughout your  application, you can tell CodeIgniter to auto-load it during system  initialization.  This is done by opening the application/config/autoload.php file and adding the model to the autoload array.</p>
+<h2><a name="auto_load_model" id="auto_load_model"></a>自动载入模型</h2>
+<p>如果您需要一个在整个项目中都起作用的特定模型，您可以让 CodeIgniter 在初始化时自动装载它。实现的方法是打开 application/config/autoload.php 文件，然后在自动装载数组中添加上这个模型。</p>
+<p class="important"><strong>备注:</strong> 经过测试(以加载一个模型为例)自动加载模型和手动载入模型时，消耗的内存情况是一样的！但是当加载模型越多消耗内存就会越大。自动加载模型是要牺牲内存消耗换取的，所以尽量不要自动加载不必要贯穿全站项目的模型！</p>
+</ul>
+<h2><a name="conn"></a>连接到数据库</h2>
 
-
-<h2><a name="conn"></a>Connecting to your Database</h2>
-
-<p>When a model is loaded it does <strong>NOT</strong> connect automatically to your database.  The following options for connecting are available to you:</p>
+<p>当一个模型被载入时，它并不会自动连接数据库。以下方法可以使您连接数据库:</p>
 
 <ul>
-<li>You can connect using the standard database methods <a href="../database/connecting.html">described here</a>, either from within your Controller class or your Model class.</li>
-<li>You can tell the model loading function to auto-connect by passing <kbd>TRUE</kbd> (boolean) via the third parameter,
-and connectivity settings, as defined in your database config file will be used:
+<li>您可以使用标准方法来连接数据库（<a href="../database/connecting.html" tppabs="http://codeigniter.org.cn/user_guide/database/connecting.html">说明</a>）, 也可以通过控制器或者您的自定义模型。</li>
+<li>您可以把第三个参数设置为TRUE来使模型装载函数自动连接数据库，连接配置可以在您的数据库配置文件中可以定义:</li>
 
-	<code>$this->load->model('<var>Model_name</var>', '', <kbd>TRUE</kbd>);</code>
-	</li>
+ <code>$this-&gt;load-&gt;model('<var>Model_name</var>', '', <kbd>TRUE</kbd>);</code> 
 
+<li>您可以手动设定第三个参数来载入您的自定义数据库配置:
 
-<li>You can manually pass database connectivity settings via the third parameter:
+  <code>$config['hostname'] = "localhost";<br />
+  $config['username'] = "myusername";<br />
+  $config['password'] = "mypassword";<br />
+  $config['database'] = "mydatabase";<br />
+  $config['dbdriver'] = "mysql";<br />
+  $config['dbprefix'] = "";<br />
+  $config['pconnect'] = FALSE;<br />
+  $config['db_debug'] = TRUE;<br />
+  <br />
+  $this-&gt;load-&gt;model('<var>Model_name</var>', '', <kbd>$config</kbd>);</code></li>
 
-
-		<code>$config['hostname'] = "localhost";<br />
-		$config['username'] = "myusername";<br />
-		$config['password'] = "mypassword";<br />
-		$config['database'] = "mydatabase";<br />
-		$config['dbdriver'] = "mysql";<br />
-		$config['dbprefix'] = "";<br />
-		$config['pconnect'] = FALSE;<br />
-		$config['db_debug'] = TRUE;<br />
-		<br />
-		$this->load->model('<var>Model_name</var>', '', <kbd>$config</kbd>);</code></li>
-</ul>
-
-
+  <p class="important"><strong>备注:</strong> 经过友好链接测试（也即只连接数据库不涉及查询），自动连接数据库和手动连接数据库时，消耗的内存情况是一样的，我本人的本机测试是0.67M</p>
+</ul><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+analyzer, crazyant_ps2, Hex, levin, liuhuyydy, li_star, longbill, longjianghu, ripen, shishirui, soyota, tinsn</div>
+<div id="DocDate">
+最后修改: 2014-06-10 13:37:44</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="views.html">Views</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="helpers.html">Helpers</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="views.html" tppabs="http://codeigniter.org.cn/user_guide/general/views.html">视图</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="helpers.html" tppabs="http://codeigniter.org.cn/user_guide/general/helpers.html">辅助函数</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

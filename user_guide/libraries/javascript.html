@@ -1,247 +1,283 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
-<title>JavaScript Class : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>Javascript 类 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="javascript.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/javascript.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="153" height="44" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="../general/drivers.html">Drivers</a> &nbsp;&#8250;&nbsp;
-JavaScript Driver
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;Javascript 类    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/javascript.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/javascript.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/javascript.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<p class="important"><strong>提示:</strong> 此类是实验性的, 其功能设置及执行在未来版本中可能更改.</p><br>
 
-<p class="important"><strong>Note:</strong> This driver is experimental. Its feature set and implementation may change in future releases.</p><br>
-
-<h1>Javascript Class</h1>
-<p>CodeIgniter provides a library to help you with certain common functions that you may want to use with Javascript. Please note that CodeIgniter does not require the jQuery library to run, and that any scripting library will work equally well. The jQuery library is simply presented as a convenience if you choose to use it.</p>
-<h2>Initializing the Class</h2>
-<p>To initialize the Javascript class manually in your controller constructor, use the <dfn>$this-&gt;load-&gt;library</dfn> function. Currently, the only available library is jQuery, which will automatically be loaded like this:</p>
+<h1>Javascript 类</h1>
+<p>CodeIgniter提供一个类库用来加载你想用的Javascript库. 请注意,CodeIgniter不是只引入jQuery才能运行,其他脚本库也能运行.jquery仅仅作为一个方便的工具,如果你选择使用它的话.</p>
+<h2>初始化 Javascript 类</h2>
+<p>为了初始化Javascript类,通常在你的控制器内手动添加,使用<dfn>$this-&gt;load-&gt;library</dfn> 函数. 目前,唯一能用的脚本库是jQuery,它会像这样自动加载:</p>
 
 <code>$this-&gt;load-&gt;library('javascript');</code>
 
-<p>The Javascript class also accepts parameters, <dfn>js_library_driver (string) default 'jquery'</dfn> and <dfn>autoload (bool) default TRUE</dfn>.  You may override the defaults if you wish by sending an associative array:</p>
+<p>Javascript类也能接受其他参数,函数<dfn>js_library_driver (string) default 'jquery'</dfn> and <dfn>autoload (bool) default TRUE</dfn>.  你可以覆盖默认参数,只要你愿意发送一个关联数组:</p>
 
 <code>$this-&gt;load-&gt;library('javascript', array('js_library_driver' =&gt; 'scripto', 'autoload' =&gt; FALSE));</code>
 
-<p>Again, presently only 'jquery' is available.  You may wish to set <dfn>autoload</dfn> to FALSE, though, if you do not want the jQuery library to automatically include a script tag for the main jQuery script file.  This is useful if you are loading it from a location outside of CodeIgniter, or already have the script tag in your markup.</p>
+<p>再次说明,目前只有'jquery'是可用的.你可以设置<dfn>autoload</dfn>为FALSE. 不过,如果你不希望jquery自动包含一个jquery核心文件的脚本标记.  如果你在CodeIgniter外加载了它或者已经在你的标记中加载了它,这个做法无疑是有用的.</p>
 
-<p>Once loaded, the jQuery library object will be available using: <dfn>$this-&gt;javascript</dfn></p>
-<h2>Setup and Configuration</h2>
-<h3>Set these variables in your view</h3>
-<p>As a Javascript library, your files must be available to your application.</p>
-<p>As Javascript is a client side language, the library must be able to write content into your final output. This generally means a view. You'll need to include the following variables in the &lt;head&gt; sections of your output.</p>
+<p>一旦加载了,jQuery库就可以这样引用: <dfn>$this-&gt;javascript</dfn></p>
+<h2>安装与配置</h2>
+<h3>在你的视图里设置这些变量</h3>
+<p>作为一个Javascript库,你的源文件必须提供给你的应用程序.</p>
+
+<p>由于Javascript是一种客户端语言，库必须能够写入到最终输出的内容。这通常意味:您需要在文件的&lt;head&gt;节设置以下变量.</p>
 <p><code>&lt;?php echo $library_src;?&gt;<br />
-&lt;?php echo $script_head;?&gt;
+&lt;?php echo $script_foot;?&gt;
 </code></p>
-<p>$library_src, is where the actual library file will be loaded, as well as any subsequent plugin script calls; $script_head is where specific events, functions and other commands will be rendered.</p>
-<h3>Set the path to the librarys with config items</h3>
-<p>There are some configuration items in Javascript library. These can either be set in application/config.php, within its own config/javascript.php file, or within any controller usings the set_item() function. </p>
-<p>An image to be used as an &quot;ajax loader&quot;, or progress indicator. Without one, the simple text message of &quot;loading&quot; will appear when Ajax calls need to be made.</p>
+<p>$library_src, 就是载入真正库文件的路径，以及随后任何插件脚本的调用路径; $script_head 就是具体的事件，功能和其他命令将被渲染.</p>
+<h3>项目设置与配置库路径</h3>
+<p>Javascript库中有一些配置项。这些配置项可以在application/config.php文件，在自己的config/javascript.php文件，或在任何控制器里使用set_item()函数里配置. </p>
+<p>比如一个图片被用作&quot;ajax loader&quot;, 或者进度指示条,或者在调用ajax时显示简单文字信息&quot;loading&quot;</p>
+
 <p><code>$config['javascript_location'] = 'http://localhost/codeigniter/themes/js/jquery/';<br />
-		$config['javascript_ajax_img'] = 'images/ajax-loader.gif';</code></p>
-<p>If you keep your files in the same directories they were downloaded from, then you need not set this configuration items.</p>
+    $config['javascript_ajax_img'] = 'images/ajax-loader.gif';</code></p>
+<p>如果你把文件留在与图片下载路径相同的文件夹里,那么你不需要设置这个配置项.</p>
 
-<h2>The jQuery Class</h2>
+<h2>jQuery 类</h2>
 
-<p>To initialize the jQuery class manually in your controller constructor, use the <dfn>$this-&gt;load-&gt;library</dfn> function:</p>
+<p>要初始化jQuery 类一般在控制器构造类里使用<dfn>$this-&gt;load-&gt;library</dfn> 函数:</p>
 
 <code>$this-&gt;load-&gt;library('jquery');</code>
 
-<p>You may send an optional parameter to determine whether or not a script tag for the main jQuery file will be automatically included when loading the library.  It will be created by default.  To prevent this, load the library as follows:</p>
+<p>您可以使用一个可选的参数,以决定在载入库时是否自动把 jQuery 的 script 标签输出到 HTML 中。默认为自动输出到 HTML 中。为了防止这种情况，配置加载库如下：</p>
 
 <code>$this-&gt;load-&gt;library('jquery', FALSE);</code>
 
-<p>Once loaded, the jQuery library object will be available using: <dfn>$this-&gt;jquery</dfn></p>
+<p>一旦加载了,jquery库就可以这样引用: <dfn>$this-&gt;jquery</dfn></p>
 
-<h2>jQuery Events</h2>
+<h2>jQuery 事件</h2>
 
-<p>Events are set using the following syntax.</p>
+<p>使用以下语法来设置事件.</p>
 
 <p><code>$this-&gt;jquery-&gt;event('element_path', code_to_run());</code></p>
 
-<p>In the above example:</p>
+<p>在上面例子中:</p>
 
 <ul>
-	<li>&quot;event&quot; is any of blur, change, click, dblclick, error, focus, hover, keydown, keyup, load, mousedown, mouseup, mouseover, mouseup, resize, scroll, or unload.</li>
-	<li>&quot;element_path&quot; is any valid <a href="http://docs.jquery.com/Selectors">jQuery selector</a>. Due to jQuery's unique selector syntax, this is usually an element id, or CSS selector. For example &quot;#notice_area&quot; would effect &lt;div id=&quot;notice_area&quot;&gt;, and &quot;#content a.notice&quot; would effect all anchors with a class of &quot;notice&quot; in the div with id &quot;content&quot;.</li>
-	<li>&quot;code_to_run()&quot; is script your write yourself, or an action such as an effect from the jQuery library below.</li>
-	</ul>
+  <li>&quot;event&quot; 事件可以是 blur, change, click, dblclick, error, focus, hover, keydown, keyup, load, mousedown, mouseup, mouseover, mouseup, resize, scroll, or unload的任何一个.</li>
 
-<h2>Effects</h2>
+  <li>&quot;element_path&quot; is any valid <a href="javascript:if(confirm('http://docs.jquery.com/Selectors  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://docs.jquery.com/Selectors'" tppabs="http://docs.jquery.com/Selectors">jQuery selector</a>. 是任何有效的jquery选择器.由于jQuery独特的选择器语法，通常是一个元素ID或CSS选择器。例如，&quot;#notice_area&quot; 会影响到&lt;div id=&quot;notice_area&quot;&gt;, and &quot;#content a.notice&quot; 会影响div包含&quot;notice&quot;  id为&quot;content&quot;的所有锚.</li>
 
-<p>The query library supports a powerful <a href="http://docs.jquery.com/Effects">Effects</a> repertoire.  Before an effect can be used, it must be loaded:</p>
+  <li>&quot;code_to_run()&quot; 是你写的脚本,或者一个行为程序比如在jquery下实现的动态效果.</li>
+  </ul>
 
-<p><code>$this->jquery->effect([optional path] plugin name);
+<h2>特效</h2>
+
+<p>jQuery支持一个强大的:<a href="javascript:if(confirm('http://docs.jquery.com/Effects  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://docs.jquery.com/Effects'" tppabs="http://docs.jquery.com/Effects">Effects</a>功能.要实现一个效果,必须这样加载:</p>
+
+<p><code>$this-&gt;jquery-&gt;effect([optional path] plugin name);
 // for example
-$this->jquery->effect('bounce');
+$this-&gt;jquery-&gt;effect('bounce');
 </code></p>
 
 <h3>hide() / show()</h3>
 
-<p>Each of this functions will affect the visibility of an item on your page. hide() will set an item invisible, show() will reveal it.</p>
+<p>这个功能通过控制页面上一个项目元素的可见性实现效果. hide() 使其隐藏, show() 则显示它.</p>
 <p><code>$this-&gt;jquery-&gt;hide(target,  optional speed, optional extra information);<br />
-	$this-&gt;jquery-&gt;show(target,  optional speed, optional extra information);</code></p>
+  $this-&gt;jquery-&gt;show(target,  optional speed, optional extra information);</code></p>
 
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
-	<li>&quot;speed&quot; is optional, and is set to either slow, normal, fast, or alternatively a number of milliseconds.</li>
-	<li>&quot;extra information&quot; is optional, and could include a callback, or other additional information.</li>
+  <li>&quot;target&quot; 任何一个有效的jQuery选择器.</li>
+  <li>&quot;speed&quot; 可选参数,可设置slow, normal, fast,也可以是毫秒数.</li>
+  <li>&quot;extra information&quot; 可选参数, 包括一个回调函数或者其他额外信息.</li>
+
 </ul>
 
 <h3>toggle()</h3>
 
-<p>toggle() will change the visibility of an item to the opposite of its current state, hiding visible elements, and revealing hidden ones.</p>
+<p>toggle() 将使一个项目元素从当前状态改变成与原先相反的可见状态,原先隐藏则使项目可见，或者
+
+显示原先隐藏的项目.</p>
 <p><code>$this-&gt;jquery-&gt;toggle(target);</code></p>
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
+  <li>&quot;target&quot; 是任何有效的一个或多个jQuery选择器.</li>
+
 </ul>
 
 <h3>animate()</h3>
 
 <p><code> $this-&gt;jquery-&gt;animate(target, parameters, optional speed, optional extra information);</code></p>
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
-	<li>&quot;parameters&quot; in jQuery would generally include a series of CSS properties that you wish to change.</li>
-	<li>&quot;speed&quot; is optional, and is set to either slow, normal, fast, or alternatively a number of milliseconds.</li>
-	<li>&quot;extra information&quot; is optional, and could include a callback, or other additional information.</li>
+  <li>&quot;target&quot; 是任何有效的一个或多个jQuery选择器.</li>
+  <li>&quot;parameters&quot; 通常是你想改变的元素本身的一系列CSS属性.</li>
+  <li>&quot;speed&quot; 是可选的，可以被设置为 slow, normal, fast 当中的一种或者是一个毫秒数值.</li>
+  <li>&quot;extra information&quot; 是可选的，可以包含一个回调函数，或者其它附加信息.</li>
 </ul>
-<p>For a full summary, see <a href="http://docs.jquery.com/Effects/animate">http://docs.jquery.com/Effects/animate</a></p>
-<p>Here is an example of an animate() called on a div with an id of &quot;note&quot;, and triggered by a click using the jQuery library's click() event.</p>
+<p>想要一个完整的摘要,请参考 <a href="javascript:if(confirm('http://docs.jquery.com/Effects/animate  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://docs.jquery.com/Effects/animate'" tppabs="http://docs.jquery.com/Effects/animate">http://docs.jquery.com/Effects/animate</a></p>
+<p>下面是一个例子, id 为&quot;note&quot;的div调用animate(), 通过单击引发jQuery库的click() 事件.</p>
+
 <p><code> $params = array(<br />
-	'height' =&gt; 80,<br />
-	'width' =&gt; '50%',<br />
-	'marginLeft' =&gt; 125<br />
+  'height' =&gt; 80,<br />
+  'width' =&gt; '50%',<br />
+  'marginLeft' =&gt; 125<br />
+
 );<br />
 $this-&gt;jquery-&gt;click('#trigger', $this-&gt;jquery-&gt;animate('#note', $params, normal));</code></p>
 
 <h3>fadeIn() / fadeOut()</h3>
 
 <p><code>$this-&gt;jquery-&gt;fadeIn(target,  optional speed, optional extra information);<br />
-	$this-&gt;jquery-&gt;fadeOut(target,  optional speed, optional extra information);</code></p>
+  $this-&gt;jquery-&gt;fadeOut(target,  optional speed, optional extra information);</code></p>
+
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
-	<li>&quot;speed&quot; is optional, and is set to either slow, normal, fast, or alternatively a number of milliseconds.</li>
-	<li>&quot;extra information&quot; is optional, and could include a callback, or other additional information.</li>
+  <li>&quot;target&quot; 是任何有效的一个或多个jQuery选择器.</li>
+  <li>&quot;speed&quot; 是可选的，可以被设置为 slow, normal, fast 当中的一种或者是一个毫秒数值.</li>
+  <li>&quot;extra information&quot; 是可选的，可以包含一个回调函数，或者其它附加信息.</li>
 </ul>
 
 <h3>toggleClass()</h3>
 
-<p>This function will add or remove a CSS class to its target.</p>
+<p>此功能是对目标元素添加或删除一个CSS类.</p>
 <p><code>$this-&gt;jquery-&gt;toggleClass(target, class)</code></p>
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
-	<li>&quot;class&quot; is any CSS classname. Note that this class must be defined and available in a CSS that is already loaded.</li>
-	</ul>
+  <li>&quot;target&quot; 是任何有效的一个或多个jQuery选择器.</li>
+  <li>&quot;class&quot; 任何CSS类名. 请注意，这个css类必须定义在一个已加载的CSS文件.</li>
+
+  </ul>
 
 <h3>fadeIn() / fadeOut()</h3>
 
-<p>These effects cause an element(s) to disappear or reappear over time.</p>
+<p>这些效果是随时间的推移实现一个元素的隐藏或显示.</p>
 <p><code>$this-&gt;jquery-&gt;fadeIn(target,  optional speed, optional extra information);<br />
-	$this-&gt;jquery-&gt;fadeOut(target,  optional speed, optional extra information);</code></p>
+  $this-&gt;jquery-&gt;fadeOut(target,  optional speed, optional extra information);</code></p>
+
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
-	<li>&quot;speed&quot; is optional, and is set to either slow, normal, fast, or alternatively a number of milliseconds.</li>
-	<li>&quot;extra information&quot; is optional, and could include a callback, or other additional information.</li>
+  <li>&quot;target&quot; 是任何有效的一个或多个jQuery选择器.</li>
+  <li>&quot;speed&quot; 是可选的，可以被设置为 slow, normal, fast 当中的一种或者是一个毫秒数值.</li>
+  <li>&quot;extra information&quot; 是可选的，可以包含一个回调函数，或者其它附加信息.</li>
 </ul>
 
 <h3>slideUp() / slideDown() / slideToggle()</h3>
 
-<p>These effects cause an element(s) to slide.</p>
+<p>这些效果是实现对元素的滑动.</p>
 <p><code>$this-&gt;jquery-&gt;slideUp(target,  optional speed, optional extra information);<br />
-	$this-&gt;jquery-&gt;slideDown(target,  optional speed, optional extra information);<br />
+  $this-&gt;jquery-&gt;slideDown(target,  optional speed, optional extra information);<br />
 $this-&gt;jquery-&gt;slideToggle(target,  optional speed, optional extra information);</code></p>
+
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
-	<li>&quot;speed&quot; is optional, and is set to either slow, normal, fast, or alternatively a number of milliseconds.</li>
-	<li>&quot;extra information&quot; is optional, and could include a callback, or other additional information.</li>
+  <li>&quot;target&quot; 是任何有效的一个或多个jQuery选择器.</li>
+  <li>&quot;speed&quot; 是可选的，可以被设置为 slow, normal, fast 当中的一种或者是一个毫秒数值.</li>
+  <li>&quot;extra information&quot; 是可选的，可以包含一个回调函数，或者其它附加信息.</li>
 </ul>
 
-<h2>Plugins</h2>
+<h2>插件</h2>
 
 <p>
 
-<p>Some select jQuery plugins are made available using this library.</p>
+<p>有一些可选择的基于jQuery库的插件.</p>
 
 <h3>corner()</h3>
-<p>Used to add distinct corners to page elements. For full details see <a href="http://www.malsup.com/jquery/corner/">http://www.malsup.com/jquery/corner/</a></p>
+<p>用于在页面元素四周添加不同样式的圆角。有关详情请参阅<a href="javascript:if(confirm('http://www.malsup.com/jquery/corner/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.malsup.com/jquery/corner/'" tppabs="http://www.malsup.com/jquery/corner/">http://www.malsup.com/jquery/corner/</a></p>
 <p><code>$this-&gt;jquery-&gt;corner(target, corner_style);</code></p>
+
 <ul>
-	<li>&quot;target&quot; will be any valid jQuery selector or selectors.</li>
-	<li>&quot;corner_style&quot; is optional, and can be set to any valid style such as round, sharp, bevel, bite, dog, etc. Individual corners can be set by following the style with a space and using &quot;tl&quot; (top left), &quot;tr&quot; (top right), &quot;bl&quot; (bottom left), or &quot;br&quot; (bottom right).</li>
+  <li>&quot;target&quot; 是任何有效的一个或多个jQuery选择器.</li>
+  <li>&quot;corner_style&quot; is optional, 可以设置为任何样式如圆，尖，斜面，撕纹，dog等. 个别的圆角可使用以下定位样式&quot;tl&quot; (左上), &quot;tr&quot; (右上), &quot;bl&quot; (左下), or &quot;br&quot; (右下).</li>
+
 </ul>
 <p><code>$this-&gt;jquery-&gt;corner(&quot;#note&quot;, &quot;cool tl br&quot;);</code></p>
 
 <h3>tablesorter()</h3>
 
-<p>description to come</p>
+<p>等待描述</p>
 
 <h3>modal()</h3>
 
-<p>description to come</p>
+<p>等待描述</p>
 
 <h3>calendar()</h3>
 
-<p>description to come</p>
-
+<p>等待描述</p><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+changekale, chenwenli, csfhc, Hex, Jimmy_zZ, yinzhili, zhiquan</div>
+<div id="DocDate">
+最后修改: 2014-03-14 11:04:32</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="../database/index.html">Database Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="../helpers/array_helper.html">Array Helper</a></p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="input.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/input.html">输入类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="language.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/language.html">语言类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

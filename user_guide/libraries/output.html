@@ -1,177 +1,196 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Output Class : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>è¾“å‡ºç±» - CodeIgniter ä¸­æ–‡æ‰‹å†Œ|ç”¨æˆ·æ‰‹å†Œ|ç”¨æˆ·æŒ‡å—|Wikiæ–‡æ¡£</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter æœç´¢"/>
+<link rel="canonical" href="output.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/output.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter ä¸­æ–‡æ‰‹å†Œ, CodeIgniter ç”¨æˆ·æŒ‡å—, CodeIgniter User Guide, Wiki æ–‡æ¡£" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="åˆ‡æ¢ç›®å½•" alt="åˆ‡æ¢ç›®å½•" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter ç”¨æˆ·æŒ‡å— ç‰ˆæœ¬ 2.2.0</h1></div>
+<div class="topbar-tip">ç¼–è¾‘æ–‡æ¡£ã€æŸ¥çœ‹è¿‘æœŸæ›´æ”¹è¯· <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">ç™»å½•</a> æˆ– <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">æ³¨å†Œ</a> ã€€<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">æ‰¾å›å¯†ç </a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">ç›®å½•é¡µ</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Output Class
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter ä¸­å›½é¦–é¡µ</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&#8250;&nbsp;è¾“å‡ºç±»    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        æœç´¢ç”¨æˆ·æŒ‡å—&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/output.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/output.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/output.html" target="_blank">æŸ¥çœ‹åŸæ–‡</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>è¾“å‡ºç±»</h1>
+
+<p>è¾“å‡ºç±»æ˜¯åªæœ‰ä¸€ä¸ªä¸»è¦åŠŸèƒ½çš„ç®€å•çš„ç±»:  å‘é€æœ€ç»ˆçš„Webé¡µé¢åˆ°æ‰€è¯·æ±‚çš„æµè§ˆå™¨ã€‚å¦‚æœæ‚¨å¼€å¯<a href="../general/caching.html" tppabs="http://codeigniter.org.cn/user_guide/general/caching.html">ç¼“å­˜</a>åŠŸèƒ½ï¼Œä»–è¿˜è´Ÿè´£ç¼“å­˜æ‚¨çš„ç½‘é¡µæ–‡ä»¶ã€‚</p>
+<p>è¾“å‡ºç±»è™½ç„¶å¾ˆç®€å•ï¼Œä½†æ˜¯å®ƒå®ç°çš„åŠŸèƒ½å´å¾ˆé‡è¦å’¯:  è¾“å‡ºæœ€åçš„æ‰§è¡Œç»“æœç»™å‘é€è¯·ç¤ºçš„æµè§ˆå™¨.  å¦‚æœä½ é€‰æ‹©äº†ä½¿ç”¨<a href="../general/caching.html" tppabs="http://codeigniter.org.cn/user_guide/general/caching.html">ç¼“å­˜</a> ï¼Œè¿™å—ä¹Ÿå½’å®ƒç®¡.</p>
 
 
-<h1>Output Class</h1>
+<p class="important"><strong>æ³¨æ„ï¼š</strong>è¾“å‡ºç±»çš„åˆå§‹åŒ–æ“ä½œæ˜¯ç”±ç³»ç»Ÿè‡ªåŠ¨å®Œæˆçš„ï¼ŒåŸºæœ¬ä¸Šä¸ç”¨ä½ æ“å¿ƒ.</p>
 
-<p>The Output class is a small class with one main function:  To send the finalized web page to the requesting browser.  It is
-also responsible for <a href="../general/caching.html">caching</a> your web pages, if you use that feature.</p>
+<p>åœ¨ä¸€èˆ¬çš„æƒ…å†µä¸‹ä½ æ˜¯æ„Ÿè§‰ä¸åˆ°å®ƒçš„å­˜åœ¨çš„ï¼ˆä¹Ÿç”¨ä¸ç€å»å…³å¿ƒï¼‰ï¼Œå¯¹äºä½ æ¥è¯´å®ƒå°±æ˜¯é€æ˜çš„ï¼Œä¸ç”¨å»å¹²é¢„ï¼Œå®ƒå°±èƒ½æ­£å¸¸çš„å·¥ä½œ.
+æ¯”å¦‚è¯´, ä½ ä½¿ç”¨<a href="loader.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/loader.html">è£…è½½å™¨ç±»</a>åŠ è½½äº†ä¸€ä¸ªè§†å›¾æ–‡ä»¶, è¿™ä¸ªè§†å›¾æ–‡ä»¶çš„å†…å®¹ä¼šè‡ªåŠ¨ä¼ é€’ç»™è¾“å‡ºç±»å¯¹è±¡, ç„¶åå‘¢ï¼Œåœ¨æ–¹æ³•æ‰§è¡Œå®Œæ¯•åä¼šè‡ªåŠ¨è°ƒç”¨è¾“å‡ºç±»å¯¹è±¡å°†æ‰§è¡Œçš„ç»“æœè¾“å‡º.
+ä½†æ˜¯å‘¢ï¼Œå®é™…å¼€å‘çš„è¿‡ç¨‹å½“ä¸­ä¼šé‡è§ä¸€äº›ç‰¹æ®Šçš„æƒ…å†µéœ€è¦æˆ‘ä»¬å¹²é¢„è¾“å‡ºï¼Œæ¥ç®¡è¾“å‡ºçš„æ§åˆ¶æƒ(åƒæ˜¯å®¢æˆ·è¦æ±‚å°†æ•°æ®å¯¼å‡ºæˆExcelï¼Œæä¾›ä¸‹è½½)ï¼Œè¿™ç§æ—¶å€™ï¼Œä¸‹é¢çš„è¿™äº›ä¸ªæ–¹æ³•å°±ç”¨å•¦:</p>
 
-<p class="important"><strong>Note:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<h2>$this-&gt;output-&gt;set_output();</h2>
 
-<p>Under normal circumstances you won't even notice the Output class since it works transparently without your intervention.
-For example, when you use the <a href="../libraries/loader.html">Loader</a> class to load a view file, it's automatically
-passed to the Output class, which will be called automatically by CodeIgniter at the end of system execution.
-It is possible, however, for you to manually intervene with the output if you need to, using either of the two following functions:</p>
+<p>å‘Šè¯‰CodeIgniteræ–¹æ³•æ‰§è¡Œå®Œæ¯•åï¼Œç”¨ç»™å®šçš„æ•°æ®åšä¸ºè¾“å‡ºã€‚ä¾‹å¦‚ï¼š</p>
 
-<h2>$this->output->set_output();</h2>
+<code>$this-&gt;output-&gt;set_output($data);</code>
 
-<p>Permits you to manually set the final output string.  Usage example:</p>
-
-<code>$this->output->set_output($data);</code>
-
-<p><strong>Important:</strong> If you do set your output manually, it must be the last thing done in the function you call it from.
-For example, if you build a page in one of your controller functions, don't set the output until the end.</p>
+<p><strong>é‡è¦ï¼š</strong>ä½¿ç”¨è¿™ä¸ªæ–¹æ³•æœ‰ä¸€ç‚¹å¾ˆé‡è¦ï¼Œå°±è¦å°†å®ƒæ”¾åœ¨æœ€åä¸€å¥ï¼Œåƒä¸‡è¦æ³¨æ„å•Šï¼Œåˆ°æ—¶å€™å‡ºäº†é”™ï¼Œä¸è¦æ€ªæˆ‘æ²¡æé†’ä½ .</p>
 
 
-<h2>$this->output->set_content_type();</h2>
+<h2>$this-&gt;output-&gt;set_content_type();</h2>
 
-<p>Permits you to set the mime-type of your page so you can serve JSON data, JPEG's, XML, etc easily.</p>
+<p>å…è®¸ä½ è®¾ç½®é¡µé¢çš„mimeç±»å‹ä»¥ä¾¿äºè¾“å‡º JSON , JPEG, XML ç­‰ç±»å‹çš„æ•°æ®.</p>
 
-<code>$this->output<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('application/json')<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;->set_output(json_encode(array('foo' => 'bar')));<br/>
+<code>$this-&gt;output<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-&gt;set_content_type('application/json')<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-&gt;set_output(json_encode(array('foo' => 'bar')));<br/>
 <br/>
-$this->output<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('jpeg') // You could also use ".jpeg" which will have the full stop removed before looking in config/mimes.php<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;->set_output(file_get_contents('files/something.jpg'));</code>
+$this-&gt;output<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-&gt;set_content_type('jpeg') // ä½ ä¹Ÿå¯ä»¥ç”¨".jpeg"ï¼Œå®ƒåœ¨æŸ¥æ‰¾ config/mimes.php æ–‡ä»¶ä¹‹å‰ä¼šç§»é™¤å¥å·<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-&gt;set_output(file_get_contents&#40;'files/something.jpg'&#41;);</code>
 
-<p><strong>Important:</strong> Make sure any non-mime string you pass to this method exists in config/mimes.php or it will have no effect.</p>
-
-
-<h2>$this->output->get_output();</h2>
-
-<p>Permits you to manually retrieve any output that has been sent for storage in the output class.  Usage example:</p>
-<code>$string = $this->output->get_output();</code>
-
-<p>Note that data will only be retrievable from this function if it has been previously sent to the output class by one of the
-CodeIgniter functions like <var>$this->load->view()</var>.</p>
+<p><strong>é‡è¦:</strong> ç¡®ä¿ä½ ä¼ é€’åˆ°æ­¤æ–¹æ³•çš„émimeå­—ç¬¦ä¸²åœ¨ config/mimes.php å­˜åœ¨ï¼Œå¦åˆ™è®¾ç½®ä¸èµ·ä½œç”¨ã€‚</p>
 
 
-<h2>$this->output->append_output();</h2>
+<h2>$this-&gt;output-&gt;get_output();</h2>
 
-<p>Appends data onto the output string.  Usage example:</p>
+<p>ä½¿ç”¨è¿™ä¸ªæ–¹æ³•ï¼Œä½ å¯ä»¥å¾—åˆ°å°†è¦è¾“å‡ºçš„æ•°æ®ï¼Œå¹¶æŠŠå®ƒä¿å­˜èµ·æ¥ï¼Œç•™ç€å®ƒç”¨ï¼ˆæˆ‘ä»¬åšæ–°é—»ç±»å‹ç½‘ç«™çš„æ—¶å€™ï¼Œå¸¸å¸¸éœ€è¦ç”Ÿæˆé™æ€çš„HTMLæ–‡ä»¶ï¼‰.  ä¾‹å¦‚ï¼š</p>
+<code>$string = $this-&gt;output-&gt;get_output();</code>
 
-<code>$this->output->append_output($data);</code>
+<p>æ³¨æ„ï¼Œå¦‚æœå…ˆå‰çš„æ•°æ®å·²ç»è¢«ä¸€ä¸ªç±»ä¼¼ <var>$this-&gt;load-&gt;view()</var> çš„ CodeIgniter å‡½æ•°é€åˆ°äº†è¾“å‡ºç±»ï¼Œé‚£ä¹ˆåªèƒ½å–å¾—é‚£ä¸ªå‡½æ•°ä¹‹åçš„è¾“å‡ºã€‚</p>
 
+<h2>$this-&gt;output-&gt;append_output();</h2>
 
+<p>åœ¨è¾“å‡ºå­—ç¬¦ä¸²åé™„åŠ æ•°æ®ã€‚ä¾‹å¦‚ï¼š</p>
 
-<h2>$this->output->set_header();</h2>
+<code>$this-&gt;output-&gt;append_output($data);</code>
 
-<p>Permits you to manually set server headers, which the output class will send for you when outputting the final rendered display.  Example:</p>
+<h2>$this-&gt;output-&gt;set_header();</h2>
+
+<p>ä½¿ç”¨æ­¤æ–¹æ³•ï¼Œå…è®¸ä½ è®¾ç½®å°†ä¼šè¢«å‘é€åˆ°æµè§ˆå™¨çš„HTTPåè®®çš„æ ‡å¤´ï¼Œä½œç”¨ç›¸å½“äºphpçš„æ ‡å‡†å‡½æ•°: header()ã€‚ä¾‹å¦‚ï¼š</p>
 
 <code>
-$this->output->set_header("HTTP/1.0 200 OK");<br />
-$this->output->set_header("HTTP/1.1 200 OK");<br />
-$this->output->set_header('Last-Modified: '.gmdate('D, d M Y H:i:s', $last_update).' GMT');<br />
-$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");<br />
-$this->output->set_header("Cache-Control: post-check=0, pre-check=0");<br />
-$this->output->set_header("Pragma: no-cache");	</code>
+$this-&gt;output-&gt;set_header("HTTP/1.0 200 OK");<br />
+$this-&gt;output-&gt;set_header("HTTP/1.1 200 OK");<br />
+$this-&gt;output-&gt;set_header('Last-Modified: '.gmdate('D, d M Y H:i:s', $last_update).' GMT');<br />
+$this-&gt;output-&gt;set_header("Cache-Control: no-store, no-cache, must-revalidate");<br />
+$this-&gt;output-&gt;set_header("Cache-Control: post-check=0, pre-check=0");<br />
+$this-&gt;output-&gt;set_header("Pragma: no-cache"); </code>
 
 
-<h2>$this->output->set_status_header(<var>code</var>, '<var>text</var>');</h2>
+<h2>$this-&gt;output-&gt;set_status_header(<var>code</var>, '<var>text</var>');</h2>
 
-<p>Permits you to manually set a server status header.  Example:</p>
+<p>å…è®¸ä½ æ‰‹åŠ¨è®¾ç½®æœåŠ¡å™¨çŠ¶æ€å¤´(header)ã€‚ä¾‹å¦‚ï¼š</p>
 
-<code>$this->output->set_status_header('401');<br />
-// Sets the header as:  Unauthorized</code>
+<code>$this-&gt;output-&gt;set_status_header('401');<br />
+// å°†headerè®¾ç½®ä¸º:  Unauthorized</code>
 
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">See here</a> for a full list of headers.</p>
+<p><a href="javascript:if(confirm('http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html'" tppabs="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">å•å‡»è¿™é‡Œ</a>æŸ¥çœ‹å…¨éƒ¨çš„ header åˆ—è¡¨ã€‚</p>
 
-<h2>$this->output->enable_profiler();</h2>
 
-<p>Permits you to enable/disable the <a href="../general/profiling.html">Profiler</a>, which will display benchmark and other data
-at the bottom of your pages for debugging and optimization purposes.</p>
+<h2>$this-&gt;output-&gt;enable_profiler();</h2>
 
-<p>To enable the profiler place the following function anywhere within your <a href="../general/controllers.html">Controller</a> functions:</p>
-<code>$this->output->enable_profiler(TRUE);</code>
+<p>å…è®¸ä½ å¼€å¯æˆ–ç¦ç”¨<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/general/profiling.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÎŞ·¨È¡µÃ£¬»òÖøËüÈ¡»Øºó·ÅÆú£¬»òÊÇÏîÄ¿Í£Ö¹µÄÌ«¿ì¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/general/profiling.html'" tppabs="http://codeigniter.org.cn/user_guide/general/profiling.html">è¯„æµ‹å™¨</a>ï¼Œè¯„æµ‹å™¨å°†åœ¨é¡µçš„åº•éƒ¨æ˜¾ç¤ºæµ‹è¯•åŸºå‡†ç‚¹æˆ–è°ƒè¯•ã€ä¼˜åŒ–éœ€è¦çš„å…¶ä»–æ•°æ®ã€‚</p>
 
-<p>When enabled a report will be generated and inserted at the bottom of your pages.</p>
+<p>åœ¨<a href="../general/controllers.html" tppabs="http://codeigniter.org.cn/user_guide/general/controllers.html">æ§åˆ¶å™¨</a>å‡½æ•°çš„ä»»ä½•ä½ç½®æ”¾ç½®ä»¥ä¸‹å‡½æ•°ï¼Œå¯ä»¥å¼€å¯è¯„æµ‹å™¨ï¼š</p>
+<code>$this-&gt;output-&gt;enable_profiler(TRUE);</code>
 
-<p>To disable the profiler you will use:</p>
-<code>$this->output->enable_profiler(FALSE);</code>
+<p>å½“å¼€å¯è¯„æµ‹å™¨åŠŸèƒ½ï¼Œä¼šåœ¨æ‚¨çš„é¡µé¢åº•éƒ¨ç”Ÿæˆä¸€ä¸ªæŠ¥å‘Šã€‚</p>
 
-<h2>$this->output->set_profiler_sections();</h2>
+<p>ä½ å¯ä»¥ç”¨ä»¥ä¸‹è¯­å¥ç¦ç”¨è¯„æµ‹å™¨ï¼š</p>
+<code>$this-&gt;output-&gt;enable_profiler(FALSE);</code>
 
-<p>Permits you to enable/disable specific sections of the Profiler when enabled.  Please refer to the <a href="../general/profiling.html">Profiler</a> documentation for further information.</p>
+<h2>$this-&gt;output-&gt;set_profiler_sections();</h2>
 
-<h2>$this->output->cache();</h2>
-<p>The CodeIgniter output library also controls caching.  For more information, please see the <a href="../general/caching.html">caching documentation</a>.</p>
+<p>å…è®¸ä½ åœ¨è¯„æµ‹å™¨å¯ç”¨æ—¶æ§åˆ¶(å¼€/å…³)å…¶ç‰¹å®šéƒ¨åˆ†ã€‚è¯·å‚è€ƒ<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/general/profiling.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÎŞ·¨È¡µÃ£¬»òÖøËüÈ¡»Øºó·ÅÆú£¬»òÊÇÏîÄ¿Í£Ö¹µÄÌ«¿ì¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/general/profiling.html'" tppabs="http://codeigniter.org.cn/user_guide/general/profiling.html">è¯„æµ‹å™¨</a>äº†è§£è¯¦ç»†ä¿¡æ¯ã€‚</p>
+
+<h2>$this-&gt;output-&gt;cache();</h2>
+<p>CodeIgniterçš„è¾“å‡ºç±»åŒæ ·ä¹Ÿæ§åˆ¶ç¼“å­˜ã€‚è¦è·å–æ›´å¤šä¿¡æ¯ï¼Œè¯·é˜…è¯» <a href="../general/caching.html" tppabs="http://codeigniter.org.cn/user_guide/general/caching.html">ç¼“å­˜æ–‡æ¡£</a>.</p>
 
 <h2>Parsing Execution Variables</h2>
 
-	<p>CodeIgniter will parse the pseudo-variables <var>{elapsed_time}</var> and <var>{memory_usage}</var> in your output by default.  To disable this, set the <var>$parse_exec_vars</var> class property to <var>FALSE</var> in your controller.
+  <p>é»˜è®¤æƒ…å†µä¸‹ï¼ŒCodeIgniteræ€»ä¼šåœ¨è¾“å‡ºä¸­è§£æä¼ªå˜é‡<var>&#123;elapsed_time&#125;</var>å’Œ<var>&#123;memory_usage&#125;</var>ã€‚ å¦‚éœ€ç¦ç”¨ï¼Œåœ¨æ§åˆ¶å™¨ä¸­å°†ç±»å±æ€§<var>$parse_exec_vars</var>è®¾ä¸º<var>FALSE</var>ã€‚
 
-	<code>$this->output->parse_exec_vars = FALSE;</code>
-
+  <code>$this-&gt;output-&gt;parse_exec_vars = FALSE;</code>
+    <p class="important">è¯‘è€…æ³¨ï¼šæ­¤å¤„å­˜åœ¨æºç çº§é”™è¯¯ï¼Œç›´æ¥åº”ç”¨æ­¤ä»£ç ä¼šæŠ¥é”™â€œFatal error:  Cannot access protected property CI_Output::$parse_exec_vars â€ã€‚å»ºè®®ç”¨ä»¥ä¸‹ä»£ç ï¼š
+    <code>public $parse_exec_vars    = TRUE;</code>
+    æ›¿æ¢æ‰æºæ–‡ä»¶systerm/core/Output.phpç¬¬86è¡Œï¼ˆCIç‰ˆæœ¬2.1.3ï¼‰çš„æ­¤å¥ä»£ç ï¼š
+    <code>protected $parse_exec_vars    = TRUE;</code>
+      </p><p>&nbsp;</p>
+<div id="Contributors">
+ç¿»è¯‘è´¡çŒ®è€…:
+billycui, crazyfriday, csfhc, Glen, Hex, hk_yuhe, lishen2, Raidal, xwjie, yinzhili</div>
+<div id="DocDate">
+æœ€åä¿®æ”¹: 2013-11-22 20:12:23</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="language.html">Language Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="pagination.html">Pagination Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+ä¸Šä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="language.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/language.html">è¯­è¨€ç±»</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">é¡µé¦–</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;ä¸‹ä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="pagination.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/pagination.html">åˆ†é¡µç±»</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; ç‰ˆæƒæ‰€æœ‰ &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>ä¸­æ–‡åŒ–: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter ä¸­å›½</a> &nbsp;&middot;&nbsp; åˆ¶ä½œ: Hex &nbsp;&middot;&nbsp; ç‰ˆæœ¬: 1.30 &nbsp;&middot;&nbsp; é¸£è°¢: å­éé±¼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <div class="col-md-8 col-md-offset-2">
     <?php
     $attributes=array('id'=>'signup');
-    echo form_open('signup',$attributes);
+    echo form_open('site/signup_confirm',$attributes);
     ?>
         <label class="control-label" for="username">Username:</label>
             <input class="form-control" type="text" name="username" placeholder="Set your username">
@@ -9,7 +9,9 @@
             <input  class="form-control" type="text" name="email" placeholder="Enter your email">
         <label class="control-label" for="upasw">Password:</label>
             <input  class="form-control" type="password" name="upasw" placeholder="Set your password"><br>
-        <a href="loged" class="btn btn-primary" name="sign" value="save">Sign up</a>
+        <button  class="btn btn-primary" name="sign" value="save">Sign up</button>
+        <a class="btn btn-success" href="main">Return</a>
+
 </div>
 <?php
 /**

@@ -1,76 +1,75 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Creating Core System Classes : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>åˆ›å»ºæ ¸å¿ƒç³»ç»Ÿç±» - CodeIgniter ä¸­æ–‡æ‰‹å†Œ|ç”¨æˆ·æ‰‹å†Œ|ç”¨æˆ·æŒ‡å—|Wikiæ–‡æ¡£</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter æœç´¢"/>
+<link rel="canonical" href="core_classes.html" tppabs="http://codeigniter.org.cn/user_guide/general/core_classes.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter ä¸­æ–‡æ‰‹å†Œ, CodeIgniter ç”¨æˆ·æŒ‡å—, CodeIgniter User Guide, Wiki æ–‡æ¡£" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="åˆ‡æ¢ç›®å½•" alt="åˆ‡æ¢ç›®å½•" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter ç”¨æˆ·æŒ‡å— ç‰ˆæœ¬ 2.2.0</h1></div>
+<div class="topbar-tip">ç¼–è¾‘æ–‡æ¡£ã€æŸ¥çœ‹è¿‘æœŸæ›´æ”¹è¯· <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">ç™»å½•</a> æˆ– <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">æ³¨å†Œ</a> ã€€<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">æ‰¾å›å¯†ç </a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">ç›®å½•é¡µ</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Creating Core System Classes
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter ä¸­å›½é¦–é¡µ</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&#8250;&nbsp;åˆ›å»ºæ ¸å¿ƒç³»ç»Ÿç±»    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        æœç´¢ç”¨æˆ·æŒ‡å—&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/general/core_classes.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/codeigniter/user-guide/general/core_classes.html'" tppabs="http://ellislab.com/codeigniter/user-guide/general/core_classes.html" target="_blank">æŸ¥çœ‹åŸæ–‡</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>åˆ›å»ºæ ¸å¿ƒç³»ç»Ÿç±»</h1>
 
-<h1>Creating Core System Classes</h1>
+<p>æ¯æ¬¡CodeIgniterè¿è¡Œæ—¶éƒ½æœ‰å¾ˆå¤šåŸºç¡€ç±»ä½œä¸ºæ ¸å¿ƒæ¡†æ¶çš„ä¸€éƒ¨åˆ†è¢«è‡ªåŠ¨åˆå§‹åŒ–.ä½†ä½ ä¹Ÿå¯ä»¥ä½¿ç”¨ç»è¿‡ä½ ä¿®æ”¹çš„ç±»æ¥æ›¿æ¢ç”šè‡³æ‰©å±•è¿™äº›åŸå§‹çš„æ ¸å¿ƒç³»ç»Ÿç±».</p>
 
-<p>Every time CodeIgniter runs there are several base classes that are initialized automatically as part of the core framework.
-It is possible, however, to swap any of the core system classes with your own versions or even extend the core versions.</p>
-
-<p><strong>Most users will never have any need to do this,
-but the option to replace or extend them does exist for those who would like to significantly alter the CodeIgniter core.</strong>
+<p><strong>å¤§å¤šæ•°ç”¨æˆ·ä¸€èˆ¬ä¸ä¼šæœ‰è¿™ç§éœ€æ±‚,ä½†å¯¹äºé‚£äº›æƒ³è¾ƒå¤§å¹…åº¦çš„æ”¹å˜CodeIgniterçš„äººæ¥è¯´,æˆ‘ä»¬ä¾ç„¶æä¾›äº†æ›¿æ¢å’Œæ‰©å±•æ ¸å¿ƒç³»ç»Ÿç±»çš„é€‰æ‹©.</strong>
 </p>
 
-<p class="important"><strong>Note:</strong>&nbsp; Messing with a core system class has a lot of implications, so make sure you
-know what you are doing before attempting it.</p>
+<p class="important"><strong>æ³¨æ„:</strong>&nbsp; æ”¹å˜ç³»ç»Ÿæ ¸å¿ƒç±»ä¼šäº§ç”Ÿå¾ˆå¤§å½±å“,æ‰€ä»¥åœ¨ä½ åšä¹‹å‰å¿…é¡»æ¸…æ¥šåœ°çŸ¥é“è‡ªå·±æ­£åœ¨åšä»€ä¹ˆ.</p>
 
 
-<h2>System Class List</h2>
+<h2>ç³»ç»Ÿç±»æ¸…å•</h2>
 
-<p>The following is a list of the core system files that are invoked every time CodeIgniter runs:</p>
+<p>ä»¥ä¸‹æ˜¯ç³»ç»Ÿæ ¸å¿ƒæ–‡ä»¶çš„æ¸…å•,å®ƒä»¬åœ¨æ¯æ¬¡CodeIgniterå¯åŠ¨æ—¶è¢«è°ƒç”¨:</p>
 
 <ul>
 <li>Benchmark</li>
@@ -88,99 +87,113 @@ know what you are doing before attempting it.</p>
 <li>Utf8</li>
 </ul>
 
-<h2>Replacing Core Classes</h2>
+<h2>æ›¿æ¢æ ¸å¿ƒç±»</h2>
 
-<p>To use one of your own system classes instead of a default one simply place your version inside your local <dfn>application/core</dfn> directory:</p>
+<p>è¦ä½¿ç”¨ä½ è‡ªå·±çš„ç³»ç»Ÿç±»æ›¿æ¢é»˜è®¤ç±»åªéœ€ç®€å•çš„å°†ä½ è‡ªå·±çš„ .php æ–‡ä»¶æ”¾å…¥æœ¬åœ°æ–‡ä»¶å¤¹ <dfn>application/core</dfn></p>
 
 <code>application/core/<dfn>some-class.php</dfn></code>
 
-<p>If this directory does not exist you can create it.</p>
+<p>å¦‚æœè¿™ä¸ªæ–‡ä»¶å¤¹ä¸å­˜åœ¨ä½ å¯ä»¥è‡ªå·±åˆ›å»ºä¸€ä¸ª.</p>
 
-<p>Any file named identically to one from the list above will be used instead of the one normally used.</p>
+<p>åªè¦ä½ è‡ªå®šä¹‰çš„æ–‡ä»¶åä¸é»˜è®¤çš„å®Œå…¨ä¸€æ ·,å®ƒå°±ä¼šè‡ªåŠ¨æ›¿æ¢åŸæœ‰çš„ç±».</p>
 
-<p>Please note that your class must use <kbd>CI</kbd> as a prefix. For example, if your file is named <kbd>Input.php</kbd> the class will be named:</p>
+<p>è¦æ³¨æ„çš„æ˜¯ä½ è‡ªå®šä¹‰çš„ç±»å¿…é¡»ä»¥CIä½œä¸ºå‰ç¼€,ä¾‹å¦‚ä½ è‡ªå·±å»ºç«‹äº†<kbd>Input.php</kbd>ç±»çš„åå­—å¿…é¡»æ˜¯:</p>
 
 <code>
-class CI_Input {<br /><br />
+class CI_Input &#123;<br /><br />
 
-}
+&#125;
 </code>
 
 
 
-<h2>Extending Core Class</h2>
+<h2>æ‰©å±•æ ¸å¿ƒç±»</h2>
 
-<p>If all you need to do is add some functionality to an existing library - perhaps add a function or two - then
-it's overkill to replace the entire library with your version.  In this case it's better to simply extend the class.
-Extending a class is nearly identical to replacing a class with a couple exceptions:</p>
+<p>å¦‚æœä½ éœ€è¦åœ¨ç°æœ‰ç±»åº“ä¸­åŠ å…¥ä¸€ä¸¤ä¸ªæ–°çš„åŠŸèƒ½,é‚£å°±å®Œå…¨ä¸å¿…è¦æ›¿æ¢æ•´ä¸ªç±»åº“æ–‡ä»¶.ä½ åªéœ€ç®€å•åœ°æ‰©å±•(ç»§æ‰¿)ç°æœ‰çš„ç±»,æ‰©å±•ä¸€ä¸ªç±»å°±åƒåœ¨ç±»ä¸­å¢åŠ ä¸€äº›ä¾‹å¤–:</p>
 
 <ul>
-<li>The class declaration must extend the parent class.</li>
-<li>Your new class name and filename must be prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</li>
+
+<li>æ‰©å±•çš„ç±»å¿…é¡»ç”³æ˜ç”±çˆ¶ç±»æ‰©å±•è€Œæ¥.</li>
+<li>æ–°æ‰©å±•çš„ç±»æ‰€åœ¨çš„æ–‡ä»¶å¿…é¡»ä»¥ <kbd>MY_</kbd> ä¸ºå‰ç¼€(è¿™ä¸ªé€‰é¡¹æ˜¯å¯é…ç½®çš„,ä¸‹é¢æœ‰è¯´æ˜).</li>
 </ul>
 
-<p>For example, to extend the native <kbd>Input</kbd> class you'll create a file named <dfn>application/core/</dfn><kbd>MY_Input.php</kbd>, and declare your class with:</p>
+<p>ä¾‹å¦‚,è¦æ‰©å±•åŸæœ‰çš„<kbd>Input</kbd> ç±»,ä½ åº”è¯¥æ–°å»ºä¸€ä¸ªæ–‡ä»¶åä¸º<dfn>application/core/</dfn><kbd>MY_Input.php</kbd>, å¹¶æŒ‰å¦‚ä¸‹å£°æ˜ä½ çš„ç±»:</p>
 
 <code>
-class MY_Input extends CI_Input {<br /><br />
+class MY_Input extends CI_Input &#123;<br /><br />
 
-}</code>
+&#125;</code>
 
-<p>Note: If you need to use a constructor in your class make sure you extend the parent constructor:</p>
+<p>æ³¨æ„:å¦‚æœä½ éœ€è¦åœ¨ç±»ä¸­ä½¿ç”¨æ„é€ å‡½æ•°,ä½ å¿…é¡»åœ¨æ„é€ å‡½æ•°ä¸­æ˜¾å¼ç»§æ‰¿çˆ¶ç±»æ„é€ å‡½æ•°:</p>
 
 <code>
-class MY_Input extends CI_Input {<br />
+class MY_Input extends CI_Input &#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function __construct()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;</code>
 
-<p class="important"><strong>Tip:</strong>&nbsp; Any functions in your class that are named identically to the functions in the parent class will be used instead of the native ones
-(this is known as "method overriding").
-This allows you to substantially alter the CodeIgniter core.</p>
+<p class="important"><strong>Tip:</strong>&nbsp; æ‰€æœ‰åœ¨ä½ çš„æ–°ç±»ä¸­å®šä¹‰çš„å‡½æ•°å¦‚æœä¸çˆ¶ç±»ä¸­å‡½æ•°çš„å‘½åå®Œå…¨ä¸€æ ·,è¿™äº›å‡½æ•°å°±èƒ½å–ä»£çˆ¶ç±»ä¸­åŸæœ‰çš„å‡½æ•°
+(è¿™ä¹Ÿè¢«ç§°ä¸º"æ–¹æ³•è¦†ç›–").è¿™å…è®¸ä½ åœ¨æœ¬è´¨ä¸Šæ”¹å˜CodeIgniterçš„æ ¸å¿ƒ.</p>
 
-<p>If you are extending the Controller core class, then be sure to extend your new class in your application controller's constructors.</p>
+<p>å¦‚æœä½ æ‰©å±•äº†æ§åˆ¶å™¨æ ¸å¿ƒç±»ï¼Œé‚£ä¹ˆä¹Ÿè¦åœ¨ä½ çš„åº”ç”¨ç¨‹åºæ§åˆ¶å™¨çš„æ„é€ å‡½æ•°ä¸­ä½¿ç”¨è¿™ä¸ªæ–°ç±»ã€‚</p>
 
-<code>class Welcome extends MY_Controller {<br />
+<code>class Welcome extends MY_Controller &#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function __construct()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function index()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('welcome_message');<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('welcome_message');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;</code>
 
-<h3>Setting Your Own Prefix</h3>
+<h3>è‡ªå®šä¹‰å‰ç¼€</h3>
 
-<p>To set your own sub-class prefix, open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
+<p>è¦è®¾å®šä½ è‡ªå·±çš„å­ç±»å‰ç¼€,è¯·æ‰“å¼€<dfn>application/config/config.php</dfn> æ–‡ä»¶å¹¶æ‰¾åˆ°è¿™ä¸€é¡¹:</p>
 
 <code>$config['subclass_prefix'] = 'MY_';</code>
 
-<p>Please note that all native CodeIgniter libraries are prefixed with <kbd>CI_</kbd> so DO NOT use that as your prefix.</p>
-
-
-
-
+<p>è¯·æ³¨æ„æ‰€æœ‰åŸå§‹CodeIgniterç±»åº“ä»¥ <kbd>CI_</kbd> ä½œä¸ºå‰ç¼€,æ‰€ä»¥è¯·å‹¿ä»¥CI_ä½œä¸ºä½ è‡ªå·±çš„å‰ç¼€.<b>æ‰€æœ‰çš„æ‰©å±•æ ¸å¿ƒç±»å¿…é¡»æ”¾åˆ°coreç›®å½•ä¸­ï¼</b></p><p>&nbsp;</p>
+<div id="Contributors">
+ç¿»è¯‘è´¡çŒ®è€…:
+dustin, Hex, longbill, qixingyue, skey, thinksand</div>
+<div id="DocDate">
+æœ€åä¿®æ”¹: 2014-02-14 14:54:29</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="creating_libraries.html">Creating Your Own Libraries</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="hooks.html">Hooks - Extending the Core</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+ä¸Šä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="creating_libraries.html" tppabs="http://codeigniter.org.cn/user_guide/general/creating_libraries.html">åˆ›å»ºä½ è‡ªå·±çš„ç¨‹åºåº“</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">é¡µé¦–</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;ä¸‹ä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="hooks.html" tppabs="http://codeigniter.org.cn/user_guide/general/hooks.html">é’©å­ - æ‰©å±•æ ¸å¿ƒ</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; ç‰ˆæƒæ‰€æœ‰ &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>ä¸­æ–‡åŒ–: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter ä¸­å›½</a> &nbsp;&middot;&nbsp; åˆ¶ä½œ: Hex &nbsp;&middot;&nbsp; ç‰ˆæœ¬: 1.30 &nbsp;&middot;&nbsp; é¸£è°¢: å­éé±¼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

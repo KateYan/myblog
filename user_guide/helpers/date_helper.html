@@ -1,176 +1,175 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Date Helper : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>日期辅助函数 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="date_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/date_helper.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Date Helper
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;日期辅助函数    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/helpers/date_helper.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/helpers/date_helper.html'" tppabs="http://ellislab.com/codeigniter/user-guide/helpers/date_helper.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>日期辅助函数</h1>
+
+<p>日期辅助函数的文件涵盖了一些用于辅助日期数组操作的函数。</p>
 
 
-<h1>Date Helper</h1>
+<h2>装载本辅助函数</h2>
 
-<p>The Date Helper file contains functions that help you work with dates.</p>
+<p>本辅助函数的装载通过如下代码完成:</p>
 
-
-<h2>Loading this Helper</h2>
-
-<p>This helper is loaded using the following code:</p>
-<code>$this->load->helper('date');</code>
+<code>$this-&gt;load-&gt;helper('date');</code>
 
 
-<p>The following functions are available:</p>
+<p>可用的函数如下:</p>
 
 <h2>now()</h2>
 
-<p>Returns the current time as a Unix timestamp, referenced either to your server's local time or GMT, based on the "time reference"
-setting in your config file.  If you do not intend to set your master time reference to GMT (which you'll typically do if you
-run a site that lets each user set their own timezone settings) there is no benefit to using this function over PHP's time() function.
-</p>
+<p>返回当前的 Unix 时间戳，根据你的config文件中"time reference"设定返回服务器当前时间或者GMT时间。如果你没有计划使用GMT时间(通常是你准备在站点中允许用户选择时区设置)，则此函数跟PHP中time()函数等同。</p>
 
 
 
 
 <h2>mdate()</h2>
 
-<p>This function is identical to PHPs <a href="http://www.php.net/date">date()</a> function, except that it lets you
-use MySQL style date codes, where each code letter is preceded with a percent sign:  %Y %m %d etc.</p>
+<p>这个函数跟PHP的内部函数<a href="javascript:if(confirm('http://www.php.net/date  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.php.net/date'" tppabs="http://www.php.net/date">date()</a>几乎是一样的，区别在于，这个函数允许你使用在每个代码字母前带有百分号“%”的MySQL时间表达形式:  %Y %m %d 等。</p>
 
-<p>The benefit of doing dates this way is that you don't have to worry about escaping any characters that
-are not date codes, as you would normally have to do with the date() function.  Example:</p>
+<p>采用这种方式处理时间数据的优点在于，避免了你在使用date()函数时经常担心漏掉那些非时间的字符的问题。例如:</p>
 
 <code>$datestring = "Year: %Y Month: %m Day: %d - %h:%i %a";<br />
 $time = time();<br />
 <br />
 echo mdate($datestring, $time);</code>
 
-<p>If a timestamp is not included in the second parameter the current time will be used.</p>
+<p>如果第二参数中不包含时间戳则使用当前时间。</p>
 
 
 <h2>standard_date()</h2>
 
-<p>Lets you generate a date string in one of several standardized formats. Example:</p>
+<p>允许你从一些标准格式生成日期字符串。例子：</p>
 
 <code>
 $format = 'DATE_RFC822';<br />
 $time = time();<br />
 <br />
+
 echo standard_date($format, $time);
 </code>
 
-<p>The first parameter must contain the format, the second parameter must contain the date as a Unix timestamp.</p>
+<p>第一个参数必须包含格式，第二个参数必须使用unix时间戳。</p>
 
-<p>Supported formats:</p>
+<p>支持格式:</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
-	<tr>
-		<th>Constant</th>
-		<th>Description</th>
-		<th>Example</th>
-	</tr>
-	<tr>
-		<td>DATE_ATOM</td>
-		<td>Atom</td>
-		<td>2005-08-15T16:13:03+0000</td>
-	</tr>
-	<tr>
-		<td>DATE_COOKIE</td>
-		<td>HTTP Cookies</td>
-		<td>Sun, 14 Aug 2005 16:13:03 UTC</td>
-	</tr>
-	<tr>
-		<td>DATE_ISO8601</td>
-		<td>ISO-8601</td>
-		<td>2005-08-14T16:13:03+00:00</td>
-	</tr>
-	<tr>
-		<td>DATE_RFC822</td>
-		<td>RFC 822</td>
-		<td>Sun, 14 Aug 05 16:13:03 UTC</td>
-	</tr>
-	<tr>
-		<td>DATE_RFC850</td>
-		<td>RFC 850</td>
-		<td>Sunday, 14-Aug-05 16:13:03 UTC</td>
-	</tr>
-	<tr>
-		<td>DATE_RFC1036</td>
-		<td>RFC 1036</td>
-		<td>Sunday, 14-Aug-05 16:13:03 UTC</td>
-	</tr>
-	<tr>
-		<td>DATE_RFC1123</td>
-		<td>RFC 1123</td>
-		<td>Sun, 14 Aug 2005 16:13:03 UTC</td>
-	</tr>
-	<tr>
-		<td>DATE_RFC2822</td>
-		<td>RFC 2822</td>
-		<td>Sun, 14 Aug 2005 16:13:03 +0000</td>
-	</tr>
-	<tr>
-		<td>DATE_RSS</td>
-		<td>RSS</td>
-		<td>Sun, 14 Aug 2005 16:13:03 UTC</td>
-	</tr>
-	<tr>
-		<td>DATE_W3C</td>
-		<td>World Wide Web Consortium</td>
-		<td>2005-08-14T16:13:03+0000</td>
-	</tr>
+ <tr>
+  <th>常量</th>
+  <th>描述</th>
+  <th>例子</th>
+ </tr>
+ <tr> 
+  <td>DATE_ATOM</td>
+  <td>Atom</td>
+  <td>2005-08-15T16:13:03+0000</td>
+ </tr>
+ <tr>
+  <td>DATE_COOKIE</td>
+  <td>HTTP Cookies</td>
+  <td>Sun, 14 Aug 2005 16:13:03 UTC</td>
+ </tr>
+ <tr>
+  <td>DATE_ISO8601</td>
+  <td>ISO-8601</td>
+  <td>2005-08-14T16:13:03+00:00</td>
+ </tr>
+ <tr>
+  <td>DATE_RFC822</td>
+  <td>RFC 822</td>
+  <td>Sun, 14 Aug 05 16:13:03 UTC</td>
+ </tr>
+ <tr>
+  <td>DATE_RFC850</td>
+  <td>RFC 850</td>
+  <td>Sunday, 14-Aug-05 16:13:03 UTC</td>
+ </tr>
+ <tr>
+  <td>DATE_RFC1036</td>
+  <td>RFC 1036</td>
+  <td>Sunday, 14-Aug-05 16:13:03 UTC</td>
+ </tr>
+ <tr>
+  <td>DATE_RFC1123</td>
+  <td>RFC 1123</td>
+  <td>Sun, 14 Aug 2005 16:13:03 UTC</td>  
+ </tr>
+ <tr>
+  <td>DATE_RFC2822</td>
+  <td>RFC 2822</td>
+  <td>Sun, 14 Aug 2005 16:13:03 +0000</td>
+ </tr>
+ <tr>
+  <td>DATE_RSS</td>
+  <td>RSS</td>
+  <td>Sun, 14 Aug 2005 16:13:03 UTC</td>
+ </tr>
+ <tr>
+  <td>DATE_W3C</td>
+  <td>World Wide Web Consortium</td>
+  <td>2005-08-14T16:13:03+0000</td>
+ </tr>
 </table>
+
 
 <h2>local_to_gmt()</h2>
 
-<p>Takes a Unix timestamp as input and returns it as GMT.  Example:</p>
+<p>将unix时间戳转换为GMT。例子:</p>
 
 <code>$now = time();<br />
 <br />
@@ -179,8 +178,7 @@ $gmt = local_to_gmt($now);</code>
 
 <h2>gmt_to_local()</h2>
 
-<p>Takes a Unix timestamp (referenced to GMT) as input, and converts it to a localized timestamp based on the
-timezone and Daylight Saving time submitted.  Example:</p>
+<p>输入一个GMT的unix时间戳，根据时区、夏时制转换为本地时间戳。例子：</p>
 
 <code>
 $timestamp = '1140153693';<br />
@@ -189,11 +187,11 @@ $daylight_saving = TRUE;<br />
 <br />
 echo gmt_to_local($timestamp, $timezone, $daylight_saving);</code>
 
-<p><strong>Note:</strong> For a list of timezones see the reference at the bottom of this page.</p>
+<p><strong>注意：</strong>时区列表请参考本页末。</p>
 
 <h2>mysql_to_unix()</h2>
 
-<p>Takes a MySQL Timestamp as input and returns it as Unix. Example:</p>
+<p>将MySQL时间戳转换为unix时间戳。例子：</p>
 
 <code>$mysql = '20061124092345';<br />
 <br />
@@ -202,207 +200,195 @@ $unix = mysql_to_unix($mysql);</code>
 
 <h2>unix_to_human()</h2>
 
-<p>Takes a Unix timestamp as input and returns it in a human readable format with this prototype:</p>
+<p>将unix时间戳转为如下人类可阅读格式：</p>
 
 <code>YYYY-MM-DD HH:MM:SS AM/PM</code>
 
-<p>This can be useful if you need to display a date in a form field for submission.</p>
+<p>本函数可用于需要作为表单提交的地方。</p>
 
-<p>The time can be formatted with or without seconds, and it can be set to European or US format.  If only
-the timestamp is submitted it will return the time without seconds formatted for the U.S. Examples:</p>
+<p>时间可以设置为含或者不含秒数，而且可以设为欧洲或美国格式。如果只有时间戳，则格式化为不含秒数的美国格式。例子：</p>
 
 <code>$now = time();<br />
 <br />
 echo unix_to_human($now); // U.S. time, no seconds<br />
 <br />
 echo unix_to_human($now, TRUE, 'us'); // U.S. time with seconds<br />
+
 <br />
 echo unix_to_human($now, TRUE, 'eu'); // Euro time with seconds</code>
 
 
 <h2>human_to_unix()</h2>
 
-<p>The opposite of the above function.  Takes a "human" time as input and returns it as Unix.  This function is
-useful if you accept "human" formatted dates submitted via a form.  Returns FALSE (boolean) if
-the date string passed to it is not formatted as indicated above.  Example:</p>
+<p>跟上面函数相反，这个函数将“人类”的时间表示方式（如，2008-12-31 04:38 PM）转换成unix的时间表示方式（如：1230713116）。这个函数在你接收一个从表单提交而来的“人类”的时间格式时会很有用。如果传递给这个函数的参数不是如上所说的“人类”时间格式的字符串，哪么它将返回FALSE (boolean)。例如:</p>
 
 <code>$now = time();<br />
 <br />
 $human = unix_to_human($now);<br />
 <br />
+
 $unix = human_to_unix($human);</code>
-
-
-
-
 
 <h2>timespan()</h2>
 
-<p>Formats a unix timestamp so that is appears similar to this:</p>
+<p>格式化unix时间戳使其看起来像这样：</p>
 
 <code>1 Year, 10 Months, 2 Weeks, 5 Days, 10 Hours, 16 Minutes</code>
 
-<p>The first parameter must contain a Unix timestamp.  The second parameter must contain a
-timestamp that is greater that the first timestamp.  If the second parameter empty, the current time will be used.  The most common purpose
-for this function is to show how much time has elapsed from some point in time in the past to now.  Example:</p>
+<p>第一参数必须是unix时间戳，第二个参数是一个大于第一参数的时间戳。如果第二参数空缺，则使用当前时间。这个函数的用途通常是计算过去某一个时间点到现在的时间之间的时间差。例如:</p>
 
 <code>$post_date = '1079621429';<br />
 $now = time();<br />
 <br />
 echo timespan($post_date, $now);</code>
 
-<p class="important"><strong>Note:</strong> The text generated by this function is found in the following language file: language/&lt;your_lang&gt;/date_lang.php</p>
+<p class="important"><strong>Note:</strong>由本函数生成的文字可以在以下语言文件中找到： language/&lt;your_lang&gt;/date_lang.php</p>
 
 
 <h2>days_in_month()</h2>
 
-<p>Returns the number of days in a given month/year. Takes leap years into account.  Example:</p>
+<p>对给出的年月值返回天数。这个函数的实现已经考虑了存在闰年和平年的情况。例如:</p>
 <code>echo days_in_month(06, 2005);</code>
 
-<p>If the second parameter is empty, the current year will be used.</p>
+<p>如果省略第二参数则使用当前年。</p>
+
 <h2>timezones()</h2>
-<p> Takes a timezone reference (for a list of valid timezones, see the &quot;Timezone Reference&quot; below) and returns the number of hours offset from UTC.</p>
+<p>根据给定的时区参考(有效时区列表请参见下面的“时区参考”)返回跟UTC的相差值。</p>
+
 <p><code>echo timezones('UM5');</code></p>
-<p>This function is useful when used with timezone_menu(). </p>
+<p>本函数最有用是在使用timezone_menu()函数时. </p>
+
 <h2>timezone_menu()</h2>
-<p>Generates a pull-down menu of timezones, like this one:</p>
+<p>生成一个时区下拉选单，像这样：</p>
 
-<form action="#">
-<select name="timezones">
-<option value='UM12'>(UTC - 12:00) Enitwetok, Kwajalien</option>
-<option value='UM11'>(UTC - 11:00) Nome, Midway Island, Samoa</option>
-<option value='UM10'>(UTC - 10:00) Hawaii</option>
-<option value='UM9'>(UTC - 9:00) Alaska</option>
-<option value='UM8'>(UTC - 8:00) Pacific Time</option>
-<option value='UM7'>(UTC - 7:00) Mountain Time</option>
-<option value='UM6'>(UTC - 6:00) Central Time, Mexico City</option>
-<option value='UM5'>(UTC - 5:00) Eastern Time, Bogota, Lima, Quito</option>
-<option value='UM4'>(UTC - 4:00) Atlantic Time, Caracas, La Paz</option>
-<option value='UM25'>(UTC - 3:30) Newfoundland</option>
-<option value='UM3'>(UTC - 3:00) Brazil, Buenos Aires, Georgetown, Falkland Is.</option>
-<option value='UM2'>(UTC - 2:00) Mid-Atlantic, Ascention Is., St Helena</option>
-<option value='UM1'>(UTC - 1:00) Azores, Cape Verde Islands</option>
-<option value='UTC' selected='selected'>(UTC) Casablanca, Dublin, Edinburgh, London, Lisbon, Monrovia</option>
-<option value='UP1'>(UTC + 1:00) Berlin, Brussels, Copenhagen, Madrid, Paris, Rome</option>
-<option value='UP2'>(UTC + 2:00) Kaliningrad, South Africa, Warsaw</option>
-<option value='UP3'>(UTC + 3:00) Baghdad, Riyadh, Moscow, Nairobi</option>
-<option value='UP25'>(UTC + 3:30) Tehran</option>
-<option value='UP4'>(UTC + 4:00) Adu Dhabi, Baku, Muscat, Tbilisi</option>
-<option value='UP35'>(UTC + 4:30) Kabul</option>
-<option value='UP5'>(UTC + 5:00) Islamabad, Karachi, Tashkent</option>
-<option value='UP45'>(UTC + 5:30) Bombay, Calcutta, Madras, New Delhi</option>
-<option value='UP6'>(UTC + 6:00) Almaty, Colomba, Dhaka</option>
-<option value='UP7'>(UTC + 7:00) Bangkok, Hanoi, Jakarta</option>
-<option value='UP8'>(UTC + 8:00) Beijing, Hong Kong, Perth, Singapore, Taipei</option>
-<option value='UP9'>(UTC + 9:00) Osaka, Sapporo, Seoul, Tokyo, Yakutsk</option>
-<option value='UP85'>(UTC + 9:30) Adelaide, Darwin</option>
-<option value='UP10'>(UTC + 10:00) Melbourne, Papua New Guinea, Sydney, Vladivostok</option>
-<option value='UP11'>(UTC + 11:00) Magadan, New Caledonia, Solomon Islands</option>
-<option value='UP12'>(UTC + 12:00) Auckland, Wellington, Fiji, Marshall Island</option>
-</select>
-</form>
+<img src="../images/timezone_menu.gif" tppabs="http://codeigniter.org.cn/user_guide/images/timezone_menu.gif" alt="">
 
-<p>This menu is useful if you run a membership site in which your users are allowed to set their local timezone value.</p>
+<p>在你需要向你的网站会员提供他们所在时区的设置选项时这个选单会很有用的。</p>
 
-<p>The first parameter lets you set the "selected" state of the menu.  For example, to set Pacific time as the default you will do this:</p>
+<p>第一个参数让你设置选单的“已选”状态。例如，你想将美国西部标准时间设为默认时间，你可以这样做：</p>
 
 <code>echo timezone_menu('UM8');</code>
 
-<p>Please see the timezone reference below to see the values of this menu.</p>
+<p>要得到这个选单的各个具体值，请看下面的时区参考表。</p>
 
-<p>The second parameter lets you set a CSS class name for the menu.</p>
+<p>第二个参数让你为选单设置CSS的类名。</p>
 
-<p class="important"><strong>Note:</strong> The text contained in the menu is found in the following language file: language/&lt;your_lang&gt;/date_lang.php</p>
+<p class="important"><strong>注意:</strong>上面选单里的每个条目可以在这个文件语言文件里找到： language/&lt;your_lang&gt;/date_lang.php</p>
 
 
 
-<h2>Timezone Reference</h2>
+<h2>时区参考</h2>
 
-<p>The following table indicates each timezone and its location.</p>
+<p>下面的表说明了各个时区值以及该值对应的地点</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
+
 <tr>
-<th>Time Zone</th>
-<th>Location</th>
+<th>时区</th>
+<th>位置</th>
 </tr><tr>
 
-<td class="td">UM12</td><td class="td">(UTC - 12:00) Enitwetok, Kwajalien</td>
+<td class="td">UM12</td><td class="td">(UTC - 12:00) 埃尼威托克, 夸贾林环礁</td>
 </tr><tr>
-<td class="td">UM11</td><td class="td">(UTC - 11:00) Nome, Midway Island, Samoa</td>
+<td class="td">UM11</td><td class="td">(UTC - 11:00) 诺姆, 中途岛, 萨摩亚</td>
 </tr><tr>
-<td class="td">UM10</td><td class="td">(UTC - 10:00) Hawaii</td>
+<td class="td">UM10</td><td class="td">(UTC - 10:00) 夏威夷</td>
+
 </tr><tr>
-<td class="td">UM9</td><td class="td">(UTC - 9:00) Alaska</td>
+<td class="td">UM9</td><td class="td">(UTC - 9:00) 阿拉斯加</td>
 </tr><tr>
-<td class="td">UM8</td><td class="td">(UTC - 8:00) Pacific Time</td>
+<td class="td">UM8</td><td class="td">(UTC - 8:00) 太平洋时间(美国西部标准时间)</td>
 </tr><tr>
-<td class="td">UM7</td><td class="td">(UTC - 7:00) Mountain Time</td>
+<td class="td">UM7</td><td class="td">(UTC - 7:00) 山地时间(美国中西部时间)</td>
 </tr><tr>
-<td class="td">UM6</td><td class="td">(UTC - 6:00) Central Time, Mexico City</td>
+<td class="td">UM6</td><td class="td">(UTC - 6:00) 美国中部时间, 墨西哥城</td>
 </tr><tr>
-<td class="td">UM5</td><td class="td">(UTC - 5:00) Eastern Time, Bogota, Lima, Quito</td>
+
+<td class="td">UM5</td><td class="td">(UTC - 5:00) 美国东部时间, 波哥大, 利马, 基多</td>
 </tr><tr>
-<td class="td">UM4</td><td class="td">(UTC - 4:00) Atlantic Time, Caracas, La Paz</td>
+<td class="td">UM4</td><td class="td">(UTC - 4:00) 大西洋时间, 加拉加斯, 拉巴斯</td>
 </tr><tr>
-<td class="td">UM25</td><td class="td">(UTC - 3:30) Newfoundland</td>
+<td class="td">UM25</td><td class="td">(UTC - 3:30) 纽芬兰</td>
 </tr><tr>
-<td class="td">UM3</td><td class="td">(UTC - 3:00) Brazil, Buenos Aires, Georgetown, Falkland Is.</td>
+<td class="td">UM3</td><td class="td">(UTC - 3:00) 巴西, 布宜诺斯艾利斯, 乔治城, 福克兰群岛</td>
 </tr><tr>
-<td class="td">UM2</td><td class="td">(UTC - 2:00) Mid-Atlantic, Ascention Is., St Helena</td>
+<td class="td">UM2</td><td class="td">(UTC - 2:00) 中部大西洋时间, 亚森欣岛, 圣赫勒拿</td>
+
 </tr><tr>
-<td class="td">UM1</td><td class="td">(UTC - 1:00) Azores, Cape Verde Islands</td>
+<td class="td">UM1</td><td class="td">(UTC - 1:00) 亚速尔群岛, 佛得角群岛</td>
 </tr><tr>
-<td class="td">UTC</td><td class="td">(UTC) Casablanca, Dublin, Edinburgh, London, Lisbon, Monrovia</td>
+<td class="td">UTC</td><td class="td">(UTC) 卡萨布兰卡, 都柏林, 爱丁堡, 伦敦, 里斯本, 蒙罗维亚</td>
 </tr><tr>
-<td class="td">UP1</td><td class="td">(UTC + 1:00) Berlin, Brussels, Copenhagen, Madrid, Paris, Rome</td>
+<td class="td">UP1</td><td class="td">(UTC + 1:00) 柏林, 布鲁塞尔, 哥本哈根, 马德里, 巴黎, 罗马</td>
 </tr><tr>
-<td class="td">UP2</td><td class="td">(UTC + 2:00) Kaliningrad, South Africa, Warsaw</td>
+<td class="td">UP2</td><td class="td">(UTC + 2:00) 加里宁格勒, 南非, 华沙</td>
 </tr><tr>
-<td class="td">UP3</td><td class="td">(UTC + 3:00) Baghdad, Riyadh, Moscow, Nairobi</td>
+
+<td class="td">UP3</td><td class="td">(UTC + 3:00) 巴格达, 利雅得, 莫斯科, 内罗毕</td>
 </tr><tr>
-<td class="td">UP25</td><td class="td">(UTC + 3:30) Tehran</td>
+<td class="td">UP25</td><td class="td">(UTC + 3:30) 德黑兰</td>
 </tr><tr>
-<td class="td">UP4</td><td class="td">(UTC + 4:00) Adu Dhabi, Baku, Muscat, Tbilisi</td>
+<td class="td">UP4</td><td class="td">(UTC + 4:00) 阿布扎比, 巴库, 马斯喀特, 第比利斯</td>
 </tr><tr>
-<td class="td">UP35</td><td class="td">(UTC + 4:30) Kabul</td>
+<td class="td">UP35</td><td class="td">(UTC + 4:30) 喀布尔</td>
 </tr><tr>
-<td class="td">UP5</td><td class="td">(UTC + 5:00) Islamabad, Karachi, Tashkent</td>
+<td class="td">UP5</td><td class="td">(UTC + 5:00) 伊斯兰堡, 卡拉奇, 塔什干</td>
+
 </tr><tr>
-<td class="td">UP45</td><td class="td">(UTC + 5:30) Bombay, Calcutta, Madras, New Delhi</td>
+<td class="td">UP45</td><td class="td">(UTC + 5:30) 孟买, 加尔各答, 马德拉斯, 新德里</td>
 </tr><tr>
-<td class="td">UP6</td><td class="td">(UTC + 6:00) Almaty, Colomba, Dhaka</td>
+<td class="td">UP6</td><td class="td">(UTC + 6:00) 阿拉木图, 哥伦巴, 达卡</td>
 </tr><tr>
-<td class="td">UP7</td><td class="td">(UTC + 7:00) Bangkok, Hanoi, Jakarta</td>
+<td class="td">UP7</td><td class="td">(UTC + 7:00) 曼谷, 河内, 雅加达</td>
 </tr><tr>
-<td class="td">UP8</td><td class="td">(UTC + 8:00) Beijing, Hong Kong, Perth, Singapore, Taipei</td>
+<td class="td">UP8</td><td class="td">(UTC + 8:00) 北京, 香港, 佩斯, 新加坡, 台北</td>
 </tr><tr>
-<td class="td">UP9</td><td class="td">(UTC + 9:00) Osaka, Sapporo, Seoul, Tokyo, Yakutsk</td>
+
+<td class="td">UP9</td><td class="td">(UTC + 9:00) 大阪, 札幌, 汉城, 东京, 雅库茨克</td>
 </tr><tr>
-<td class="td">UP85</td><td class="td">(UTC + 9:30) Adelaide, Darwin</td>
+<td class="td">UP85</td><td class="td">(UTC + 9:30) 阿德莱德, 达尔文</td>
 </tr><tr>
-<td class="td">UP10</td><td class="td">(UTC + 10:00) Melbourne, Papua New Guinea, Sydney, Vladivostok</td>
+<td class="td">UP10</td><td class="td">(UTC + 10:00) 墨尔本, 巴布亚新几内亚, 悉尼, 海参崴</td>
 </tr><tr>
-<td class="td">UP11</td><td class="td">(UTC + 11:00) Magadan, New Caledonia, Solomon Islands</td>
+<td class="td">UP11</td><td class="td">(UTC + 11:00) 马加丹, 新喀里多尼亚, 所罗门群岛</td>
 </tr><tr>
-<td class="td">UP12</td><td class="td">(UTC + 12:00) Auckland, Wellington, Fiji, Marshall Island</td>
+<td class="td">UP12</td><td class="td">(UTC + 12:00) 奥克兰, 惠灵顿, 斐济, 马绍尔群岛</td>
+
 </tr>
-</table>
-
-
+</table><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+Hex, mchong, pipi95, yinzhili</div>
+<div id="DocDate">
+最后修改: 2011-02-01 00:10:12</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="cookie_helper.html">Cookie Helper</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="directory_helper.html">Directory Helper</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="cookie_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/cookie_helper.html">Cookie 辅助函数</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="directory_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/directory_helper.html">目录辅助函数</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

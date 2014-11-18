@@ -1,100 +1,103 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Model-View-Controller : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>MVC - CodeIgniter ä¸­æ–‡æ‰‹å†Œ|ç”¨æˆ·æ‰‹å†Œ|ç”¨æˆ·æŒ‡å—|Wikiæ–‡æ¡£</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter æœç´¢"/>
+<link rel="canonical" href="mvc.html" tppabs="http://codeigniter.org.cn/user_guide/overview/mvc.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter ä¸­æ–‡æ‰‹å†Œ, CodeIgniter ç”¨æˆ·æŒ‡å—, CodeIgniter User Guide, Wiki æ–‡æ¡£" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="åˆ‡æ¢ç›®å½•" alt="åˆ‡æ¢ç›®å½•" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter ç”¨æˆ·æŒ‡å— ç‰ˆæœ¬ 2.2.0</h1></div>
+<div class="topbar-tip">ç¼–è¾‘æ–‡æ¡£ã€æŸ¥çœ‹è¿‘æœŸæ›´æ”¹è¯· <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">ç™»å½•</a> æˆ– <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">æ³¨å†Œ</a> ã€€<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">æ‰¾å›å¯†ç </a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">ç›®å½•é¡µ</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-MVC
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter ä¸­å›½é¦–é¡µ</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&#8250;&nbsp;MVC    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        æœç´¢ç”¨æˆ·æŒ‡å—&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/overview/mvc.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/codeigniter/user-guide/overview/mvc.html'" tppabs="http://ellislab.com/codeigniter/user-guide/overview/mvc.html" target="_blank">æŸ¥çœ‹åŸæ–‡</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
-
-
-<h1>Model-View-Controller</h1>
-
-<p>CodeIgniter is based on the Model-View-Controller development pattern.
-
-MVC is a software approach that separates application logic from presentation.  In practice, it permits your web pages to contain minimal scripting since the presentation is separate from the PHP scripting.</p>
-
+<h1>æ¨¡å‹-è§†å›¾-æ§åˆ¶å™¨</h1>
+<p>CodeIgniter æ˜¯åŸºäºæ¨¡å‹-è§†å›¾-æ§åˆ¶å™¨è¿™ä¸€è®¾è®¡æ¨¡å¼çš„ã€‚MVC æ˜¯ä¸€ç§å°†åº”ç”¨ç¨‹åºçš„é€»è¾‘å±‚å’Œè¡¨ç°å±‚è¿›è¡Œåˆ†ç¦»çš„æ–¹æ³•ã€‚åœ¨å®è·µä¸­ï¼Œç”±äºè¡¨ç°å±‚ä» PHP è„šæœ¬ä¸­åˆ†ç¦»äº†å‡ºæ¥ï¼Œæ‰€ä»¥å®ƒå…è®¸ä½ çš„ç½‘é¡µä¸­åªåŒ…å«å¾ˆå°‘çš„è„šæœ¬ã€‚</p>
 <ul>
-<li>The <strong>Model</strong> represents your data structures. Typically your model classes will contain functions that help you
-retrieve, insert, and update information in your  database.</li>
-<li>The <strong>View</strong> is the information that is being presented to a user.  A View will normally be a web page, but
-in CodeIgniter, a view can also be a page fragment like a header or footer. It can also be an RSS page, or any other type of "page".</li>
-<li>The <strong>Controller</strong> serves as an <em>intermediary</em> between the Model, the View,
-and any other resources needed to process the HTTP request and generate a web page.</li>
-
+    <li><strong>æ¨¡å‹ (Model) </strong>ä»£è¡¨ä½ çš„æ•°æ®ç»“æ„ã€‚é€šå¸¸æ¥è¯´ï¼Œä½ çš„æ¨¡å‹ç±»å°†åŒ…å«å–å‡ºã€æ’å…¥ã€æ›´æ–°ä½ çš„æ•°æ®åº“èµ„æ–™è¿™äº›åŠŸèƒ½ã€‚</li>
+    <li><strong>è§†å›¾ (View) </strong>æ˜¯å±•ç¤ºç»™ç”¨æˆ·çš„ä¿¡æ¯ã€‚ä¸€ä¸ªè§†å›¾é€šå¸¸æ˜¯ä¸€ä¸ªç½‘é¡µï¼Œä½†æ˜¯åœ¨ CodeIgniter ä¸­ï¼Œä¸€ä¸ªè§†å›¾ä¹Ÿå¯ä»¥æ˜¯ä¸€ä¸ªé¡µé¢ç‰‡æ®µï¼Œå¦‚é¡µå¤´ã€é¡µå°¾ã€‚å®ƒè¿˜å¯ä»¥æ˜¯ä¸€ä¸ª RSS é¡µé¢ï¼Œæˆ–ä»»ä½•å…¶å®ƒç±»å‹çš„â€œé¡µé¢â€ã€‚</li>
+    <li><strong>æ§åˆ¶å™¨ (Controller) </strong>æ˜¯æ¨¡å‹ã€è§†å›¾ä»¥åŠå…¶ä»–ä»»ä½•å¤„ç† HTTP è¯·æ±‚æ‰€å¿…é¡»çš„èµ„æºä¹‹é—´çš„<em>ä¸­ä»‹</em>ï¼Œå¹¶ç”Ÿæˆç½‘é¡µã€‚</li>
 </ul>
-
-<p>CodeIgniter has a fairly loose approach to MVC since Models are not required.
-If you don't need the added separation, or find that maintaining models requires more complexity than you
-want, you can ignore them and build your application minimally using Controllers and Views. CodeIgniter also
-enables you to incorporate your own existing scripts, or even develop core libraries for the system,
- enabling you to work in a way that makes the most sense to you.</p>
-
-
-
-
+<p>CodeIgniter åœ¨ MVC ä½¿ç”¨ä¸Šéå¸¸å®½æ¾ï¼Œå› æ­¤æ¨¡å‹ä¸æ˜¯å¿…éœ€çš„ã€‚å¦‚æœä½ ä¸éœ€è¦ä½¿ç”¨è¿™ç§åˆ†ç¦»æ–¹å¼ï¼Œæˆ–æ˜¯å‘è§‰ç»´æŠ¤æ¨¡å‹æ¯”ä½ æƒ³è±¡ä¸­çš„å¤æ‚å¾ˆå¤šï¼Œä½ å¯ä»¥ä¸ç”¨ç†ä¼šå®ƒä»¬è€Œåˆ›å»ºè‡ªå·±çš„åº”ç”¨ç¨‹åºï¼Œå¹¶æœ€å°‘åŒ–ä½¿ç”¨æ§åˆ¶å™¨å’Œè§†å›¾ã€‚CodeIgniter ä¹Ÿå¯ä»¥å’Œä½ ç°æœ‰çš„è„šæœ¬åˆå¹¶ä½¿ç”¨ï¼Œæˆ–è€…å…è®¸è‡ªè¡Œå¼€å‘æ­¤ç³»ç»Ÿçš„æ ¸å¿ƒåº“ï¼Œå¯ä»¥ä½¿ä½ ä»¥æœ€é€‚åˆä½ çš„æ–¹å¼å·¥ä½œã€‚</p><p>&nbsp;</p>
+<div id="Contributors">
+ç¿»è¯‘è´¡çŒ®è€…:
+bigfat, Hex, irini, ITä¸å€’ç¿, lp_ci, soyota</div>
+<div id="DocDate">
+æœ€åä¿®æ”¹: 2011-05-13 13:28:47</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="appflow.html">Application Flow Chart</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="goals.html">Architectural Goals</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+ä¸Šä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="appflow.html" tppabs="http://codeigniter.org.cn/user_guide/overview/appflow.html">åº”ç”¨ç¨‹åºæµç¨‹å›¾</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">é¡µé¦–</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;ä¸‹ä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="goals.html" tppabs="http://codeigniter.org.cn/user_guide/overview/goals.html">æ¶æ„ç›®æ ‡</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; ç‰ˆæƒæ‰€æœ‰ &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>ä¸­æ–‡åŒ–: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter ä¸­å›½</a> &nbsp;&middot;&nbsp; åˆ¶ä½œ: Hex &nbsp;&middot;&nbsp; ç‰ˆæœ¬: 1.30 &nbsp;&middot;&nbsp; é¸£è°¢: å­éé±¼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

@@ -1,84 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Queries : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>æŸ¥è¯¢ - CodeIgniter ä¸­æ–‡æ‰‹å†Œ|ç”¨æˆ·æ‰‹å†Œ|ç”¨æˆ·æŒ‡å—|Wikiæ–‡æ¡£</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter æœç´¢"/>
+<link rel="canonical" href="queries.html" tppabs="http://codeigniter.org.cn/user_guide/database/queries.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter ä¸­æ–‡æ‰‹å†Œ, CodeIgniter ç”¨æˆ·æŒ‡å—, CodeIgniter User Guide, Wiki æ–‡æ¡£" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="åˆ‡æ¢ç›®å½•" alt="åˆ‡æ¢ç›®å½•" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter ç”¨æˆ·æŒ‡å— ç‰ˆæœ¬ 2.2.0</h1></div>
+<div class="topbar-tip">ç¼–è¾‘æ–‡æ¡£ã€æŸ¥çœ‹è¿‘æœŸæ›´æ”¹è¯· <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">ç™»å½•</a> æˆ– <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">æ³¨å†Œ</a> ã€€<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">æ‰¾å›å¯†ç </a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">ç›®å½•é¡µ</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Queries
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter ä¸­å›½é¦–é¡µ</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&#8250;&nbsp;<a href="index.html" tppabs="http://codeigniter.org.cn/user_guide/database/index.html">æ•°æ®åº“ç±»</a>&nbsp;&#8250;&nbsp;æŸ¥è¯¢    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        æœç´¢ç”¨æˆ·æŒ‡å—&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/database/queries.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/codeigniter/user-guide/database/queries.html'" tppabs="http://ellislab.com/codeigniter/user-guide/database/queries.html" target="_blank">æŸ¥çœ‹åŸæ–‡</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>æŸ¥è¯¢</h1>
 
+<h2>$this-&gt;db-&gt;query();</h2>
 
-<h1>Queries</h1>
+<p>è¦æäº¤ä¸€ä¸ªæŸ¥è¯¢ï¼Œç”¨ä»¥ä¸‹å‡½æ•°ï¼š</p>
 
-<h2>$this->db->query();</h2>
+<code>$this-&gt;db-&gt;query('YOUR QUERY HERE');</code>
 
-<p>To submit a query, use the following function:</p>
+<p><dfn>query()</dfn> å‡½æ•°ä»¥<strong>object(å¯¹è±¡)</strong>çš„å½¢å¼è¿”å›ä¸€ä¸ªæ•°æ®åº“ç»“æœé›†. å½“ä½¿ç”¨ "read" æ¨¡å¼æ¥è¿è¡ŒæŸ¥è¯¢æ—¶, ä½ å¯ä»¥ä½¿ç”¨â€œ<a href="results.html" tppabs="http://codeigniter.org.cn/user_guide/database/results.html">æ˜¾ç¤ºä½ çš„ç»“æœé›†</a>â€æ¥æ˜¾ç¤ºæŸ¥è¯¢ç»“æœ; å½“ä½¿ç”¨ "write" æ¨¡å¼æ¥è¿è¡ŒæŸ¥è¯¢æ—¶, å°†ä¼šä»…æ ¹æ®æ‰§è¡Œçš„æˆåŠŸæˆ–å¤±è´¥æ¥è¿”å› TRUE æˆ– FALSE. å½“ä½ éœ€è¦å°†è¿”å›çš„ç»“æœèµ‹å€¼ç»™ä¸€ä¸ªè‡ªå®šä¹‰å˜é‡çš„æ—¶å€™, ä½ å¯ä»¥è¿™æ ·æ“ä½œ:</p>
 
-<code>$this->db->query('YOUR QUERY HERE');</code>
+<code><var>$query</var> = $this-&gt;db-&gt;query('YOUR QUERY HERE');</code>
 
-<p>The <dfn>query()</dfn> function returns a database result <strong>object</strong> when "read" type queries are run,
-which you can use to <a href="results.html">show your results</a>.  When "write" type queries are run it simply returns TRUE or FALSE
-depending on success or failure.  When retrieving data you will typically assign the query to your own variable, like this:</p>
+<h2>$this-&gt;db-&gt;simple_query();</h2>
 
-<code><var>$query</var> = $this->db->query('YOUR QUERY HERE');</code>
-
-<h2>$this->db->simple_query();</h2>
-
-<p>This is a simplified version of the <dfn>$this->db->query()</dfn> function.  It ONLY returns TRUE/FALSE on success or failure.
-It DOES NOT return a database result set, nor does it set the query timer, or compile bind data, or store your query for debugging.
-It simply lets you submit a query. Most users will rarely use this function.</p>
-
+<p>è¿™æ˜¯ä¸€ä¸ªç®€åŒ–ç‰ˆæœ¬çš„ <dfn>$this-&gt;db-&gt;query()</dfn> å‡½æ•°.  å®ƒä»…è¿”å› True(bool) å’Œ False(bool) ä»¥è¡¨ç¤ºæŸ¥è¯¢æˆåŠŸä¸å¤±è´¥.
+å®ƒå°†ä¸ä¼šè¿”å›æŸ¥è¯¢æ•°æ®é›†ï¼Œæ— æ³•è®¾ç½®æŸ¥è¯¢è®¡æ—¶å™¨(è®¾ç½®ç¯å¢ƒå˜é‡)ï¼Œæ— æ³•ç¼–è¯‘ç»‘å®šæ•°æ®ï¼Œä¸èƒ½å¤Ÿå­˜å‚¨æŸ¥è¯¢è¯Šæ–­ä¿¡æ¯ã€‚
+ç®€å•åœ°è¯´ï¼Œä»–æ˜¯ä¸€ä¸ªç”¨äºæäº¤æŸ¥è¯¢çš„å‡½æ•°ï¼Œå¯¹äºå¤§å¤šæ•°ç”¨æˆ·è€Œè¨€å¹¶ä¸ä¼šä½¿ç”¨åˆ°å®ƒã€‚</p>
 
 <h1>Working with Database prefixes manually</h1>
 <p>If you have configured a database prefix and would like to prepend it to a table name for use in a native SQL query for example, then you can use the following:</p>
@@ -90,71 +85,85 @@ It simply lets you submit a query. Most users will rarely use this function.</p>
 $this-&gt;db-&gt;dbprefix('tablename');<br />
 // outputs newprefix_tablename</code></p>
 
-
-<h1>Protecting identifiers</h1>
-<p>In many databases it is advisable to protect table and field names - for example with backticks in MySQL. <strong>Active Record queries are automatically protected</strong>, however if you need to manually protect an identifier you can use:</p>
+<h1>ä¿æŠ¤æ ‡è¯†ç¬¦</h1>
+<p>åœ¨è®¸å¤šæ•°æ®åº“ä¸­ï¼Œä¿æŠ¤è¡¨(table)å’Œå­—æ®µ(field)çš„åç§°æ˜¯æ˜æ™ºçš„ï¼Œä¾‹å¦‚åœ¨MySQLä¸­ä½¿ç”¨åå¼•å·ã€‚<strong>Active Recordçš„æŸ¥è¯¢éƒ½å·²è¢«è‡ªåŠ¨ä¿æŠ¤</strong>ï¼Œç„¶è€Œï¼Œå¦‚æœæ‚¨éœ€è¦æ‰‹åŠ¨ä¿æŠ¤ä¸€ä¸ªæ ‡è¯†ç¬¦ï¼Œæ‚¨ä¹Ÿå¯ä»¥è¿™æ ·ï¼š</p>
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name');</code></p>
 
 <p class="important">Although Active Record will try its best to properly quote any field and table names that you feed it, note that it is NOT designed to work with arbitrary user input. DO NOT feed it with unsanitized user data.</p>
 
-<p>This function will also add a table prefix to your table, assuming you have a prefix specified in your database config file. To enable the prefixing set <kbd>TRUE</kbd> (boolen) via the second parameter:</p>
+<p>è¿™ä¸ªå‡½æ•°ä¹Ÿä¼šç»™ä½ çš„è¡¨åæ·»åŠ ä¸€ä¸ªå‰ç¼€ï¼Œå®ƒå‡å®šåœ¨ä½ çš„æ•°æ®åº“é…ç½®æ–‡ä»¶ä¸­å·²æŒ‡å®šäº†ä¸€ä¸ªå‰ç¼€ã€‚å¯é€šè¿‡å°†ç¬¬äºŒä¸ªå‚æ•°è®¾ç½®ä¸º<kbd>TRUE</kbd> (boolen) å¯ç”¨å‰ç¼€:</p>
 <p><code>$this-&gt;db-&gt;protect_identifiers('table_name', <kbd>TRUE</kbd>);</code></p>
 
+<h1>è½¬ä¹‰æŸ¥è¯¢</h1>
 
-<h1>Escaping Queries</h1>
-<p>It's a very good security practice to escape your data before submitting it into your database.
-CodeIgniter has three methods that help you do this:</p>
+<p>å°†æ•°æ®è½¬ä¹‰ä»¥åæäº¤åˆ°ä½ çš„æ•°æ®åº“æ˜¯éå¸¸å¥½çš„å®‰å…¨åšæ³•ï¼ŒCodeIgniter æä¾›äº† 3 ä¸ªå‡½æ•°å¸®åŠ©ä½ å®Œæˆè¿™ä¸ªå·¥ä½œã€‚</p>
 
 <ol>
-<li><strong>$this->db->escape()</strong> This function determines the data type so that it
-can escape only string data.  It also automatically adds single quotes around the data so you don't have to:
 
-<code>$sql = "INSERT INTO table (title) VALUES(".$this->db->escape($title).")";</code></li>
+<li><strong>$this-&gt;db-&gt;escape()</strong> è¿™ä¸ªå‡½æ•°å°†ä¼šç¡®å®šæ•°æ®ç±»å‹ï¼Œä»¥ä¾¿ä»…å¯¹å­—ç¬¦ä¸²ç±»å‹æ•°æ®è¿›è¡Œè½¬ä¹‰ã€‚å¹¶ä¸”ï¼Œå®ƒä¹Ÿä¼šè‡ªåŠ¨æŠŠæ•°æ®ç”¨å•å¼•å·æ‹¬èµ·æ¥ï¼Œæ‰€ä»¥ä½ ä¸å¿…æ‰‹åŠ¨æ·»åŠ å•å¼•å·ï¼Œç”¨æ³•å¦‚ä¸‹ï¼š
 
-<li><strong>$this->db->escape_str()</strong>  This function escapes the data passed to it, regardless of type.
-Most of the time you'll use the above function rather than this one. Use the function like this:
+<code>$sql = "INSERT INTO table (title) VALUES(".$this-&gt;db-&gt;escape($title).")";</code></li>
 
-<code>$sql = "INSERT INTO table (title) VALUES('".$this->db->escape_str($title)."')";</code></li>
 
-<li><strong>$this->db->escape_like_str()</strong>  This method should be used when strings are to be used in LIKE
-conditions so that LIKE wildcards ('%', '_') in the string are also properly escaped.
+<li><strong>$this-&gt;db-&gt;escape_str()</strong>  æ­¤å‡½æ•°å°†å¿½ç•¥æ•°æ®ç±»å‹å¯¹ä¼ å…¥æ•°æ®è¿›è¡Œè½¬ä¹‰ã€‚æ›´å¤šæ—¶å€™ä½ å°†ä½¿ç”¨ä¸Šé¢çš„å‡½æ•°è€Œä¸æ˜¯è¿™ä¸ªã€‚è¿™ä¸ªå‡½æ•°çš„ä½¿ç”¨æ–¹æ³•æ˜¯ï¼š
+
+<code>$sql = "INSERT INTO table (title) VALUES('".$this-&gt;db-&gt;escape_str($title)."')";</code></li>
+
+<li><strong>$this-&gt;db-&gt;escape_like_str()</strong>  This method should be used when strings are to be used in LIKE conditions so that LIKE wildcards ('%', '_') in the string are also properly escaped.
 
 <code>$search = '20% raise';<br />
-$sql = "SELECT id FROM table WHERE column LIKE '%".$this->db->escape_like_str($search)."%'";</code></li>
+  $sql = "SELECT id FROM table WHERE column LIKE '%".$this-&gt;db-&gt;escape_like_str($search)."%'";</code></li>
 
 </ol>
 
 
-<h1>Query Bindings</h1>
+<h1>å°è£…æŸ¥è¯¢</h1>
 
 
-<p>Bindings enable you to simplify your query syntax by letting the system put the queries together for you. Consider the following example:</p>
+<p>å°è£…ï¼Œé€šè¿‡è®©ç³»ç»Ÿä¸ºä½ ç»„è£…å„ä¸ªæŸ¥è¯¢è¯­å¥ï¼Œèƒ½å¤Ÿç®€åŒ–ä½ çš„æŸ¥è¯¢è¯­æ³•ã€‚å‚åŠ ä¸‹é¢çš„èŒƒä¾‹ï¼š</p>
 
 <code>
 $sql = "SELECT * FROM some_table WHERE id = <var>?</var> AND status = <var>?</var> AND author = <var>?</var>";
+
 <br /><br />
-$this->db->query($sql, array(3, 'live', 'Rick'));
+$this-&gt;db-&gt;query($sql, array(3, 'live', 'Rick'));
 </code>
 
-<p>The question marks in the query are automatically replaced with the values in the array in the second parameter of the query function.</p>
-<p class="important">The secondary benefit of using binds is that the values are automatically escaped, producing safer queries.  You don't have to remember to manually escape data; the engine does it automatically for you.</p>
-
-
-
+<p>æŸ¥è¯¢è¯­å¥ä¸­çš„é—®å·ä¼šè‡ªåŠ¨è¢«æŸ¥è¯¢å‡½æ•°ä¸­ä½äºç¬¬äºŒä¸ªå‚æ•°ä½ç½®çš„æ•°ç»„ä¸­çš„å€¼æ‰€æ›¿ä»£ã€‚</p>
+<p class="important">ä½¿ç”¨å°è£…æŸ¥è¯¢çš„ç¬¬äºŒä¸ªå¥½å¤„æ˜¯æ‰€æœ‰çš„å€¼éƒ½ä¼šè¢«è‡ªåŠ¨è½¬ä¹‰ï¼Œå½¢æˆäº†è¾ƒä¸ºå®‰å…¨çš„æŸ¥è¯¢è¯­å¥ã€‚ä½ æ— éœ€æ‰‹åŠ¨åœ°å»è½¬ä¹‰è¿™äº›æ•°æ®ï¼›æ§åˆ¶å™¨å°†ä¼šè‡ªåŠ¨ä¸ºä½ è¿›è¡Œã€‚</p><p>&nbsp;</p>
+<div id="Contributors">
+ç¿»è¯‘è´¡çŒ®è€…:
+498621, Fanbin, Hex, kkorange, szlinz, xjflyttp</div>
+<div id="DocDate">
+æœ€åä¿®æ”¹: 2014-06-10 13:40:54</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="connecting.html">Connecting to your Database</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="results.html">Query Results</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+ä¸Šä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="connecting.html" tppabs="http://codeigniter.org.cn/user_guide/database/connecting.html">è¿æ¥åˆ°ä½ çš„æ•°æ®åº“</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">é¡µé¦–</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;ä¸‹ä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="results.html" tppabs="http://codeigniter.org.cn/user_guide/database/results.html">æŸ¥è¯¢ç»“æœ</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; ç‰ˆæƒæ‰€æœ‰ &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>ä¸­æ–‡åŒ–: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter ä¸­å›½</a> &nbsp;&middot;&nbsp; åˆ¶ä½œ: Hex &nbsp;&middot;&nbsp; ç‰ˆæœ¬: 1.30 &nbsp;&middot;&nbsp; é¸£è°¢: å­éé±¼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

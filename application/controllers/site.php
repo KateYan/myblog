@@ -36,31 +36,92 @@ class Site extends MY_Controller {
         $this->load->view("admin/articles",$data);
     }
 
-    public function Login(){
+    public function Login()
+    {
         $data['pagename'] = "Log in";
         $data['pagetitle'] = "Please Log in:";
         $this->load->view("admin/components/header", $data);
         $this->load->view("admin/user/login");
-        if ($this->input->post('inconfirm')) {
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            $this->load->model("model_get");
-            $_SESSION['userid'] = $this->model_get->logIn($username, $password);
-        }
         $this->load->view("admin/components/footer");
     }
+    public function Login_confirm(){
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $this->load->model("model_get");
+        $num=$this->model_get->logIn_match($username, $password);
+        if($num!=0){
+            $results=$this->model_get->logIn_user($username, $password);
+            foreach($results as $row){
+                $_SESSION['userid'] = $row->UserID;
+                $_SESSION['username'] = $row->UserName;
 
+                $home_url="loged";
+                header('Location:'.$home_url);
+            }
+        }
+        else {
+            echo "WRONG";
+        }
 
+    }
+
+    //For loged page which is also the user's control centre page
+    //show all the user's article for update and delete
+    //also with new article create and logout option
+    //First loading the page with all his article
     public function Loged(){
         $data['pagename']="Manage Centre";
         $data['pagetitle']="Welcome to your control centre";
         $this->load->view("admin/components/header",$data);
         $this->load->model("model_get");
-        $userid='7';
-        $data['results']=$this->model_get->userArticle($userid);
+        $data['results']=$this->model_get->userArticle($_SESSION['userid']);
         $this->load->view("admin/user/loged",$data);
-
         $this->load->view("admin/components/footer");
+    }
+
+    public function Loged_delete(){
+        $arti_id=$this->input->get('delete_id');
+        $this->load->model("model_get");
+        $this->model_get->deleteArticle($arti_id);
+
+        $home_url="loged";
+        header('Location:'.$home_url);
+
+    }
+
+    public function Edit(){
+        $data['pagename']="Edit Article";
+        $data['pagetitle']="Record Your Mind:";
+        $this->load->view("admin/components/header",$data);
+        $editid=$this->input->get('edit_id');
+        $this->load->model("model_get");
+        $data['results']=$this->model_get->findArticle($editid);
+        $this->load->view("admin/user/edit",$data);
+        $this->load->view("admin/components/footer");
+
+    }
+
+    public function Edit_option(){
+
+        $title=$this->input->post('title');
+        $content=$this->input->post('content');
+        $arti_id=$this->input->post('arti_id');
+
+        $this->load->model("model_get");
+        $this->model_get->updateArticle($title,$content,$arti_id);
+
+        $home_url="loged";
+        header('Location:'.$home_url);
+
+    }
+
+
+
+    public function Logout(){
+        $_SESSION=array();
+
+        $home_url="main";
+        header('Location:'.$home_url);
     }
 
 
@@ -79,40 +140,29 @@ class Site extends MY_Controller {
 
         $this->load->view("admin/components/footer");
     }
-    public function Edit(){
-        $data['pagename']="Edit Article";
-        $data['pagetitle']="Record Your Mind:";
-        $this->load->view("admin/components/header",$data);
-        $editid=$this->input->get('edit_id');
-        $this->load->model("model_get");
-        $data['results']=$this->model_get->findArticle($editid);
-        $this->load->view("admin/user/edit",$data);
-        $this->load->view("admin/components/footer");
 
-        if($this->input->post('save')){
-
-            $title=$this->input->post('title');
-            $content=$this->input->post('content');
-
-            $this->load->model("model_get");
-            $this->model_get->updateArticle($arti_id,$title,$content);
-        }
-    }
+    // for signup page, create new user
+    // and insert his info into table "user"
+    // First, Load signup page
     public function Signup(){
-        $data['pagename']="Sign up";
-        $data['pagetitle']="Sign up as new user:";
-        $this->load->view("admin/components/header",$data);
+        $data['pagename'] = "Sign up";
+        $data['pagetitle'] = "Sign up as new user:";
+        $this->load->view("admin/components/header", $data);
         $this->load->view("admin/signup");
         $this->load->view("admin/components/footer");
-        if($this->input->post('save')){
-            $username=$this->input->post('username');
-            $email=$this->input->post('email');
-            $upasw=$this->input->post('upasw');
-            $this->load->model('model_get');
-            $this->model_get->newUser($username,$email,$upasw);
-        }
     }
 
+    // Second getting input info to check and insert
+    public function Signup_confirm(){
+        $username=$this->input->post('username');
+        $email=$this->input->post('email');
+        $upasw=$this->input->post('upasw');
+        $this->load->model('model_get');
+        $userid=$this->model_get->newUser($username,$email,$upasw);
+        $_SESSION['userid']=$userid;
 
+        $home_url="loged";
+        header('Location:'.$home_url);
 
+    }
 }

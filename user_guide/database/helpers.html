@@ -1,151 +1,191 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Query Helper Functions : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>æŸ¥è¯¢è¾…åŠ©å‡½æ•° - CodeIgniter ä¸­æ–‡æ‰‹å†Œ|ç”¨æˆ·æ‰‹å†Œ|ç”¨æˆ·æŒ‡å—|Wikiæ–‡æ¡£</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter æœç´¢"/>
+<link rel="canonical" href="helpers.html" tppabs="http://codeigniter.org.cn/user_guide/database/helpers.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter ä¸­æ–‡æ‰‹å†Œ, CodeIgniter ç”¨æˆ·æŒ‡å—, CodeIgniter User Guide, Wiki æ–‡æ¡£" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="åˆ‡æ¢ç›®å½•" alt="åˆ‡æ¢ç›®å½•" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter ç”¨æˆ·æŒ‡å— ç‰ˆæœ¬ 2.2.0</h1></div>
+<div class="topbar-tip">ç¼–è¾‘æ–‡æ¡£ã€æŸ¥çœ‹è¿‘æœŸæ›´æ”¹è¯· <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">ç™»å½•</a> æˆ– <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">æ³¨å†Œ</a> ã€€<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">æ‰¾å›å¯†ç </a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">ç›®å½•é¡µ</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Query Helpers
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter ä¸­å›½é¦–é¡µ</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&#8250;&nbsp;<a href="index.html" tppabs="http://codeigniter.org.cn/user_guide/database/index.html">æ•°æ®åº“ç±»</a>&nbsp;&#8250;&nbsp;æŸ¥è¯¢è¾…åŠ©å‡½æ•°    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        æœç´¢ç”¨æˆ·æŒ‡å—&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/database/helpers.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/codeigniter/user-guide/database/helpers.html'" tppabs="http://ellislab.com/codeigniter/user-guide/database/helpers.html" target="_blank">æŸ¥çœ‹åŸæ–‡</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>æŸ¥è¯¢è¾…åŠ©å‡½æ•°</h1>
 
+<h2>$this-&gt;db-&gt;insert_id()</h2>
+<br/>
+è¿™ä¸ªIDå·æ˜¯æ‰§è¡Œæ•°æ®æ’å…¥æ—¶çš„IDã€‚
 
-<h1>Query Helper Functions</h1>
-
-
-<h2>$this->db->insert_id()</h2>
-<p>The insert ID number when performing database inserts.</p>
-
-<h2>$this->db->affected_rows()</h2>
-<p>Displays the number of affected rows, when doing "write" type queries (insert, update, etc.).</p>
+<h2>$this-&gt;db-&gt;affected_rows()</h2>
+<p>Displays the number of affected rows, when doing "write\" type queries (insert, update, etc.).</p>
+<br/>
+å½“æ‰§è¡Œå†™å…¥æ“ä½œï¼ˆinsert,updateç­‰ï¼‰çš„æŸ¥è¯¢åï¼Œæ˜¾ç¤ºè¢«å½±å“çš„è¡Œæ•°ã€‚<br/>
 <p>Note:  In MySQL "DELETE FROM TABLE" returns 0 affected rows. The database class has a small hack that allows it to return the
 correct number of affected rows.  By default this hack is enabled but it can be turned off in the database driver file.</p>
+<br/>
+æ³¨æ„ï¼šåœ¨ MySQL ä¸­â€œDELETE FROM TABLEâ€çš„è¢«å½±å“è¡Œæ•°å°†ä¼šè¿”å› 0ã€‚database ç±»æœ‰ä¸€ä¸ªå° hack å…è®¸è¿”å›æ­£ç¡®çš„è¢«å½±å“çš„è¡Œæ•°ã€‚é»˜è®¤æƒ…å†µä¸‹è¿™ä¸ª hack åŠŸèƒ½æ˜¯æ‰“å¼€çš„ä½†å¯ä»¥åœ¨æ•°æ®åº“é©±åŠ¨æ–‡ä»¶ä¸­å…³é—­å®ƒã€‚
 
-
-<h2>$this->db->count_all();</h2>
+<h2>$this-&gt;db-&gt;count_all();</h2>
 <p>Permits you to determine the number of rows in a particular table.  Submit the table name in the first parameter. Example:</p>
-<code>echo $this->db->count_all('<var>my_table</var>');<br />
+<br/>
+è®¡ç®—å‡ºæŒ‡å®šè¡¨çš„æ€»è¡Œæ•°å¹¶è¿”å›ã€‚åœ¨ç¬¬ä¸€ä¸ªå‚æ•°ä¸­å†™å…¥è¢«æäº¤çš„è¡¨åã€‚ä¾‹å¦‚ï¼š
+<code>echo $this-&gt;db-&gt;count_all('<var>my_table</var>');<br />
+
 <br />
 // Produces an integer, like 25
 </code>
 
 
-<h2>$this->db->platform()</h2>
+<h2>$this-&gt;db-&gt;platform()</h2>
 <p>Outputs the database platform you are running (MySQL, MS SQL, Postgres, etc...):</p>
-<code>echo $this->db->platform();</code>
+<p>è¾“å‡ºç³»ç»Ÿä½¿ç”¨çš„æ•°æ®åº“å¹³å°(MySQL, MS SQL, Postgresâ€¦â€¦)</p>
+<code>echo $this-&gt;db-&gt;platform();</code>
 
 
-<h2>$this->db->version()</h2>
-<p>Outputs the database version you are running:</p>
-<code>echo $this->db->version();</code>
+<h2>$this-&gt;db-&gt;version()</h2>
+<p>Outputs the database version you are running:</p><br/>
+è¾“å‡ºç³»ç»Ÿæ­£åœ¨è¿è¡Œçš„æ•°æ®åº“ç‰ˆæœ¬å·
+
+<code>echo $this-&gt;db-&gt;version();</code>
 
 
-<h2>$this->db->last_query();</h2>
+<h2>$this-&gt;db-&gt;last_query();</h2>
 <p>Returns the last query that was run (the query string, not the result).  Example:</p>
+<p>è¿”å›æœ€åè¿è¡Œçš„æŸ¥è¯¢ï¼ˆæ˜¯æŸ¥è¯¢è¯­å¥ï¼Œä¸æ˜¯æŸ¥è¯¢ç»“æœï¼‰</p>
 
-<code>$str = $this->db->last_query();<br />
+<code>$str = $this-&gt;db-&gt;last_query();<br />
 <br />
 // Produces:  SELECT * FROM sometable....
 </code>
 
 
 <p>The following two functions help simplify the process of writing database INSERTs and UPDATEs.</p>
+<br/>
+ä¸‹é¢çš„ä¸¤ä¸ªå‡½æ•°ç®€åŒ–äº†å†™å…¥æ•°æ®åº“çš„insertå’Œupdateæ“ä½œã€‚
 
 
-<h2>$this->db->insert_string(); </h2>
+<h2>$this-&gt;db-&gt;insert_string(); </h2>
 <p>This function simplifies the process of writing database inserts. It returns a correctly formatted SQL insert string. Example:</p>
+<br/>
+è¿™ä¸ªå‡½æ•°ç®€åŒ–äº†å†™å…¥æ•°æ®åº“çš„insertå‡½æ•°ã€‚å®ƒè¿”å›ä¸€ä¸ªæ ‡å‡†çš„SQL insertå­—ç¬¦ä¸²ã€‚ä¾‹å¦‚ï¼š
 
 <code>$data = array('name' => $name, 'email' => $email, 'url' => $url);<br />
 <br />
-$str = $this->db->insert_string('table_name', $data);
+$str = $this-&gt;db-&gt;insert_string('table_name', $data);
 </code>
 
 <p>The first parameter is the table name, the second is an associative array with the data to be inserted.  The above example produces:</p>
+<br/>
+ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯è¡¨åï¼Œç¬¬äºŒä¸ªæ˜¯è¢«æ’å…¥æ•°æ®çš„è”åˆæ•°ç»„ï¼Œä¸Šé¢çš„ä¾‹å­ç”Ÿæˆçš„æ•ˆæœä¸ºï¼š
 <code>INSERT INTO table_name (name, email, url) VALUES ('Rick', 'rick@example.com', 'example.com')</code>
 
 <p class="important">Note: Values are automatically escaped, producing safer queries.</p>
+<br/>
+æ³¨è§£ï¼šè¢«æ’å…¥çš„æ•°æ®ä¼šè¢«è‡ªåŠ¨è½¬æ¢å’Œè¿‡æ»¤ï¼Œç”Ÿæˆå®‰å…¨çš„æŸ¥è¯¢è¯­å¥ã€‚
 
 
 
-<h2>$this->db->update_string(); </h2>
+<h2>$this-&gt;db-&gt;update_string(); </h2>
 <p>This function simplifies the process of writing database updates. It returns a correctly formatted SQL update string. Example:</p>
+<br/>
+è¿™ä¸ªå‡½æ•°ç®€åŒ–äº†å†™å…¥æ•°æ®åº“çš„updateæ“ä½œã€‚å®ƒè¿”å›ä¸€æ¡æ ¼å¼æ­£ç¡®çš„SQL updateå­—ç¬¦ä¸²ã€‚ä¾‹å¦‚ï¼š
 
 <code>$data = array('name' => $name, 'email' => $email, 'url' => $url);<br />
 <br />
 $where = "author_id = 1 AND status = 'active'";
 <br /><br />
-$str = $this->db->update_string('table_name', $data, $where);
+$str = $this-&gt;db-&gt;update_string('table_name', $data, $where);
+
 </code>
 
 <p>The first parameter is the table name, the second is an associative array with the data to be updated, and the third parameter is the "where" clause. The above example produces:</p>
+<br />
+ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯è¡¨åï¼Œç¬¬äºŒä¸ªæ˜¯è¢«æ›´æ–°æ•°æ®çš„å…³è”æ•°ç»„ï¼Œç¬¬ä¸‰ä¸ªå‚æ•°æ˜¯â€œwhereâ€å­å¥ã€‚ä¸Šé¢çš„ä¾‹å­ç”Ÿæˆçš„æ•ˆæœä¸ºï¼š
 <code> UPDATE table_name SET name = 'Rick', email = 'rick@example.com', url = 'example.com' WHERE author_id = 1 AND status = 'active'</code>
 
 <p class="important">Note: Values are automatically escaped, producing safer queries.</p>
-
-
+<br/>
+æ³¨è§£ï¼šè¢«æ’å…¥çš„æ•°æ®ä¼šè¢«è‡ªåŠ¨è½¬æ¢å’Œè¿‡æ»¤ï¼Œç”Ÿæˆå®‰å…¨çš„æŸ¥è¯¢è¯­å¥ã€‚<p>&nbsp;</p>
+<div id="Contributors">
+ç¿»è¯‘è´¡çŒ®è€…:
+analyzer, Hex, ITä¸å€’ç¿, loiynet, sexy22</div>
+<div id="DocDate">
+æœ€åä¿®æ”¹: 2012-10-25 17:00:51</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="results.html">Query Results</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="active_record.html">Active Record Pattern</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+ä¸Šä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="results.html" tppabs="http://codeigniter.org.cn/user_guide/database/results.html">æŸ¥è¯¢ç»“æœ</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">é¡µé¦–</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;ä¸‹ä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="active_record.html" tppabs="http://codeigniter.org.cn/user_guide/database/active_record.html">Active Record æ¨¡å¼</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; ç‰ˆæƒæ‰€æœ‰ &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>ä¸­æ–‡åŒ–: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter ä¸­å›½</a> &nbsp;&middot;&nbsp; åˆ¶ä½œ: Hex &nbsp;&middot;&nbsp; ç‰ˆæœ¬: 1.30 &nbsp;&middot;&nbsp; é¸£è°¢: å­éé±¼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

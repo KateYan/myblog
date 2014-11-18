@@ -25,9 +25,14 @@
     </ul>
 </div>
 <div class="col-md-4">
-    <a class="btn btn-success" href="login" value="login">Log in to manage</a>
-    <br><br>
-    <a class="btn btn-success" href="newarticle" value="newarticle">Write a new one</a>
-    <br><br>
-    <a class="btn btn-primary" href="loged" value="manage center">Manage Center</a>
+    <?php
+    if(!isset($_SESSION['userid'])){
+        echo '<a class="btn btn-success" href="login" value="login">'."Log in to manage".'</a>';
+    }
+    else {
+        echo '<a class="btn btn-success" href="newarticle" value="newarticle">'."Write a new one".'</a>';
+        echo '<br><br>';
+        echo '<a class="btn btn-primary" href="loged" value="manage center">'."Manage Center".'</a>';
+    }
+    ?>
 </div>

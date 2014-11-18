@@ -1,7 +1,7 @@
 body {
  margin: 0;
  padding: 0;
- font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
+ font-family: Lucida Grande, Verdana, Geneva, Sans-serif, 宋体;
  font-size: 14px;
  color: #333;
  background-color: #fff;
@@ -32,16 +32,16 @@ a:hover {
  background-color: transparent;
  margin: 10px 0 0 42px;
  padding: 0;
- font-size: 10px;
+ font-size: 12px;
  color: #666;
 }
 #breadcrumb_right {
  float: right;
- width: 175px;
+ width: 70px;
  background-color: transparent;
  padding: 8px 8px 3px 0;
  text-align: right;
- font-size: 10px;
+ font-size: 12px;
  color: #666;
 }
 #nav {
@@ -50,7 +50,7 @@ a:hover {
  padding: 0;
 }
 #nav2 {
- background: #fff url(images/nav_bg_darker.jpg) repeat-x left top;
+ background: #fff url(../images/user_guide/nav_bg_darker.jpg) repeat-x left top;
  padding: 0 310px 0 0;
  margin: 0;
  text-align: right;
@@ -60,7 +60,7 @@ a:hover {
  padding: 8px 12px 0 20px;
  margin: 0;
  font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
- font-size: 11px;
+ font-size: 12px;
 }
 
 #nav_inner h3 {
@@ -71,7 +71,7 @@ a:hover {
 }
 
 #nav_inner .td_sep {
- background: transparent url(images/nav_separator_darker.jpg) repeat-y left top;
+ background: transparent url(../images/user_guide/nav_separator_darker.jpg) repeat-y left top;
  width: 25%;
  padding: 0 0 0 20px;
 }
@@ -85,7 +85,7 @@ a:hover {
  margin: 0 0 10px 0;
 }
 #nav_inner ul {
- list-style-image: url(images/arrow.gif);
+ list-style-image: url(../images/user_guide/arrow.gif);
  padding: 0 0 0 18px;
  margin: 8px 0 12px 0;
 }
@@ -135,7 +135,7 @@ padding: 0 0 6px 0;
  background-color: transparent;
  padding: 6px 40px 0 0;
  text-align: right;
- font-size: 10px;
+ font-size: 12px;
  color: #666;
 }
 
@@ -255,13 +255,14 @@ padding: 3px 0 7px 3px;
 }
 
 #content ul {
- list-style-image: url(images/arrow.gif);
+ list-style-image: url(../images/user_guide/arrow.gif);
  margin: 10px 0 12px 0;
 }
 
 li.reactor {
- list-style-image: url(images/reactor-bullet.png);
+ list-style-image: url(../images/user_guide/reactor-bullet.png);
 }
+
 #content li {
  margin-bottom: 9px;
 }
@@ -329,14 +330,14 @@ li.reactor {
 
 #footer {
 background-color: transparent;
-font-size: 10px;
+font-size: 12px;
 padding: 16px 0 15px 0;
 margin: 20px 0 0 0;
 text-align: center;
 }
 
 #footer p {
- font-size: 10px;
+ font-size: 12px;
  color: #999;
  text-align: center;
 }
@@ -368,11 +369,11 @@ form {
 
 .input {
  font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
- font-size: 11px;
+ font-size: 12px;
  color: #333;
  border: 1px solid #B3B4BD;
  width: 100%;
- font-size: 11px;
+ font-size: 12px;
  height: 1.5em;
  padding: 0;
  margin: 0;
@@ -391,7 +392,7 @@ form {
 
 .select {
  background-color: #fff;
- font-size:  11px;
+ font-size:  12px;
  font-weight: normal;
  color: #333;
  padding: 0;
@@ -408,8 +409,183 @@ form {
  background-color: #000;
  color: #fff;
  font-weight: normal;
- font-size: 10px;
+ font-size: 12px;
  border: 1px solid #fff;
  margin: 0;
  padding: 1px 5px 2px 5px;
+}
+
+#navlist {}
+
+ul#navlist {
+list-style-type: none;
+padding-bottom: 24px;
+margin: 0;
+}
+
+ul#navlist li {float: left;
+height: 20px;
+margin: 6px 5px 0px 5px;
+}
+
+.error {font-weight: bold;
+color:#FF3300;
+margin-left: 100px;
+padding-left: 18px;
+background: url(public/shared/images/error.png) no-repeat left top;
+}
+
+/* :KLUDGE: Explicitly set the width for IE6- */
+
+* html .error {width: 10em;}
+
+label {float: left;
+width: 100px;}
+
+.note {display: block;
+margin-left: 100px;}
+
+
+/* Diff */
+.diffbox { margin-top:1.33em; }
+.difftype { clear:both; font-weight:bold; color: #365f91;}
+.diffadd { border-left:5px #99ff99 solid; padding-left:5px; margin-top:5px;margin-bottom:10px;}
+.diffdel { border-left:5px #ffff99 solid; padding-left:5px; margin-top:5px;margin-bottom:10px;}
+
+#content .Differences {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+}
+
+#content .Differences thead th {
+	text-align: left;
+	border-bottom: 1px solid #000;
+	/*background: #aaa;*/
+	/*color: #000;*/
+	padding: 4px;
+}
+#content .Differences tbody th {
+	text-align: right;
+	/*background: #ccc;*/
+	/*width: 4em;*/
+	padding: 1px 2px 1px 10px;
+	border-right: 1px solid #000;
+	vertical-align: top;
+	font-size: 13px;
+	width: 2%;
+}
+
+#content .Differences td {
+	padding: 1px 2px;
+	font-family: Consolas, monospace;
+	font-size: 13px;
+	word-wrap: break-word;
+	white-space: normal;
+	word-break: break-all;
+}
+
+#content .DifferencesSideBySide td.Left {
+	 vertical-align: top;
+}
+#content .DifferencesSideBySide td.Right {
+	 vertical-align: top;
+}
+#content .DifferencesSideBySide .ChangeInsert td.Left {
+	background: #dfd;
+}
+
+#content .DifferencesSideBySide .ChangeInsert td.Right {
+	background: #dfd;
+}
+
+#content .DifferencesSideBySide .ChangeDelete td.Left {
+	background: #faa;
+}
+
+#content .DifferencesSideBySide .ChangeDelete td.Right {
+	background: #faa;
+}
+
+#content .DifferencesSideBySide .ChangeReplace .Left {
+	background: #fe9;
+}
+
+#content .DifferencesSideBySide .ChangeReplace .Right {
+	background: #fe9;
+}
+
+#content .Differences ins, .Differences del {
+	text-decoration: none;
+}
+
+#content .DifferencesSideBySide .ChangeReplace ins, #content .DifferencesSideBySide .ChangeReplace del {
+	background: #fc0;
+}
+
+#content .Differences .Skipped {
+	background: #f7f7f7;
+}
+
+#content .DifferencesInline .ChangeReplace .Left,
+#content .DifferencesInline .ChangeDelete .Left {
+	background: #fdd;
+}
+
+#content .DifferencesInline .ChangeReplace .Right,
+#content .DifferencesInline .ChangeInsert .Right {
+	background: #dfd;
+}
+
+#content .DifferencesInline .ChangeReplace ins {
+	background: #9e9;
+}
+
+#content .DifferencesInline .ChangeReplace del {
+	background: #e99;
+}
+
+
+#Contributors {
+	color: #999;
+	font-size:12px;
+}
+
+#DocDate {
+	color: #999;
+	font-size:12px;
+	text-align: right;
+}
+
+/* new clearfix */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+* html .clearfix {
+	zoom: 1;
+} /* IE6 */
+*:first-child+html .clearfix {
+	zoom: 1;
+} /* IE7 */
+
+#masthead .topbar-hd {
+	float: left;
+	padding-right: 80px;
+}
+
+#masthead .topbar-bd {
+	font-size: 12px;
+	float: left;
+	padding: 8px 8px 3px 0;
+}
+
+#masthead .topbar-tip {
+	float: left;
+	padding: 6px 8px 2px 0;
 }

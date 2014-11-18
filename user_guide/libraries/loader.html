@@ -1,102 +1,92 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Loader Class : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>装载器类 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="loader.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/loader.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Loader Class
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;装载器类    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/loader.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/loader.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/loader.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>装载类</h1>
+<p>装载，顾名思义，是用来装载元素。这些元素可以是库 (类) <a href="../general/views.html" tppabs="http://codeigniter.org.cn/user_guide/general/views.html">视图文件</a>， <a href="../general/helpers.html" tppabs="http://codeigniter.org.cn/user_guide/general/helpers.html">辅助函数</a>， <a href="../general/models.html" tppabs="http://codeigniter.org.cn/user_guide/general/models.html">模型</a>， 或者是你自己的文件。</p>
+<p class="important"><strong>提示：</strong> 这个类是由系统初始化的，所以，没有必要自己手动初始化。</p>
+<p>以下为这个类里面的函数：</p>
 
+<h2>$this-&gt;load-&gt;library('<var>class_name</var>', <samp>$config</samp>, <kbd>'object name'</kbd>)</h2>
 
-<h1>Loader Class</h1>
-
-<p>Loader, as the name suggests, is used to load elements.  These elements can be libraries (classes) <a href="../general/views.html">View files</a>,
-<a href="../general/helpers.html">Helpers</a>, <a href="../general/models.html">Models</a>, or your own files.</p>
-
-<p class="important"><strong>Note:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
-
-<p>The following functions are available in this class:</p>
-
-
-<h2>$this->load->library('<var>class_name</var>', <samp>$config</samp>, <kbd>'object name'</kbd>)</h2>
-
-
-<p>This function is used to load core classes.  Where <var>class_name</var> is the name of the class you want to load.
-Note: We use the terms "class" and "library" interchangeably.</p>
-
-<p>For example, if you would like to send email with CodeIgniter, the first step is to load the email class within your controller:</p>
-
-<code>$this->load->library('email');</code>
-
-<p>Once loaded, the library will be ready for use, using <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.</p>
-
-<p>Library files can be stored in subdirectories within the main "libraries" folder, or within your personal <dfn>application/libraries</dfn> folder.
-To load a file located in a subdirectory, simply include the path, relative to the "libraries" folder.
-For example, if you have file located at:</p>
+<p>这个函数是用来加载核心类。<var>class_name</var> 是你要加载的类的名称。 提示： &ldquo;类&rdquo;和&ldquo;库&rdquo;是可替换使用的。</p>
+<p>比如，你想用 CodeIgniter 来发送邮件，第一步就是在你的控制器里加载 email 类。</p>
+<code>$this-&gt;load-&gt;library('email');</code>
+<p>一旦被加载，就可以使用该类了，&nbsp;使用 <kbd>$this-&gt;email-&gt;</kbd><samp><em>some_function</em>()</samp>。</p>
+<p>类库文件可以被保存到主libraries目录的子目录下面，或者保存到个人的<dfn>application/libraries</dfn> 目录下。  
+要载入子目录下的文件，只需将路径包含进来就可以了，注意这里说的路径是指相对于libraries目录的路径。
+例如，当你有一个文件保存在下面这个位置:</p>
 
 <code>libraries/flavors/chocolate.php</code>
 
-<p>You will load it using:</p>
+<p>你应该使用下面的方式来载入它:</p>
 
-<code>$this->load->library('flavors/chocolate');</code>
+<code>$this-&gt;load-&gt;library('flavors/chocolate');</code>
 
-<p>You may nest the file in as many subdirectories as you want.</p>
+<p>你可以随心所欲地将文件保存到多层的子目录下。</p>
 
-<p>Additionally, multiple libraries can be loaded at the same time by passing an array of libraries to the load function.</p>
+<p>另外，你可以同时加载多个类（库），只要按照下面的代码为load方法传入一个包含所有要载入的类名的数组即可：</p>
 
-<code>$this->load->library(array('<var>email</var>', '<var>table</var>'));</code>
+<code>$this-&gt;load-&gt;library(array('<var>email</var>', '<var>table</var>'));</code>
 
-<h3>Setting options</h3>
+<h3>设置选项</h3>
 
-<p>The second (optional) parameter allows you to optionally pass configuration setting.  You will typically pass these as an array:</p>
+<p>第二个参数是可选的，作用是允许你有选择性地传递配置参数。一般来说你可以将参数以数组的形式传递过去:</p>
 
 <code>
 $config = array (<br />
@@ -105,107 +95,77 @@ $config = array (<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'priority' => '1'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->load->library('email', $config);</code>
+$this-&gt;load-&gt;library('email', $config);</code>
 
-<p>Config options can usually also be set via a config file. Each library is explained in detail in its own page, so please read the information regarding each one you would like to use.</p>
+<p>配置参数通常也可以保存在一个配置文件中。每个类库在其各自的页面中都有详细的说明，所以在使用类库之前，你必须认真阅读它们的说明。</p>
 
-<p>Please take note, when multiple libraries are supplied in an array for the first parameter, each will receive the same parameter information.</p>
+<p>请注意，当第一个参数使用数组来同时载入多个类时，每个类将获得相同的参数信息。</p>
 
-<h3>Assigning a Library to a different object name</h3>
+<h3>给类库分配不同的对象名</h3>
 
-<p>If the third (optional) parameter is blank, the library will usually be assigned to an object with the same name as the library.  For example, if the library is named <dfn>Session</dfn>, it
-will be assigned to a variable named <dfn>$this->session</dfn>.</p>
+<p>第三个参数也是可选的，如果为空，类库通常就会被赋值给一个与类库同名的对象。例如，如果类库名为 <dfn>Session</dfn>, 它将会被赋值给一个名为 <dfn>$this-&gt;session</dfn> 的变量。</p>
 
-<p>If you prefer to set your own class names you can pass its value to the third parameter:</p>
+<p>如果你希望使用你的自定义名称，你可以通过第三个参数把它传递过去:</p>
 
-<code>$this->load->library('session', '', 'my_session');<br /><br />
+<code>$this-&gt;load-&gt;library('session', '', 'my_session');<br /><br />
 
-// Session class is now accessed using:<br /><br />
+// Session 类现在可以通过下面的方式访问:<br /><br />
 
-$this->my_session
+$this-&gt;my_session
 
 </code>
 
-<p>Please take note, when multiple libraries are supplied in an array for the first parameter, this parameter is discarded.</p>
+<p>请注意，当第一个参数使用数组来同时载入多个类时，第三个参数将不起作用。</p>
 
 
-<h2>$this->load->view('<var>file_name</var>', <samp>$data</samp>, <kbd>true/false</kbd>)</h2>
+<h2>$this-&gt;load-&gt;view('<var>file_name</var>', <samp>$data</samp>, <kbd>true/false</kbd>)</h2>
 
-<p>This function is used to load your View files.  If you haven't read the <a href="../general/views.html">Views</a> section of the
-user guide it is recommended that you do since it shows you how this function is typically used.</p>
-
-<p>The first parameter is required.  It is the name of the view file you would like to load. &nbsp;Note: The .php file extension does not need to be specified unless you use something other than <kbd>.php</kbd>.</p>
-
-<p>The second <strong>optional</strong> parameter can take
-an associative array or an object as input, which it runs through the PHP <a href="http://www.php.net/extract">extract</a> function to
-convert to variables that can be used in your view files.  Again, read the <a href="../general/views.html">Views</a> page to learn
-how this might be useful.</p>
-
-<p>The third <strong>optional</strong> parameter lets you change the behavior of the function so that it returns data as a string
-rather than sending it to your browser.  This can be useful if you want to process the data in some way.  If you
-set the parameter to <kbd>true</kbd> (boolean) it will return data.  The default behavior is <kbd>false</kbd>, which sends it
-to your browser.  Remember to assign it to a variable if you want the data returned:</p>
-
-<code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>
-
+<p>这个函数是用来加载你的视图文件。 如果你尚未阅读本手册<a href="../general/views.html" tppabs="http://codeigniter.org.cn/user_guide/general/views.html">视图</a> 章节的话，建议你先去阅读那里的内容，会有更详细的函数使用说明.</p>
+<p>第一个参数是必须的. 指定你要载入的视图文件的名称. &nbsp;注意: 无需加上 .php 扩展名，除非你使用了其他的扩展名。</p>
+<p>第二个参数 <strong>optional</strong> 允许你传入数组或对象, 传入的数组或对象将使用 php <a href="javascript:if(confirm('http://www.php.net/extract  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.php.net/extract'" tppabs="http://www.php.net/extract">extract</a> 函数导出，你可以在视图中任意使用这些导出的变量. 此外，请阅读 <a href="../general/views.html" tppabs="http://codeigniter.org.cn/user_guide/general/views.html">视图</a> 章节了解该功能的更多用法.</p>
+<p>第三个参数是<strong>可选</strong>的，作用是改变函数的运行方式，将数据以字符串的形式返回，而不是发送给浏览器。当你希望用不同的方式处理数据时，这个参数就非常有用。如果你将这个参数设置为 <kbd>true</kbd> (布尔型)，函数就会返回数据。这个参数的默认值是 <kbd>false</kbd>, 也就是数据将会被发送给浏览器。如果你希望数据被返回，记得要将它赋值给一个变量:</p>
+<p><code>$string = $this-&gt;load-&gt;view('<var>myfile</var>', '', <kbd>true</kbd>);</code></p>
 
 <h2>$this-&gt;load-&gt;model('<var>Model_name</var>');</h2>
 <p><code>$this-&gt;load-&gt;model('<var>Model_name</var>');</code></p>
-<p>If your model is located in a sub-folder, include the relative path from your models folder. For example, if you have a model located at application/models/blog/queries.php you'll load it using:</p>
+<p>如果你的模型位于models目录的子目录下，那么，相对路径也必须被包含进来。例如，如果你有一个模型位于 application/models/blog/queries.php ，你应该使用下面的语句来载入它:</p>
 <p><code>$this-&gt;load-&gt;model('<var>blog/queries</var>');</code></p>
-<p>If you would like your model assigned to a different object name you can specify it via the second parameter of the loading
-	function:</p>
+<p>如果你希望给模型赋予一个你自定义的对象名，请在函数的第二个参数中给出你自定义的名称:</p>
 <code> $this-&gt;load-&gt;model('<var>Model_name</var>', '<kbd>fubar</kbd>');<br />
 <br />
 $this-&gt;<kbd>fubar</kbd>-&gt;function();</code>
-<h2>$this->load->database('<var>options</var>', <kbd>true/false</kbd>)</h2>
-<p>This function lets you load the database class.  The two parameters are <strong>optional</strong>.  Please see the
-<a href="../database/index.html">database</a> section for more info.</p>
+
+<h2>$this-&gt;load-&gt;database('<var>options</var>', <kbd>true/false</kbd>)</h2>
+<p>这个函数的作用是载入数据库类。这两个参数都是<strong>可选的</strong>。请查看 <a href="../database/index.html" tppabs="http://codeigniter.org.cn/user_guide/database/index.html">数据库</a> 段落以获取更多信息。</p>
+
+<h2>$this-&gt;load-&gt;vars(<samp>$array</samp>)</h2>
+<p>这个函数以一个关联数组作为输入参数,将这个数组用PHP的<a href="javascript:if(confirm('http://www.php.net/extract  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.php.net/extract'" tppabs="http://www.php.net/extract">extract</a>函数转化成与之对应的变量。这个方法的结果与上面的<dfn>$this-&gt;load-&gt;view()</dfn>方法使用第二个参数的结果一样。在后面提到的情况下你可能需要单独使用这个函数：假如你想在控制器的构造函数中定义一些全局变量，并希望这些变量在控制器的每一个方法加载的视图文件中都可用。你可以多次调用该方法，数据将被缓存，并被合并为一个数组，以便转换成变量。</p>
 
 
+<h2>$this-&gt;load-&gt;get_var(<samp>$key</samp>)</h2>
 
-
-<h2>$this->load->vars(<samp>$array</samp>)</h2>
-
-<p>This function takes an associative array as input and generates variables using the PHP <a href="http://www.php.net/extract">extract</a> function.
-This function produces the same result as using the second parameter of the <dfn>$this->load->view()</dfn> function above.  The reason you might
-want to use this function independently is if you would like to set some global variables in the constructor of your controller
-and have them become available in any view file loaded from any function.  You can have multiple calls to this function.  The data get cached
-and merged into one array for conversion to variables.
+<p>该方法检查关联数组中的变量对你的视图是否可用。当一个变量在一个类（库）或者控制器的另一个方法里被以这样的方式定义时：$this-&gt;load-&gt;vars()，会做这样的检查。
 </p>
 
 
-<h2>$this->load->get_var(<samp>$key</samp>)</h2>
+<h2>$this-&gt;load-&gt;helper('<var>file_name</var>')</h2>
+<p>这个函数的作用是载入辅助函数， <var>file_name</var> 是辅助函数对应的文件名，不包括 <kbd>_helper.php</kbd> 扩展名。</p>
 
-<p>This function checks the associative array of variables available to your views. This is useful if for any reason a var is set in a library or another controller method using $this->load->vars().
-</p>
-
-
-<h2>$this->load->helper('<var>file_name</var>')</h2>
-<p>This function loads helper files, where <var>file_name</var> is the name of the file, without the <kbd>_helper.php</kbd> extension.</p>
-
-
-<h2>$this->load->file('<var>filepath/filename</var>', <kbd>true/false</kbd>)</h2>
-<p>This is a generic file loading function.  Supply the filepath and name in the first parameter and it will open and read the file.
-By default the data is sent to your browser, just like a View file, but if you set the second parameter to <kbd>true</kbd> (boolean)
-it will instead return the data as a string.</p>
+<h2>$this-&gt;load-&gt;file&#40;'<var>filepath/filename</var>', <kbd>true/false</kbd>&#41;</h2>
+<p>这是一个通用的文件载入函数。在第一个参数中给出文件所在的路径和文件名，对应的文件将会被打开。默认情况下，数据会被发送给浏览器，就如同视图文件一样，但如果你将第二个参数设置为 <kbd>true</kbd> (布尔型) 那么数据就会以字符串的形式被返回，而不是发送给浏览器。</p>
+<h2>$this-&gt;load-&gt;language('<var>file_name</var>')</h2>
+<p>这个函数是 <a href="language.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/language.html">语言加载函数</a>: $this-&gt;lang-&gt;load() 的一个别名。</p>
+<h2>$this-&gt;load-&gt;config('<var>file_name</var>')</h2>
+<p>这个函数是 <a href="config.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/config.html">配置文件加载函数</a>: $this-&gt;config-&gt;load() 的一个别名。</p>
 
 
-<h2>$this->load->language('<var>file_name</var>')</h2>
-<p>This function is an alias of the <a href="language.html">language loading function</a>: $this->lang->load()</p>
+<h2>应用程序包(Package)</h2>
 
-<h2>$this->load->config('<var>file_name</var>')</h2>
-<p>This function is an alias of the <a href="config.html">config file loading function</a>: $this->config->load()</p>
+<p>应用程序包（Package）可以很便捷的将你的应用部署在独立的目录中，以实现自己整套的类库，模型，辅助函数，配置，文件和语言包。建议将这些应用程序包被放置在<dfn>application/third_party</dfn>文件夹。下面是一个简单应用程序包的目录</p>
 
+<h2>简单应用程序包"Foo Bar"的目录</h2>
 
-<h2>Application "Packages"</h2>
-
-<p>An application package allows for the easy distribution of complete sets of resources in a single directory, complete with its own libraries, models, helpers, config, and language files.  It is recommended that these packages be placed in the <dfn>application/third_party</dfn> folder.  Below is a sample map of an package directory</p>
-
-
-<h2>Sample Package "Foo Bar" Directory Map</h2>
-
-<p>The following is an example of a directory for an application package named "Foo Bar".</p>
+<p>下面是一个名为"Foo Bar"的应用程序包目录的例子。</p>
 
 <code>/application/third_party/foo_bar<br />
 <br />
@@ -216,58 +176,76 @@ libraries/<br />
 models/<br />
 </code>
 
-<p>Whatever the purpose of the "Foo Bar" application package, it has its own config files, helpers, language files, libraries, and models.  To use these resources in your controllers, you first need to tell the Loader that you are going to be loading resources from a package, by adding the package path.</p>
+<p>无论应用程序包是为了实现什么样的目的，它都包含属于自己的配置文件、辅助函数、语言包、类库和模型。在你的控制器里使用这些资源，你首先需要告知加载器（Loader）从应用程序包加载资源、添加包路径。</p>
 
-<h3>$this->load->add_package_path()</h3>
+<h3>$this-&gt;load-&gt;add_package_path()</h3>
 
-<p>Adding a package path instructs the Loader class to prepend a given path for subsequent requests for resources.  As an example, the "Foo Bar" application package above has a library named <dfn>Foo_bar.php</dfn>. In our controller, we'd do the following:</p>
+<p>添加包指示加载器类使用给定的路径用以请求后续的资源。例如, "Foo Bar"应用程序包里有一个名为<dfn>foo_bar.php</dfn>的类.在控制器中，我们可以按照如下的方法调用：</p>
 
-<code>$this->load->add_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');<br />
-$this->load->library('foo_bar');</code>
+<code>$this-&gt;load-&gt;add_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');<br />
+$this-&gt;load-&gt;library('foo_bar');</code>
 
-<h3>$this->load->remove_package_path()</h3>
+<h3>$this-&gt;load-&gt;remove_package_path()</h3>
 
-<p>When your controller is finished using resources from an application package, and particularly if you have other application packages you want to work with, you may wish to remove the package path so the Loader no longer looks in that folder for resources.  To remove the last path added, simply call the method with no parameters.</p>
+<p>当你的控制器完成从应用程序包中调取资源，特别是如果你需要调用其他的应用程序包的资源，你会希望删除当前使用的包路径来让加载器不在使用这个文件夹中的资源。要删除的最后一个使用的包路径，你可以调用不带参数的方法。</p>
 
-<h3>$this->load->remove_package_path()</h3>
+<h3>$this-&gt;load-&gt;remove_package_path()</h3>
 
-<p>Or to remove a specific package path, specify the same path previously given to <kbd>add_package_path() for a package.</kbd>:</p>
+<p>或者删除一个特定的包路径，指定与之前使用<kbd>add_package_path</kbd>所加载的包相同的路径。:</p>
 
-<code>$this->load->remove_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');</code>
+<code>$this-&gt;load-&gt;remove_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');</code>
 
-<h3>Package view files</h3>
+<h3>包的视图文件</h3>
 
-<p>By Default, package view files paths are set when <samp>add_package_path()</samp> is called.  View paths are looped through, and once a match is encountered that view is loaded.</p>
-<p>In this instance, it is possible for view naming collisions within packages to occur, and possibly the incorrect package being loaded.  To ensure against this, set an optional second parameter of <var>FALSE</var> when calling <samp>add_package_path()</samp>.</p>
+<p>默认情况下，包视图文件的路径是在<samp>add_package_path()</samp>方法被调用时就已经设置了。视图路径通过循环匹配来确定视图的加载。</p>
+<p>在这种情况下，它可能在包内产生视图命名冲突，并可能导致包被错误的加载。为了确保不会发生此类问题，在调用<samp>add_package_path()</samp>方法时可设置一个可选的第二个参数<var>FALSE</var></p>
 
 <code>
-$this->load->add_package_path(APPPATH.'my_app', TRUE);<br>
-$this->load->view('my_app_index'); // Loads<br>
-$this->load->view('welcome_message'); // Will not load the default welcome_message b/c the second param to add_package_path is TRUE<br>
+$this-&gt;load-&gt;add_package_path(APPPATH.'my_app', TRUE);<br>
+$this-&gt;load-&gt;view('my_app_index'); // Loads<br>
+$this-&gt;load-&gt;view('welcome_message'); // Will not load the default welcome_message b/c the second param to add_package_path is TRUE<br>
 <br>
 // Reset things<br>
-$this->load->remove_package_path(APPPATH.'my_app');<br>
+$this-&gt;load-&gt;remove_package_path(APPPATH.'my_app');<br>
 <br>
 // Again without the second parameter:<br>
-$this->load->add_package_path(APPPATH.'my_app', TRUE);<br>
-$this->load->view('my_app_index'); // Loads<br>
-$this->load->view('welcome_message'); // Loads<br>
-</code>
-
+$this-&gt;load-&gt;add_package_path(APPPATH.'my_app', TRUE);<br>
+$this-&gt;load-&gt;view('my_app_index'); // Loads<br>
+$this-&gt;load-&gt;view('welcome_message'); // Loads<br>
+</code><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+cookieu, Hex, soaringup, tg8866, weelia, Xwoder, yinzhili, 曜日晨阳</div>
+<div id="DocDate">
+最后修改: 2013-11-13 14:03:32</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="input.html">Input Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="language.html">Language Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="input.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/input.html">输入类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="language.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/language.html">语言类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

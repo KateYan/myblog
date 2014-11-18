@@ -1,164 +1,172 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Security : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>å®‰å…¨ - CodeIgniter ä¸­æ–‡æ‰‹å†Œ|ç”¨æˆ·æ‰‹å†Œ|ç”¨æˆ·æŒ‡å—|Wikiæ–‡æ¡£</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter æœç´¢"/>
+<link rel="canonical" href="security.html" tppabs="http://codeigniter.org.cn/user_guide/general/security.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter ä¸­æ–‡æ‰‹å†Œ, CodeIgniter ç”¨æˆ·æŒ‡å—, CodeIgniter User Guide, Wiki æ–‡æ¡£" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="åˆ‡æ¢ç›®å½•" alt="åˆ‡æ¢ç›®å½•" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter ç”¨æˆ·æŒ‡å— ç‰ˆæœ¬ 2.2.0</h1></div>
+<div class="topbar-tip">ç¼–è¾‘æ–‡æ¡£ã€æŸ¥çœ‹è¿‘æœŸæ›´æ”¹è¯· <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">ç™»å½•</a> æˆ– <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">æ³¨å†Œ</a> ã€€<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÊÇ±»×Ô¶¯ÅÅ³ıËùÅÅ³ıµÄ¡£ (Äã²»Ò»¶¨ÒªÊ¹ÓÃ×Ô¶¯ÅÅ³ı£¬Çë²Î¿¼¡°ÏîÄ¿ÌØĞÔ¡±µÄ¡°ÍøÂçÀñ½Ú¡±¡£)  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">æ‰¾å›å¯†ç </a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">ç›®å½•é¡µ</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Security
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter ä¸­å›½é¦–é¡µ</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&#8250;&nbsp;å®‰å…¨    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        æœç´¢ç”¨æˆ·æŒ‡å—&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/general/security.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/codeigniter/user-guide/general/security.html'" tppabs="http://ellislab.com/codeigniter/user-guide/general/security.html" target="_blank">æŸ¥çœ‹åŸæ–‡</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>å®‰å…¨</h1>
 
-<h1>Security</h1>
-
-<p>This page describes some "best practices" regarding web security, and details
-CodeIgniter's internal security features.</p>
+<p>æœ¬é¡µæè¿°äº†ä¸€äº›å…³äº Web å®‰å…¨çš„â€œæœ€ä½³å®è·µâ€ï¼Œå¹¶è¯¦ç»†è¯´æ˜äº† CodeIgniter çš„å†…éƒ¨å®‰å…¨ç‰¹æ€§ã€‚</p>
 
 
-<h2>URI Security</h2>
+<h2>URI å®‰å…¨</h2>
 
-<p>CodeIgniter is fairly restrictive regarding which characters it allows in your URI strings in order to help
-minimize the possibility that malicious data can be passed to your application.  URIs may only contain the following:
+<p>CodeIgniter ä¸¥æ ¼é™åˆ¶ URI ä¸­æ‰€èƒ½åŒ…å«çš„å­—ç¬¦ï¼Œä»¥æ­¤å¸®åŠ©ä½ è®¾è®¡çš„ç¨‹åºå‡å°‘è¢«æ¶æ„æ•°æ®å…¥ä¾µçš„å¯èƒ½ã€‚URI ä¸€èˆ¬åªåŒ…å«ä¸‹åˆ—å†…å®¹ï¼š
 </p>
 
 <ul>
-<li>Alpha-numeric text</li>
-<li>Tilde: ~ </li>
-<li>Period: .</li>
-<li>Colon: :</li>
-<li>Underscore: _</li>
-<li>Dash: -</li>
+<li>å­—æ¯å’Œæ•°å­—ï¼ˆAlpha-numeric textï¼‰</li>
+<li>æ³¢æµªç¬¦ï¼ˆTildeï¼‰ï¼š ~ </li>
+<li>å¥å·ï¼ˆPeriodï¼‰ï¼š .</li>
+<li>å†’å·ï¼ˆColonï¼‰ï¼š :</li>
+<li>ä¸‹åˆ’çº¿ï¼ˆUnderscoreï¼‰ï¼š _</li>
+<li>ç ´æŠ˜å·ï¼ˆDashï¼‰ï¼š -</li>
 </ul>
+
 
 <h2>Register_globals</h2>
 
-<p>During system initialization all global variables are unset, except those found in the $_GET, $_POST, and $_COOKIE arrays. The unsetting
-routine is effectively the same as register_globals = off.</p>
+<p>ç³»ç»Ÿåˆå§‹åŒ–æœŸé—´æ‰€æœ‰çš„å…¨å±€å˜é‡éƒ½è¢« unsetï¼Œé™¤äº†é‚£äº›åœ¨ $_GETã€$_POST å’Œ $_COOKIE æ•°ç»„ä¸­çš„æ•°æ®ã€‚å®é™…ä¸Š unsetting å®ä¾‹ç¨‹åºçš„ä½œç”¨ä¸register_globals = off ç›¸åŒã€‚</p>
 
 <a name="error_reporting"></a>
 <h2>error_reporting</h2>
 
 <p>
-    In production environments, it is typically desirable to disable PHP's
-    error reporting by setting the internal error_reporting flag to a value of 0. This disables native PHP
-    errors from being rendered as output, which may potentially contain
-    sensitive information.
+  åœ¨ç”Ÿäº§ç¯å¢ƒä¸­ï¼Œå¾€å¾€æœ‰å¿…è¦é€šè¿‡è®¾ç½®å†…éƒ¨çš„error_reportingå€¼ä¸º0æ¥ç¦ç”¨PHPé”™è¯¯æŠ¥å‘Šã€‚
+  è¿™å¯ä»¥é˜²æ­¢å¯èƒ½å«æœ‰æ•æ„Ÿä¿¡æ¯çš„åŸå§‹PHPé”™è¯¯æŠ¥å‘Šè¾“å‡ºã€‚
 </p>
 
 <p>
-    Setting CodeIgniter's <kbd>ENVIRONMENT</kbd> constant in index.php to a
-    value of '<kbd>production</kbd>' will turn off these errors. In development
-    mode, it is recommended that a value of '<kbd>development</kbd>' is used.
-    More information about differentiating between environments can be found
-    on the <a href="environments.html">Handling Environments</a> page.
+  åœ¨ index.php è®¾ç½®CodeIgniterçš„ <kbd>ENVIRONMENT</kbd> å¸¸é‡ä¸º '<kbd>production</kbd>' 
+  å°†ä¼šå…³é—­è¿™äº›é”™è¯¯(æŠ¥å‘Š)ã€‚åœ¨å¼€å‘æ¨¡å¼ä¸‹ï¼Œæ¨èè®¾ä¸º '<kbd>development</kbd>'ã€‚
+  æ›´å¤šå…³äºå„ç¯å¢ƒé—´åŒºåˆ«çš„ä¿¡æ¯å¯ä»¥åœ¨<a href="environments.html" tppabs="http://codeigniter.org.cn/user_guide/general/environments.html">å¤„ç†å¤šç¯å¢ƒ</a>ä¸€ç« æ‰¾åˆ°ã€‚
 </p>
+
 
 <h2>magic_quotes_runtime</h2>
 
-<p>The magic_quotes_runtime directive is turned off during system initialization so that you don't have to remove slashes when
-retrieving data from your database.</p>
+<p>åœ¨ç³»ç»Ÿåˆå§‹åŒ–æœŸé—´ magic_quotes_runtime æŒ‡ä»¤è¢«å…³é—­ä»¥ä¾¿åœ¨æ•°æ®åº“æ£€ç´¢æ•°æ®æ—¶ä¸å¿…å»æ‰åæ–œçº¿ã€‚</p>
 
-<h1>Best Practices</h1>
+<h1>æœ€ä½³å®è·µ</h1>
 
-<p>Before accepting any data into your application, whether it be POST data from a form submission, COOKIE data, URI data,
-XML-RPC data, or even data from the SERVER array, you are encouraged to practice this three step approach:</p>
+<p>åœ¨æ¥æ”¶ä»»ä½•æ•°æ®åˆ°ä½ çš„ç¨‹åºä¹‹å‰ï¼Œä¸ç®¡æ˜¯è¡¨å•æäº¤çš„ POST æ•°æ®ã€COOKIE æ•°æ®ã€URI æ•°æ®ã€XML-RPC æ•°æ®ã€è¿˜æ˜¯ SERVER æ•°ç»„ä¸­çš„æ•°æ®ï¼Œæˆ‘ä»¬éƒ½æ¨èä½ å®è·µä¸‹é¢çš„ä¸‰ä¸ªæ­¥éª¤ï¼š</p>
 
 <ol>
-<li>Filter the data as if it were tainted.</li>
-<li>Validate the data to ensure it conforms to the correct  type, length, size, etc. (sometimes this step can replace step one)</li>
-<li>Escape the data before submitting it into your database.</li>
+
+<li>è¿‡æ»¤ä¸è‰¯æ•°æ®.</li>
+<li>éªŒè¯æ•°æ®ä»¥ç¡®ä¿ç¬¦åˆæ­£ç¡®çš„ç±»å‹, é•¿åº¦, å¤§å°ç­‰. (æœ‰æ—¶è¿™ä¸€æ­¥éª¤ä¹Ÿå¯å–ä»£ç¬¬ä¸€æ­¥éª¤)</li>
+<li>åœ¨æäº¤æ•°æ®åˆ°ä½ çš„æ•°æ®åº“ä¹‹å‰å°†å…¶è½¬æ¢.</li>
+
 </ol>
 
-<p>CodeIgniter provides the following functions to assist in this process:</p>
+<p>CodeIgniter æä¾›äº†ä¸‹åˆ—å‡½æ•°ä»¥è¾…åŠ©è¿™ä¸ªè¿‡ç¨‹:</p>
 
 <ul>
 
-<li><h2>XSS Filtering</h2>
+<li><h2>XSS è¿‡æ»¤</h2>
 
-<p>CodeIgniter comes with a Cross Site Scripting filter.  This filter looks for commonly
-used techniques to embed malicious Javascript into your data, or other types of code that attempt to hijack cookies
-or do other malicious things. The XSS Filter is described <a href="../libraries/security.html">here</a>.
+<p>CodeIgniterå¸¦æœ‰ä¸€ä¸ªè·¨ç«™è„šæœ¬è¿‡æ»¤å™¨. è¿™ä¸ªè¿‡æ»¤å™¨ä¼šæŸ¥æ‰¾é‚£äº›ç”¨é€šå¸¸æ‰‹æ®µåµŒå…¥åˆ°ä½ æ•°æ®ä¸­æ¶æ„çš„Javascript,æˆ–å…¶å®ƒä¸€äº›è¯•å›¾æ¬ºéª—cookieç±»å‹çš„æˆ–è€…åšå…¶å®ƒæ¶æ„äº‹æƒ…çš„ä»£ç . XSS Filterçš„è¯¦ç»†æè¿°åœ¨ <a href="../libraries/security.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/security.html">è¿™é‡Œ</a>.
 </p>
 </li>
 
-<li><h2>Validate the data</h2>
+<li><h2>éªŒè¯æ•°æ®</h2>
 
-<p>CodeIgniter has a <a href="../libraries/form_validation.html">Form Validation Class</a> that assists you in validating, filtering, and prepping
-your data.</p>
+<p>CodeIgniter æœ‰ä¸€ä¸ª<a href="../libraries/form_validation.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/form_validation.html">è¡¨å•éªŒè¯ç±»</a>ç”¨æ¥å¸®åŠ©éªŒè¯ã€è¿‡æ»¤å’Œé¢„å¤„ç†æ•°æ®ã€‚</p>
 </li>
 
-<li><h2>Escape all data before database insertion</h2>
+<li><h2>æ’å…¥æ•°æ®åº“ä¹‹å‰è½¬ä¹‰æ‰€æœ‰æ•°æ®</h2>
 
-<p>Never insert information into your database without escaping it. Please see the section that discusses
-<a href="../database/queries.html">queries</a> for more information.</p>
+<p>ä¸è¦æ’å…¥æœªè½¬ä¹‰çš„ä¿¡æ¯åˆ°ä½ çš„æ•°æ®åº“ä¸­ã€‚è¦äº†è§£æ›´å¤šä¿¡æ¯è¯·å‚é˜…<a href="../database/queries.html" tppabs="http://codeigniter.org.cn/user_guide/database/queries.html">æŸ¥è¯¢</a>ç« èŠ‚ã€‚</p>
 
 </li>
 
-</ul>
-
-
-
-
+</ul><p>&nbsp;</p>
+<div id="Contributors">
+ç¿»è¯‘è´¡çŒ®è€…:
+Hex, ITä¸å€’ç¿, lishen2, shnwqshnwq, xwjie</div>
+<div id="DocDate">
+æœ€åä¿®æ”¹: 2012-02-11 00:35:08</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="alternative_php.html">Alternative PHP</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="styleguide.html">PHP Style Guide</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+ä¸Šä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="alternative_php.html" tppabs="http://codeigniter.org.cn/user_guide/general/alternative_php.html">PHP æ›¿ä»£è¯­æ³•</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">é¡µé¦–</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">ç”¨æˆ·æŒ‡å—é¦–é¡µ</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;ä¸‹ä¸€ä¸ªä¸»é¢˜:&nbsp;&nbsp;<a href="styleguide.html" tppabs="http://codeigniter.org.cn/user_guide/general/styleguide.html">å¼€å‘è§„èŒƒ</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; ç‰ˆæƒæ‰€æœ‰ &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>ä¸­æ–‡åŒ–: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter ä¸­å›½</a> &nbsp;&middot;&nbsp; åˆ¶ä½œ: Hex &nbsp;&middot;&nbsp; ç‰ˆæœ¬: 1.30 &nbsp;&middot;&nbsp; é¸£è°¢: å­éé±¼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

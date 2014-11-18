@@ -1,222 +1,233 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Config Class : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>配置类 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="config.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/config.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Config Class
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;配置类    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/config.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/config.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/config.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>配置类</h1>
+
+<p>该配置类提供一种方法来进行偏好设置。该偏好来源于默认的配置文件(<samp>application/config/config.php</samp>) 或您自己定制的配置文件。</p>
+
+<p class="important"><strong>注意：</strong>该类已经自动加载而无需手动启用。</p>
 
 
-<h1>Config Class</h1>
+<h2>分析配置文件</h2>
 
-<p>The Config class provides a means to retrieve configuration preferences.  These preferences can
-come from the default config file (<samp>application/config/config.php</samp>) or from your own custom config files.</p>
+<p>默认情况下，CodeIgniter已经有一个主要的配置文件，位于<samp>application/config/config.php</samp>。如果你用文本编辑器打开你会看到配置项目被存储在一个叫<var>$config</var>的数组里。</p>
 
-<p class="important"><strong>Note:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p>您可以添加您自己的配置项目到这个文件里，或者您更愿意让您自己的配置项目与原配置项目分开（假设你需要额外的配置项），简单的创建一个文件并保存到<dfn>config</dfn>这个文件夹里就行了。</p>
 
+<p><strong>提示:</strong> 如果你想建立一个和主要配置文件一样格式的配置文件，把你的配置项目建立在一个名为<var>$config</var>的数组中,即使配置文件中有相同的数组名，CodeIgniter也能智能的管理这些文件而不会发生冲突.</p>
 
-<h2>Anatomy of a Config File</h2>
+<h2>加载配置文件</h2>
 
-<p>By default, CodeIgniter has one primary config file, located at <samp>application/config/config.php</samp>.  If you open the file using
-your text editor you'll see that config items are stored in an array called <var>$config</var>.</p>
+<p><strong>Note:</strong> CodeIgniter 会自动加载主要的配置文件&#40;<samp>application/config/config.php</samp>&#41;,
+所以你只需要加载你自己创建的配置文件</p>
 
-<p>You can add your own config items to
-this file, or if you prefer to keep your configuration items separate (assuming you even need config items),
-simply create your own file and save it in <dfn>config</dfn> folder.</p>
+<p>有两种方法来加载配置文件:</p>
 
-<p><strong>Note:</strong> If you do create your own config files use the same format as the primary one, storing your items in
-an array called  <var>$config</var>. CodeIgniter will intelligently manage these files so there will be no conflict even though
-the array has the same name (assuming an array index is not named the same as another).</p>
+<ol><li><strong>手动加载</strong>
 
-<h2>Loading a Config File</h2>
+<p>为了加载一个你自定义的配置文件，你需要在 <a href="../general/controllers.html" tppabs="http://codeigniter.org.cn/user_guide/general/controllers.html">controller</a> 中这样做:</p>
 
-<p><strong>Note:</strong> CodeIgniter automatically loads the primary config file (<samp>application/config/config.php</samp>),
-so you will only need to load a config file if you have created your own.</p>
+<code>$this-&gt;config-&gt;load('<var>filename</var>');</code>
 
-<p>There are two ways to load a config file:</p>
+<p>这里的 <var>filename</var> 是你自定义的配置文件的文件名，这个文件名没有 .php 的扩展名.</p>
 
-<ol><li><strong>Manual Loading</strong>
-
-<p>To load one of your custom config files you will use the following function within the <a href="../general/controllers.html">controller</a> that needs it:</p>
-
-<code>$this->config->load('<var>filename</var>');</code>
-
-<p>Where <var>filename</var> is the name of your config file, without the .php file extension.</p>
-
-<p>If you need to load multiple config files normally they will be merged into one master config array.  Name collisions can occur, however, if
-you have identically named array indexes in different config files.  To avoid collisions you can set the second parameter to <kbd>TRUE</kbd>
-and each config file will be stored in an array index corresponding to the name of the config file. Example:</p>
+<p>如果你需要加载多个自定义配置文件，一般情况下它们会被合并成一个数组。然而，如果在不同的配置文件中存在同名的索引，那么会发生冲突。为了避免这个问题，你可以把第二个参数设置为 <kbd>TRUE</kbd> ，这可以使每个配置文件的内容存储在一个单独的数组中，数组的索引就是配置文件的文件名。请看下面的例子:</p>
 
 <code>
-// Stored in an array with this prototype:  $this->config['blog_settings'] = $config<br />
-$this->config->load('<var>blog_settings</var>', <kbd>TRUE</kbd>);</code>
+// 用这样的方式保存为一个数组:  $this-&gt;config['blog_settings'] = $config<br />
+$this-&gt;config-&gt;load('<var>blog_settings</var>', <kbd>TRUE</kbd>);</code>
 
-<p>Please see the section entitled <dfn>Fetching Config Items</dfn> below to learn how to retrieve config items set this way.</p>
+<p>请阅读下面名为 <dfn>获取配置元素</dfn> 的部分以了解在这样的方式下如何取得配置信息</p>
 
-<p>The third parameter allows you to suppress errors in the event that a config file does not exist:</p>
+<p>第三个参数允许屏蔽当配置文件不存在时产生的错误信息:</p>
 
-<code>$this->config->load('<var>blog_settings</var>', <dfn>FALSE</dfn>, <kbd>TRUE</kbd>);</code>
+<code>$this-&gt;config-&gt;load('<var>blog_settings</var>', <dfn>FALSE</dfn>, <kbd>TRUE</kbd>);</code>
 
 </li>
-<li><strong>Auto-loading</strong>
+<li><strong>自动加载</strong>
 
-<p>If you find that you need a particular config file globally, you can have it loaded automatically by the system.  To do this,
-open the <strong>autoload.php</strong> file, located at <samp>application/config/autoload.php</samp>, and add your config file as
-indicated in the file.</p>
+<p>如果你需要一个特定配置文件在全局范围内都能使用，你可以使系统自动加载它。要自动加载配置，请打开文件 <strong>autoload.php</strong>，它在 <samp>application/config/autoload.php</samp>，然后按照文件中的提示增加你想要自动加载的配置文件。</p>
 </li>
 </ol>
 
 
-<h2>Fetching Config Items</h2>
+<h2>获取配置元素</h2>
 
-<p>To retrieve an item from your config file, use the following function:</p>
+<p>从配置文件中检索元素，使用下面的函数:</p>
 
-<code>$this->config->item('<var>item name</var>');</code>
+<code>$this-&gt;config-&gt;item('<var>item name</var>');</code>
 
-<p>Where <var>item name</var> is the $config array index you want to retrieve. For example, to fetch your language choice you'll do this:</p>
+<p>其中 <var>item name</var> 是 $config 数组中你期望检索的索引. 例如，要获得您选择的语言，你可以这样做:</p>
 
-<code>$lang = $this->config->item('language');</code>
+<code>$lang = $this-&gt;config-&gt;item('language');</code>
 
-<p>The function returns FALSE (boolean) if the item you are trying to fetch does not exist.</p>
+<p>当试图获取的元素不存在时，此函数返回 FALSE (boolean) 。</p>
 
-<p>If you are using the second parameter of the <kbd>$this->config->load</kbd> function in order to assign your config items to a specific index
-you can retrieve it by specifying the index name in the second parameter of the <kbd>$this->config->item()</kbd> function.  Example:</p>
+<p>如果你为了用具体的索引来声明配置数组(避免上述索引重名问题)而在函数 <kbd>$this-&gt;config-&gt;load</kbd> 中使用了第二个参数，你可以通过指定函数 <kbd>$this-&gt;config-&gt;item()</kbd> 的第二个参数为特定索引名来获取相关的配置元素。例如:</p>
 
 <code>
-// Loads a config file named blog_settings.php and assigns it to an index named "blog_settings"<br />
-$this->config->load('<var>blog_settings</var>', <kbd>TRUE</kbd>);<br /><br />
+// 载入一个名为 blog_settings.php 的配置文件，然后把它声明为一个索引为 "blog_settings" 的数组<br />
+$this-&gt;config-&gt;load('<var>blog_settings</var>', <kbd>TRUE</kbd>);<br /><br />
 
-// Retrieve a config item named site_name contained within the blog_settings array<br />
-$site_name = $this->config->item('<dfn>site_name</dfn>', '<var>blog_settings</var>');<br /><br />
+// 在数组 blog_settings 中获取名为 site_name 的配置元素<br />
+$site_name = $this-&gt;config-&gt;item('<dfn>site_name</dfn>', '<var>blog_settings</var>');<br /><br />
 
-// An alternate way to specify the same item:<br />
-$blog_config = $this->config->item('<var>blog_settings</var>');<br />
+// 另外一种方式:<br />
+$blog_config = $this-&gt;config-&gt;item('<var>blog_settings</var>');<br />
 $site_name = $blog_config['site_name'];</code>
 
-<h2>Setting a Config Item</h2>
+<h2>设置一项元素</h2>
 
-<p>If you would like to dynamically set a config item or change an existing one, you can do so using:</p>
+<p>如果你想动态设置/改变一个现有的配置元素，你可以使用:</p>
 
-<code>$this->config->set_item('<var>item_name</var>', '<var>item_value</var>');</code>
+<code>$this-&gt;config-&gt;set_item('<var>item_name</var>', '<var>item_value</var>');</code>
 
-<p>Where <var>item_name</var> is the $config array index you want to change, and <var>item_value</var> is its value.</p>
+<p>其中 <var>item_name</var> 是你希望改变的 $config 数组的索引, <var>item_value</var> 是改变后的值.</p>
+
+<p><strong>注意：</strong>这里修改的配置元素并不是改变配置文件(application/config/config.php)的值，仅改变当前<var>$this-&gt;config-&gt;item()</var>方法取到的值</p>
+
 
 <a name="environments"></a>
-<h2>Environments</h2>
+<h2>环境</h2>
 
 <p>
-    You may load different configuration files depending on the current environment.
-    The <kbd>ENVIRONMENT</kbd> constant is defined in index.php, and is described
-    in detail in the <a href="../general/environments.html">Handling Environments</a>
-    section.
+     你可以根据当前的开发/服务环境读取不同的配置文件.
+    <kbd>ENVIRONMENT</kbd> 常量在 index.php 定义, 
+    在 <a href="../general/environments.html" tppabs="http://codeigniter.org.cn/user_guide/general/environments.html">处理多环境</a>
+    一章有详细的描述和说明.
 </p>
 
 <p>
-    To create an environment-specific configuration file,
-    create or copy a configuration file in application/config/{ENVIRONMENT}/{FILENAME}.php
+    一个特定环境的配置文件,
+    需要按此路径创建或者复制一个文件： application/config/&#123;ENVIRONMENT&#125;/&#123;FILENAME&#125;.php
 </p>
 
-<p>For example, to create a production-only config.php, you would:</p>
+<p>例如，要创建一个仅'production'环境的 config.php, 你应该:</p>
 
 <ol>
-    <li>Create the directory application/config/production/</li>
-    <li>Copy your existing config.php into the above directory</li>
-    <li>Edit application/config/production/config.php so it contains your production settings</li>
+    <li>创建文件夹：application/config/production/</li>
+    <li>复制现有的 config.php 到上面的文件夹</li>
+    <li>编辑 application/config/production/config.php 设定你在'production'环境所需的设置</li>
 </ol>
 
 <p>
-    When you set the <kbd>ENVIRONMENT</kbd> constant to 'production', the settings
-    for your new production-only config.php will be loaded.
+    当你设置 <kbd>ENVIRONMENT</kbd> 常量为 'production',  
+    你刚创建的仅'production'环境的 config.php 配置文件将被加载。
 </p>
 
-<p>You can place the following configuration files in environment-specific folders:</p>
-
+<p>你可以放置以下配置文件到特定环境的文件夹:</p>
+  
 <ul>
-<li>Default CodeIgniter configuration files</li>
-<li>Your own custom configuration files</li>
+<li>默认的 CodeIgniter 配置文件</li>
+<li>你自己的用户配置文件</li>
 </ul>
 
-<p><strong>Note:</strong> CodeIgniter always tries to load the configuration files for the current environment first. If the file does not exist, the global config file (i.e., the one in <samp>application/config/</samp>) is loaded. This means you are not obligated to place <strong>all</strong> of your configuration files in an environment folder &minus; only the files that change per environment.</p>
-
-<h2>Helper Functions</h2>
-
-<p>The config class has the following helper functions:</p>
-
-<h2>$this->config->site_url();</h2>
-<p>This function retrieves the URL to your site, along with the "index" value you've specified in the config file.</p>
-
-<h2>$this->config->base_url();</h2>
-<p>This function retrieves the URL to your site, plus an optional path such as to a stylesheet or image.</p>
-
-<p>The two functions above are normally accessed via the corresponding functions in the <a href="../helpers/url_helper.html">URL Helper.</a></p>
-
-<h2>$this->config->system_url();</h2>
-<p>This function retrieves the URL to your <dfn>system folder</dfn>.</p>
+<p><strong>注意:</strong> CodeIgniter 会先尝试加载当前环境的配置文件。 如果文件不存在，将加载全局配置文件，例如 &#40;<samp>application/config/</samp>&#41; 。 这意味着你没有必要把 <strong>所有的</strong>配置文件放在特定环境的文件夹里， &minus; 仅仅把各环境不同的放进去就行了。</p>
 
 
+<h2>辅助函数</h2>
+
+<p>配置类有以下辅助函数:</p>
+
+<h2>$this-&gt;config-&gt;site_url();</h2>
+<p>该函数得到你网站的 URL，其中包含了你在 config 文件中设置的 "index" 的值。</p>
+
+<h2>$this-&gt;config-&gt;base_url();</h2>
+<p>该函数返回站点的根 URL，可以在这个函数后拼接一个 URL 路径，用以生成 CSS 或图片文件的 URL。</p>
+
+<p>以上两个函数一般通过<a href="../helpers/url_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/url_helper.html">URL 辅助函数</a>中相应的函数（site_url() 和 base_url()）调用。</p>    
+
+<h2>$this-&gt;config-&gt;system_url();</h2>
+<p>该函数得到 <dfn>system 文件夹</dfn>的 URL。</p><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+airwin, aykirk, borisauschina, Hex, localtest, skey, szlinz, tanqimin, tinsn, xwjie, zhupeng, 暗夜星辰</div>
+<div id="DocDate">
+最后修改: 2013-08-05 11:33:15</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="calendar.html">Calendaring Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="../database/index.html">Database Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="calendar.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/calendar.html">日历类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="../database/index.html" tppabs="http://codeigniter.org.cn/user_guide/database/index.html">数据库类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

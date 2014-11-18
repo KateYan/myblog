@@ -1,233 +1,255 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pagination Class : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>分页类 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="pagination.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/pagination.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Pagination Class
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;分页类    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/pagination.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/pagination.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/pagination.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>分页类</h1>
 
+<p>CodeIgniter 的分页类是一个非常简单，并且 100% 用户自定义的类。</p>
 
-<h1>Pagination Class</h1>
-
-<p>CodeIgniter's Pagination class is very easy to use, and it is 100% customizable, either dynamically or via stored preferences.</p>
-
-<p>If you are not familiar with the term "pagination", it refers to links that allows you to navigate from page to page, like this:</p>
+<p>分页类允许你通过提交链接从一个页面导航至另一个页面，如下：</p>
 
 <code><a href="#">&laquo; First</a>&nbsp;&nbsp;<a href="#">&lt;</a>&nbsp;<a href="#">1</a>&nbsp;<a href="#">2</a>&nbsp;<b>3</b>&nbsp;<a href="#">4</a>&nbsp;<a href="#">5</a>&nbsp;<a href="#">&gt;</a>&nbsp;&nbsp;<a href="#">Last &raquo;</a></code>
 
-<h2>Example</h2>
+<h2>例子</h2>
 
-<p>Here is a simple example showing how to create pagination in one of your <a href="../general/controllers.html">controller</a> functions:</p>
+<p>这里有一个例子展示了如何在你的<a href="../general/controllers.html" tppabs="http://codeigniter.org.cn/user_guide/general/controllers.html">控制器</a>里创建一个分页：</p>
 
 <code>
-$this->load->library('pagination');<br /><br />
+$this-&gt;load-&gt;library('pagination');<br /><br /> 
 $config['base_url'] = 'http://example.com/index.php/test/page/';<br />
 $config['total_rows'] = 200;<br />
 $config['per_page']  = 20;
 <br /><br />
-$this->pagination->initialize($config);
+$this-&gt;pagination-&gt;initialize($config);
 
 <br /><br />
-echo  $this->pagination->create_links();</code>
+echo  $this-&gt;pagination-&gt;create_links();</code>
 
-<h3>Notes:</h3>
+<h3>提示：</h3>
 
-<p>The <var>$config</var> array contains your configuration variables.  It is passed to the <dfn>$this->pagination->initialize</dfn> function as shown above.  Although there are some twenty items you can configure, at
-minimum you need the three shown.  Here is a description of what those items represent:</p>
+<p><var>$config</var> 数组包含了你的配置参数。这些参数被 <dfn>$this-&gt;pagination-&gt;initialize</dfn> 方法传递，如上面的例子所展示。以下是对这些项目的描述：</p>
 
 <ul>
-	<li><strong>base_url</strong> This is the full URL to the controller class/function containing your pagination.  In the example
-	above, it is pointing to a controller called "Test" and a function called "page".  Keep in mind that you can
-	<a href="../general/routing.html">re-route your URI</a> if you need a different structure.</li>
-	<li><strong>total_rows</strong> This number represents the total rows in the result set you are creating pagination for.
-	Typically this number will be the total rows that your database query returned.
-	</li>
-	<li><strong>per_page</strong> The number of items you intend to show per page.  In the above example, you would be showing 20 items per page.</li>
+ <li><strong>base_url</strong> 这是一个完整的 URL 路径通向包含你的分页控制器类/方法。在上面的这个例子里，它指向了一个叫“Test”的控制器和它的一个方法叫“Page”。
+ 记住，你可以<a href="../general/routing.html" tppabs="http://codeigniter.org.cn/user_guide/general/routing.html">重新路由你的 URI</a>，如果你需要一个不同的结构。</li>
+ <li><strong>total_rows</strong> 这个数字展示了你需要做分页的数据总行数。这个数值是你查询数据库得到的数据总量。</li>
+ <li><strong>per_page</strong> 这个数字计划了你每个页面中希望展示的项目数量，在上面的那个例子中，你可以得到每页显示 20 个项目。</li>
+
 </ul>
 
-<p>The <var>create_links()</var> function returns an empty string when there is no pagination to show.</p>
+<p>当你没有分页需要显示时，<var>create_links()</var> 方法会返回一个空的字符串。</p>
 
 
-<h3>Setting preferences in a config file</h3>
+<h3>在配置文件中设置参数</h3>
 
-<p>If you prefer not to set preferences using the above method, you can instead put them into a config file.
-Simply create a new file called <var>pagination.php</var>,  add the <var>$config</var>
-array in that file. Then save the file in: <var>config/pagination.php</var> and it will be used automatically. You
-will NOT need to use the <dfn>$this->pagination->initialize</dfn> function if you save your preferences in a config file.</p>
+<p>如果你不喜欢用以上的方法进行偏好设置，你可以简单地创建一个新的文件叫做 <var>pagination.php</var>，把 <var>$config</var> 数组加到这个文件中。把文件保存至 <var>config/pagination.php</var> 可以让它被自动使用。用这个方法，你不再需要使用 <dfn>$this-&gt;pagination-&gt;initialize</dfn> 方法。</p>
 
 
-<h2>Customizing the Pagination</h2>
+<h2>自定义分页</h2>
 
-<p>The following is a list of all the preferences you can pass to the initialization function to tailor the display.</p>
-
+<p>下面是一个参数列表，你可以通过初始化方法来定制你喜欢的显示效果。</p>
 
 <h4>$config['uri_segment'] = 3;</h4>
 
-<p>The pagination function automatically determines which segment of your URI contains the page number. If you need
-something different you can specify it.</p>
+<p>分页方法自动测定你 URI 的哪个部分包含页数。如果你需要一些不一样的，你可以明确指定它。</p>
 
 <h4>$config['num_links'] = 2;</h4>
 
-<p>The number of &quot;digit&quot; links you would like before and after the selected page number. For example, the number 2
-	will place two digits on either side, as in the example links at the very top of this page.</p>
+<p>放在你当前页码的前面和后面的“数字”链接的数量。比方说值为 2 就会在每一边放置 2 个数字链接，就像此页顶端的示例链接那样。</p>
 
 <h4>$config['use_page_numbers'] = TRUE;</h4>
-<p>By default, the URI segment will use the starting index for the items you are paginating. If you prefer to show the the actual page number, set this to TRUE.</p>
+<p>默认分页URL中是显示每页记录数,启用use_page_numbers后显示的是当前页码，如下：</p>
+<code>不启用：http://example.com/index.php/test/page/<dfn>20</dfn><br>启用后：http://example.com/index.php/test/page/<dfn>1</dfn></code>
 
-<h4>$config['page_query_string'] = TRUE;</h4>
-<p>By default, the pagination library assume you are using <a href="../general/urls.html">URI Segments</a>, and constructs your links something like</p>
+<h4>$config['page_query_string'] = TRUE</h4>
+<p>默认情况下，分页类库假设你使用 <a href="../general/urls.html" tppabs="http://codeigniter.org.cn/user_guide/general/urls.html">URI 段</a>，并像这样构造你的链接：</p>
 <p><code>http://example.com/index.php/test/page/20</code></p>
-<p>If you have $config['enable_query_strings']  set to TRUE your links will automatically be re-written using Query Strings. This option can also be explictly set. Using $config['page_query_string'] set to TRUE, the pagination link will become.</p>
+<p>如果你把 $config['enable_query_strings'] 设置为 TRUE，你的链接将自动地被用查询字符串重写。这个选项也可以被明确地设置。把 $config['page_query_string'] 设置为 TRUE，分页链接将变成：</p>
 <p><code>http://example.com/index.php?c=test&amp;m=page&amp;per_page=20</code></p>
-<p>Note that &quot;per_page&quot; is the default query string  passed, however can be configured using $config['query_string_segment'] = 'your_string'</p>
-<h2>Adding Enclosing Markup</h2>
+<p>请注意，“per_page”是默认传递的查询字符串，但也可以使用 $config['query_string_segment'] = '你的字符串' 来配置。</p>
 
-<p>If you would like to surround the entire pagination with some markup you can do it with these two prefs:</p>
+
+<h2>添加封装标签</h2>
+
+<p>如果你希望在整个分页周围围绕一些标签，你可以通过下面的两种方法：</p>
 
 <h4>$config['full_tag_open'] = '&lt;p>';</h4>
-<p>The opening tag placed on the left side of the entire result.</p>
+<p>把打开的标签放在所有结果的左侧。</p>
 
 <h4>$config['full_tag_close'] = '&lt;/p>';</h4>
-<p>The closing tag placed on the right side of the entire result.</p>
+<p>把关闭的标签放在所有结果的右侧。</p>
 
 
-<h2>Customizing the First Link</h2>
+<h2>自定义起始链接</h2>
 
 <h4>$config['first_link'] = 'First';</h4>
-<p>The text you would like shown in the "first" link on the left. If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>你希望在分页的左边显示“第一页”链接的名字。如果你不希望显示，可以把它的值设为 FALSE 。</p>
 
 <h4>$config['first_tag_open'] = '&lt;div>';</h4>
-<p>The opening tag for the "first" link.</p>
+<p>“第一页”链接的打开标签。</p>
 
 <h4>$config['first_tag_close'] = '&lt;/div>';</h4>
-<p>The closing tag for the "first" link.</p>
+<p>“第一页”链接的关闭标签。</p>
 
-<h2>Customizing the Last Link</h2>
+<h2>自定义结束链接</h2>
 
 <h4>$config['last_link'] = 'Last';</h4>
-<p>The text you would like shown in the "last" link on the right. If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>你希望在分页的右边显示“最后一页”链接的名字。如果你不希望显示，可以把它的值设为 FALSE 。</p>
 
 <h4>$config['last_tag_open'] = '&lt;div>';</h4>
-<p>The opening tag for the "last" link.</p>
+<p>“最后一页”链接的打开标签。</p>
 
 <h4>$config['last_tag_close'] = '&lt;/div>';</h4>
-<p>The closing tag for the "last" link.</p>
 
-<h2>Customizing the "Next" Link</h2>
+<p>“最后一页”链接的关闭标签。</p>
+
+<h2>自定义“下一页”链接</h2>
 
 <h4>$config['next_link'] = '&amp;gt;';</h4>
-<p>The text you would like shown in the "next" page link. If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>你希望在分页中显示“下一页”链接的名字。如果你不希望显示，可以把它的值设为 FALSE 。</p>
 
 <h4>$config['next_tag_open'] = '&lt;div>';</h4>
-<p>The opening tag for the "next" link.</p>
+<p>“下一页”链接的打开标签。</p>
 
 <h4>$config['next_tag_close'] = '&lt;/div>';</h4>
-<p>The closing tag for the "next" link.</p>
+<p>“下一页”链接的关闭标签。</p>
 
-<h2>Customizing the "Previous" Link</h2>
+<h2>自定义“上一页”链接</h2>
 
 <h4>$config['prev_link'] = '&amp;lt;';</h4>
-<p>The text you would like shown in the "previous" page link. If you do not want this link rendered, you can set its value to FALSE.</p>
+<p>你希望在分页中显示“上一页”链接的名字。如果你不希望显示，可以把它的值设为 FALSE 。</p>
 
 <h4>$config['prev_tag_open'] = '&lt;div>';</h4>
-<p>The opening tag for the "previous" link.</p>
+
+<p>“上一页”链接的打开标签。</p>
 
 <h4>$config['prev_tag_close'] = '&lt;/div>';</h4>
-<p>The closing tag for the "previous" link.</p>
+<p>“上一页”链接的关闭标签。</p>
 
-<h2>Customizing the "Current Page" Link</h2>
+<h2>自定义“当前页”链接</h2>
 
 <h4>$config['cur_tag_open'] = '&lt;b>';</h4>
-<p>The opening tag for the "current" link.</p>
+<p>“当前页”链接的打开标签。</p>
 
 <h4>$config['cur_tag_close'] = '&lt;/b>';</h4>
-<p>The closing tag for the "current" link.</p>
+<p>“当前页”链接的关闭标签。</p>
 
 
-<h2>Customizing the "Digit" Link</h2>
+<h2>自定义“数字”链接</h2>
 
 <h4>$config['num_tag_open'] = '&lt;div>';</h4>
-<p>The opening tag for the "digit" link.</p>
+<p>“数字”链接的打开标签。</p>
 
 <h4>$config['num_tag_close'] = '&lt;/div>';</h4>
-<p>The closing tag for the "digit" link.</p>
+<p>“数字”链接的关闭标签。</p>
 
-<h2>Hiding the Pages</h2>
 
-<p>If you wanted to not list the specific pages (for example, you only want "next" and "previous" links), you can suppress their rendering by adding:</p>
+<h2>隐藏“数字”链接</h2>
+
+<p>如果你不想显示“数字”链接（比如只显示 “上一页” 和 “下一页”链接）你可以添加如下配置：</p>
 
 <code>
-$config['display_pages'] = FALSE;
+  $config['display_pages'] = FALSE;<br />
+// 不显示“数字”链接
 </code>
 
 
-<h2>Adding a class to every anchor</h2>
+<h2>给链接添加 CSS 类</h2>
 
-<p>If you want to add a class attribute to every link rendered by the pagination class, you can set the config "anchor_class" equal to the classname you want.</p>
+<p>如果你想要给每一个链接添加 CSS 类，你可以添加如下配置：</p>
 
+<code>
+  $config['anchor_class'] = "";<br />
+//添加 CSS 类
+</code><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+csfhc, drazzi, Fanbin, Hex, IT不倒翁, jianghaosen, li_star, peirancao, roln, sankai, yadgen, 笼中</div>
+<div id="DocDate">
+最后修改: 2014-06-04 20:43:16</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="output.html">Output Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="sessions.html">Session Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="output.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/output.html">输出类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="sessions.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/sessions.html">Session 类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

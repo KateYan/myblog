@@ -1,246 +1,248 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>URL Helper : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>URL 辅助函数 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="url_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/url_helper.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-URL Helper
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;URL 辅助函数    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/helpers/url_helper.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/helpers/url_helper.html'" tppabs="http://ellislab.com/codeigniter/user-guide/helpers/url_helper.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>URL 辅助函数</h1>
+
+<p>URL 辅助函数文件包含一些在处理 URL 中很有用的函数</p>
 
 
-<h1>URL Helper</h1>
+<h2>加载辅助函数</h2>
 
-<p>The URL Helper file contains functions that assist in working with URLs.</p>
+<p>本辅助函数通过如下代码加载:</p>
 
+<code>$this-&gt;load-&gt;helper('url');</code>
 
-<h2>Loading this Helper</h2>
-
-<p>This helper is loaded using the following code:</p>
-<code>$this->load->helper('url');</code>
-
-<p>The following functions are available:</p>
+<p>可用函数如下:</p>
 
 <h2>site_url()</h2>
 
-<p>Returns your site URL, as specified in your config file.  The index.php file (or whatever you have set as your
-site <dfn>index_page</dfn> in your config file) will be added to the URL, as will any URI segments you pass to the function, and the <dfn>url_suffix</dfn> as set in your config file.</p>
+<p>返回站点的URL, 如果在<dfn>config.php</dfn> 文件中指定了<dfn>base_url</dfn>会返回指定的值，否则自动获取。 当你将URI段作为参数传给这个函数时，index.php 文件名 &#40;或者是你在config中自定义的 <dfn>index_page</dfn> 文件名&#41; 会被加到URL后面, 而且会加上你在config中定义的 <dfn>url_suffix</dfn> 后缀。</p>
 
-<p>You are encouraged to use this function any time you need to generate a local URL so that your pages become more portable
-in the event your URL changes.</p>
+<p>无论什么时候需要生成 URL ，都鼓励您使用该函数, 这样当您的根 URL 改变的时候更具有可移植性。[注：根 URL 指 config.php 中指定的 base_url 和 <dfn>index_page</dfn>--IT不倒翁]</p>
 
-<p>Segments can be optionally passed to the function as a string or an array.  Here is a string example:</p>
+<p>做为参数传递给该函数的 URI 段可以是一个字符串，也可以是一个数组. 下面是一个字符串的例子:</p>
 
 <code>echo site_url("news/local/123");</code>
 
-<p>The above example would return something like: http://example.com/index.php/news/local/123</p>
+<p>上面的例子将返回: http://example.com/index.php/news/local/123</p>
 
-<p>Here is an example of segments passed as an array:</p>
+<p><kbd>注意：</kbd>如果config中开启了<kbd>enable_query_strings</kbd>,则连接符由/改为?，上面的url会返回这样：</p>
+<p>http://example.com/index.php<kbd>?</kbd>news/local/123</p>
+<p>所以这里要注意，如果你开启了get传值的话，请注意这里的变化。</p>
+
+<p>这是一个以数组形式传递 URI 段的例子:</p>
 
 <code>
 $segments = array('news', 'local', '123');<br />
 <br />
+
 echo site_url($segments);</code>
 
 
 <h2>base_url()</h2>
-<p>Returns your site base URL, as specified in your config file.  Example:</p>
+<p>返回在 config.php 中设定的 base_url. 例:</p>
 <code>echo base_url();</code>
 
-<p>This function returns the same thing as site_url, without the <dfn>index_page</dfn> or <dfn>url_suffix</dfn> being appended.</p>
+<p>这个函数和site_url返回相同，只是 <dfn>index_page</dfn> 和 <dfn>url_suffix</dfn> 不再被追加。</p>
 
-<p>Also like site_url, you can supply segments as a string or an array.  Here is a string example:</p>
+<p>和site_url函数一样, 做为参数传递给该函数的 URI 段可以是一个字符串，也可以是一个数组. 下面是一个字符串的例子:</p>
 
 <code>echo base_url("blog/post/123");</code>
 
-<p>The above example would return something like: http://example.com/blog/post/123</p>
+<p>上面的例子将返回: http://example.com/blog/post/123</p>
 
-<p>This is useful because unlike site_url(), you can supply a string to a file, such as an image or stylesheet.  For example:</p>
+<p>这个函数非常有用,不像site_url()那样，你可以用它指定文件的路径，像是image路径或者css路径，例如： </p>
 
 <code>echo base_url("images/icons/edit.png");</code>
 
-<p>This would give you something like: http://example.com/images/icons/edit.png</p>
+<p>上面的例子将输出像这样的结果: http://example.com/images/icons/edit.png</p>
 
 
 <h2>current_url()</h2>
-<p>Returns the full URL (including segments) of the page being currently viewed.</p>
+<p>返回当前正在查看的页面的完整URL(包括段)。</p>
 
 
 <h2>uri_string()</h2>
-<p>Returns the URI segments of any page that contains this function.  For example, if your URL was this:</p>
+<p>返回任何包含了此函数的页面的URI段。比如说，要是你的URL是这样的:</p>
 <code>http://some-site.com/blog/comments/123</code>
 
-<p>The function would return:</p>
+<p>此函数将会返回:</p>
 <code>/blog/comments/123</code>
 
+<p>注：我测试的结果：</p>
+<code>blog/comments/123</code>
 
 <h2>index_page()</h2>
-<p>Returns your site "index" page, as specified in your config file.  Example:</p>
+<p>返回在 config.php 中设定的 index_page. 例:</p>
 <code>echo index_page();</code>
 
 
 
 <h2>anchor()</h2>
 
-<p>Creates a standard HTML anchor link based on your local site URL:</p>
+<p>创建基于你的本地站点URL的标准链接地址：【原翻译为锚链接，不妥。该函数实际上是用来快速生成&lt;a>标签链接用的-zehee】</p>
 
-<code>&lt;a href="http://example.com">Click Here&lt;/a></code>
+<code>&lt;a href="http://example.com">Click Here&lt;/a>           //echo anchor('','Click Here','');</code>
 
-<p>The tag has three optional parameters:</p>
+<p>它有三个可选参数:</p>
 
 <code>anchor(<var>uri segments</var>, <var>text</var>, <var>attributes</var>)</code>
 
-<p>The first parameter can contain any segments you wish appended to the URL.  As with the <dfn>site_url()</dfn> function above,
-segments can be a string or an array.</p>
+<p>第一个参数包含你想附加到URL的任何段.像上面的<dfn>site_url()</dfn> 函数一样,段可以是字符串或数组.</p>
 
-<p><strong>Note:</strong>&nbsp; If you are building links that are internal to your application do not include the base URL (http://...).  This
-will be added automatically from the information specified in your config file. Include only the URI segments you wish appended to the URL.</p>
+<p><strong>注意:</strong>&nbsp; 如果你创建在应用程序内部的链接没有包含基本URL(http://...),这个参数会从你配置文件信息中自动加载。只需要写上你的 URL 分段即可。</p>
 
-<p>The second segment is the text you would like the link to say.  If you leave it blank, the URL will be used.</p>
+<p>第二个参数是你想给链接的内容（&lt;a>标签中间的内容）.如果让它为空,将会由URL替代.</p>
 
-<p>The third parameter can contain a list of attributes you would like added to the link.  The attributes can be a simple string or an associative array.</p>
+<p>第三个参数包含一组你想附加给链接的属性.这些属性可以是简单的字符串或相关的数组.</p>
 
-<p>Here are some examples:</p>
+<p>这里有一些例子:</p>
 
 <code>echo anchor('news/local/123', 'My News', 'title="News title"');</code>
 
-<p>Would produce: &lt;a href="http://example.com/index.php/news/local/123" title="News title">My News&lt;/a></p>
+<p>输出(链接名字'My News'): &lt;a href="http://example.com/index.php/news/local/123" title="News title">My News&lt;/a></p>
 
 <code>echo anchor('news/local/123', 'My News', array('title' => 'The best news!'));</code>
 
-<p>Would produce: &lt;a href="http://example.com/index.php/news/local/123" title="The best news!">My News&lt;/a></p>
+<p>输出(鼠标放在上面会有'The best news!'提示): <a href="javascript:if(confirm('http://example.com/index.php/news/local/123  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://example.com/index.php/news/local/123'" tppabs="http://example.com/index.php/news/local/123" title="The best news!">My News</a></p>
 
 
 <h2>anchor_popup()</h2>
 
-<p>Nearly identical to the <dfn>anchor()</dfn> function except that it opens the URL in a new window.
+<p>几乎和<dfn>anchor()</dfn> 函数相同,区别是它会在新窗口打开链接.
 
-You can specify JavaScript window attributes in the third parameter to control how the window is opened. If
-the third parameter is not set it will simply open a new window with your own browser settings.  Here is an example
-with attributes:</p>
+你可以在第三个参数中指定JavaScript窗口属性来控制窗口的打开方式. 如果第三个参数没有设置,它会直接根据你的浏览器设置打开新窗口.这是一个属性设置的例子:</p>
 
 <code>
 
 $atts = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'width'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> '800',<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'height'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> '600',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'scrollbars' => 'yes',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'status'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'yes',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'resizable'&nbsp;&nbsp;=> 'yes',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'screenx'&nbsp;&nbsp;&nbsp;&nbsp;=> '0',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'screeny'&nbsp;&nbsp;&nbsp;&nbsp;=> '0'<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
 echo anchor_popup('news/local/123', 'Click Me!', $atts);</code>
 
-<p>Note: The above attributes are the function defaults so you only need to set the ones that are different from what you need.
-If you want the function to use all of its defaults simply pass an empty array in the third parameter:</p>
+<p>注意: 以上是函数默认设置,你只要根据自己需要设置不同.如果你想函数使用默认设置,直接传一个空数组给第三个参数就行了:</p>
 
 <code>echo anchor_popup('news/local/123', 'Click Me!', array());</code>
 
 
 <h2>mailto()</h2>
 
-<p>Creates a standard HTML email link.  Usage example:</p>
+<p>创建标准HTML电子邮件链接.习惯用例:</p>
 
 <code>echo mailto('me@my-site.com', 'Click Here to Contact Me');</code>
 
-<p>As with the <dfn>anchor()</dfn> tab above, you can set attributes using the third parameter.</p>
+<p>像上面的<dfn>anchor()</dfn> 一样, 你可以用第三个参数设置属性.</p>
 
 
 <h2>safe_mailto()</h2>
 
-<p>Identical to the above function except it writes an obfuscated version of the mailto tag using ordinal numbers
-written with JavaScript to help prevent the email address from being harvested by spam bots.</p>
-
+<p>用法和上面的函数相同,区别是它用JavaScript写了基于顺序号码的不易识别的mailto版本标签,可以阻止email地址被垃圾邮件截获.</p>
 
 <h2>auto_link()</h2>
 
-<p>Automatically turns URLs and email addresses contained in a string into links.  Example:</p>
+<p>自动把包含URL和email地址的字串转换成链接. 例如:</p>
 
 <code>$string = auto_link($string);</code>
 
-<p>The second parameter determines whether URLs and emails are converted or just one or the other.  Default behavior is both
-if the parameter is not specified.  Email links are encoded as safe_mailto() as shown above.</p>
+<p>第二个参数决定URL和email是否都转换或其中一个转换.如果参数没有指定默认是两个都转换.Email links are encoded as safe_mailto() as shown above.</p>
 
-<p>Converts only URLs:</p>
+<p>只转换URL:</p>
 <code>$string = auto_link($string, 'url');</code>
 
-<p>Converts only Email addresses:</p>
+<p>只转换Email地址:</p>
 <code>$string = auto_link($string, 'email');</code>
 
-<p>The third parameter determines whether links are shown in a new window.  The value can be TRUE or FALSE (boolean):</p>
+<p>第三个参数决定链接是否都在新窗口打开.参数值可以是TRUE 或 FALSE(boolean):</p>
 <code>$string = auto_link($string, 'both', TRUE);</code>
 
 
 <h2>url_title()</h2>
-<p>Takes a string as input and creates a human-friendly URL string. This is useful if, for example, you have a blog
-in which you'd like to use the title of your entries in the URL.  Example:</p>
+<p>输入一个字符串并且创建用户友好的URL字串.举个例子,你有一个blog,而且你想在URL中使用条目的标题,这个函数就有用了.例如: </p>
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
 $url_title = url_title($title);<br />
 <br />
-// Produces:  Whats-wrong-with-CSS
+// 输出:  Whats-wrong-with-CSS
 </code>
 
 
-<p>The second parameter determines the word delimiter.  By default dashes are used.</p>
+<p>第2个参数指定单词之间的分隔符. 默认使用破折号'-'.</p>
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
 $url_title = url_title($title, '_');<br />
 <br />
-// Produces:  Whats_wrong_with_CSS
+// 输出:  Whats_wrong_with_CSS
 </code>
 
-<p>The third parameter determines whether or not lowercase characters are forced.  By default they are not.  Options are boolean <dfn>TRUE</dfn>/<dfn>FALSE</dfn>:</p>
+<p>第3个参数决定了是否强制转换为小写.默认情况下不会.参数类型为布尔值
+<dfn>TRUE</dfn>/<dfn>FALSE</dfn>:</p>
 
 <code>$title = "What's wrong with CSS?";<br />
 <br />
@@ -249,8 +251,8 @@ $url_title = url_title($title, '_', TRUE);<br />
 // Produces:  whats_wrong_with_css
 </code>
 
-<h3>prep_url()</h3>
-<p>This function will add <kbd>http://</kbd> in the event that a scheme is missing from a URL.  Pass the URL string to the function like this:</p>
+<h2>prep_url()</h2>
+<p>在URL中没有<kbd>http://</kbd>的情况下,这个函数可以附加上.像这样把URL字串传递给函数:</p>
 <code>
 $url = "example.com";<br /><br />
 $url = prep_url($url);</code>
@@ -260,43 +262,55 @@ $url = prep_url($url);</code>
 
 <h2>redirect()</h2>
 
-<p>Does a "header redirect" to the URI specified. If you specify the full site URL that link will be build, but for local links simply providing the URI segments
-to the controller you want to direct to will create the link. The function will build the URL based on your config file values.</p>
+<p>通过发送HTTP头，命令客户端转向到您指定的URL。您既可以指定一个完整的URL，也可以对于站内内容，指定基于网站根目录的相对URL。本函数会自动根据您的配置文件，构造出完整的URL。</p>
 
-<p>The optional second parameter allows you to choose between the "location"
-method (default) or the "refresh" method.  Location is faster, but on Windows servers it can sometimes be a problem.  The optional third parameter allows you to send a specific HTTP Response Code - this could be used for example to create 301 redirects for search engine purposes. The default Response Code is 302. The third parameter is <em>only</em> available with 'location' redirects, and not 'refresh'. Examples:</p>
+<p>你可以设定第二个参数为 location 定位操作(默认)或者 refresh 刷新操作。定位操作比刷新操作执行速度快，但是在Windows服务器上有时会报错。可选的第3个参数允许你发送一个特定的HTTP请求返回码 - 举例来说这可以用来创建303请求重定向来服务于搜索引擎. 默认的请求返回码是302(临时重定向). 第3个参数<em>只</em>使用于'location'重定向, 而不是用于'refresh'. 范例:</p>
 
-<code>if ($logged_in == FALSE)<br />
-{<br />
+<code>
+    //注意！！一定不要忘了加载 $this-&gt;load-&gt;helper('url');<br/>
+    <br/>if ($logged_in == FALSE)<br />
+&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redirect('/login/form/', 'refresh');<br />
-}<br />
+&#125;<br />
 <br />
 // with 301 redirect<br />
 redirect('/article/13', 'location', 301);</code>
 
-<p class="important"><strong>Note:</strong> In order for this function to work it must be used before anything is outputted
-to the browser since it utilizes server headers.<br />
-<strong>Note:</strong> For  very fine grained control over headers, you should use the <a href="../libraries/output.html">Output  Library</a>'s set_header() function.</p>
-
-
-
-
-
-
+<p class="important"><strong>注意：</strong>由于此函数需要处理header头文件，因此它必须在向客户端输出任何内容之前调用。<br />
+<strong>注意：</strong>如果您想对HTTP头做更细致的设置，您可以使用<a href="../libraries/output.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/output.html">输出类</a>的 set_header() 函数。</p><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+Deloz, dren_a, Hex, IT不倒翁, kkorange, linfj, LSvKing, mp5baby, mynameisjian, nardo, shamiao, tinsn, yeto, yinzhili, zehee, 大漠沙尘, 杜建宇</div>
+<div id="DocDate">
+最后修改: 2014-05-19 12:49:00</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="typography_helper.html">Typography Helper</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="xml_helper.html">XML Helper</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="typography_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/typography_helper.html">排版辅助函数</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="xml_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/xml_helper.html">XML 辅助函数</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

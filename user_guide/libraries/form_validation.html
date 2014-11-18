@@ -1,168 +1,164 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Form Validation : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>表单验证 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="form_validation.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/form_validation.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Form Validation
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;表单验证    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>表单验证详解</h1>
 
-<h1>Form Validation</h1>
-
-<p>CodeIgniter provides a comprehensive form validation and data prepping class that helps minimize the amount of code you'll write.</p>
+<p>CodeIgniter 提供了一个全面的表单验证和数据预处理类以帮助缩减你所写的代码。</p>
 
 <ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#tutorial">Form Validation Tutorial</a>
+<li><a href="#overview">概述</a></li>
+<li><a href="#tutorial">表单验证指南</a>
 
-	<ul>
-		<li><a href="#theform">The Form</a></li>
-		<li><a href="#thesuccesspage">The Success Page</a></li>
-		<li><a href="#thecontroller">The Controller</a></li>
-		<li><a href="#validationrules">Setting Validation Rules</a></li>
-		<li><a href="#validationrulesasarray">Setting Validation Rules Using an Array</a></li>
-		<li><a href="#cascadingrules">Cascading Rules</a></li>
-		<li><a href="#preppingdata">Prepping Data</a></li>
-		<li><a href="#repopulatingform">Re-populating the Form</a></li>
-		<li><a href="#callbacks">Callbacks</a></li>
-		<li><a href="#settingerrors">Setting Error Messages</a></li>
-		<li><a href="#errordelimiters">Changing the Error Delimiters</a></li>
-		<li><a href="#translatingfn">Translating Field Names</a></li>
-		<li><a href="#individualerrors">Showing Errors Individually</a></li>
-		<li><a href="#savingtoconfig">Saving Sets of Validation Rules to a Config File</a></li>
-		<li><a href="#arraysasfields">Using Arrays as Field Names</a></li>
-	</ul>
+ <ul>
+  <li><a href="#theform">表单</a></li>
+  <li><a href="#thesuccesspage">成功页面</a></li>
+  <li><a href="#thecontroller">控制器</a></li>
+  <li><a href="#validationrules">设置验证规则</a></li>
+  <li><a href="#validationrulesasarray">使用一个数组设置验证规则</a></li>
+
+  <li><a href="#cascadingrules">级联规则（Cascading Rules）</a></li>
+  <li><a href="#preppingdata">预处理数据（Prepping Data）</a></li>
+  <li><a href="#repopulatingform">重新填充表单（Re-populating the Form）</a></li>
+  <li><a href="#callbacks">回调</a></li>
+  <li><a href="#settingerrors">设置错误信息</a></li>
+  <li><a href="#errordelimiters">更改错误定界符</a></li>
+
+  <li><a href="#translatingfn">翻译表单域名字</a></li>
+  <li><a href="#individualerrors">独立显示错误</a></li>
+  <li><a href="#savingtoconfig">将一系列验证规则保存到一个配置文件</a></li>
+  <li><a href="#arraysasfields">使用数组作为表单域名字</a></li>
+ </ul>
 </li>
-<li><a href="#rulereference">Rule Reference</a></li>
-<li><a href="#preppingreference">Prepping Reference</a></li>
-<li><a href="#functionreference">Function Reference</a></li>
-<li><a href="#helperreference">Helper Reference</a></li>
+<li><a href="#rulereference">规则参考</a></li>
+
+<li><a href="#preppingreference">预处理参考</a></li>
+<li><a href="#functionreference">函数参考</a></li>
+<li><a href="#helperreference">辅助函数参考</a></li>
 
 </ul>
-
-
-
-
 
 
 <p>&nbsp;</p>
 
 <a name="overview"></a>
-<h1>Overview</h1>
+
+<h1>概述</h1>
 
 
-<p>Before explaining CodeIgniter's approach to data validation, let's describe the ideal scenario:</p>
-
-<ol>
-<li>A form is displayed.</li>
-<li>You fill it in and submit it.</li>
-<li>If you submitted something invalid, or perhaps missed a required item, the form is redisplayed containing your data
-along with an error message describing the problem.</li>
-<li>This process continues until you have submitted a valid form.</li>
-</ol>
-
-<p>On the receiving end, the script must:</p>
+<p>在解释 CodeIgniter 的数据验证处理之前，让我们先描述一下一般的情况：</p>
 
 <ol>
-<li>Check for required data.</li>
-<li>Verify that the data is of the correct type, and meets the correct criteria. For example, if a username is submitted
-it must be validated to contain only permitted characters.  It must be of a minimum length,
-and not exceed a maximum length. The username can't be someone else's existing username, or perhaps even a reserved word. Etc.</li>
-<li>Sanitize the data for security.</li>
-<li>Pre-format the data if needed (Does the data need to be trimmed?  HTML encoded?  Etc.)</li>
-<li>Prep the data for insertion in the database.</li>
+<li>一个表单显示了。</li>
+<li>你填写并提交了它。</li>
+<li>如果你提交了一些无效的信息，或者可能漏掉了一个必填项，表单将会连同你的数据和错误问题的描述信息重新显示。</li>
+<li>这个过程将继续，直到你提交了一个有效的表单。</li>
 </ol>
 
+<p>在接收端，脚本必须：</p>
 
-<p>Although there is nothing terribly complex about the above process, it usually requires a significant
-amount of code, and to display error messages, various control structures are usually placed within the form HTML.
-Form validation, while simple to create, is generally very messy and tedious to implement.</p>
+<ol>
+<li>检查必须的数据。</li>
+<li>验证数据是否为正确的类型，合适的标准。例如，如果一个用户名被提交，它必须被验证是否只包含了允许的字符。它必须有一个最小长度，不能超过最大长度。用户名不能是已存在的他人用户名，或者甚至是一个保留字等。</li>
+<li>清理数据使其安全。</li>
+<li>如果需要，预格式化数据（数据需要清除空白吗？经过 HTML 编码？等。）</li>
+<li>准备数据，插入数据库。</li>
+</ol>
+
+<p>尽管上面的过程并不是很复杂，但是通常需要编写很多代码，而且为了显示错误信息，在网页中经常要使用多种不同的控制结构。创建表单验证虽简单，实施起来却也枯燥无味。</p>
 
 <p>&nbsp;</p>
 
 
 <a name="tutorial"></a>
-<h1>Form Validation Tutorial</h1>
+<h1>表单验证指南</h1>
 
-<p>What follows is a "hands on" tutorial for implementing CodeIgniters Form Validation.</p>
+<p>下面是如何实施CodeIgniter表单验证的一个简易教程</p>
 
 
-<p>In order to implement form validation you'll need three things:</p>
+<p>为了进行表单验证，你需要这三样东西：</p>
 
 <ol>
-<li>A <a href="../general/views.html">View</a> file containing a form.</li>
-<li>A View file containing a "success" message to be displayed upon successful submission.</li>
-<li>A <a href="../general/controllers.html">controller</a> function to receive and process the submitted data.</li>
+<li>一个包含表单的 <a href="../general/views.html" tppabs="http://codeigniter.org.cn/user_guide/general/views.html">视图</a> 文件。</li>
+<li>一个包含“成功”信息的视图文件，在成功提交后将被显示。</li>
+<li>一个接收并处理所提交数据的 <a href="../general/controllers.html" tppabs="http://codeigniter.org.cn/user_guide/general/controllers.html">控制器</a> 函数。</li>
 </ol>
 
-<p>Let's create those three things, using a member sign-up form as the example.</p>
+<p>让我们以一个会员注册表单为例来创建这三个玩意。</p>
 
 
 
 <a name="theform"></a>
 
-<h2>The Form</h2>
+<h2>表单</h2>
 
-<p>Using a text editor, create a form called <dfn>myform.php</dfn>.  In it, place this code and save it to your <samp>applications/views/</samp>
-folder:</p>
+<p>使用一个文本编辑器，创建一个名叫 <dfn>myform.php</dfn> 的表单。在它里面放上这些代码并把它保存到你的 <samp>applications/views/</samp> 文件夹中:</p>
 
 
-<textarea class="textarea" style="width:100%" cols="50" rows="30">&lt;html>
+<textarea class="textarea" style="width:100%" cols="50" rows="30">&lt;html&gt;
 &lt;head>
 &lt;title>My Form&lt;/title>
 &lt;/head>
 &lt;body>
 
-&lt;?php echo validation_errors(); ?>
+&lt;?php echo validation_errors(); ?&gt;
 
-&lt;?php echo form_open('form'); ?>
+&lt;?php echo form_open('form'); ?&gt;
 
 &lt;h5>Username&lt;/h5>
 &lt;input type="text" name="username" value="" size="50" />
@@ -184,19 +180,14 @@ folder:</p>
 &lt;/html>
 </textarea>
 
-
-
-
 <a name="thesuccesspage"></a>
-<h2>The Success Page</h2>
+<h2>成功页面</h2>
 
-
-<p>Using a text editor, create a form called <dfn>formsuccess.php</dfn>.  In it, place this code and save it to your <samp>applications/views/</samp>
-folder:</p>
-
+<p>使用一个文本编辑器，创建一个名叫 <dfn>formsuccess.php</dfn> 的表单。在它里面放上这些代码并保存到你的 <samp>applications/views/</samp>
+文件夹:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="14">
-&lt;html>
+&lt;html&gt;
 &lt;head>
 &lt;title>My Form&lt;/title>
 &lt;/head>
@@ -204,7 +195,7 @@ folder:</p>
 
 &lt;h3>Your form was successfully submitted!&lt;/h3>
 
-&lt;p>&lt;?php echo anchor('form', 'Try it again!'); ?>&lt;/p>
+&lt;p>&lt;?php echo anchor('form', 'Try it again!'); ?&gt;&lt;/p>
 
 &lt;/body>
 &lt;/html>
@@ -213,149 +204,146 @@ folder:</p>
 
 
 <a name="thecontroller"></a>
-<h2>The Controller</h2>
+<h2>控制器</h2>
 
-<p>Using a text editor, create a controller called <dfn>form.php</dfn>.  In it, place this code and save it to your <samp>applications/controllers/</samp>
-folder:</p>
+<p>使用一个文本编辑器，创建一个名叫 <dfn>form.php</dfn> 的控制器。在它里面，放上这些代码并保存到你的 <samp>applications/controllers/</samp>
+文件夹:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="21">&lt;?php
 
-class Form extends CI_Controller {
-
-	function index()
-	{
-		$this->load->helper(array('form', 'url'));
-
-		$this->load->library('form_validation');
-
-		if ($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('myform');
-		}
-		else
-		{
-			$this->load->view('formsuccess');
-		}
-	}
-}
-?></textarea>
+class Form extends CI_Controller &#123;
+ 
+ function index()
+ &#123;
+  $this-&gt;load-&gt;helper(array('form', 'url'));
+  
+  $this-&gt;load-&gt;library('form_validation');
+    
+  if ($this-&gt;form_validation-&gt;run() == FALSE)
+  &#123;
+   $this-&gt;load-&gt;view('myform');
+  &#125;
+  else
+  &#123;
+   $this-&gt;load-&gt;view('formsuccess');
+  &#125;
+ &#125;
+&#125;
+?&gt;</textarea>
 
 
 <h2>Try it!</h2>
 
-<p>To try your form, visit your site using a URL similar to this one:</p>
+<p>要测试你的表单，请使用类似这样的URL访问你的网站：</p>
 
 <code>example.com/index.php/<var>form</var>/</code>
 
-<p><dfn>If you submit the form you should simply see the form reload.  That's because you haven't set up any validation
-rules yet.</dfn></p>
+<p><dfn>如果你提交表单你只会看到表单重新加载了。这是因为你还没有设置验证规则。</dfn></p>
 
-<p><strong>Since you haven't told the Form Validation class to validate anything yet, it returns <kbd>FALSE</kbd> (boolean false) by default.  The <samp>run()</samp>
-function only returns <kbd>TRUE</kbd> if it has successfully applied your rules without any of them failing.</strong></p>
+<p><strong>由于你还没有告诉表单验证类验证什么东西。它只是默认的返回了 <kbd>FALSE</kbd> (boolean false) 。 <samp>run()</samp>
+方法只在全部成功匹配了你的规则才会返回 <kbd>TRUE</kbd> 。</strong></p>
 
 
-<h2>Explanation</h2>
+<h2>解析</h2>
 
-<p>You'll notice several things about the above pages:</p>
+<p>你会注意到在此页上面的几点：</p>
 
-<p>The <dfn>form</dfn> (myform.php) is a standard web form with a couple exceptions:</p>
+<p><dfn>表单</dfn> (myform.php) 是一个标准的Web表单，除了以下两点：</p>
 
 <ol>
-<li>It uses a <dfn>form helper</dfn> to create the form opening.
-Technically, this isn't necessary.  You could create the form using standard HTML.  However, the benefit of using the helper
-is that it generates the action URL for you, based on the URL in your config file.  This makes your application more portable in the event your URLs change.</li>
+<li>它使用一个 <dfn>表单辅助函数</dfn> 创建表单开始。
+技术上，这并非必要。你可以使用标准的HTML来创建，然而，使用辅助函数的好处是它为你生成了基于你配置文件中的URL的 action URL。这使得你的应用在更改URL时更具移植性。</li>
 
-<li>At the top of the form you'll notice the following function call:
+<li>在表单的顶端你将注意到如下函数调用：
 <code>&lt;?php echo validation_errors(); ?&gt;</code>
 
-<p>This function will return any error messages sent back by the validator. If there are no messages it returns an empty string.</p>
+<p>这个函数将会返回验证器送回的所有错误信息。如果没有错误信息，它将返回空字符串。</p>
 </li>
 </ol>
 
-<p>The <dfn>controller</dfn> (form.php) has one function: <dfn>index()</dfn>. This function initializes the validation class and
-loads the <var>form helper</var> and <var>URL helper</var> used by your view files. It also <samp>runs</samp>
-the validation routine. Based on
-whether the validation was successful it either presents the form or the success page.</p>
+<p><dfn>控制器</dfn> (form.php) 有一个方法: <dfn>index()</dfn>。这个方法初始化验证类并加载你视图中用到的 <a href="../helpers/form_helper.html" tppabs="http://codeigniter.org.cn/user_guide/helpers/form_helper.html"><var>表单辅助函数</var></a> 和<var>URL 辅助函数</var>  它也会 <samp>运行</samp>
+
+验证程序。基于验证是否成功，它会重现表单或显示成功页面。</p>
 
 
 
 
 <a name="validationrules"></a>
 
-<h2>Setting Validation Rules</h2>
+<h2>设置验证规则</h2>
 
-<p>CodeIgniter lets you set as many validation rules as you need for a given field, cascading them in order, and it even lets you prep and pre-process the field data
-at the same time. To set validation rules you will use the <dfn>set_rules()</dfn> function:</p>
+<p>CodeIgniter允许你为单个表单域创建多个验证规则，按顺序层叠在一起，你甚至可以同时预先处理表单域数据。要设置验证规则请使用<dfn>set_rules()</dfn> 函数:</p>
 
-<code>$this->form_validation->set_rules();</code>
+<code>$this-&gt;form_validation-&gt;set_rules();</code>
 
-<p>The above function takes <strong>three</strong> parameters as input:</p>
+<p>上面的函数使用 <strong>三个</strong> 参数作为输入:</p>
 
 <ol>
-	<li>The field name - the exact name you've given the form field.</li>
-	<li>A "human" name for this field, which will be inserted into the error message. For example, if your field is named "user" you might give it a human name of "Username". <strong>Note:</strong> If you would like the field name to be stored in a language file, please see <a href="#translatingfn">Translating Field Names</a>.</li>
-	<li>The validation rules for this form field.</li>
+ <li>表单域的名字 - 就是你给表单域取的那个名字。</li>
+ <li>一个此表单域的 "人性化" 名字，它将被插入到错误信息中。例如，如果你有一个表单域叫做“user”你可能给它一个人性化名字叫做“用户名”。 <strong>注意:</strong> 如果你想让表单域的名字保存在一个语言文件里，请参考 <a href="#translatingfn">翻译表单域名字</a>.</li>
+
+ <li>为此表单域设置的验证规则。</li>
 </ol>
 
 
-<p><br />Here is an example. In your <dfn>controller</dfn> (form.php), add this code just below the validation initialization function:</p>
+<p><br />这儿有一个示例。在你的 <dfn>控制器</dfn> (form.php) 中紧接着验证初始化函数之后，添加这段代码：</p>
 
 <code>
-$this->form_validation->set_rules('username', 'Username', 'required');<br />
-$this->form_validation->set_rules('password', 'Password', 'required');<br />
-$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');<br />
-$this->form_validation->set_rules('email', 'Email', 'required');<br />
+$this-&gt;form_validation-&gt;set_rules('username', 'Username', 'required');<br />
+$this-&gt;form_validation-&gt;set_rules('password', 'Password', 'required');<br />
+
+$this-&gt;form_validation-&gt;set_rules('passconf', 'Password Confirmation', 'required');<br />
+$this-&gt;form_validation-&gt;set_rules('email', 'Email', 'required');<br />
 </code>
 
-<p>Your controller should now look like this:</p>
+<p>你的控制器现在看起来像这样：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="28">&lt;?php
 
-class Form extends CI_Controller {
+class Form extends CI_Controller &#123;
+ 
+ function index()
+ &#123;
+  $this-&gt;load-&gt;helper(array('form', 'url'));
+  
+  $this-&gt;load-&gt;library('form_validation');
+   
+  $this-&gt;form_validation-&gt;set_rules('username', 'Username', 'required');
+  $this-&gt;form_validation-&gt;set_rules('password', 'Password', 'required');
+  $this-&gt;form_validation-&gt;set_rules('passconf', 'Password Confirmation', 'required');
+  $this-&gt;form_validation-&gt;set_rules('email', 'Email', 'required');
+   
+  if ($this-&gt;form_validation-&gt;run() == FALSE)
+  &#123;
+   $this-&gt;load-&gt;view('myform');
+  &#125;
+  else
+  &#123;
+   $this-&gt;load-&gt;view('formsuccess');
+  &#125;
+ &#125;
+&#125;
+?&gt;</textarea>
 
-	function index()
-	{
-		$this->load->helper(array('form', 'url'));
+<p><dfn>现在留空表单域提交表单你会看到错误信息。
+如果你填充所有的表单域提交表单你会看到成功页。</dfn></p>
 
-		$this->load->library('form_validation');
-
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required');
-
-		if ($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('myform');
-		}
-		else
-		{
-			$this->load->view('formsuccess');
-		}
-	}
-}
-?></textarea>
-
-<p><dfn>Now submit the form with the fields blank and you should see the error messages.
-If you submit the form with all the fields populated you'll see your success page.</dfn></p>
-
-<p class="important"><strong>Note:</strong> The form fields are not yet being re-populated with the data when
-there is an error.  We'll get to that shortly.</p>
-
+<p class="important"><strong>注意:</strong> 出现错误时表单域并没有被使用数据重新填充。稍后我们去搞这个。</p>
 
 
 
 <a name="validationrulesasarray"></a>
-<h2>Setting Rules Using an Array</h2>
+<h2>使用一个数组设置验证规则</h2>
 
-<p>Before moving on it should be noted that the rule setting function can be passed an array if you prefer to set all your rules in one action.
-If you use this approach you must name your array keys as indicated:</p>
+<p>继续之前请注意，如果你更喜欢通过一个操作设置所有规则的话，向规则设定函数传递的可以是一个数组。
+如果你想用这个方式，你必须这样命名你的数组键:</p>
 
 <code>
 $config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field'&nbsp;&nbsp;&nbsp;=> 'username', <br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label'&nbsp;&nbsp;&nbsp;=> 'Username', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules'&nbsp;&nbsp;&nbsp;=> 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
@@ -363,6 +351,7 @@ $config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field'&nbsp;&nbsp;&nbsp;=> 'password', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label'&nbsp;&nbsp;&nbsp;=> 'Password', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules'&nbsp;&nbsp;&nbsp;=> 'required'<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field'&nbsp;&nbsp;&nbsp;=> 'passconf', <br />
@@ -370,107 +359,104 @@ $config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules'&nbsp;&nbsp;&nbsp;=> 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field'&nbsp;&nbsp;&nbsp;=> 'email', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label'&nbsp;&nbsp;&nbsp;=> 'Email', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules'&nbsp;&nbsp;&nbsp;=> 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->form_validation->set_rules($config);
+$this-&gt;form_validation-&gt;set_rules($config);
 </code>
-
 
 
 
 
 
 <a name="cascadingrules"></a>
-<h2>Cascading Rules</h2>
+<h2>级联规则（Cascading Rules）</h2>
 
-<p>CodeIgniter lets you pipe multiple rules together.  Let's try it. Change your rules in the third parameter of rule setting function, like this:</p>
+<p>CodeIgniter 允许你将多个规则连接在一起。让我们试一试。修改规则设置函数中的第三个参数，如下：</p>
 
 <code>
-$this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|max_length[12]|is_unique[users.username]');<br />
-$this->form_validation->set_rules('password', 'Password', 'required|matches[passconf]');<br />
-$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');<br />
-$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');<br />
+$this-&gt;form_validation-&gt;set_rules('username', 'Username', 'required|min_length[5]|max_length[12]|is_unique[users.username]');<br />
+$this-&gt;form_validation-&gt;set_rules('password', 'Password', 'required|matches[passconf]');<br />
+$this-&gt;form_validation-&gt;set_rules('passconf', 'Password Confirmation', 'required');<br />
+$this-&gt;form_validation-&gt;set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');<br />
 </code>
 
-<p>The above code sets the following rules:</p>
+<p>上面的代码设置了一组规则:</p>
 
 <ol>
-<li>The username field be no shorter than 5 characters and no longer than 12.</li>
-<li>The password field must match the password confirmation field.</li>
-<li>The email field must contain a valid email address.</li>
+<li>用户名表单域长度不得小于5个字符以及大于12个字符。</li>
+<li>密码表单域必须跟密码确认表单域的数据一致。</li>
+<li>电子邮件表单域必须是一个有效邮件地址。</li>
 </ol>
 
-<p>Give it a try! Submit your form without the proper data and you'll see new error messages that correspond to your new rules.
-There are numerous rules available which you can read about in the validation reference.</p>
+<p>马上试试看！提交不合法的数据后你会看到新的错误信息跟你设置的新规则相符。在验证参考页中你可以阅读到更多规则。</p>
 
 
 
 <a name="preppingdata"></a>
-<h2>Prepping Data</h2>
+<h2>预处理数据</h2>
 
-<p>In addition to the validation functions like the ones we used above, you can also prep your data in various ways.
-For example, you can set up rules like this:</p>
+<p>作为上面使用的验证函数的附加，你也可以以多种方式预处理你的数据。
+例如，你可以设置像这样的规则：</p>
 
 <code>
-$this->form_validation->set_rules('username', 'Username', '<kbd>trim</kbd>|required|min_length[5]|max_length[12]|<kbd>xss_clean</kbd>');<br />
-$this->form_validation->set_rules('password', 'Password', '<kbd>trim</kbd>|required|matches[passconf]|<kbd>md5</kbd>');<br />
-$this->form_validation->set_rules('passconf', 'Password Confirmation', '<kbd>trim</kbd>|required');<br />
-$this->form_validation->set_rules('email', 'Email', '<kbd>trim</kbd>|required|valid_email');<br />
+$this-&gt;form_validation-&gt;set_rules('username', 'Username', '<kbd>trim</kbd>|required|min_length[5]|max_length[12]|<kbd>xss_clean</kbd>');<br />
+
+$this-&gt;form_validation-&gt;set_rules('password', 'Password', '<kbd>trim</kbd>|required|matches[passconf]|<kbd>md5</kbd>');<br />
+$this-&gt;form_validation-&gt;set_rules('passconf', 'Password Confirmation', '<kbd>trim</kbd>|required');<br />
+$this-&gt;form_validation-&gt;set_rules('email', 'Email', '<kbd>trim</kbd>|required|valid_email');<br />
 </code>
 
 
-<p>In the above example, we are "trimming" the fields, converting the password to MD5, and running the username through
-the "xss_clean" function, which removes malicious data.</p>
+<p>在上面的例子里，我们“修整（trimming，去掉字符串两端空白）”了数据，转换密码为MD5，将用户名通过“xss_clean”函数处理去掉了有害数据。</p>
 
-<p><strong>Any native PHP function that accepts one parameter can be used as a rule, like <dfn>htmlspecialchars</dfn>,
-<dfn>trim</dfn>,  <dfn>MD5</dfn>, etc.</strong></p>
+<p><strong>任何PHP自身接收一个参数的函数都可以被用作一个规则，比如 <dfn>htmlspecialchars</dfn>,
+<dfn>trim</dfn>,  <dfn>MD5</dfn>, 等。</strong></p>
 
-<p><strong>Note:</strong> You will generally want to use the prepping functions <strong>after</strong>
-the validation rules so if there is an error, the original data will be shown in the form.</p>
+<p><strong>注意:</strong> 你一般会在验证规则<strong>之后</strong>使用这些预处理功能，这样如果发生错误，原数据将会被显示在表单。</p>
 
 
 
 
 <a name="repopulatingform"></a>
-<h2>Re-populating the form</h2>
+<h2>重新填充表单（Re-populating the form）</h2>
 
-<p>Thus far we have only been dealing with errors.  It's time to repopulate the form field with the submitted data. CodeIgniter offers several helper functions
-that permit you to do this. The one you will use most commonly is:</p>
+<p>目前为止我们只处理了错误。是使用提交的数据重填表单的时候了。CodeIgniter 为此提供了几个辅助函数。你最常用到的一个是：</p>
 
 <code>set_value('field name')</code>
 
 
-<p>Open your <dfn>myform.php</dfn> view file and update the <strong>value</strong> in each field using the <dfn>set_value()</dfn> function:</p>
+<p>打开 <dfn>myform.php</dfn> 视图文件并使用 <dfn>set_value()</dfn> 函数更新每个表单域的 <strong>值</strong> ：</p>
 
-<p><strong>Don't forget to include each field name in the <dfn>set_value()</dfn> functions!</strong></p>
+<p><strong>不要忘记在<dfn>set_value()</dfn>函数中包含每个表单域的名字！</strong></p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="30">
-&lt;html>
+&lt;html&gt;
 &lt;head>
 &lt;title>My Form&lt;/title>
 &lt;/head>
 &lt;body>
 
-&lt;?php echo validation_errors(); ?>
+&lt;?php echo validation_errors(); ?&gt;
 
-&lt;?php echo form_open('form'); ?>
+&lt;?php echo form_open('form'); ?&gt;
 
 &lt;h5>Username&lt;/h5>
-&lt;input type="text" name="username" value="&lt;?php echo set_value('username'); ?>" size="50" />
+&lt;input type="text" name="username" value="&lt;?php echo set_value('username'); ?&gt;" size="50" />
 
 &lt;h5>Password&lt;/h5>
-&lt;input type="text" name="password" value="&lt;?php echo set_value('password'); ?>" size="50" />
+&lt;input type="text" name="password" value="&lt;?php echo set_value('password'); ?&gt;" size="50" />
 
 &lt;h5>Password Confirm&lt;/h5>
-&lt;input type="text" name="passconf" value="&lt;?php echo set_value('passconf'); ?>" size="50" />
+&lt;input type="text" name="passconf" value="&lt;?php echo set_value('passconf'); ?&gt;" size="50" />
 
 &lt;h5>Email Address&lt;/h5>
-&lt;input type="text" name="email" value="&lt;?php echo set_value('email'); ?>" size="50" />
+&lt;input type="text" name="email" value="&lt;?php echo set_value('email'); ?&gt;" size="50" />
 
 &lt;div>&lt;input type="submit" value="Submit" />&lt;/div>
 
@@ -481,159 +467,152 @@ that permit you to do this. The one you will use most commonly is:</p>
 </textarea>
 
 
-<p><dfn>Now reload your page and submit the form so that it triggers an error.  Your form fields should now be re-populated</dfn></p>
+<p><dfn>现在刷新你的页面并提交表单产生一个错误。你的表单域应该被重新填写了。但是，只能重新填充设置了规则(rules)的表单域。</dfn></p>
 
-<p class="important"><strong>Note:</strong> The <a href="#functionreference">Function Reference</a> section below contains functions that
-permit you to re-populate &lt;select> menus, radio buttons, and checkboxes.</p>
-
-
-<p><strong>Important Note:</strong> If you use an array as the name of a form field, you must supply it as an array to the function.  Example:</p>
-
-<code>&lt;input type="text" name="<kbd>colors[]</kbd>" value="&lt;?php echo set_value('<kbd>colors[]</kbd>'); ?>" size="50" /></code>
-
-<p>For more info please see the <a href="#arraysasfields">Using Arrays as Field Names</a> section below.</p>
+<p class="important"><strong>注意:</strong>1.下面的 <a href="#functionreference">函数参考</a> 节包含了可以让你重填下拉菜单，单选框和复选框的函数。</p>
 
 
+<p><strong>重要提示:</strong> 如果你使用一个数组作为一个表单域的名字，你必须为函数提供给它一个数组。例如：</p>
 
+<code>&lt;input type="text" name="<kbd>colors[]</kbd>" value="&lt;?php echo set_value('<kbd>colors[]</kbd>'); ?&gt;" size="50" /></code>
+
+<p>更多信息请参考下面的 <a href="#arraysasfields">使用数组作为表单域名字</a> 一节。</p>
 
 
 <a name="callbacks"></a>
-<h2>Callbacks: Your own Validation Functions</h2>
+<h2>回调: 你自己的验证函数</h2>
 
-<p>The validation system supports callbacks to your own validation functions.  This permits you to extend the validation class
-to meet your needs.  For example, if you need to run a database query to see if the user is choosing a unique username, you can
-create a callback function that does that.  Let's create a example of this.</p>
+<p>验证系统提供了向你自己验证函数的回调。这是你可以扩展验证类以适应你的需求。例如，如果你需要执行一个数据库查询来检查用户是否选择了一个唯一的用户名，你可以创建一个回调函数做这个。咱们建个例子。</p>
 
-<p>In your controller, change the "username" rule to this:</p>
+<p>在你的控制器中，修改“username”为：</p>
 
-<code>$this->form_validation->set_rules('username', 'Username', '<kbd>callback_username_check</kbd>');</code>
+<code>$this-&gt;form_validation-&gt;set_rules('username', 'Username', '<kbd>callback_username_check</kbd>');</code>
 
-<p>Then add a new function called <dfn>username_check</dfn> to your controller.  Here's how your controller should now look:</p>
+
+<p>然后在你的控制器中添加一个新的函数名叫 <dfn>username_check</dfn> 。你的控制器现在看起来是这样：</p>
+
 
 <textarea class="textarea" style="width:100%" cols="50" rows="40">&lt;?php
 
-class Form extends CI_Controller {
+class Form extends CI_Controller &#123;
+ 
+ public function index()
+ &#123;
+  $this-&gt;load-&gt;helper(array('form', 'url'));
+  
+  $this-&gt;load-&gt;library('form_validation');
+   
+  $this-&gt;form_validation-&gt;set_rules('username', 'Username', 'callback_username_check');
+  $this-&gt;form_validation-&gt;set_rules('password', 'Password', 'required');
+  $this-&gt;form_validation-&gt;set_rules('passconf', 'Password Confirmation', 'required');
+  $this-&gt;form_validation-&gt;set_rules('email', 'Email', 'required|is_unique[users.email]');
+     
+  if ($this-&gt;form_validation-&gt;run() == FALSE)
+  &#123;
+   $this-&gt;load-&gt;view('myform');
+  &#125;
+  else
+  &#123;
+   $this-&gt;load-&gt;view('formsuccess');
+  &#125;
+ &#125;
+ 
+ public function username_check($str)
+ &#123;
+  if ($str == 'test')
+  &#123;
+   $this-&gt;form_validation-&gt;set_message('username_check', 'The %s field can not be the word "test"');
+   return FALSE;
+  &#125;
+  else
+  &#123;
+   return TRUE;
+  &#125;
+ &#125;
+ 
+&#125;
+?&gt;</textarea>
 
-	public function index()
-	{
-		$this->load->helper(array('form', 'url'));
+<p><dfn> 重新载入表单并以“test”作为用户名提交数据，你会看到表单域数据传递到回调函数中供你处理。</dfn></p>
 
-		$this->load->library('form_validation');
+<p>要调用一个回调函数只需把函数名加一个"callback_"<strong>前缀</strong>并放在验证规则里。如果你需要在你的回调函数中调用一个额外的参数，你只需要在回调函数后面用[]把参数<strong>（这个参数只能是字符串类型）</strong>括起来,
+例如: "callback_foo<strong>[bar]</strong>", 其中bar将成为你的回调函数中的第二个参数.【译者注：第一个参数是input的value值】</p>
 
-		$this->form_validation->set_rules('username', 'Username', 'callback_username_check');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
+<p><strong>注意：</strong>你也可以处理并返回传递给你的回调函数中的表单数据。如果你的回调函数返回了除布尔型的TRUE/FALSE外的任何值，它将被假定数据是你新处理过的表单数据。</p>
 
-		if ($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('myform');
-		}
-		else
-		{
-			$this->load->view('formsuccess');
-		}
-	}
 
-	public function username_check($str)
-	{
-		if ($str == 'test')
-		{
-			$this->form_validation->set_message('username_check', 'The %s field can not be the word "test"');
-			return FALSE;
-		}
-		else
-		{
-			return TRUE;
-		}
-	}
 
-}
-?></textarea>
-
-<p><dfn>Reload your form and submit it with the word "test" as the username.  You can see that the form field data was passed to your
-callback function for you to process.</dfn></p>
-
-<p>To invoke a callback just put the function name in a rule, with "callback_" as the rule <strong>prefix</strong>. If you need
-to receive an extra parameter in your callback function, just add it normally after the function name between square brackets,
-as in: "callback_foo<strong>[bar]</strong>", then it will be passed as the second argument of your callback function.</p>
-
-<p><strong>Note:</strong> You can also process the form data that is passed to your callback and return it.  If your callback returns anything other than a boolean TRUE/FALSE
-it is assumed that the data is your newly processed form data.</p>
 
 <a name="settingerrors"></a>
-<h2>Setting Error Messages</h2>
+<h2>设置错误信息</h2>
 
+<p>所有自身的错误信息位于下面的语言文件中：<dfn>language/english/form_validation_lang.php</dfn></p>
 
-<p>All of the native error messages are located in the following language file:  <dfn>language/english/form_validation_lang.php</dfn></p>
+<p>要设置你的自定义信息你可以编辑那个文件，或使用下面的函数：</p>
 
-<p>To set your own custom message you can either edit that file, or use the following function:</p>
+<code>$this-&gt;form_validation-&gt;set_message('<var>rule</var>', '<var>Error Message</var>');</code>
 
-<code>$this->form_validation->set_message('<var>rule</var>', '<var>Error Message</var>');</code>
+<p>其中 <var>rule</var> 是该条定义规则的名称，<var>Error Message</var> 该规则会显示的错误文本。</p>
 
-<p>Where <var>rule</var> corresponds to the name of a particular rule, and <var>Error Message</var> is the text you would like displayed.</p>
+<p>如果你在错误信息中包含了 <dfn>%s</dfn>，它将插入显示出你在表单域中设置的别名。</p>
 
-<p>If you include <dfn>%s</dfn> in your error string, it will be replaced with the "human" name you used for your field when you set your rules.</p>
+<p>在上面回调的例子中，, 错误信息是通过传送函数名称返回的:</p>
 
-<p>In the "callback" example above, the error message was set by passing the name of the function:</p>
+<code>$this-&gt;form_validation-&gt;set_message('username_check')</code>
 
-<code>$this->form_validation->set_message('username_check')</code>
-
-<p>You can also override any error message found in the language file.  For example, to change the message for the "required" rule you will do this:</p>
-
-<code>$this->form_validation->set_message('required', 'Your custom message here');</code>
+<p>你也可以重写语言文件中的错误信息.  例如, 你可以这么做来改变"required" 规则的信息:</p>
+<code>$this-&gt;form_validation-&gt;set_message('required', 'Your custom message here');</code>
 
 
 
 <a name="translatingfn"></a>
-<h2>Translating Field Names</h2>
+<h2>翻译表单域名称</h2>
 
-<p>If you would like to store the "human" name you passed to the <dfn>set_rules()</dfn> function in a language file, and therefore make the name able to be translated, here's how:</p>
+<p>如果你希望将传递给 <dfn>set_rules()</dfn> 函数的自然语言参数存储在一个语言文件中——使他们有一个或多个翻译版本，你可以这么做：</p>
 
-<p>First, prefix your "human" name with <dfn>lang:</dfn>, as in this example:</p>
+<p>首先，给当前表单域自定义一个key值（通常就是表单标签的name），然后添加上<dfn>lang:</dfn>前缀，如下：</p>
 
 <code>
-$this->form_validation->set_rules('first_name', '<kbd>lang:</kbd>first_name', 'required');<br />
+$this-&gt;form_validation-&gt;set_rules('first_name', '<kbd>lang:</kbd>first_name', 'required');<br />
 </code>
 
-<p>Then, store the name in one of your language file arrays (without the prefix):</p>
+<p>然后，以如下语言数组（数组的key值不必包含lang前缀）的形式保存在你的语言文件中：</p>
 
 <code>$lang['first_name'] = 'First Name';</code>
 
-<p><strong>Note:</strong> If you store your array item in a language file that is not loaded automatically by CI, you'll need to remember to load it in your controller using:</p>
+<p><strong>注意:</strong> 开发者自定义的语言文件数组（如上例）不会自动被CI加载，你需要在控制器中手动加载：</p>
 
-<code>$this->lang->load('file_name');</code>
+<code>$this-&gt;lang-&gt;load('file_name');</code>
 
-<p>See the <a href="language.html">Language Class</a> page for more info regarding language files.</p>
+<p>关于语言文件的具体设置和加载请参考 <a href="language.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/language.html">语言类</a> 说明。</p>
 
 
 <a name="errordelimiters"></a>
-<h2>Changing the Error Delimiters</h2>
+<h2>更改错误定界符</h2>
 
-<p>By default, the Form Validation class adds a paragraph tag (&lt;p&gt;) around each error message shown. You can either change these delimiters globally or
-individually.</p>
+<p>在默认情况下，表单验证类会使用 (&lt;p&gt;) 标签来分割每条错误信息，以达到分段效果。你可以自行对其进行定义。</p>
 
 <ol>
 
-<li><strong>Changing delimiters Globally</strong>
+<li><strong>定界符统一更改</strong>
 
-<p>To globally change the error delimiters, in your controller function, just after loading the Form Validation class, add this:</p>
+<p>如果需要全局更改错误定界符， 可以在你的控制器中，在表单验证类加载之后添加如下代码：</p>
 
-<code>$this->form_validation->set_error_delimiters('<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>');</code>
+<code>$this-&gt;form_validation-&gt;set_error_delimiters('<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>');</code>
 
-<p>In this example, we've switched to using div tags.</p>
+<p>在此例中，我们将定界符由系统默认的 &lt;p&gt; 更改为一个div标签。</p>
 
 </li>
 
-<li><strong>Changing delimiters Individually</strong>
+<li><strong>定界符单独更改</strong>
 
-<p>Each of the two error generating functions shown in this tutorial can be supplied their own delimiters as follows:</p>
+<p>表单验证类所提供的两种显示错误验证信息的函数，分别可以通过如下方法来设置它们的定界符：</p>
 
-<code>&lt;?php echo form_error('field name', '<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>'); ?></code>
+<code>&lt;?php echo form_error('field name', '<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>'); ?&gt;</code>
 
-<p>Or:</p>
+<p>或者：</p>
 
-<code>&lt;?php echo validation_errors('<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>'); ?></code>
+<code>&lt;?php echo validation_errors('<kbd>&lt;div class="error"></kbd>', '<kbd>&lt;/div></kbd>'); ?&gt;</code>
 
 </li>
 </ol>
@@ -642,39 +621,39 @@ individually.</p>
 
 
 <a name="individualerrors"></a>
-<h2>Showing Errors Individually</h2>
+<h2>独立显示错误</h2>
 
-<p>If you prefer to show an error message next to each form field, rather than as a list, you can use the <dfn>form_error()</dfn> function.</p>
+<p>如果你喜欢紧挨着每个表单域显示错误信息而不是显示为一个列表，你可以使用 <dfn>form_error()</dfn> 函数。</p>
 
-<p>Try it! Change your form so that it looks like this:</p>
+<p>试一下！更改你的表单代码为下面这样：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="18">
 &lt;h5>Username&lt;/h5>
-&lt;?php echo form_error('username'); ?>
-&lt;input type="text" name="username" value="&lt;?php echo set_value('username'); ?>" size="50" />
+&lt;?php echo form_error('username'); ?&gt;
+&lt;input type="text" name="username" value="&lt;?php echo set_value('username'); ?&gt;" size="50" />
 
 &lt;h5>Password&lt;/h5>
-&lt;?php echo form_error('password'); ?>
-&lt;input type="text" name="password" value="&lt;?php echo set_value('password'); ?>" size="50" />
+&lt;?php echo form_error('password'); ?&gt;
+&lt;input type="text" name="password" value="&lt;?php echo set_value('password'); ?&gt;" size="50" />
 
 &lt;h5>Password Confirm&lt;/h5>
-&lt;?php echo form_error('passconf'); ?>
-&lt;input type="text" name="passconf" value="&lt;?php echo set_value('passconf'); ?>" size="50" />
+&lt;?php echo form_error('passconf'); ?&gt;
+&lt;input type="text" name="passconf" value="&lt;?php echo set_value('passconf'); ?&gt;" size="50" />
 
 &lt;h5>Email Address&lt;/h5>
-&lt;?php echo form_error('email'); ?>
-&lt;input type="text" name="email" value="&lt;?php echo set_value('email'); ?>" size="50" />
+&lt;?php echo form_error('email'); ?&gt;
+&lt;input type="text" name="email" value="&lt;?php echo set_value('email'); ?&gt;" size="50" />
 </textarea>
 
-<p>If there are no errors, nothing will be shown.  If there is an error, the message will appear.</p>
+<p>如果没有错误信息，将不会显示。如有错误信息，会在输入框旁单独显示。</p>
 
-<p><strong>Important Note:</strong> If you use an array as the name of a form field, you must supply it as an array to the function.  Example:</p>
+<p><strong>注意:</strong> 如果你的表单域名称使用的是数组形式，你必须提供该完整的数组函数。 例如：</p>
 
-<code>&lt;?php echo form_error('<kbd>options[size]</kbd>'); ?><br />
-&lt;input type="text" name="<kbd>options[size]</kbd>" value="&lt;?php echo set_value("<kbd>options[size]</kbd>"); ?>" size="50" />
+<code>&lt;?php echo form_error('<kbd>options[size]</kbd>'); ?&gt;<br />
+&lt;input type="text" name="<kbd>options[size]</kbd>" value="&lt;?php echo set_value("<kbd>options[size]</kbd>"); ?&gt;" size="50" />
 </code>
 
-<p>For more info please see the <a href="#arraysasfields">Using Arrays as Field Names</a> section below.</p>
+<p>如要了解更多，请参阅 <a href="#arraysasfields">使用数组作为表单字段名称</a> 。</p>
 
 
 
@@ -683,20 +662,18 @@ individually.</p>
 
 
 <a name="savingtoconfig"></a>
-<h1>Saving Sets of Validation Rules to a Config File</h1>
+<h1>将一系列验证规则保存到一个配置文件</h1>
 
-<p>A nice feature of the Form Validation class is that it permits you to store all your validation rules for your entire application in a config file.  You
-can organize these rules into "groups".  These groups can either be loaded automatically when a matching controller/function is called, or
-you can manually call each set as needed.</p>
+<p>表单验证类的一个超拽的特性是它允许你将整个应用的所有验证规则存储到一个配置文件中。你可以组织这些规则到“组”里。这些组既可以在符合controller/function的调用时自动加载，也可以在用到时你手动调用。</p>
 
-<h3>How to save your rules</h3>
+<h3>怎样保存你的规则</h3>
 
-<p>To store your validation rules, simply create a file named <kbd>form_validation.php</kbd> in your <dfn>application/config/</dfn> folder.
-In that file you will place an array named <kbd>$config</kbd> with your rules. As shown earlier, the validation array will have this prototype:</p>
+<p>如果想要将验证规则保存在独立的文件中，你首先需要在 <dfn>application/config/</dfn> 文件夹下创建一个名称为 <kbd>form_validation.php</kbd>的文件。 然后，将验证规则的配置信息保存在数组 <kbd>$config</kbd> 中即可，具体格式如下：</p>
 
 <code>
 $config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field'&nbsp;&nbsp;&nbsp;=> 'username', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label'&nbsp;&nbsp;&nbsp;=> 'Username', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules'&nbsp;&nbsp;&nbsp;=> 'required'<br />
@@ -704,6 +681,7 @@ $config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field'&nbsp;&nbsp;&nbsp;=> 'password', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label'&nbsp;&nbsp;&nbsp;=> 'Password', <br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules'&nbsp;&nbsp;&nbsp;=> 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
@@ -711,6 +689,7 @@ $config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label'&nbsp;&nbsp;&nbsp;=> 'Password Confirmation', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules'&nbsp;&nbsp;&nbsp;=> 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),&nbsp;&nbsp;&nbsp;<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field'&nbsp;&nbsp;&nbsp;=> 'email', <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label'&nbsp;&nbsp;&nbsp;=> 'Email', <br />
@@ -719,18 +698,18 @@ $config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 </code>
 
-<p><dfn>Your validation rule file will be loaded automatically and used when you call the run() function.</dfn></p>
+<p><dfn>当用户触发 run() 函数时，你的验证规则会自动被控制器加载和调用。</dfn></p>
 
-<p class="important">Please note that you MUST name your array $config.</p>
+<p class="important">注意：请务必要将数组名称定义成 $config.</p>
 
-<h3>Creating Sets of Rules</h3>
+<h3>创建多组验证规则</h3>
 
-<p>In order to organize your rules into "sets" requires that you place them into "sub arrays".  Consider the following example, showing two sets of rules.
-We've arbitrarily called these two rules "signup" and "email".  You can name your rules anything you want:</p>
+<p>为了创建多组验证规则，我们需要将它们放置到子数组中。请参考下面的例子，在此例中我们设置了两组规则，组名称分别是 "signup" 和 "email"。 当然，在实际开发中，你可以根据自己的需求任意命名：</p>
 
 
 <code>$config = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'<kbd>signup</kbd>' => array(<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'username',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'Username',<br />
@@ -740,6 +719,7 @@ We've arbitrarily called these two rules "signup" and "email".  You can name you
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'password',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'Password',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules' => 'required'<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'passconf',<br />
@@ -749,6 +729,7 @@ We've arbitrarily called these two rules "signup" and "email".  You can name you
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'email',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'Email',<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules' => 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
@@ -757,6 +738,7 @@ We've arbitrarily called these two rules "signup" and "email".  You can name you
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'emailaddress',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'EmailAddress',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules' => 'required|valid_email'<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'name',<br />
@@ -766,6 +748,7 @@ We've arbitrarily called these two rules "signup" and "email".  You can name you
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'title',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'Title',<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules' => 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
@@ -775,52 +758,54 @@ We've arbitrarily called these two rules "signup" and "email".  You can name you
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
+
 </code>
 
 
-<h3>Calling a Specific Rule Group</h3>
+<h3>调用某组验证规则</h3>
 
-<p>In order to call a specific group you will pass its name to the <kbd>run()</kbd> function.  For example, to call the <kbd>signup</kbd> rule you will do this:</p>
+<p>当同时存在多组规则时，为了调用某一组规则，你需要将组的名字传递给 <kbd>run()</kbd> 函数。 比如， 要调用上例中"signup"组下面的规则，你应该这么做：</p>
 
 <code>
-if ($this->form_validation->run('<kbd>signup</kbd>') == FALSE)<br />
-{<br />
-&nbsp;&nbsp;&nbsp;$this->load->view('myform');<br />
-}<br />
+if ($this-&gt;form_validation-&gt;run('<kbd>signup</kbd>') == FALSE)<br />
+
+&#123;<br />
+&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('myform');<br />
+&#125;<br />
 else<br />
-{<br />
-&nbsp;&nbsp;&nbsp;$this->load->view('formsuccess');<br />
-}<br />
+&#123;<br />
+&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('formsuccess');<br />
+&#125;<br />
 </code>
 
 
+<h3>将控制器和验证组关联在一起</h3>
 
-<h3>Associating a Controller Function with a Rule Group</h3>
-
-<p>An alternate (and more automatic) method of calling a rule group is to name it according to the controller class/function you intend to use it with.  For example, let's say you
-have a controller named <kbd>Member</kbd> and a function named <kbd>signup</kbd>.  Here's what your class might look like:</p>
+<p>调用某一特定验证规则组的另一方法（更自动化）：将规则组的名称定义为你要关联的控制器类/函数(class/function)名称。举例来说，假设你有一个控制器名称叫做 <kbd>Member</kbd>，它下面有个函数叫做 <kbd>signup</kbd>。那么，你的控制器可能会这么写：</p>
 
 <code>
 &lt;?php<br /><br />
-class <kbd>Member</kbd> extends CI_Controller {<br />
+class <kbd>Member</kbd> extends CI_Controller &#123;<br />
+
 <br />
 &nbsp;&nbsp;&nbsp;function <kbd>signup</kbd>()<br />
-&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->library('form_validation');<br />
+&nbsp;&nbsp;&nbsp;&#123;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;library('form_validation');<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($this->form_validation->run() == FALSE)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('myform');<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->view('formsuccess');<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;}<br />
-}<br />
-?></code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($this-&gt;form_validation-&gt;run() == FALSE)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('myform');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 
-<p>In your validation config file, you will name your rule group <kbd>member/signup</kbd>:</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('formsuccess');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;<br />
+?&gt;</code>
+
+<p>在你的验证配置文件中，你需要将你的规则组命名为<kbd>member/signup</kbd>，形如：</p>
 
 
 <code>$config = array(<br />
@@ -830,6 +815,7 @@ class <kbd>Member</kbd> extends CI_Controller {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'Username',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules' => 'required'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'password',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'Password',<br />
@@ -839,6 +825,7 @@ class <kbd>Member</kbd> extends CI_Controller {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'passconf',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label' => 'PasswordConfirmation',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rules' => 'required'<br />
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'field' => 'email',<br />
@@ -849,65 +836,65 @@ class <kbd>Member</kbd> extends CI_Controller {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 </code>
 
-<p><dfn>When a rule group is named identically to a controller class/function it will be used automatically when the run() function is invoked from that class/function.</dfn></p>
+  <p><dfn>当验证规则组的名称符合”控制器类名称/函数名称“(class/function)条件时，那么在 run() 函数被执行时，它所对应的规则会自动被调用。</dfn></p>
 
 <p>&nbsp;</p>
 
 
 <a name="arraysasfields"></a>
-<h1>Using Arrays as Field Names</h1>
+<h1>使用数组作为表单字段名称</h1>
 
-<p>The Form Validation class supports the use of arrays as field names.  Consider this example:</p>
+<p>表单验证类支持表单字段的名称为数组，比如：</p>
 
 <code>&lt;input type="text" name="<kbd>options[]</kbd>" value="" size="50" /></code>
 
-<p>If you do use an array as a field name, you must use the EXACT array name in the <a href="#helperreference">Helper Functions</a> that require the field name,
-and as your Validation Rule field name.</p>
+<p>如果你将表单字段名称定义为数组，那么在使用 <a href="#helperreference">Helper函数</a>时，你必须传递给他们与字段名称一样的数组名。对应此表单字段的验证规则也同样遵循此规则。</p>
 
-<p>For example, to set a rule for the above field you would use:</p>
+<p>比如，在设置此类表单字段时，你可能会用到：</p>
 
-<code>$this->form_validation->set_rules('<kbd>options[]</kbd>', 'Options', 'required');</code>
+<code>$this-&gt;form_validation-&gt;set_rules('<kbd>options[]</kbd>', 'Options', 'required');</code>
 
-<p>Or, to show an error for the above field you would use:</p>
+<p>或者，在显示此类表单字段的验证错误信息时，你需要使用：</p>
 
-<code>&lt;?php echo form_error('<kbd>options[]</kbd>'); ?></code>
+<code>&lt;?php echo form_error('<kbd>options[]</kbd>'); ?&gt;</code>
 
-<p>Or to re-populate the field you would use:</p>
+<p>同样的，在预填充此字段的值时使用：</p>
 
-<code>&lt;input type="text" name="<kbd>options[]</kbd>" value="<kbd>&lt;?php echo set_value('<kbd>options[]</kbd>'); ?></kbd>" size="50" /></code>
+<code>&lt;input type="text" name="<kbd>options[]</kbd>" value="<kbd>&lt;?php echo set_value('<kbd>options[]</kbd>'); ?&gt;</kbd>" size="50" /></code>
 
-<p>You can use multidimensional arrays as field names as well. For example:</p>
+<p>你还可以使用多维数组作为表单字段的名称，比如</p>
 
 <code>&lt;input type="text" name="<kbd>options[size]</kbd>" value="" size="50" /></code>
 
-<p>Or even:</p>
+<p>甚至使用：</p>
 
 <code>&lt;input type="text" name="<kbd>sports[nba][basketball]</kbd>" value="" size="50" /></code>
 
-<p>As with our first example, you must use the exact array name in the helper functions:</p>
+<p>和上个例子一样，在helper函数中，你必须使用同样的名称：</p>
 
-<code>&lt;?php echo form_error('<kbd>sports[nba][basketball]</kbd>'); ?></code>
+<code>&lt;?php echo form_error('<kbd>sports[nba][basketball]</kbd>'); ?&gt;</code>
 
-<p>If you are using checkboxes (or other fields) that have multiple options, don't forget to leave an empty bracket after each option, so that all selections will be added to the
-POST array:</p>
+<p>如果你选择使用那些支持多个选项的表单字段，比如checkbox，别忘了在名称之后加上空的方括号。只有这样，当用户提交表单时，所有的选项值就会被添加到 POST 数组当中：</p>
 
 <code>
 &lt;input type="checkbox" name="<kbd>options[]</kbd>" value="red" /><br />
 &lt;input type="checkbox" name="<kbd>options[]</kbd>" value="blue" /><br />
+
 &lt;input type="checkbox" name="<kbd>options[]</kbd>" value="green" />
 </code>
 
-<p>Or if you use a multidimensional array:</p>
+<p>或者你使用的时多维数组：</p>
 
 <code>
 &lt;input type="checkbox" name="<kbd>options[color][]</kbd>" value="red" /><br />
 &lt;input type="checkbox" name="<kbd>options[color][]</kbd>" value="blue" /><br />
+
 &lt;input type="checkbox" name="<kbd>options[color][]</kbd>" value="green" />
 </code>
 
-<p>When you use a helper function you'll include the bracket as well:</p>
+<p>当你使用helper函数时，也同样需要添加方括号：</p>
 
-<code>&lt;?php echo form_error('<kbd>options[color][]</kbd>'); ?></code>
+<code>&lt;?php echo form_error('<kbd>options[color][]</kbd>'); ?&gt;</code>
 
 
 
@@ -916,335 +903,344 @@ POST array:</p>
 
 
 <a name="rulereference"></a>
-<h1>Rule Reference</h1>
+<h1>规则参数列表</h1>
 
-<p>The following is a list of all the native rules that are available to use:</p>
+<p>以下列表将列出可被使用的原生规则</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
-	<tr>
-		<th>Rule</th>
-		<th>Parameter</th>
-		<th>Description</th>
-		<th>Example</th>
-	</tr>
+<tr>
+<th>规则</th>
+<th>参数</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
 
-	<tr>
-		<td class="td"><strong>required</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element is empty.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>required</strong></td>
+<td class="td">No</td>
+<td class="td">如果元素为空，则返回FALSE</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>matches</strong></td>
-		<td class="td">Yes</td>
-		<td class="td">Returns FALSE if the form element does not match the one in the parameter.</td>
-		<td class="td">matches[form_item]</td>
-	</tr>
+<tr>
+<td class="td"><strong>matches</strong></td>
+<td class="td">Yes</td>
+<td class="td">如果表单元素的值与参数中对应的表单字段的值不相等，则返回FALSE</td>
+<td class="td">matches[form_item]</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>is_unique</strong></td>
-		<td class="td">Yes</td>
-		<td class="td">Returns FALSE if the form element is not unique to the table and field name in the parameter.</td>
-		<td class="td">is_unique[table.field]</td>
-	</tr>
+  <tr>
+    <td class="td"><strong>is_unique</strong></td>
+    <td class="td">Yes</td>
+    <td class="td">如果表单元素的值与指定数据表栏位有重复，则返回False（译者注：比如is_unique[User.Email]，那么验证类会去查找User表中Email栏位有没有与表单元素一样的值，如存重复，则返回false，这样开发者就不必另写Callback验证代码。）</td>
+    <td class="td">is_unique[table.field]</td>
+  </tr>
 
-	<tr>
-		<td class="td"><strong>min_length</strong></td>
-		<td class="td">Yes</td>
-		<td class="td">Returns FALSE if the form element is shorter then the parameter value.</td>
-		<td class="td">min_length[6]</td>
-	</tr>
+<tr>
+<td class="td"><strong>min_length</strong></td>
+<td class="td">Yes</td>
+<td class="td">如果表单元素值的字符长度少于参数中定义的数字，则返回FALSE</td>
+<td class="td">min_length[6]</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>max_length</strong></td>
-		<td class="td">Yes</td>
-		<td class="td">Returns FALSE if the form element is longer then the parameter value.</td>
-		<td class="td">max_length[12]</td>
-	</tr>
+<tr>
+<td class="td"><strong>max_length</strong></td>
+<td class="td">Yes</td>
+<td class="td">如果表单元素值的字符长度大于参数中定义的数字，则返回FALSE</td>
+<td class="td">max_length[12]</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>exact_length</strong></td>
-		<td class="td">Yes</td>
-		<td class="td">Returns FALSE if the form element is not exactly the parameter value.</td>
-		<td class="td">exact_length[8]</td>
-	</tr>
+<tr>
+<td class="td"><strong>exact_length</strong></td>
+<td class="td">Yes</td>
+<td class="td">如果表单元素值的字符长度与参数中定义的数字不符，则返回FALSE</td>
+<td class="td">exact_length[8]</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>greater_than</strong></td>
-		<td class="td">Yes</td>
-		<td class="td">Returns FALSE if the form element is less than the parameter value or not numeric.</td>
-		<td class="td">greater_than[8]</td>
-	</tr>
+  <tr>
+    <td class="td"><strong>greater_than</strong></td>
+    <td class="td">Yes</td>
+    <td class="td">如果表单元素值是非数字类型，或小于参数定义的值，则返回FALSE</td>
+    <td class="td">greater_than[8]</td>
+  </tr>
 
-	<tr>
-		<td class="td"><strong>less_than</strong></td>
-		<td class="td">Yes</td>
-		<td class="td">Returns FALSE if the form element is greater than the parameter value or not numeric.</td>
-		<td class="td">less_than[8]</td>
-	</tr>
+  <tr>
+    <td class="td"><strong>less_than</strong></td>
+    <td class="td">Yes</td>
+    <td class="td">如果表单元素值是非数字类型，或大于参数定义的值，则返回FALSE</td>
+    <td class="td">less_than[8]</td>
+  </tr>
 
-	<tr>
-		<td class="td"><strong>alpha</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than alphabetical characters.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>alpha</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值中包含除字母以外的其他字符，则返回FALSE</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>alpha_numeric</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than alpha-numeric characters.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>alpha_numeric</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值中包含除字母和数字以外的其他字符，则返回FALSE</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>alpha_dash</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than alpha-numeric characters, underscores or dashes.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>alpha_dash</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值中包含除字母/数字/下划线/破折号以外的其他字符，则返回FALSE</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>numeric</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than numeric characters.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>numeric</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值中包含除数字以外的字符，则返回 FALSE</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>integer</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than an integer.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>integer</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素中包含除整数以外的字符，则返回FALSE</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>decimal</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than a decimal number.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+  <tr>
+    <td class="td"><strong>decimal</strong></td>
+    <td class="td">No</td>
+    <td class="td">如果表单元素中包含非十进制数字时，则返回FALSE</td>
+    <td class="td">&nbsp;</td>
+  </tr>
 
-	<tr>
-		<td class="td"><strong>is_natural</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than a natural number: 0, 1, 2, 3, etc.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>is_natural</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值中包含了非自然数的其他数值 （其他数值不包括零），则返回FALSE。自然数形如：0,1,2,3....等等。</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>is_natural_no_zero</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element contains anything other than a natural number, but not zero: 1, 2, 3, etc.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>is_natural_no_zero</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值包含了非自然数的其他数值 （其他数值包括零），则返回FALSE。非零的自然数：1,2,3.....等等。</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>valid_email</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the form element does not contain a valid email address.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>valid_email</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值包含不合法的email地址，则返回FALSE</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>valid_emails</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if any value provided in a comma separated list is not a valid email.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>valid_emails</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素值中任何一个值包含不合法的email地址（地址之间用英文逗号分割），则返回FALSE。</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>valid_ip</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the supplied IP is not valid. Accepts an optional parameter of "IPv4" or "IPv6" to specify an IP format.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
+<tr>
+<td class="td"><strong>valid_ip</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素的值不是一个合法的IP地址，则返回FALSE。通过可选参数"IPv4"或"IPv6"来指定 IP 地址格式。</td>
+<td class="td">&nbsp;</td>
+</tr>
 
-	<tr>
-		<td class="td"><strong>valid_base64</strong></td>
-		<td class="td">No</td>
-		<td class="td">Returns FALSE if the supplied string contains anything other than valid Base64 characters.</td>
-		<td class="td">&nbsp;</td>
-	</tr>
-
+<tr>
+<td class="td"><strong>valid_base64</strong></td>
+<td class="td">No</td>
+<td class="td">如果表单元素的值包含除了base64 编码字符之外的其他字符，则返回FALSE。</td>
+<td class="td">&nbsp;</td>
+</tr>
 
 </table>
 
-<p><strong>Note:</strong> These rules can also be called as discrete functions. For example:</p>
+<p><strong>注意:</strong> 这些规则也可以作为独立的函数. 例如:</p>
 
-<code>$this->form_validation->required($string);</code>
+<code>$this-&gt;form_validation-&gt;required($string);</code>
 
-<p class="important"><strong>Note:</strong> You can also use any native PHP functions that permit one parameter.</p>
+<p class="important"><strong>注意:</strong> 你也可以用适合参数的本地PHP系统函数.</p>
 
 
 
 <p>&nbsp;</p>
 
 <a name="preppingreference"></a>
-<h1>Prepping Reference</h1>
+<h1>过滤函数</h1>
 
-<p>The following is a list of all the prepping functions that are available to use:</p>
-
+<p>下面是可用的过滤函数:</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
-	<tr>
-		<th>Name</th>
-		<th>Parameter</th>
-		<th>Description</th>
-	</tr><tr>
+<tr>
+<th>名称</th>
+<th>参数</th>
+<th>功能描述</th>
+</tr>
 
-		<td class="td"><strong>xss_clean</strong></td>
-		<td class="td">No</td>
-		<td class="td">Runs the data through the XSS filtering function, described in the <a href="input.html">Input Class</a> page.</td>
-	</tr><tr>
+<tr>
+<td class="td"><strong>xss_clean</strong></td>
+<td class="td">No</td>
+<td class="td">通过 XSS 过滤函数来运行数据, 详细说明见 <a href="input.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/input.html">Input 类</a>.</td>
+</tr>
 
-		<td class="td"><strong>prep_for_form</strong></td>
-		<td class="td">No</td>
-		<td class="td">Converts special characters so that HTML data can be shown in a form field without breaking it.</td>
-	</tr><tr>
+<tr>
+<td class="td"><strong>prep_for_form</strong></td>
+<td class="td">No</td>
+<td class="td">将特殊字符的转换，以便可以在表单域中显示 HTML 数据，而不会破坏它。.</td>
+</tr>
 
-		<td class="td"><strong>prep_url</strong></td>
-		<td class="td">No</td>
-		<td class="td">Adds "http://" to URLs if missing.</td>
-	</tr><tr>
+<tr>
+<td class="td"><strong>prep_url</strong></td>
+<td class="td">No</td>
+<td class="td">当URL丢失"http://" 时，添加"http://".</td>
+</tr>
 
-		<td class="td"><strong>strip_image_tags</strong></td>
-		<td class="td">No</td>
-		<td class="td">Strips the HTML from image tags leaving the raw URL.</td>
-	</tr><tr>
+<tr>
+<td class="td"><strong>strip_image_tags</strong></td>
+<td class="td">No</td>
+<td class="td">将图像的html代码当中的URL提取出来。</td>
+</tr>
 
-		<td class="td"><strong>encode_php_tags</strong></td>
-		<td class="td">No</td>
-		<td class="td">Converts PHP tags to entities.</td>
-	</tr>
+<tr>
+<td class="td"><strong>encode_php_tags</strong></td>
+<td class="td">No</td>
+<td class="td">Converts PHP tags to entities.</td>
+</tr>
 
 </table>
 
-<p class="important"><strong>Note:</strong> You can also use any native PHP functions that permit one parameter,
-like <kbd>trim</kbd>, <kbd>htmlspecialchars</kbd>, <kbd>urldecode</kbd>, etc.</p>
-
-
-
-
-
-
+<p class="important"><strong>注意:</strong>你也可以在这里使用任何自身接收一个参数的PHP函数，例如<kbd>trim</kbd>, <kbd>htmlspecialchars</kbd>, <kbd>urldecode</kbd>, 等。</p>
 
 <p>&nbsp;</p>
 
 <a name="functionreference"></a>
-<h1>Function Reference</h1>
+<h1>函数（方法）参考</h1>
 
-<p>The following functions are intended for use in your controller functions.</p>
+<p>下面的这些方法是让你在控制器里使用的。</p>
 
-<h2>$this->form_validation->set_rules();</h2>
+<h2>$this-&gt;form_validation-&gt;set_rules();</h2>
 
-<p>Permits you to set validation rules, as described in the tutorial sections above:</p>
+<p>允许您设置验证规则，如在本教程上面的章节中描述的：</p>
 
 <ul>
-<li><a href="#validationrules">Setting Validation Rules</a></li>
-<li><a href="#savingtoconfig">Saving Groups of Validation Rules to a Config File</a></li>
+<li><a href="#validationrules">设置验证规则</a></li>
+<li><a href="#savingtoconfig">将一系列验证规则保存到一个配置文件</a></li>
 </ul>
 
 
-<h2>$this->form_validation->run();</h2>
+<h2>$this-&gt;form_validation-&gt;run();</h2>
 
-<p>Runs the validation routines.  Returns boolean TRUE on success and FALSE on failure. You can optionally pass the name of the validation
-group via the function, as described in: <a href="#savingtoconfig">Saving Groups of Validation Rules to a Config File</a>.</p>
+<p>运行验证程序。成功返回TRUE，失败返回FALSE。您可以选择通过功能验证组的名称，例如：<a href="#savingtoconfig">将一系列验证规则保存到一个配置文件</a>.</p>
 
 
-<h2>$this->form_validation->set_message();</h2>
+<h2>$this-&gt;form_validation-&gt;set_message();</h2>
 
-<p>Permits you to set custom error messages.  See <a href="#settingerrors">Setting Error Messages</a> above.</p>
+<p>允许您设置自定义错误消息。看上面的<a href="#settingerrors">设置错误信息</a></p>
 
 
 <p>&nbsp;</p>
 
 <a name="helperreference"></a>
-<h1>Helper Reference</h1>
+<h1>辅助函数参考</h1>
 
-<p>The following helper functions are available for use in the view files containing your forms.  Note that these are procedural functions, so they
-<strong>do not</strong> require you to prepend them with $this->form_validation.</p>
+<p>以下函数在调用form时自动加载<strong>无需</strong>手动载入。The following helper functions are available for use in the view files containing your forms.  Note that these are procedural functions, so they
 
+<strong>do not</strong> require you to prepend them with $this-&gt;form_validation.【译者注：所有使用下列函数的表单项都必须有验证规则，规则可以为''，或者为简单的trim函数，<strong>不可为NULL</strong>】</p>
 <h2>form_error()</h2>
 
-<p>Shows an individual error message associated with the field name supplied to the function.  Example:</p>
+<p>给这个函数提供一个表单名称，它就可以显示出对应表单存在的错误（如果有的话）。例如：</p>
 
-<code>&lt;?php echo form_error('username'); ?></code>
+<code>&lt;?php echo form_error('username'); ?&gt;</code>
 
-<p>The error delimiters can be optionally specified.  See the <a href="#errordelimiters">Changing the Error Delimiters</a> section above.</p>
+<p>错误定界符是可供修改的。请看上面的<a href="#errordelimiters">更改错误定界符</a>介绍。</p>
 
 
 
 <h2>validation_errors()</h2>
-<p>Shows all error messages as a string:  Example:</p>
+<p>通过字符形式显示所有错误信息。例如：</p>
 
-<code>&lt;?php echo validation_errors(); ?></code>
+<code>&lt;?php echo validation_errors(); ?&gt;</code>
 
-<p>The error delimiters can be optionally specified.  See the <a href="#errordelimiters">Changing the Error Delimiters</a> section above.</p>
-
+<p>错误定界符是可供修改的。请看上面的<a href="#errordelimiters">更改错误定界符</a>介绍。</p>
 
 
 <h2>set_value()</h2>
 
-<p>Permits you to set the value of an input form or textarea. You must supply the field name via the first parameter of the function.
-The second (optional) parameter allows you to set a default value for the form. Example:</p>
+<p>这个函数可以用来设置input或textarea表单的值。函数的第一个参数为必填项，代表字段名称；第二个参数是可选的，用于设置表单的默认值。例如：</p>
 
-<code>&lt;input type="text" name="quantity" value="<dfn>&lt;?php echo set_value('quantity', '0'); ?></dfn>" size="50" /></code>
+<code>&lt;input type="text" name="quantity" value="&lt;dfn&gt;&lt;?php echo set_value('quantity', '0'); ?&gt;&lt;/dfn&gt;" size="50" /></code>
 
-<p>The above form will show "0" when loaded for the first time.</p>
+<p>上面的表单第一次加载的时候会显示“0”。</p>
 
 <h2>set_select()</h2>
 
-<p>If you use a <dfn>&lt;select></dfn> menu, this function permits you to display the menu item that was selected.  The first parameter
-must contain the name of the select menu, the second parameter must contain the value of
-each item, and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE).</p>
+<p>如果你用了个<dfn>&lt;select></dfn>菜单， 这个函数可以帮你设置好菜单里的选项。第一个参数必须包含select菜单的名称, 第二个参数用于放置每一项的值（必填），第三项可选，用于设置一个默认项 (使用TRUE/FALSE设置)。</p>
 
-<p>Example:</p>
+<p>例如：</p>
 
 <code>
 &lt;select name="myselect"><br />
-&lt;option value="one" <dfn>&lt;?php echo  set_select('myselect', 'one', TRUE); ?></dfn> >One&lt;/option><br />
-&lt;option value="two" <dfn>&lt;?php echo  set_select('myselect', 'two'); ?></dfn> >Two&lt;/option><br />
-&lt;option value="three" <dfn>&lt;?php echo  set_select('myselect', 'three'); ?></dfn> >Three&lt;/option><br />
+&lt;option value="one" <dfn>&lt;?php echo  set_select('myselect', 'one', TRUE); ?&gt;</dfn> >One&lt;/option><br />
+
+&lt;option value="two" <dfn>&lt;?php echo  set_select('myselect', 'two'); ?&gt;</dfn> >Two&lt;/option><br />
+&lt;option value="three" <dfn>&lt;?php echo  set_select('myselect', 'three'); ?&gt;</dfn> >Three&lt;/option><br />
 &lt;/select>
 </code>
-
+  <p>控制器:<code>$this-&gt;form_validation-&gt;set_rules('myselect');&nbsp;&nbsp;&nbsp;//thinkPod 编辑于 2011-08-09</code> </p>
 
 <h2>set_checkbox()</h2>
 
 <p>Permits you to display a checkbox in the state it was submitted.  The first parameter
 must contain the name of the checkbox, the second parameter must contain its value, and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE). Example:</p>
 
-<code>&lt;input type="checkbox" name="mycheck[]" value="1" <dfn>&lt;?php echo set_checkbox('mycheck[]', '1'); ?></dfn> /><br />
-&lt;input type="checkbox" name="mycheck[]" value="2" <dfn>&lt;?php echo set_checkbox('mycheck[]', '2'); ?></dfn> /></code>
+<code>&lt;input type="checkbox" name="mycheck[]" value="1" <dfn>&lt;?php echo set_checkbox('mycheck[]', '1'); ?&gt;</dfn> /><br />
+&lt;input type="checkbox" name="mycheck[]" value="2" <dfn>&lt;?php echo set_checkbox('mycheck[]', '2'); ?&gt;</dfn> /></code>
 
 
 <h2>set_radio()</h2>
 
 <p>Permits you to display radio buttons in the state they were submitted. This function is identical to the <strong>set_checkbox()</strong> function above.</p>
+<p> 此函数与set_checkbox()函数相同, 用来显示单选按钮被选中的状态。。</p>
 
-<code>&lt;input type="radio" name="myradio" value="1" <dfn>&lt;?php echo  set_radio('myradio', '1', TRUE); ?></dfn> /><br />
-&lt;input type="radio" name="myradio" value="2" <dfn>&lt;?php echo  set_radio('myradio', '2'); ?></dfn> /></code>
-
-
-
+<code>&lt;input type="radio" name="myradio" value="1" <dfn>&lt;?php echo  set_radio('myradio', '1', TRUE); ?&gt;</dfn> /><br />
+&lt;input type="radio" name="myradio" value="2" <dfn>&lt;?php echo  set_radio('myradio', '2'); ?&gt;</dfn> /></code><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+739122706, as3291363, baiyuxiong, carboo, chenshenghan, cnsaturn, dimitry, Fanbin, goocarlos, Hex, huangnaiang, IT不倒翁, mchipengfei, niudongwei, popcorner, rockey329, savioryu, skidu, soyota, wangyueqiang, wnpers, xgdd1987, yuwen002, 上官元恒, 我是我, 暗夜星辰, 曜日晨阳, 笼中</div>
+<div id="DocDate">
+最后修改: 2014-06-10 14:05:52</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="file_uploading.html">File Uploading Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="ftp.html">FTP Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="file_uploading.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/file_uploading.html">文件上传类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="ftp.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/ftp.html">FTP 类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

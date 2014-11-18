@@ -1,117 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Session Class : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>Session 类 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="sessions.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/sessions.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Session Class
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;Session 类    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/sessions.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/sessions.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/sessions.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>Session 类</h1>
 
-
-<h1>Session Class</h1>
-
-<p>The Session class permits you maintain a user's "state" and track their activity while they browse your site.
-The Session class stores session information for each user as serialized (and optionally encrypted) data in a cookie.
-It can also store the session data in a database table for added security, as this permits the session ID in the
-user's cookie to be matched against the stored session ID. By default only the cookie is saved.  If you choose to
-use the database option you'll need to create the session table as indicated below.
+<p>Session 类可以使用户在浏览您的网站时，维持他们的状态并跟踪他们的行为。
+Session 类将每个用户的 session 信息序列化（serialize）后存储到到 cookie 中（并同时进行加密）。
+您还可以将 session 数据存储到数据库中来增强安全性，但是这时要求存储在用户 cookie 中的 session ID 值能与数据库中存储的用户 session ID 值相匹配。程序默认只在 cookie 中存储 session。如果您要在数据库中存储 session 的话，需要按照下面指示的方法，在您的数据库中创建需要的数据表。
 </p>
 
-<p class="important"><strong>Note:</strong> The Session class does <strong>not</strong> utilize native PHP sessions. It
-generates its own session data, offering more flexibility for developers.</p>
+<p class="important"><strong>注意：</strong>Session类并不使用PHP本身的session，而是使用类自己的session，这样做，可以给开发者提供更大的灵活性。</p>
 
-<p class="important"><strong>Note:</strong> Even if you are not using encrypted sessions, you must set
-an <a href="./encryption.html">encryption key</a> in your config file which is used to aid in preventing session data manipulation.</p>
+<p class="important"><strong>注意：</strong>即使没有使用加密会话，你也需要在配置文件里设置一个<a href="encryption.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/encryption.html">加密密钥</a>。这将有助于防止伪造 Session 数据。</p>
 
-<p class="important"><strong>Note:</strong> The Session class relies on the Encryption class, so you must have Mcrypt extension installed</p>
+<p class="important"><strong>注意：</strong>Session类是依赖于加密类的,因此您的服务器上必须安装有Mcrypt扩展.</p>
 
-<h2>Initializing a Session</h2>
+<h2>初始化 Session</h2>
 
-<p>Sessions will typically run globally with each page load, so the session class must either be
-<a href="../general/libraries.html">initialized</a> in your
-<a href="../general/controllers.html">controller</a> constructors, or it can be
-<a href="../general/autoloader.html">auto-loaded</a> by the system.
-For the most part the session class will run unattended in the background, so simply initializing the class
-will cause it to read, create, and update sessions.</p>
+<p>Sessions会在每个页面载入后开始运行，所以session类必须首先被<a href="../general/libraries.html" tppabs="http://codeigniter.org.cn/user_guide/general/libraries.html">初始化</a>。您可以在<a href="../general/controllers.html" tppabs="http://codeigniter.org.cn/user_guide/general/controllers.html">控制器</a>中初始化，也可以在系统中<a href="../general/autoloader.html" tppabs="http://codeigniter.org.cn/user_guide/general/autoloader.html">自动加载</a>（译者注：在autoload.php设定）。session类的绝大部分都会在后台运行，所以初始化session时，它session数据会被自动读取、创建和更新。</p>
 
 
-<p>To initialize the Session class manually in your controller constructor, use the <dfn>$this->load->library</dfn> function:</p>
+<p>要在您的控制器构造函数中初始化session类，您可以使用 <dfn>$this-&gt;load-&gt;library</dfn> 函数:</p>
 
-<code>$this->load->library('session');</code>
-<p>Once loaded, the Sessions library object will be available using: <dfn>$this->session</dfn></p>
-
-
-<h2>How do Sessions work?</h2>
-
-<p>When a page is loaded, the session class will check to see if valid session data exists in the user's session cookie.
-If sessions data does <strong>not</strong> exist (or if it has expired) a new session will be created and saved in the cookie.
-If a session does exist, its information will be updated and the cookie will be updated. With each update, the session_id will be regenerated.</p>
-
-<p>It's important for you to understand that once initialized, the Session class runs automatically.  There is nothing
-you need to do to cause the above behavior to happen.  You can, as you'll see below, work with session data or
-even add your own data to a user's session, but the process of reading, writing, and updating a session is automatic.</p>
+<code>$this-&gt;load-&gt;library('session');</code>
+<p>一旦被载入, session就可以这样使用： <dfn>$this-&gt;session</dfn></p>
 
 
-<h2>What is Session Data?</h2>
+<h2>Sessions 是怎样工作的？</h2>
 
-<p>A <em>session</em>, as far as CodeIgniter is concerned, is simply an array containing the following information:</p>
+<p>当页面载入后，session类就会检查用户的cookie中是否存在有效的session数据。如果session数据不存在（或者已经过期），那么就会创建一个新的session并把他保存在cookie中。如果session数据存在，那么他的信息就会被更新，同时cookie也会被同时更新。每次更新都会重新生成session_id的值。</p>
+
+<p>对于您来说，需要知道的非常重要的一点就是，session类一旦被初始化，它就会自动运行。对于后面的事情，您可以完全不作理会。正如您将会在下面看到的一样，您可以正常使用session来工作，甚至还可以添加自己的session数据，而在这一切的过程中，读、写和更新的操作都是自动完成的。</p>
+
+
+<h2>Session 数据是什么？</h2>
+
+<p>一个 <em>session</em> 是由一个包括下列信息的数组组成的：</p>
 
 <ul>
-<li>The user's unique Session ID (this is a statistically random string with very strong entropy, hashed with MD5 for portability, and regenerated (by default) every five minutes)</li>
-<li>The user's IP Address</li>
-<li>The user's User Agent data (the first 120 characters of the browser data string)</li>
-<li>The "last activity" time stamp.</li>
+<li>唯一的用户Session ID (这是一个平均信息量统计出来的非常坚固的随机字符串，使用MD5加密，默认是每五分钟就重新生成一次。</li>
+<li>用户的 IP 地址</li>
+<li>用户浏览器信息（取前120个字符）</li>
+<li>最新的一个活跃时间戳.</li>
 </ul>
 
-<p>The above data is stored in a cookie as a serialized array with this prototype:</p>
+<p>以上数据将会用以下数组格式序列化并存到cookie里：</p>
 
 <code>[array]<br />
 (<br />
@@ -121,62 +109,53 @@ even add your own data to a user's session, but the process of reading, writing,
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'last_activity' => timestamp<br />
 )</code>
 
-<p>If you have the encryption option enabled, the serialized array will be encrypted before being stored in the cookie,
-making the data highly secure and impervious to being read or altered by someone. More info regarding encryption
-can be <a href="encryption.html">found here</a>, although the Session class will take care of initializing
-and encrypting the data automatically.</p>
+<p>如果你将加密设置开启，serialized 的数组会先被加密，然后存入cookie中。这会让数据不容易被看到和修改，从而提高安全性。从<a href="encryption.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/encryption.html">这里</a>可以找到更多关于加密的信息。Session类会自动负责初始化和数据加密。</p>
 
-<p>Note: Session cookies are only updated every five minutes by default to reduce processor load.  If you repeatedly reload a page
-you'll notice that the "last activity" time only updates if five minutes or more has passed since the last time
-the cookie was written. This time is configurable by changing the $config['sess_time_to_update'] line in your system/config/config.php file.</p>
+<p>注意: 默认情况下, Session Cookie 每隔 5 分钟才会更新一次,这样会减少对处理器的负荷。如果你重复的装载页面， 你会发现"上次活动"的时间在五分钟，或多于五分钟的时候才会变化，也就是 cookie 上次被写入的时间。 这个时间可以通过设置 application/config/config.php 文件里的 $config['sess_time_to_update'] 行来改变。</p>
 
-<h2>Retrieving Session Data</h2>
+<h2>取得 Session 数据</h2>
 
-<p>Any piece of information from the session array is available using the following function:</p>
+<p>可以通过如下的函数来得到 session 数组的任何信息:</p>
 
-<code>$this->session->userdata('<samp>item</samp>');</code>
+<code>$this-&gt;session-&gt;userdata('<samp>item</samp>');</code>
 
-<p>Where <samp>item</samp> is the array index corresponding to the item you wish to fetch.  For example, to fetch the session ID you
-will do this:</p>
+<p><samp>item</samp> 是数组里的相对应数据的索引。例如，想要获得 session ID， 你要使用如下的代码:</p>
 
-<code>$session_id = $this->session->userdata('<samp>session_id</samp>');</code>
+<code>$session_id = $this-&gt;session-&gt;userdata('<samp>session_id</samp>');</code>
 
-<p><strong>Note:</strong> The function returns FALSE (boolean) if the item you are trying to access does not exist.</p>
+<p><strong>注意:</strong> 如果你的目标数据不存在的话，这个函数会返回 FALSE (布尔值boolean)。</p>
 
 
-<h2>Adding Custom Session Data</h2>
+<h2>添加自定义的 Session 数据</h2>
 
-<p>A useful aspect of the session array is that you can add your own data to it and it will be stored in the user's cookie.
-Why would you want to do this?  Here's one example:</p>
+<p>session 数组的一个非常有用的用途是你可以向它里面添加你自己的数据，这些数据会被保存在用户的 cookie 中。这样做的原因是什么呢？看看这个例子:</p>
 
-<p>Let's say a particular user logs into your site. Once authenticated,
-you could add their username and email address to the session cookie, making that data globally available to you without
-having to run a database query when you need it.</p>
+<p>假设，有个特定用户登陆到你的网站， 当他通过检测后 你可以添加他的用户名和电子邮件到 session cookie 中，这些信息可以在不去访问数据库的情况下，当成全局量来使用。</p>
 
-<p>To add your data to the session array involves passing an array containing your new data to this function:</p>
+<p>通过以下函数，你可以传递一个新的用户数组到 session 数组中:</p>
 
-<code>$this->session->set_userdata(<samp>$array</samp>);</code>
+<code>$this-&gt;session-&gt;set_userdata(<samp>$array</samp>);</code>
 
-<p>Where <samp>$array</samp> is an associative array containing your new data.  Here's an example:</p>
+<p> <samp>$array</samp> 是一个结合数组，用来存储你的新数据。例如  :</p>
 
 
 <p><code>$newdata = array(<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'username'&nbsp; => 'johndoe',<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'email'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'johndoe@some-site.com',<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'logged_in' => TRUE<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
-	<br />
-	$this->session->set_userdata(<samp>$newdata</samp>);</code></p>
-<p>If you want to add userdata one value at a time, set_userdata() also supports this syntax. </p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'username'&nbsp; => 'johndoe',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'email'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'johndoe@some-site.com',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'logged_in' => TRUE<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
+    <br />
+    $this-&gt;session-&gt;set_userdata(<samp>$newdata</samp>);</code></p>
+<p>如果使用下面 set_userdata()函数的写法,可以每次只添加一个用户数据。</p>
 <p><code>$this-&gt;session-&gt;set_userdata('some_name', 'some_value');</code></p>
-<p class="important"><strong>Note:</strong> Cookies can only hold 4KB of data, so be careful not to exceed the capacity.  The
-encryption process in particular produces a longer data string than the original so keep careful track of how much data you are storing.</p>
+<p class="important"><strong>注意:</strong> Cookies 只能存储 4KB 的数据, 使用时要小心超出它的容量。特别指出的是，加密会产生比原数据更长的数据字符串，所以一定要当心你要存放数据的大小。</p>
 
-<h2>Retrieving All Session Data</h2>
-<p>An array of all userdata can be retrieved as follows:</p>
+
+<h2>取得所有 Session 数据</h2>
+<p>用下面的这种方式可以得到一个所有Session用户数据的数组:</p>
 <code>$this-&gt;session-&gt;all_userdata()</code>
 
-<p>And returns an associative array like the following:</p>
+<p>代码将返回一个类似这样的关联数组:</p>
 
 <pre>
 Array
@@ -189,155 +168,161 @@ Array
 </pre>
 
 
-<h2>Removing Session Data</h2>
-<p>Just as set_userdata() can be used to add information into a session, unset_userdata() can be used to remove it, by passing the session key. For example, if you wanted to remove 'some_name' from your session information: </p>
+<h2>删除 Session 数据</h2>
+<p>正如使用 set_userdata() 是用来添加信息到 session 中，而通过向 unset_userdata() 函数中传递 session key 可以用来删除这些信息。例如, 你想要从 session 信息里去掉 'some_name': </p>
 <p><code>$this-&gt;session-&gt;unset_userdata('some_name');</code></p>
-<p>This function can also be passed an associative array of items to unset.</p>
+<p>也可以给这个函数传一个要删除项的关联数组。</p>
 <p><code>$array_items = array('username' => '', 'email' => '');<br />
 <br />
 $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
-<h2>Flashdata</h2>
-<p>CodeIgniter supports &quot;flashdata&quot;, or session data that will only be available for the next server request, and are then automatically cleared. These can be very useful, and are typically used for informational or status messages (for example: &quot;record 2 deleted&quot;).</p>
-<p>Note: Flash variables are prefaced with &quot;flash_&quot; so avoid this prefix in your own session names.</p>
-<p>To add flashdata:</p>
+
+<h2>闪出数据</h2>
+<p>CodeIgniter 支持 &quot;闪出数据&quot;, 或者说Session数据只对下次服务器请求可用, 然后会自动清除。这应该会非常有用，往往应用在信息或状态提示中（例如：“记录2已删除”）。</p>
+<p>注意: 闪出数据变量名以“flash_”开头，所以在你自己的变量名中要避免使用这个前缀。</p>
+<p>要添加闪出数据：</p>
 <p><code>$this-&gt;session-&gt;set_flashdata('item', 'value');</code></p>
-<p>You can also pass an array to set_flashdata(), in the same manner as set_userdata(). </p>
-<p>To read a flashdata variable:</p>
+<p>你也可以使用和 set_userdata() 同样的方式向 set_flashdata() 传递一个数组。</p>
+<p>要读取一个闪出数据变量：</p>
 <p><code>$this-&gt;session-&gt;flashdata('item');</code></p>
-<p>If you find that you need to preserve a flashdata variable through an additional request, you can do so using the keep_flashdata() function.</p>
+<p>如果你发现你需要在一个附加的请求中保留一个闪出数据，你可以使用 keep_flashdata() 这个函数。</p>
 <p><code>$this-&gt;session-&gt;keep_flashdata('item');</code></p>
-<h2>Saving Session Data to a Database</h2>
-<p>While the session data array stored in the user's cookie contains a Session ID,
-unless you store session data in a database there is no way to validate it.  For some applications that require little or no
-security, session ID validation may not be needed, but if your application requires security, validation is mandatory.  Otherwise, an old session
-could be restored by a user modifying their cookies.</p>
 
-<p>When session data is available in a database, every time a valid session is found in the user's cookie, a database
-query is performed to match it.  If the session ID does not match, the session is destroyed.  Session IDs can never
-be updated, they can only be generated when a new session is created.</p>
+<h2>将 Session 数据存入数据库</h2>
+<p>由于Session数据数组是附带一个Session ID保存在用户cookie里的，你无法验证它，除非你把session数据存储在数据库中。在一些不需要或很少需要安全保护的应用中，session ID 或许并不需要。但如果你的应用需要安全保护，验证是必须的。否则，用户可以通过篡改Cookies来恢复旧的Session。</p>
 
+<p>当session 数据在数据库中可用时，每当从用户cookie中发现一个有效的session，一个数据库查询就会被执行以匹配它。如果 session ID 不相配，session 就会被销毁。Session ID永远不会更新，它们只会在一个新的会话创建时生成。</p>
 
-<p>In order to store sessions, you must first create a database table for this purpose.  Here is the basic
-prototype (for MySQL) required by the session class:</p>
+<p>为了存储session，你必须先创建一个数据表。这是 session 类所需的基本结构（用于MySQL的）：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
 CREATE TABLE IF NOT EXISTS  `ci_sessions` (
-	session_id varchar(40) DEFAULT '0' NOT NULL,
-	ip_address varchar(45) DEFAULT '0' NOT NULL,
-	user_agent varchar(120) NOT NULL,
-	last_activity int(10) unsigned DEFAULT 0 NOT NULL,
-	user_data text NOT NULL,
-	PRIMARY KEY (session_id),
-	KEY `last_activity_idx` (`last_activity`)
+  session_id varchar(40) DEFAULT '0' NOT NULL,
+  ip_address varchar(45) DEFAULT '0' NOT NULL,
+  user_agent varchar(120) NOT NULL,
+  last_activity int(10) unsigned DEFAULT 0 NOT NULL,
+  user_data text DEFAULT '' NOT NULL,
+  PRIMARY KEY (session_id),
+  KEY `last_activity_idx` (`last_activity`)
 );
 </textarea>
 
-<p><strong>Note:</strong> By default the table is called <dfn>ci_sessions</dfn>, but you can name it anything you want
-as long as you update the <kbd>application/config/config.php</kbd> file so that it contains the name you have chosen.
-Once you have created your database table you can enable the database option in your config.php file as follows:</p>
+<p><strong>注意:</strong> 默认情况下这个表叫做 <dfn>ci_sessions</dfn>, 但是你可以给它指定任意名字，只要你更新了 <kbd>application/config/config.php</kbd> 文件以确保它包含了你所起的名字。
+一旦你创建了数据表，你就可以像下面这样在config.php文件中启用数据库选项：</p>
 
 <code>$config['sess_use_database'] = TRUE;</code>
 
-<p>Once enabled, the Session class will store session data in the DB.</p>
+<p>一旦启用了，Session类就会在数据库中存储session数据。</p>
 
-<p>Make sure you've specified the table name in your config file as well:</p>
+<p>同时确保你已经在配置文件中指定了数据表名：</p>
 
 <code>$config['sess_table_name'] = 'ci_sessions';</code>
 
-<p class="important"><strong>Note:</strong> The Session class has built-in garbage collection which clears out expired sessions so you
-do not need to write your own routine to do it.</p>
+<p class="important"><strong>注意:</strong> Session类已经内置了清除过期session的垃圾回收机制，因此你不需要编写你自己的事务来做这个。</p>
 
 
-<h2>Destroying a Session </h2>
-<p>To clear the current session: </p>
+<h2>销毁 Session </h2>
+<p>要清除当前 session: </p>
 <code>$this-&gt;session-&gt;sess_destroy();</code>
-<p class="important"><strong>Note:</strong> This function should be the last one called, and even flash variables will no longer be available.  If you only want some items destroyed and not all, use <dfn>unset_userdata()</dfn>.</p>
-
-
-
-<h2>Session Preferences</h2>
-<p>You'll find the following Session related preferences in your <kbd>application/config/config.php</kbd> file:</p>
+<p class="important"><strong>注意:</strong> 此函数应该是最后被调用的。即使闪出变量已不再有效。如果你只想让某几项而不是所有项被销毁，请使用 <dfn>unset_userdata()</dfn>.</p>
+<h2>Session 的参数</h2>
+<p>你可以在<kbd>application/config/config.php</kbd> 文件中找到以下的 Session 相关的参数:</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-	<th>Preference</th>
-	<th>Default</th>
-	<th>Options</th>
-	<th>Description</th>
+    <th>参数</th>
+    <th>默认</th>
+    <th>选项</th>
+    <th>描述</th>
 </tr>
 <tr>
-	<td class="td"><strong>sess_cookie_name</strong></td>
-	<td class="td">ci_session</td>
-	<td class="td">None</td>
-	<td class="td">The name you want the session cookie saved as.</td>
+    <td class="td"><strong>sess_cookie_name</strong></td>
+    <td class="td">ci_session</td>
+    <td class="td">无</td>
+    <td class="td">你想要保存 Session Cookie 的名字。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_expiration</strong></td>
-	<td class="td">7200</td>
-	<td class="td">None</td>
-	<td class="td">The number of seconds you would like the session to last. The default value is 2 hours (7200 seconds). If you would like a non-expiring session set the value to zero: 0</td>
+    <td class="td"><strong>sess_expiration</strong></td>
+    <td class="td">7200</td>
+    <td class="td">无</td>
+    <td class="td">session 持续的秒数。默认是2个小时(7200秒)。如果将这个数值设为: 0，就可以得到 永久 session。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_expire_on_close</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to cause the session to expire automatically when the browser window is closed.</td>
+  <td class="td"><strong>sess_expire_on_close</strong></td>
+  <td class="td">FALSE</td>
+  <td class="td">TRUE/FALSE (boolean)</td>
+  <td class="td">这个选项决定当浏览器窗口关闭时是否自动使session过期。</td>
+</tr>
+  <tr>
+    <td class="td"><strong>sess_encrypt_cookie</strong></td>
+    <td class="td">FALSE</td>
+    <td class="td">TRUE/FALSE (布尔值boolean)</td>
+    <td class="td">是否对 session 数据加密.</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_encrypt_cookie</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to encrypt the session data.</td>
+    <td class="td"><strong>sess_use_database</strong></td>
+    <td class="td">FALSE</td>
+    <td class="td">TRUE/FALSE (布尔值boolean)</td>
+    <td class="td">是否将 session 数据存放入数据库中。在开启这个选项前，你要先创建一个数据库表。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_use_database</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to save the session data to a database.  You must create the table before enabling this option.</td>
+    <td class="td"><strong>sess_table_name</strong></td>
+    <td class="td">ci_sessions</td>
+    <td class="td">任何有效的 SQL 表名</td>
+    <td class="td">session 数据库表的名字。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_table_name</strong></td>
-	<td class="td">ci_sessions</td>
-	<td class="td">Any valid SQL table name</td>
-	<td class="td">The name of the session database table.</td>
+    <td class="td"><strong>sess_time_to_update</strong></td>
+    <td class="td">300</td>
+    <td class="td">时间以秒计算</td>
+    <td class="td">这个选项控制 session 类多久会产生一个新的session 和 session id。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_time_to_update</strong></td>
-	<td class="td">300</td>
-	<td class="td">Time in seconds</td>
-	<td class="td">This options controls how often the session class will regenerate itself and create a new session id.</td>
+    <td class="td"><strong>sess_match_ip</strong></td>
+    <td class="td">FALSE</td>
+    <td class="td">TRUE/FALSE (布尔值boolean)</td>
+    <td class="td">是否通过用户的IP地址来读取 session 的数据。 注意 ，有些网络运行商 ISPs 会动态的改变IP, 所以将这个选项设为 FALSE， 才有可能得到永久的 session。</td>
 </tr>
 <tr>
-	<td class="td"><strong>sess_match_ip</strong></td>
-	<td class="td">FALSE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to match the user's IP address when reading the session data.  Note that some ISPs dynamically
-	changes the IP, so if you want a non-expiring session you will likely set this to FALSE.</td>
+    <td class="td"><strong>sess_match_useragent</strong></td>
+    <td class="td">TRUE</td>
+    <td class="td">TRUE/FALSE (布尔值boolean)</td>
+    <td class="td">是否要按照对应的 User Agent 来读取 session 数据。</td>
 </tr>
-<tr>
-	<td class="td"><strong>sess_match_useragent</strong></td>
-	<td class="td">TRUE</td>
-	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to match the User Agent when reading the session data.</td>
-</tr>
-</table>
-
-
+</table><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+aykirk, bearcat001, csfhc, Drice, Fanbin, guns1985, Hex, mchipengfei, mental, noproblem, phper08, popcorner, qixingyue, shishirui, uicestone, xwjie</div>
+<div id="DocDate">
+最后修改: 2014-08-03 11:46:39</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="security.html">Security Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="trackback.html">Trackback Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="security.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/security.html">安全类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="trackback.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/trackback.html">Trackback 类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

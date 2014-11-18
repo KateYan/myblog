@@ -1,388 +1,310 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Controllers : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>控制器 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="controllers.html" tppabs="http://codeigniter.org.cn/user_guide/general/controllers.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Controllers
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;控制器    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/general/controllers.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/general/controllers.html'" tppabs="http://ellislab.com/codeigniter/user-guide/general/controllers.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
-
-<h1>Controllers</h1>
-
-<p>Controllers are the heart of your application, as they determine how HTTP requests should be handled.</p>
-
-
+<h1>控制器</h1>
+<p>控制器是应用程序的心脏，因为它们决定如何处理 HTTP 请求。</p>
 <ul>
-<li><a href="#what">What is a Controller?</a></li>
-<li><a href="#hello">Hello World</a></li>
-<li><a href="#functions">Functions</a></li>
-<li><a href="#passinguri">Passing URI Segments to Your Functions</a></li>
-<li><a href="#default">Defining a Default Controller</a></li>
-<li><a href="#remapping">Remapping Function Calls</a></li>
-<li><a href="#output">Controlling Output Data</a></li>
-<li><a href="#private">Private Functions</a></li>
-<li><a href="#subfolders">Organizing Controllers into Sub-folders</a></li>
-<li><a href="#constructors">Class Constructors</a></li>
-<li><a href="#reserved">Reserved Function Names</a></li>
+    <li><a href="#what">什么是控制器？</a></li>
+    <li><a href="#hello">Hello World</a></li>
+    <li><a href="#functions">方法</a></li>
+    <li><a href="#passinguri">将 URI 片段传递给方法</a></li>
+    <li><a href="#default">定义一个默认控制器</a></li>
+    <li><a href="#remapping">重新定义方法的调用规则</a></li>
+    <li><a href="#output">控制数据输出</a></li>
+    <li><a href="#private">私有方法</a></li>
+    <li><a href="#subfolders">如何将控制器放入子文件夹中</a></li>
+    <li><a href="#constructors">构造函数</a></li>
+    <li><a href="#reserved">已保留的方法名称</a></li>
 </ul>
-
-
-<a name="what"></a>
-<h2>What is a Controller?</h2>
-
-<p><dfn>A Controller is simply a class file that is named in a way that can be associated with a URI.</dfn></p>
-
-<p>Consider this URI:</p>
-
+<p><a name="what"></a></p>
+<h2>什么是控制器？</h2>
+<p><dfn>简而言之，一个控制器就是一个类文件，是以一种能够和 URI 关联在一起的方式来命名的。</dfn></p>
+<p>假设这个 URI:</p>
 <code>example.com/index.php/<var>blog</var>/</code>
+<p>在上面的例子中，CodeIgniter 将尝试寻找并装载一个名为 <dfn>blog.php</dfn> 的控制器。</p>
+<p><strong>当控制器的名字匹配 URI 的第一段时，它将被装载。</strong></p>
+<p><a name="hello"></a></p>
+<h2>让我们试试看:&nbsp; Hello World！</h2>
+<p>我们来创建一个简单的控制器，以便更直观地了解其工作原理。使用你的文本编辑器，创建一个名为 <dfn>blog.php</dfn> 的文件，然后输入下列代码：</p>
+<p><textarea class="textarea" style="width: 100%" rows="14" cols="50">&lt;?php
+class Blog extends CI_Controller &#123;
 
-<p>In the above example, CodeIgniter would attempt to find a controller named <dfn>blog.php</dfn> and load it.</p>
+ function __construct()
+ &#123;
+  parent::__construct();
+ &#125;
 
-<p><strong>When a controller's name matches the first segment of a URI, it will be loaded.</strong></p>
-
-<a name="hello"></a>
-<h2>Let's try it:&nbsp; Hello World!</h2>
-
-<p>Let's create a simple controller so you can see it in action.  Using your text editor, create a file called <dfn>blog.php</dfn>, and put the following code in it:</p>
-
-
-<textarea class="textarea" style="width:100%" cols="50" rows="10">
-&lt;?php
-class Blog extends CI_Controller {
-
-	public function index()
-	{
-		echo 'Hello World!';
-	}
-}
-?&gt;
-</textarea>
-
-
-
-<p>Then save the file to your <dfn>application/controllers/</dfn> folder.</p>
-
-<p>Now visit the your site using a URL similar to this:</p>
-
+ public function index()
+ &#123;
+  echo 'Hello World！';
+ &#125;
+&#125;
+?&gt;</textarea></p>
+<p>然后保存文件到 <dfn>application/controllers/</dfn> 文件夹。</p>
+<p>现在使用类似这样的 URL 访问你的站点：</p>
 <code>example.com/index.php/<var>blog</var>/</code>
-
-<p>If you did it right, you should see <samp>Hello World!</samp>.</p>
-
-<p>Note: Class names must start with an uppercase letter.  In other words, this is valid:</p>
-
-<code>&lt;?php<br />
-class <var>Blog</var> extends CI_Controller {<br />
+<p>如果你做的没错，你应该看到<samp>Hello World！</samp>.</p>
+<p>注意：类名必须以大写字母开头。换句话说，这是有效的：</p>
+<p><code>&lt;?php<br />
+class <var>Blog</var> extends CI_Controller &#123;<br />
 <br />
-}<br />
-?&gt;</code>
-
-<p>This is <strong>not</strong> valid:</p>
-
-<code>&lt;?php<br />
-class <var>blog</var> extends CI_Controller {<br />
+&#125;<br />
+?&gt;</code></p>
+<p>下面的blog首字母b小写，是属于<strong>无效</strong>的写法：</p>
+<p><code>&lt;?php<br />
+class <var>blog</var> extends CI_Controller &#123;<br />
 <br />
-}<br />
-?&gt;</code>
-
-<p>Also, always make sure your controller <dfn>extends</dfn> the parent controller class so that it can inherit all its functions.</p>
-
-
-
-<a name="functions"></a>
-<h2>Functions</h2>
-
-<p>In the above example the function name is <dfn>index()</dfn>.  The "index" function is always loaded by default if the
-<strong>second segment</strong> of the URI is empty.  Another way to show your "Hello World" message would be this:</p>
-
+&#125;<br />
+?&gt;</code></p>
+<p>同时，始终确保你的控制器<dfn>扩展</dfn>自父控制器类，以便它能够继承其所有的方法。</p>
+<p><a name="functions"></a></p>
+<h2>方法</h2>
+<p>上面的例子中用到的方法名是 <dfn>index()</dfn>。如果 URI 的<strong>第二部分</strong>为空的话，会默认载入 &ldquo;index&rdquo; 方法。也可以将地址写成这样来访问 &ldquo;Hello World&rdquo;：</p>
 <code>example.com/index.php/<var>blog</var>/<samp>index</samp>/</code>
+<p><strong>URI 的第二部分是用来决定调用控制器中哪个方法的。</strong></p>
+<p>我们再来试试。在你的控制器中加入一个新的方法：</p>
+<p><textarea class="textarea" style="width: 100%" rows="19" cols="50">&lt;?php
+class Blog extends CI_Controller &#123;
 
-<p><strong>The second segment of the URI determines which function in the controller gets called.</strong></p>
+ function __construct()
+ &#123;
+  parent::__construct();
+ &#125;
 
-<p>Let's try it.  Add a new function to your controller:</p>
+ public function index()
+ &#123;
+  echo 'Hello World！';
+ &#125;
 
-
-<textarea class="textarea" style="width:100%" cols="50" rows="15">
-&lt;?php
-class Blog extends CI_Controller {
-
-	public function index()
-	{
-		echo 'Hello World!';
-	}
-
-	public function comments()
-	{
-		echo 'Look at this!';
-	}
-}
-?&gt;
-</textarea>
-
-<p>Now load the following URL to see the <dfn>comment</dfn> function:</p>
-
+ public function comments()
+ &#123;
+  echo '看这里！';
+ &#125;
+&#125;
+?&gt;</textarea></p>
+<p>现在在地址栏中输入下面的内容来访问 <dfn>comments</dfn> 方法：</p>
 <code>example.com/index.php/<var>blog</var>/<samp>comments</samp>/</code>
-
-<p>You should see your new message.</p>
-
-<a name="passinguri"></a>
-<h2>Passing URI Segments to your Functions</h2>
-
-<p>If your URI contains more then two segments they will be passed to your function as parameters.</p>
-
-<p>For example, lets say you have a URI like this:</p>
-
+<p>你应该看到新的信息了：看这里！</p>
+<p><a name="passinguri"></a></p>
+<h2>将 URI 片段传递给方法</h2>
+<p>如果你的 URI 超过两个部分，那么超过的将被作为参数传递给方法。</p>
+<p>举例来说，如果你的 URI 是这样的：</p>
 <code>example.com/index.php/<var>products</var>/<samp>shoes</samp>/<kbd>sandals</kbd>/<dfn>123</dfn></code>
-
-<p>Your function will be passed URI segments 3 and 4 ("sandals" and "123"):</p>
-
-<code>
-&lt;?php<br />
-class Products extends CI_Controller {<br />
+<p>URI 的第3和第4部分会被传递给你的方法（&ldquo;sandals&rdquo; 和 &ldquo;123&rdquo;）：</p>
+<p><code>&lt;?php<br />
+class Products extends CI_Controller &#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;public function shoes($sandals, $id)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $sandals;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $id;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}<br />
-?&gt;
-</code>
-
-<p class="important"><strong>Important:</strong>&nbsp; If you are using the <a href="routing.html">URI Routing</a> feature, the segments
-passed to your function will be the re-routed ones.</p>
-
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;<br />
+?&gt; </code></p>
+<p>上面的方法调用时必须给两个相应的参数，要不然会出错。当然你也可以像下面这样写，就不用在调用的时候给参数了！</p>
+<p><code>&lt;?php<br />
+class Products extends CI_Controller &#123;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public function shoes($sandals='Test', $id=1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $sandals;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $id;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;<br />
+?&gt; </code></p>
+<p class="important"><strong>注意：</strong>如果你使用 <a href="routing.html" tppabs="http://codeigniter.org.cn/user_guide/general/routing.html">URI 路由</a>特性，则传递到方法中的 URI 片段将被重新路由一次。</p>
 
 <a name="default"></a>
-<h2>Defining a Default Controller</h2>
-
-<p>CodeIgniter can be told to load a default controller when a URI is not present,
-as will be the case when only your site root URL is requested.  To specify a default controller, open
-your <dfn>application/config/routes.php</dfn> file and set this variable:</p>
-
-<code>$route['default_controller'] = '<var>Blog</var>';</code>
-
-<p>Where <var>Blog</var> is the name of the controller class you want used. If you now load your main index.php file without
-specifying any URI segments you'll see your Hello World message by default.</p>
-
-
+<h2>定义默认控制器</h2>
+<p>当你的网站不存在某个URI 或者 用户直接从根目录访问的时候，CodeIgniter 会加载默认控制器。打开 <dfn>application/config/routes.php</dfn> 文件来设置默认控制器：</p>
+<p><code>$route['default_controller'] = '<var>Blog</var>';</code></p>
+<p>这里的 <var>Blog</var> 就是你希望使用的控制器的名字。如果此时你不指定任何 URI 片段来访问你的主页就会看到默认的&ldquo;Hello World&rdquo;信息。</p>
 
 <a name="remapping"></a>
-<h2>Remapping Function Calls</h2>
-
-<p>As noted above, the second segment of the URI typically determines which function in the controller gets called.
-CodeIgniter permits you to override this behavior through the use of the <kbd>_remap()</kbd> function:</p>
-
-<code>public function _remap()<br />
-{<br />
+<h2>重新定义方法的调用规则</h2>
+<p>如上所述，URI 的第二片段决定会调用控制器中的哪个方法。CodeIgniter 允许你使用 <kbd>_remap()</kbd> 方法来废除这种规则：</p>
+<p><code>public function _remap()<br />
+&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;// Some code here...<br />
-}</code>
-
-<p class="important"><strong>Important:</strong>&nbsp; If your controller contains a function named <kbd>_remap()</kbd>, it will <strong>always</strong>
-get called regardless of what your URI contains.  It overrides the normal behavior in which the URI determines which function is called,
-allowing you to define your own function routing rules.</p>
-
-<p>The overridden function call (typically the second segment of the URI) will be passed as a parameter to the <kbd>_remap()</kbd> function:</p>
-
+&#125;</code></p>
+<p class="important"><strong>注意：</strong>如果你的控制器中包含一个名为 <kbd>_remap() </kbd>的方法，那么不管你的 URI 中包含什么，它<strong>总会</strong>被忽略掉。这个方法会废除掉由 URI 片段来决定哪个方法被调用的规则，允许你重新定义调用方法的规则（方法的路由规则）。</p>
+<p>被重新定义的方法调用方式（一般是 URI 中的第二片段）将作为一个参数传递给 <kbd>_remap() </kbd>：</p>
 <code>public function _remap(<var>$method</var>)<br />
-{<br />
+&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;if ($method == 'some_method')<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->$method();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;$method();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;else<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->default_method();<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</code>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;comments();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;</code>
 
-<p>Any extra segments after the method name are passed into <kbd>_remap()</kbd> as an optional second parameter. This array can be used in combination with PHP's <a href="http://php.net/call_user_func_array">call_user_func_array</a> to emulate CodeIgniter's default behavior.</p>
+<p>任何附加在该方法名称之后的段都会被视为 <kbd>_remap()</kbd> 的第二个参数（可选）。这个可选的数组参数可以与PHP的<a href="javascript:if(confirm('http://php.net/call_user_func_array  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://php.net/call_user_func_array'" tppabs="http://php.net/call_user_func_array" target="_blank">call_user_func_array</a>联用，模拟CodeIgniter的默认行为。</p>
 
 <code>public function _remap($method, $params = array())<br />
-{<br />
+&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$method = 'process_'.$method;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;if (method_exists($this, $method))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return call_user_func_array(array($this, $method), $params);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;show_404();<br />
-}</code>
-
+&#125;</code>
 
 <a name="output"></a>
-<h2>Processing Output</h2>
-
-<p>CodeIgniter has an output class that takes care of sending your final rendered data to the web browser automatically.  More information on this can be found in the
-<a href="views.html">Views</a> and <a href="../libraries/output.html">Output class</a> pages.  In some cases, however, you might want to
-post-process the finalized data in some way and send it to the browser yourself.  CodeIgniter permits you to
-add a function named <dfn>_output()</dfn> to your controller that will receive the finalized output data.</p>
-
-<p><strong>Important:</strong>&nbsp; If your controller contains a function named <kbd>_output()</kbd>, it will <strong>always</strong>
-be called by the output class instead of echoing the finalized data directly. The first parameter of the function will contain the finalized output.</p>
-
-<p>Here is an example:</p>
-
-<code>
-public function _output($output)<br />
-{<br />
+<h2>处理输出</h2>
+<p>CodeIgniter 拥有一个输出类用来确保你修改的数据会自动被传递给浏览器。关于这个的更多信息可以在<a href="views.html" tppabs="http://codeigniter.org.cn/user_guide/general/views.html">视图</a>和<a href="../libraries/output.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/output.html">输出类</a>里找到。有些时候，你可能想要自己发布修改一些最终的数据或是自己把它传递给浏览器。CodeIgniter 允许你给你的控制器增加一个名为 <span class="STYLE1"><strong><font color="#00620c">_output()</font></strong></span> 的方法来接收最终的数据。</p>
+<p><strong>注意：</strong>&nbsp;如果你的控制器包含一个 <kbd>_output()</kbd> 方法，那么它将<strong>总是</strong>被调用，而不是直接输出最终的数据。这个方法类似于OO里的析构函数，不管你调用任何方法这个方法总是会被执行。</p>
+<p>例如：</p>
+<code>public function _output($output)<br />
+&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $output;<br />
-}</code>
-
-<p class="important">Please note that your <dfn>_output()</dfn> function will receive the data in its finalized state.  Benchmark and memory usage data will be rendered,
-cache files written (if you have caching enabled), and headers will be sent (if you use that <a href="../libraries/output.html">feature</a>)
-before it is handed off to the _output() function.<br />
+&#125;</code>
+<p class="important">请注意，你的 <dfn>_output()</dfn> 将接收最终的数据。 Benchmark和内存的使用率数据将被渲染，缓存文件会被写入（如果已启用缓存），并且 HTTP 头也将被发送（如果您使用该<a href="../libraries/output.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/output.html">功能</a>），然后交给 _output() 函数。<br />
 <br />
-To have your controller's output cached properly, its <dfn>_output()</dfn> method can use:<br />
+为了让你的控制器输出缓存正确, 它的 <dfn>_output()</dfn> 函数可以这样来写:<br />
 
 <code>if ($this-&gt;output-&gt;cache_expiration &gt; 0)<br />
-{<br />
+&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;output-&gt;_write_cache($output);<br />
-}</code>
+  &#125;</code>
 
-If you are using this feature the page execution timer and memory usage stats might not be perfectly accurate
-since they will not take into acccount any further processing you do.  For an alternate way to control output <em>before</em> any of the final processing is done, please see
-the available methods in the <a href="../libraries/output.html">Output Class</a>.</p>
+如果您正在使用页面执行时间和内存使用统计的功能，这可能不完全准确，因为他们不会考虑到你所做的任何进一步的动作。请在<a href="../libraries/output.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/output.html">输出类</a>参用可用的方法，来控制输出以使其在任何最终进程完成之前执行。
 
 <a name="private"></a>
-<h2>Private Functions</h2>
-
-
-<p>In some cases you may want certain functions hidden from public access.  To make a function private, simply add an
-underscore as the name prefix and it will not be served via a URL request. For example, if you were to have a function like this:</p>
-
-<code>
-private function _utility()<br />
-{<br />
+<h2>私有方法</h2>
+<p>在某些情况下，你可能想要隐藏一些方法使之无法对外查阅。将方法私有化很简单，只要在方法名字前面加一个下划线（&ldquo;_&rdquo;）做前缀就无法通过 URL 访问到了。例如，如果你有一个像这样的方法：</p>
+<p><code>private function _utility()<br />
+&#123;<br />
 &nbsp;&nbsp;// some code<br />
-}</code>
-
-<p>Trying to access it via the URL, like this, will not work:</p>
-
+&#125;</code></p>
+<p>那么，通过下面这样的 URL 进行访问是无法访问到的：</p>
 <code>example.com/index.php/<var>blog</var>/<samp>_utility</samp>/</code>
 
-
-
 <a name="subfolders"></a>
-<h2>Organizing Your Controllers into Sub-folders</h2>
-
-<p>If you are building a large application you might find it convenient to organize your controllers into sub-folders.  CodeIgniter permits you to do this.</p>
-
-<p>Simply create folders within your <dfn>application/controllers</dfn> directory and place your controller classes within them.</p>
-
-<p><strong>Note:</strong>&nbsp; When using this feature the first segment of your URI must specify the folder.  For example, lets say you have a controller
-located here:</p>
-
-<code>application/controllers/<kbd>products</kbd>/shoes.php</code>
-
-<p>To call the above controller your URI will look something like this:</p>
-
+<h2>如何将控制器放入子文件夹中</h2>
+<p>如果你在建立一个大型的应用程序，你会发现 CodeIgniter 可以很方便的将控制器放到一些子文件夹中。</p>
+<p>只要在 <dfn>application/controllers</dfn> 目录下创建文件夹并放入你的控制器就可以了。</p>
+<p><strong>注意：</strong>&nbsp; 如果你要使用某个子文件夹下的功能，就要保证 URI 的第一个片段是用于描述这个文件夹的。例如说你有一个控制器在这里：</p>
+<p><code>application/controllers/<kbd>products</kbd>/shoes.php</code></p>
+<p>调用这个控制器的时候你的 URI 要这么写：</p>
 <code>example.com/index.php/products/shoes/show/123</code>
-
-<p>Each of your sub-folders may contain a default controller which will be
-called if the URL contains only the sub-folder.  Simply name your default controller as specified in your
-<dfn>application/config/routes.php</dfn> file</p>
-
-
-<p>CodeIgniter also permits you to remap your URIs using its <a href="routing.html">URI Routing</a> feature.</p>
-
-
-<h2><a name="constructors"></a>Class Constructors</h2>
-
-
-<p>If you intend to use a constructor in any of your Controllers, you <strong>MUST</strong> place the following line of code in it:</p>
-
-<code>parent::__construct();</code>
-
-<p>The reason this line is necessary is because your local constructor will be overriding the one in the parent controller class so we need to manually call it.</p>
-
-<code>
-&lt;?php<br />
-class <kbd>Blog</kbd> extends CI_Controller {<br />
+<p>你的每个子文件夹中需要包含一个默认的控制器，这样如果 URI 中只有子文件夹而没有具体功能的时候它将被调用。只要将你作为默认的控制器名称在 <dfn>application/config/routes.php</dfn> 文件中指定就可以了。</p>
+<p>CodeIgniter 也允许你使用 <a href="routing.html" tppabs="http://codeigniter.org.cn/user_guide/general/routing.html">URI 路由</a> 功能来重新定向 URI。</p>
+<h2><a name="constructors"></a>构造函数</h2>
+<p>如果要在你的任意控制器中使用构造函数的话，那么<strong>必须</strong>在里面加入下面这行代码：</p>
+<p><code>parent::__construct();</code></p>
+<p>这行代码的必要性在于，你此处的构造函数会覆盖掉这个父控制器类中的构造函数，所以我们要手动调用它。</p>
+<code>&lt;?php<br />
+class <kbd>Blog</kbd> extends CI_Controller &#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function <kbd>__construct()</kbd><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<var>parent::__construct();</var><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Your own constructor code<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;<br />
 ?&gt;</code>
-
-<p>Constructors are useful if you need to set some default values, or run a default process when your class is instantiated.
-Constructors can't return a value, but they can do some default work.</p>
+<p>如果你需要设定某些默认的值或是在实例化类的时候运行一个默认的程序，那么构造函数在这方面就非常有用了。<br />
+构造函数并不能返回值，但是可以用来设置一些默认的功能。</p>
 
 <a name="reserved"></a>
-<h2>Reserved Function Names</h2>
+<h2>已保留的方法名称</h2>
 
-<p>Since your controller classes will extend the main application controller you
-must be careful not to name your functions identically to the ones used by that class, otherwise your local functions
-will override them. See <a href="reserved_names.html">Reserved Names</a> for a full list.</p>
+<p>因为你添加的控制器类继承了主要的应用程序控制器，所以你要小心你的方法名不要和那个类中的方法名一样了，否则你的方法会覆盖原有的。详细信息请查看<a href="reserved_names.html" tppabs="http://codeigniter.org.cn/user_guide/general/reserved_names.html">保留字</a>部分。</p>
 
-<h2>That's it!</h2>
-
-<p>That, in a nutshell, is all there is to know about controllers.</p>
-
-
-
+<h2>就这样了！</h2>
+<p>OK，总的来说，这就是关于控制器的所有内容了。</p><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+34333432, alsove, ashmodeus, bin_live, crazyant_ps2, dawenxi123, hewenxiang, Hex, irini, liuyanghejerry, li_star, longjianghu, lp_ci, vvchuanqi, zhangqianxun</div>
+<div id="DocDate">
+最后修改: 2012-06-04 16:28:02</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="urls.html">CodeIgniter URLs</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="reserved_names.html">Reserved Names</a></p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="urls.html" tppabs="http://codeigniter.org.cn/user_guide/general/urls.html">CodeIgniter URL</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="reserved_names.html" tppabs="http://codeigniter.org.cn/user_guide/general/reserved_names.html">保留字</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

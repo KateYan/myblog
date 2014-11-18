@@ -1,155 +1,129 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>XML-RPC and XML-RPC Server Classes : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>XML-RPC 和 XML-RPC 服务器类 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="xmlrpc.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/xmlrpc.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-XML-RPC and XML-RPC Server Classes
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;XML-RPC 和 XML-RPC 服务器类    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/xmlrpc.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/xmlrpc.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/xmlrpc.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>XML-RPC 和 XML-RPC 服务器类</h1>
+<p>CodeIgniter 的 XML-RPC&nbsp; 类允许你发送请求到另一个服务器, 或者建立一个你自己的XML-RPC服务器来接受请求.</p>
+<h2>什么是XML-RPC?</h2>
+<p>这是一个非常简单的两台计算机使用XML通过互联网进行通信的方法. 一台计算机 , 我们称之为 <dfn>客户端 </dfn>, 发送一个XML-RPC <strong>请求</strong> 给另外一台计算机 , 我们称之为 <dfn>服务器</dfn>.  当服务器收到请求并加以处理,然后将<strong> 结果 </strong>返回给客户端.</p>
+<p>例如,使用 MetaWeblog 的 API(应用程序接口) , 一个XML-RPC客户端(通常是桌面发布工具)会发送一个请求到运行在你网站的XML-RPC服务端. 这个请求有可能是要发布一篇新的网志,或者是要修改已存在的网志. 当XML-RPC服务器接收到请求,将检验请求并且决定调用何种类/方法来处理请求.一旦处理完毕,服务器将返回一个响应信息.</p>
+<p>如果要查看更详细的规范,你可以浏览 <a href="javascript:if(confirm('http://www.xmlrpc.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.xmlrpc.com/'" tppabs="http://www.xmlrpc.com/">XML-RPC</a> 网站.</p>
+<h2>初始化类</h2>
+<p>像CodeIgniter的大多数类一样, XML-RPC 和 XML-RPCS 类 在你的控制器中调用 <dfn>$this-&gt;load-&gt;library</dfn> 方法来进行初始化:</p>
+<p>使用以下代码载入XML-RPC类库:</p>
+<p><code>$this-&gt;load-&gt;library('xmlrpc');</code></p>
+<p>一旦XML-RPC类被载入, XML-RPC 库的对象就可以使用了: <dfn>$this-&gt;xmlrpc</dfn></p>
 
-
-<h1>XML-RPC and XML-RPC Server Classes</h1>
-
-
-<p>CodeIgniter's XML-RPC classes permit you to send requests to another server, or set up
-your own XML-RPC server to receive requests.</p>
-
-
-<h2>What is XML-RPC?</h2>
-
-<p>Quite simply it is a way for two computers to communicate over the internet using XML.
-One computer, which we will call the <dfn>client</dfn>, sends an XML-RPC <strong>request</strong> to
-another computer, which we will call the <dfn>server</dfn>.  Once the server receives and processes the request it
-will send back a <strong>response</strong> to the client.</p>
-
-<p>For example, using the MetaWeblog API, an XML-RPC Client (usually a desktop publishing tool) will
-send a request to an XML-RPC Server running on your site.  This request might be a new weblog entry
-being sent for publication, or it could be a request for an existing entry for editing.
-
-When the XML-RPC Server receives this request it will examine it to determine which class/method should be called to process the request.
-Once processed, the server will then send back a response message.</p>
-
-<p>For detailed specifications, you can visit the <a href="http://www.xmlrpc.com/">XML-RPC</a> site.</p>
-
-<h2>Initializing the Class</h2>
-
-<p>Like most other classes in CodeIgniter, the XML-RPC and XML-RPCS classes are initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
-
-<p>To load the XML-RPC class you will use:</p>
-<code>$this->load->library('xmlrpc');</code>
-<p>Once loaded, the xml-rpc library object will be available using: <dfn>$this->xmlrpc</dfn></p>
-
-<p>To load the XML-RPC Server class you will use:</p>
+<p>使用下面的方法载入 XML-RPC 服务器类：</p>
 <code>
-$this->load->library('xmlrpc');<br />
-$this->load->library('xmlrpcs');
+$this-&gt;load-&gt;library('xmlrpc');<br />
+$this-&gt;load-&gt;library('xmlrpcs');
 </code>
-<p>Once loaded, the xml-rpcs library object will be available using: <dfn>$this->xmlrpcs</dfn></p>
+<p>一旦加入，可以通过　<dfn>$this-&gt;xmlrpcs</dfn>　使用 xml-rpcs　库对象: <dfn>$this-&gt;xmlrpcs</dfn></p>
 
-<p class="important"><strong>Note:</strong>&nbsp; When using the XML-RPC Server class you must load BOTH the XML-RPC class and the XML-RPC Server class.</p>
+<p class="important"><strong>注意:</strong>&nbsp; 使用 XML-RPC 服务器，必须同时载入 XML-RPC 类和 XML-RPC 服务器类。</p>
 
 
 
-<h2>Sending XML-RPC Requests</h2>
+<h2>发送 XML-RPC 请求</h2>
 
-<p>To send a request to an XML-RPC server you must specify the following information:</p>
+<p>发送一个请求到 XML-RPC 服务器，需指定如下信息：</p>
 
 <ul>
-<li>The URL of the server</li>
-<li>The method on the server you wish to call</li>
-<li>The <em>request</em> data (explained below).</li>
+<li>服务器的 URL</li>
+<li>你要调用的服务器上的方法。</li>
+<li>The <em>请求</em> 数据 (说明见下面).</li>
 </ul>
 
-<p>Here is a basic example that sends a simple Weblogs.com ping to the <a href="http://pingomatic.com/">Ping-o-Matic</a></p>
+<p>下面是一个简单的例子，它发送一个简单的 Weblogs.com ping 到<a href="javascript:if(confirm('http://pingomatic.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://pingomatic.com/'" tppabs="http://pingomatic.com/">Ping-o-Matic</a></p>
 
 
-<code>$this->load->library('xmlrpc');<br />
+<code>$this-&gt;load-&gt;library('xmlrpc');<br />
 <br />
-$this->xmlrpc->server('http://rpc.pingomatic.com/', 80);<br />
-$this->xmlrpc->method('weblogUpdates.ping');<br />
+$this-&gt;xmlrpc-&gt;server('http://rpc.pingomatic.com/', 80);<br />
+$this-&gt;xmlrpc-&gt;method('weblogUpdates.ping');<br />
 
 <br />
 $request = array('My Photoblog', 'http://www.my-site.com/photoblog/');<br />
-$this->xmlrpc->request($request);<br />
+$this-&gt;xmlrpc-&gt;request($request);<br />
 <br />
-if ( ! $this->xmlrpc->send_request())<br />
-{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;echo $this-&gt;xmlrpc->display_error();<br />
-}</code>
+if ( ! $this-&gt;xmlrpc-&gt;send_request())<br />
+&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo $this-&gt;xmlrpc-&gt;display_error();<br />
+&#125;</code>
 
-<h3>Explanation</h3>
+<h3>说明</h3>
 
-<p>The above code initializes the XML-RPC class, sets the server URL and method to be called (weblogUpdates.ping).  The
-request (in this case, the title and URL of your site) is placed into an array for transportation, and
-compiled using the request() function.
-Lastly, the full request is sent.  If the <dfn>send_request()</dfn> method returns false we will display the error message
-sent back from the XML-RPC Server.</p>
+<p>以上代码初始化XML-RPC类，设置了服务器的URL和要调用的方法（weblogUpdates.ping).  请求（在此例中为你网站的标题和URL）被放在一个数组中使用 request() 函数传输、编译。最后，整个请求发出，如果<dfn>send_request()</dfn>方法返回 false，我们将显示XML-RPC 服务器发回的错误信息。</p>　
 
-<h2>Anatomy of a Request</h2>
 
-<p>An XML-RPC <dfn>request</dfn> is simply the data you are sending to the XML-RPC server.  Each piece of data in a request
-is referred to as a <dfn>request parameter</dfn>.  The above example has two parameters:
-The URL and title of your site. When the XML-RPC server receives your request, it will look for parameters it requires.</p>
+<h2>请求剖析</h2>
 
-<p>Request parameters must be placed into an array for transportation, and each parameter can be one
-of seven data types (strings, numbers, dates, etc.). If your parameters are something other than strings
-you will have to include the data type in the request array.</p>
+<p>一个 XML-RPC <dfn>请求</dfn>只是你发送到 XML-RPC 服务器的数据。请求中的每个数据片断也被称为<dfn>请求参数</dfn>。在上面的示例中，有两个参数：你网站的URL和标题。当 XML-RPC 服务器接到你的请求，服务器会寻找请求参数。</p>
 
-<p>Here is an example of a simple array with three parameters:</p>
+<p>请求参数必须放在数组中传输，每个参数可以是七种数据类型中的任一种（字符串，数字，日期，等等）。如果你的参数是字符串外的其它类型，则必须在请求数组中包含数据类型。</p>
+
+<p>下面是一个包含三个参数的简单数组示例:</p>
 
 <code>$request = array('John', 'Doe', 'www.some-site.com');<br />
-$this->xmlrpc->request($request);</code>
+$this-&gt;xmlrpc-&gt;request($request);</code>
 
-<p>If you use data types other than strings, or if you have several different data types, you will place
-each parameter into its own array, with the data type in the second position:</p>
+<p>如果你使用除字符串以外的其它类型，或有几种不同的数据类型，你需要将每个参数单独放到一个数组中，并在数组第二个位置给出数据类型。</p>
 
 <code>
 $request = array (<br />
@@ -159,93 +133,77 @@ $request = array (<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(12345, 'int')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
 <br />
-$this->xmlrpc->request($request);</code>
+$this-&gt;xmlrpc-&gt;request($request);</code>
 
-The  <a href="#datatypes">Data Types</a>  section below has a full list of data types.
+<a href="#datatypes">数据类型</a>  中包括完成的数据类型列表。
 
 
 
-<h2>Creating an XML-RPC Server</h2>
+<h2>创建 XML-RPC 服务器</h2>
 
-<p>An XML-RPC Server acts as a traffic cop of sorts, waiting for incoming requests and redirecting them to the
-appropriate functions for processing.</p>
+<p>XML-RPC 服务扮演着交通警察的角色，等待进入的请求，并将它们转到恰当的函数进行处理。</p>
 
-<p>To create your own XML-RPC server involves initializing the XML-RPC Server class in your controller where you expect the incoming
-request to appear, then setting up an array with mapping instructions so that incoming requests can be sent to the appropriate
-class and method for processing.</p>
+<p>要创建自己的 XML-RPC 服务器，包括在接受请求的控制器中初始化 XML-RPC 服务器类，然后设置一个指向映射数组以便收到的请求可以被发送到恰当的类与方法来处理。</p>
 
-<p>Here is an example to illustrate:</p>
+<p>下面用一个例子来说明：</p>
 
 <code>
-$this->load->library('xmlrpc');<br />
-$this->load->library('xmlrpcs');<br />
+$this-&gt;load-&gt;library('xmlrpc');<br />
+$this-&gt;load-&gt;library('xmlrpcs');<br />
 <br />
 $config['functions']['<var>new_post</var>'] = array('function' => '<dfn>My_blog.new_entry</dfn>'),<br />
 $config['functions']['<var>update_post</var>'] = array('function' => '<dfn>My_blog.update_entry</dfn>');<br />
 $config['object'] = $this;<br />
 <br />
-$this->xmlrpcs->initialize($config);<br />
-$this->xmlrpcs->serve();</code>
+$this-&gt;xmlrpcs-&gt;initialize($config);<br />
+$this-&gt;xmlrpcs-&gt;serve();</code>
 
-<p>The above example contains an array specifying two method requests that the Server allows.
-The allowed methods are on the left side of the array. When either of those are received, they will be mapped to the class and method on the right.</p>
+<p>上面的例子中有一个包含两个服务器允许的特定请求方法的数组。这些被允许的方法在数组的左边，当收到其中任何一个方法时，它会被立刻映射到数组右边所列出的类与方法。</p>
 
-<p>The '<var>object</var>' key is a special key that you pass an instantiated class object with, which is necessary when the method you are mapping to is not
-	part of the CodeIgniter super object.</p>
+<p>'<var>Object</var>'是一个特殊的键，它是你传递的类的实例，这个键是必要的，尤其是当你映射到的方法不是 Codeigniter 超类的一部分。</p>
+ 
+<p>换句话说，如果 XML-RPC 客户端发送一个请求到 <var>new_post</var> 方法，你的服务器会加载 <dfn>My_blog</dfn> 类并调用 <var>new_entry</var> 函数。如果这个请求是到 <var>update_post</var> 方法的，那么你的服务器会加载 <dfn>My_blog</dfn> 类并调用 <var>update_entry</var> 函数。</p>
 
-<p>In other words, if an XML-RPC Client sends a request for the <var>new_post</var> method, your
-server will load the <dfn>My_blog</dfn> class and call the <dfn>new_entry</dfn> function.
-If the request is for the <var>update_post</var> method, your
-server will load the <dfn>My_blog</dfn> class and call the <dfn>update_entry</dfn> function.</p>
+<p>上面例子中的函数名是任意的。你可以决定这些函数在你的服务器上叫什么名字，如果你使用的是标准的 API，比如：Blogger 或者 MetaWeblog 的 API，你必须使用标准的函数名。</p>
 
-<p>The function names in the above example are arbitrary.  You'll decide what they should be called on your server,
-or if you are using standardized APIs, like the Blogger or MetaWeblog API, you'll use their function names.</p>
+<p>这里还有两个附加的配置项，可以在服务器类初始化时配置使用。<var>debug</var> 设为 TRUE 以便调试，<var>xss_clean</var> 可被设置为 FALSE 以避免数据被安全类库的 <var>xss_clean</var> 函数过滤。</p>
 
-<p>There are two additional configuration keys you may make use of when initializing the server class: <var>debug</var> can be set to TRUE in order to enable debugging, and <var>xss_clean</var> may be set to FALSE to prevent sending data through the Security library's xss_clean function.
+<h2>处理服务器请求</h2>
 
-<h2>Processing Server Requests</h2>
+<p>当 XML-RPC 服务器收到请求并加载类与方法来处理时，服务器会传递一个包含客户端发送数据的对象到指定的方法。</p>
 
-<p>When the XML-RPC Server receives a request and loads the class/method for processing, it will pass
-an object to that method containing the data sent by the client.</p>
+<p>在上面的例子中，如果请求的是 <var>new_post</var> 方法，服务器请求的类与方法会像这样：</p>
 
-<p>Using the above example, if the <var>new_post</var> method is requested, the server will expect a class
-to exist with this prototype:</p>
-
-<code>class <kbd>My_blog</kbd> extends CI_Controller {<br />
+<code>class <kbd>My_blog</kbd> extends CI_Controller &#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function <kbd>new_post</kbd>(<var>$request</var>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-	<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+ <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;
 </code>
 
-<p>The <var>$request</var> variable is an object compiled by the Server, which contains the data sent by the XML-RPC Client.
-Using this object you will have access to the <em>request parameters</em> enabling you to process the request.  When
-you are done you will send a <dfn>Response</dfn> back to the Client.</p>
+<p><var>$request</var> 变量是一个由服务端汇集的对象，包含由 XML-RPC 客户端发送来的数据。使用该对象可以让你访问到 <em>request parameters</em> 以便处理请求。请求处理完成后，发送一个 <dfn>Response</dfn> 返回给客户端。</p>
 
-<p>Below is a real-world example, using the Blogger API.  One of the methods in the Blogger API is <dfn>getUserInfo()</dfn>.
-Using this method, an XML-RPC Client can send the Server a username and password, in return the Server sends
-back information about that particular user (nickname, user ID, email address, etc.).  Here is how the processing
-function might look:</p>
+<p>下面是一个较为实际的例子，使用 Blogger 的 API。Blogger API 中的一个方法是 <dfn>getUserInfo()</dfn>，使用该方法 XML-RPC 客户端可以发送用户名和密码到服务器，在服务器返回的数据会包含该特定用户的信息（昵称，用户 ID，Email 地址等等）。下面是处理函数可能的样子：</p>
 
 
-<code>class <kbd>My_blog</kbd> extends CI_Controller {<br />
+<code>class <kbd>My_blog</kbd> extends CI_Controller &#123;<br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;function <kbd>getUserInfo</kbd>(<var>$request</var>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$username = 'smitty';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$password = 'secretsmittypass';<br /><br />
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->load->library('xmlrpc');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;library('xmlrpc');<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$parameters&nbsp;=&nbsp;$request->output_parameters();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$parameters&nbsp;=&nbsp;$request-&gt;output_parameters();<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;($parameters['1'] != $username AND $parameters['2'] != $password)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;$this->xmlrpc->send_error_message('100',&nbsp;'Invalid&nbsp;Access');<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;$this-&gt;xmlrpc-&gt;send_error_message('100',&nbsp;'Invalid&nbsp;Access');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$response&nbsp;=&nbsp;array(array('nickname'&nbsp;&nbsp;=>&nbsp;array('Smitty','string'),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'userid'&nbsp;&nbsp;&nbsp;&nbsp;=>&nbsp;array('99','string'),<br />
@@ -256,30 +214,26 @@ function might look:</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct');<br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $this->xmlrpc->send_response($response);<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $this-&gt;xmlrpc-&gt;send_response($response);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+&#125;
 </code>
 
-<h3>Notes:</h3>
-<p>The <dfn>output_parameters()</dfn> function retrieves an indexed array corresponding to the request parameters sent by the client.
-In the above example, the output parameters will be the username and password.</p>
+<h3>注意：</h3>
+<p><dfn>output_parameters()</dfn> 函数会检索一个由相应客户端发送的索引过的请求参数数组。上面的例子中输出参数将会是用户名和密码。</p>
 
-<p>If the username and password sent by the client were not valid, and error message is returned using <dfn>send_error_message()</dfn>.</p>
+<p>如果客户端发送的用户名和密码无效的话，错误信息会通过 <dfn>send_error_message()</dfn> 函数返回。</p>
 
-<p>If the operation was successful, the client will be sent back a response array containing the user's info.</p>
+<p>如果操作成功，客户端会收到包含用户信息的反馈数组。</p>
 
 
-<h2>Formatting a Response</h2>
+<h2>格式化反馈信息</h2>
 
-<p>Similar to <em>Requests</em>, <em>Responses</em> must be formatted as an array.  However, unlike requests, a response is an array
-<strong>that contains a single item</strong>.  This item can be an array with several additional arrays, but there
-can be only one primary array index.  In other words, the basic prototype is this:</p>
+<p>就像 <em>Requests</em>, <em>Responses</em> 必须被格式化为数组。然而不同于请求信息，反馈信息是<strong>只包含一个项</strong>的数组。该项可以是一个包含很多其他数组的的数组，但是只有一个主数组索引，下面是一个反馈信息大概的样子：</p>
 
 <code>$response = array('Response data',  'array');</code>
 
-<p>Responses, however, usually contain multiple pieces of information. In order to accomplish this we must put the response into its own
-array so that the primary array continues to contain a single piece of data.  Here's an example showing how this might be accomplished:</p>
+<p>但是反馈信息通常包含多个分块信息。要做到这样，我们必须把各分块信息放到他们自己的数组中，这样主数组就始终只有一个数据项。这里是一个例子来展示如何达成这样的效果：</p>
 
 <code>
 $response = array (<br />
@@ -293,185 +247,182 @@ $response = array (<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
 </code>
 
-<p class="important">Notice that the above array is formatted as a <dfn>struct</dfn>.  This is the most common data type for responses.</p>
+<p class="important">注意：上面的数组被格式化为 <dfn>struct</dfn>，这是反馈信息最常见的数据类型。</p>
 
-<p>As with Requests, a response can be one of the seven data types listed in the  <a href="#datatypes">Data Types</a>  section.</p>
-
-
-<h2>Sending an Error Response</h2>
-
-<p>If you need to send the client an error response you will use the following:</p>
-
-<code>return $this->xmlrpc->send_error_message('123', 'Requested data not available');</code>
-
-<p>The first parameter is the error number while the second parameter is the error message.</p>
+<p>如同请求信息一样，反馈信息可以是七种数据类型中的一种，参见 <a href="#datatypes">数据类型</a> 一节。</p>
 
 
+<h2>发送出错反馈</h2>
+
+<p>如果你需要发送给客户端一个出错反馈，你会使用到下面的代码：</p>
+
+<code>return $this-&gt;xmlrpc-&gt;send_error_message('123', 'Requested data not available');</code>
+
+<p>第一个参数是出错编号，第二个参数是出错信息。</p>
 
 
 
 
-<h2>Creating Your Own Client and Server</h2>
 
-<p>To help you understand everything we've covered thus far, let's create a couple controllers that act as
-XML-RPC Client and Server.  You'll use the Client to send a request to the Server and receive a response.</p>
 
-<h3>The Client</h3>
+<h2>创建你自己的客户端与服务端</h2>
 
-<p>Using a text editor, create a controller called <dfn>xmlrpc_client.php</dfn>.
-In it, place this code and save it to your <samp>applications/controllers/</samp> folder:</p>
+<p>为了帮助理解这些，让我们创建两个控制器来演示 XML-RPC 的客户端和服务端。你将用客户端来发送一个请求到服务端并从服务端收到一个反馈。</p>
+
+<h3>客户端</h3>
+
+<p>使用编辑器创建一个控制器，起名为 <dfn>xmlrpc_client.php</dfn>。在这个控制器中，粘贴以下的代码并保存到 <samp>applications/controllers/</samp> 目录：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="32">&lt;?php
 
-class Xmlrpc_client extends CI_Controller {
+class Xmlrpc_client extends CI_Controller &#123;
+ 
+ function index()
+ &#123; 
+  $this-&gt;load-&gt;helper('url');
+  $server_url = site_url('xmlrpc_server');
+ 
+  $this-&gt;load-&gt;library('xmlrpc');
+  
+  $this-&gt;xmlrpc-&gt;server($server_url, 80);
+  $this-&gt;xmlrpc-&gt;method('Greetings');
+  
+  $request = array('How is it going?');
+  $this-&gt;xmlrpc-&gt;request($request); 
+  
+  if ( ! $this-&gt;xmlrpc-&gt;send_request())
+  &#123;
+   echo $this-&gt;xmlrpc-&gt;display_error();
+  &#125;
+  else
+  &#123;
+   echo '<pre>';
+   print_r($this-&gt;xmlrpc-&gt;display_response());
+   echo '</pre>';
+  &#125;
+ &#125;
+&#125;
+?&gt;</textarea>
 
-	function index()
-	{
-		$this->load->helper('url');
-		$server_url = site_url('xmlrpc_server');
+<p>注意：在上面的代码中我们使用了 "url" 辅助函数，你可以在<a href="../general/helpers.html" tppabs="http://codeigniter.org.cn/user_guide/general/helpers.html">辅助函数</a>页面找到更多信息。</p>
 
-		$this->load->library('xmlrpc');
+<h3>服务端</h3>
 
-		$this->xmlrpc->server($server_url, 80);
-		$this->xmlrpc->method('Greetings');
-
-		$request = array('How is it going?');
-		$this->xmlrpc->request($request);
-
-		if ( ! $this->xmlrpc->send_request())
-		{
-			echo $this->xmlrpc->display_error();
-		}
-		else
-		{
-			echo '<pre>';
-			print_r($this->xmlrpc->display_response());
-			echo '</pre>';
-		}
-	}
-}
-?></textarea>
-
-<p>Note: In the above code we are using a "url helper".  You can find more information in the <a href="../general/helpers.html">Helpers Functions</a> page.</p>
-
-<h3>The Server</h3>
-
-<p>Using a text editor, create a controller called <dfn>xmlrpc_server.php</dfn>.
-In it, place this code and save it to your <samp>applications/controllers/</samp> folder:</p>
+<p>使用编辑器创建一个控制器，起名为 <dfn>xmlrpc_server.php</dfn>。在这个控制器中，粘贴一下代码并保存到 <samp>applications/controllers/</samp> 目录：</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="30">&lt;?php
 
-class Xmlrpc_server extends CI_Controller {
+class Xmlrpc_server extends CI_Controller &#123;
 
-	function index()
-	{
-		$this->load->library('xmlrpc');
-		$this->load->library('xmlrpcs');
+ function index()
+ &#123;
+  $this-&gt;load-&gt;library('xmlrpc');
+  $this-&gt;load-&gt;library('xmlrpcs');
+  
+  $config['functions']['Greetings'] = array('function' => 'Xmlrpc_server.process');
+  
+  $this-&gt;xmlrpcs-&gt;initialize($config);
+  $this-&gt;xmlrpcs-&gt;serve();
+ &#125;
+ 
+ 
+ function process($request)
+ &#123;
+  $parameters = $request-&gt;output_parameters();
+  
+  $response = array(
+       array(
+         'you_said'  => $parameters['0'],
+         'i_respond' => 'Not bad at all.'),
+       'struct');
+      
+  return $this-&gt;xmlrpc-&gt;send_response($response);
+ &#125;
+&#125;
+?&gt;</textarea>
 
-		$config['functions']['Greetings'] = array('function' => 'Xmlrpc_server.process');
+<h3>试试吧！</h3>
 
-		$this->xmlrpcs->initialize($config);
-		$this->xmlrpcs->serve();
-	}
-
-
-	function process($request)
-	{
-		$parameters = $request->output_parameters();
-
-		$response = array(
-							array(
-									'you_said'  => $parameters['0'],
-									'i_respond' => 'Not bad at all.'),
-							'struct');
-
-		return $this->xmlrpc->send_response($response);
-	}
-}
-?></textarea>
-
-<h3>Try it!</h3>
-
-<p>Now visit the your site using a URL similar to this:</p>
+<p>现在像下面的链接这样访问你的站点：</p>
 <code>example.com/index.php/<var>xmlrpc_client</var>/</code>
 
-<p>You should now see the message you sent to the server, and its response back to you.</p>
+<p>现在你应该能看到你发送到服务端的信息，并且被返回给了你。</p>
 
-<p>The client you created sends a message ("How's is going?") to the server, along with a request for the "Greetings" method.
-The Server receives the request and maps it to the "process" function, where a response is sent back.</p>
+<p>在客户端，你发送了一条消息 ("How's is going?") 到服务端，随着一个请求发送到 "Greetings" 方法。服务端收到这个请求并映射到 "process" 函数，然后把反馈信息返回。</p>
 
-<h2>Using Associative Arrays In a Request Parameter</h2>
+<h2>在请求参数中使用关联数组</h2>
 
-<p>If you wish to use an associative array in your method parameters you will need to use a struct datatype:</p>
+<p>如果你希望在你的方法参数中使用关联数组，那么你需要使用 struct 数据类型：</p>
 
 <code>$request = array(<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Param 0<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name'=&gt;'John'<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	),<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct'<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Param 1<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	'size'=&gt;'large',<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'shape'=&gt;'round'<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	),<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct'<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
-	$this-&gt;xmlrpc-&gt;request($request);</code>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Param 0<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name'=&gt;'John'<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ),<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct'<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Param 1<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'size'=&gt;'large',<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'shape'=&gt;'round'<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ),<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct'<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
+ $this-&gt;xmlrpc-&gt;request($request);</code>
 
-<p>You can retrieve the associative array when processing the request in the Server.</p>
+<p>你可以在服务端处理请求信息时检索关联数组。</p>
 
 <code>$parameters = $request-&gt;output_parameters();<br />
-	$name = $parameters['0']['name'];<br />
-	$size = $parameters['1']['size'];<br />
-	$size = $parameters['1']['shape']; </code>
+ $name = $parameters['0']['name'];<br />
+ $size = $parameters['1']['size'];<br />
+ $size = $parameters['1']['shape']; </code>
 
-<h1>XML-RPC Function Reference</h1>
 
-<h2>$this->xmlrpc->server()</h2>
-<p>Sets the URL and port number of the server to which a request is to be sent:</p>
-<code>$this->xmlrpc->server('http://www.sometimes.com/pings.php', 80);</code>
+<h1>XML-RPC 函数参考</h1>
 
-<h2>$this->xmlrpc->timeout()</h2>
-<p>Set a time out period (in seconds) after which the request will be canceled:</p>
-<code>$this->xmlrpc->timeout(6);</code>
+<h2>$this-&gt;xmlrpc-&gt;server()</h2>
+<p>设置发送给服务器端的XML-RPC的url和端口参数:</p>
+<code>$this-&gt;xmlrpc-&gt;server('http://www.sometimes.com/pings.php', 80);</code>
 
-<h2>$this->xmlrpc->method()</h2>
-<p>Sets the method that will be requested from the XML-RPC server:</p>
-<code>$this->xmlrpc->method('<var>method</var>');</code>
+<h2>$this-&gt;xmlrpc-&gt;timeout()</h2>
+<p>设置一个超时时间（以秒计算）:</p>
+<code>$this-&gt;xmlrpc-&gt;timeout(6);</code>
+
+<h2>$this-&gt;xmlrpc-&gt;method()</h2>
+<p>设置XML-RPC服务器接受的请求方法:</p>
+<code>$this-&gt;xmlrpc-&gt;method('<var>method</var>');</code>
 
 <p>Where <var>method</var> is the name of the method.</p>
 
-<h2>$this->xmlrpc->request()</h2>
-<p>Takes an array of data and builds request to be sent to XML-RPC server:</p>
+<h2>$this-&gt;xmlrpc-&gt;request()</h2>
+<p>设置发送给XML-RPC服务器的数组数据:</p>
 <code>$request = array(array('My Photoblog', 'string'), 'http://www.yoursite.com/photoblog/');<br />
-$this->xmlrpc->request($request);</code>
+$this-&gt;xmlrpc-&gt;request($request);</code>
 
-<h2>$this->xmlrpc->send_request()</h2>
-<p>The request sending function.  Returns boolean TRUE or FALSE based on success for failure, enabling it to be used conditionally.</p>
+<h2>$this-&gt;xmlrpc-&gt;send_request()</h2>
+<p>请求发送函数.  函数使用之前设置的参数去发起请求XML-RPC服务，成功则返回布尔值TRUE，失败则返回布尔值.</p>
 
-<h2>$this->xmlrpc->set_debug(TRUE);</h2>
-<p>Enables debugging, which will display a variety of information and error data helpful during development.</p>
+<h2>$this-&gt;xmlrpc-&gt;set_debug(TRUE);</h2>
+<p>开始调试模式, 开启后，程序将输出错误、警告等信息，以帮助开发者更快的找到问题所在。</p>
 
 
-<h2>$this->xmlrpc->display_error()</h2>
-<p>Returns an error message as a string if your request failed for some reason.</p>
-<code>echo $this->xmlrpc->display_error();</code>
+<h2>$this-&gt;xmlrpc-&gt;display_error()</h2>
+<p>当请求失败后，返回错误信息。</p>
+<code>echo $this-&gt;xmlrpc-&gt;display_error();</code>
 
-<h2>$this->xmlrpc->display_response()</h2>
+<h2>$this-&gt;xmlrpc-&gt;display_response()</h2>
 <p>Returns the response from the remote server once request is received.  The response will typically be an associative array.</p>
-<code>$this->xmlrpc->display_response();</code>
+<code>$this-&gt;xmlrpc-&gt;display_response();</code>
 
-<h2>$this->xmlrpc->send_error_message()</h2>
+<h2>$this-&gt;xmlrpc-&gt;send_error_message()</h2>
 <p>This function lets you send an error message from your server to the client. First parameter is the error number while the second parameter
 is the error message.</p>
-<code>return $this->xmlrpc->send_error_message('123', 'Requested data not available');</code>
+<code>return $this-&gt;xmlrpc-&gt;send_error_message('123', 'Requested data not available');</code>
 
-<h2>$this->xmlrpc->send_response()</h2>
+<h2>$this-&gt;xmlrpc-&gt;send_response()</h2>
 <p>Lets you send the response from your server to the client. An array of valid data values must be sent with this method.</p>
 <code>$response = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />
@@ -479,13 +430,13 @@ is the error message.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'message' => "Thanks for the ping!"<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'struct');<br />
-return $this->xmlrpc->send_response($response);</code>
+return $this-&gt;xmlrpc-&gt;send_response($response);</code>
 
 
 <a name="datatypes"></a>
-<h2>Data Types</h2>
+<h2>数据类型</h2>
 
-<p>According to the <a href="http://www.xmlrpc.com/spec">XML-RPC spec</a> there are seven types
+<p>According to the <a href="javascript:if(confirm('http://www.xmlrpc.com/spec  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.xmlrpc.com/spec'" tppabs="http://www.xmlrpc.com/spec">XML-RPC spec</a> there are seven types
 of values that you can send via XML-RPC:</p>
 
 <ul>
@@ -497,23 +448,40 @@ of values that you can send via XML-RPC:</p>
 <li><em>base64</em></li>
 <li><em>struct</em> (contains array of values)</li>
 <li><em>array</em> (contains array of values)</li>
-</ul>
-
-
+</ul><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+Hex, huanxiangwu, huboo, ianyang, shishirui, sydcurie, wanglinqiang</div>
+<div id="DocDate">
+最后修改: 2014-06-12 17:57:10</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="user_agent.html">User Agent Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="zip.html">Zip Encoding Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="user_agent.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/user_agent.html">User-Agent 类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="zip.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/zip.html">Zip 编码类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>

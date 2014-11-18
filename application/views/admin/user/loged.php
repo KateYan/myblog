@@ -21,8 +21,8 @@
 
             echo '<div class="col-md-1" style="width:20%">';
             echo '<span style="float:right">';
-            echo '<a href="edit?edit_id='.$row->Arti_ID.'">' . "edit ". '</a>';
-            echo '<a href="?delete_id='.$row->Arti_ID.'">' . "delete ". '</a>';
+            echo '<a href="edit?edit_id='.$row->Arti_ID.'" class="btn btn-xs btn-primary">' . "edit ". '</a>'." ";
+            echo '<a href="loged_delete?delete_id='.$row->Arti_ID.'" class="btn btn-xs btn-success">' . "delete ". '</a>';
             echo '</span>';
             echo '</div>';
             echo '</div>';
@@ -34,11 +34,7 @@
     <div class="col-md-4">
         <a href="newarticle" class="btn btn-primary" value="Write a new one">Write a new one</a><br><br>
         <a href="main" class="btn btn-success" >Back to main</a><br><br>
-        <?php
-        $attributes=array('id'=>'logout');
-        echo form_open('main',$attributes);
-        ?>
-        <button class="btn btn-primary" name="logout">Log out</button>
+        <a href="logout" class="btn btn-primary" name="logout">Log out</a>
     </div>
 
 </div>

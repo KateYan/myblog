@@ -1,118 +1,115 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Zip Encoding Class : CodeIgniter User Guide</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='CodeIgniter User Guide' />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+<title>Zip 编码类 - CodeIgniter 中文手册|用户手册|用户指南|Wiki文档</title>
+<link rel="shortcut icon" href="../../images/design/favicon.ico" tppabs="http://codeigniter.org.cn/images/design/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="all" href="../userguide.css" tppabs="http://codeigniter.org.cn/user_guide/userguide.css" />
+<link rel="search" href="../../CodeIgniterSearch.xml" tppabs="http://codeigniter.org.cn/CodeIgniterSearch.xml" type="application/opensearchdescription+xml" title="CodeIgniter 搜索"/>
+<link rel="canonical" href="zip.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/zip.html" />
+<script type="text/javascript" src="../nav/mootools.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/mootools-more.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/mootools-more.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/nav.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/nav.js?ver=20130324"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js-ver=20130324" tppabs="http://codeigniter.org.cn/user_guide/nav/user_guide_menu.js?ver=20130324"></script>
+<meta name="robots" content="all" />
+<meta name="author" content="ExpressionEngine Dev Team" />
+<meta name="description" content="CodeIgniter 中文手册, CodeIgniter 用户指南, CodeIgniter User Guide, Wiki 文档" />
 </head>
 <body>
-
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>CodeIgniter User Guide Version 2.2.0</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+<div id="nav">
+  <div id="nav_inner">
+    <script type="text/javascript">create_menu('http://codeigniter.org.cn/user_guide/');</script>
+  </div>
+</div>
+<script type="text/javascript">_setNavigation();</script>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" tppabs="http://codeigniter.org.cn/user_guide/images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="切换目录" alt="切换目录" /></a></div>
+<div id="masthead" class="clearfix">
+    <div class="topbar-hd"><h1>CodeIgniter 用户指南 版本 2.2.0</h1></div>
+<div class="topbar-tip">编辑文档、查看近期更改请 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/login  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/login'" tppabs="http://codeigniter.org.cn/user_guide/auth/login">登录</a> 或 <a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/register  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/register'" tppabs="http://codeigniter.org.cn/user_guide/auth/register">注册</a> 　<a href="javascript:if(confirm('http://codeigniter.org.cn/user_guide/auth/forgotten_password  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ���Ǳ��Զ��ų����ų��ġ� (�㲻һ��Ҫʹ���Զ��ų�����ο�����Ŀ���ԡ��ġ�������ڡ���)  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/user_guide/auth/forgotten_password'" tppabs="http://codeigniter.org.cn/user_guide/auth/forgotten_password">找回密码</a></div>      <div id="breadcrumb_right"><a href="../toc.html" tppabs="http://codeigniter.org.cn/user_guide/toc.html">目录页</a></div>
 </div>
 <!-- END NAVIGATION -->
-
-
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Zip Encoding Class
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="ellislab.com/codeigniter/user-guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+  <tr>
+    <td id="breadcrumb">
+        <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/" target="_blank">CodeIgniter 中国首页</a>&nbsp;&#8250;&nbsp;
+<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&#8250;&nbsp;Zip 编码类    </td>
+    <td id="searchbox">
+        <form method="get" action="http://www.google.com.hk/search" target="google_window">
+        <input type="hidden" name="client" value="pub-0176846097796333"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.cn/user_guide/" />
+        搜索用户指南&nbsp;
+        <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />
+        &nbsp;
+        <input type="submit" class="submit" name="sa" value="Go" />
+      </form>
+    </td>
+  </tr>
 </table>
 <!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
+<div style="clear:both;text-align:right;padding: 6px 40px 0 0;">
+<a href="javascript:if(confirm('http://ellislab.com/codeigniter/user-guide/libraries/zip.html  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/codeigniter/user-guide/libraries/zip.html'" tppabs="http://ellislab.com/codeigniter/user-guide/libraries/zip.html" target="_blank">查看原文</a>
+</div>
+<!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
+<h1>Zip 编码类</h1>
+
+<p>CodeIgniter的zip编码类允许你创建ZIP压缩文档。文档可以保存在你的桌面或者某个文件夹里</p>
 
 
-<h1>Zip Encoding Class</h1>
-<p>CodeIgniter's Zip Encoding Class classes permit you to create Zip archives. Archives can be downloaded to your
-desktop or saved to a directory.</p>
+<h2>初始化</h2>
+<p>与其他CodeIgniter里的类一样，ZIP类在控制器里完成初始化工作，函数：<dfn>$this-&gt;load-&gt;library</dfn></p>
+<code>$this-&gt;load-&gt;library('zip');</code>
+<p>一旦加载，ZIP库对象可以用<dfn>$this-&gt;zip</dfn>来使用</p>
 
+<h2>使用样例</h2>
 
-<h2>Initializing the Class</h2>
-<p>Like most other classes in CodeIgniter, the Zip class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
-
-<code>$this->load->library('zip');</code>
-<p>Once loaded, the Zip library object will be available using: <dfn>$this->zip</dfn></p>
-
-
-<h2>Usage Example</h2>
-
-<p>This example demonstrates how to compress a file, save it to a folder on your server, and download it to your desktop.</p>
-
+<p>这个例子演示了如何压缩一个文件并保存到你服务器一个文件夹，然后下载到你的桌面上。</p>
 <code>
 $name = 'mydata1.txt';<br />
+
 $data = 'A Data String!';<br />
 <br />
-$this->zip->add_data($name, $data);<br />
+$this-&gt;zip-&gt;add_data($name, $data);<br />
 <br />
-// Write the zip file to a folder on your server. Name it "my_backup.zip"<br />
-$this->zip->archive('/path/to/directory/my_backup.zip');
+// 在你的服务器的文件夹里写.zip文件。命名为"my_backup.zip"<br />
+$this-&gt;zip-&gt;archive('/path/to/directory/my_backup.zip');
 <br /><br />
- // Download the file to your desktop.  Name it "my_backup.zip"<br />
-$this->zip->download('my_backup.zip');
+ // 下载此文件到桌面，命名为"my_backup.zip"<br />
+$this-&gt;zip-&gt;download('my_backup.zip');
 </code>
 
-<h1>Function Reference</h1>
+<h1>函数参考</h1>
 
-<h2>$this->zip->add_data()</h2>
+<h2>$this-&gt;zip-&gt;add_data()</h2>
 
-<p>Permits you to add data to the Zip archive. The first parameter must contain the name you would like
-given to the file, the second parameter must contain the file data as a string:</p>
+<p>添加数据进zip文件里. 第一个参数是文件名, 第二个参数是你要添加的数据的字符串格式:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);
+$this-&gt;zip-&gt;add_data($name, $data);
 </code>
 
-<p>You are allowed multiple calls to this function in order to
-add several files to your archive.  Example:</p>
+<p>允许你多次调用这个函数按顺序的添加若干个文件到你的存档。例子：</p>
 
 <code>
 $name = 'mydata1.txt';<br />
 $data = 'A Data String!';<br />
-$this->zip->add_data($name, $data);<br />
+$this-&gt;zip-&gt;add_data($name, $data);<br />
 <br />
 $name = 'mydata2.txt';<br />
 $data = 'Another Data String!';<br />
-$this->zip->add_data($name, $data);<br />
+$this-&gt;zip-&gt;add_data($name, $data);<br />
 </code>
 
-<p>Or you can pass multiple files using an array:</p>
+<p>或者你可以使用一个数组来传递多个文件（的值）：</p>
 
 <code>
 $data = array(<br />
@@ -120,169 +117,165 @@ $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mydata2.txt' => 'Another Data String!'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
-$this->zip->add_data($data);<br />
+$this-&gt;zip-&gt;add_data($data);<br />
 <br />
-$this->zip->download('my_backup.zip');
+$this-&gt;zip-&gt;download('my_backup.zip');
+
 </code>
 
-<p>If you would like your compressed data organized into sub-folders, include the path as part of the filename:</p>
+<p>如果你希望将压缩后的数据放入子文件夹内，请把路径作为文件名的一部分包含进去:</p>
 
 <code>
 $name = '<kbd>personal/</kbd>my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);
+$this-&gt;zip-&gt;add_data($name, $data);
 </code>
 
-<p>The above example will place <dfn>my_bio.txt</dfn> inside a folder called <kbd>personal</kbd>.</p>
+<p>上面的例子将放置 <dfn>my_bio.txt</dfn> 到一个叫<kbd>personal</kbd>的文件夹内。</p>
 
 
-<h2>$this->zip->add_dir()</h2>
+<h2>$this-&gt;zip-&gt;add_dir()</h2>
 
-<p>Permits you to add a directory.  Usually this function is unnecessary since you can place your data into folders when
-using <dfn>$this->zip->add_data()</dfn>, but if you would like to create an empty folder you can do so.  Example:</p>
+<p>允许你添加一个目录。通常这个函数是不必要的，因为当你使用<dfn>$this-&gt;zip-&gt;add_data()</dfn>, 可以把你的数据放进目录里，但是如果你想要创建一个空目录的话你也可以这样做。例子：</p>
 
-<code>$this->zip->add_dir('myfolder'); // Creates a folder called "myfolder"</code>
-
+<code>$this-&gt;zip-&gt;add_dir('myfolder'); // Creates a folder called "myfolder"</code>
 
 
-<h2>$this->zip->read_file()</h2>
 
-<p>Permits you to compress a file that already exists somewhere on your server.  Supply a file path and the zip class will
-read it and add it to the archive:</p>
+<h2>$this-&gt;zip-&gt;read_file&#40;&#41;</h2>
+
+<p>允许你压缩一个服务器某处存在的文件。提供一个文件路径，zip类将读取它并添加到存档：</p>
 
 <code>
 $path = '/path/to/photo.jpg';<br /><br />
-$this->zip->read_file($path);
+$this-&gt;zip-&gt;read_file&#40;$path&#41;;
 <br /><br />
  // Download the file to your desktop.  Name it "my_backup.zip"<br />
-$this->zip->download('my_backup.zip');
+$this-&gt;zip-&gt;download('my_backup.zip');
 </code>
 
-<p>If you would like the Zip archive to maintain the directory structure of the file in it, pass <kbd>TRUE</kbd> (boolean) in the
-second parameter.  Example:</p>
+<p>如果你想压缩文档保持原来文件的目录结构，可以把第二个参数设置为 <kbd>TRUE</kbd> （布尔值）。例子：</p>
 
 
 <code>
 $path = '/path/to/photo.jpg';<br /><br />
-$this->zip->read_file($path, <kbd>TRUE</kbd>);
+$this-&gt;zip-&gt;read_file&#40;$path, <kbd>TRUE</kbd>&#41;;
 <br /><br />
  // Download the file to your desktop.  Name it "my_backup.zip"<br />
-$this->zip->download('my_backup.zip');
+$this-&gt;zip-&gt;download('my_backup.zip');
 </code>
 
-<p>In the above example, <dfn>photo.jpg</dfn> will be placed inside two folders:  <kbd>path/to/</kbd></p>
+<p>在上边的例子中，<dfn>photo.jpg</dfn>将被放到两层文件夹中：<kbd>path/to/</kbd> </p>
 
 
 
-<h2>$this->zip->read_dir()</h2>
+<h2>$this-&gt;zip-&gt;read_dir()</h2>
 
-<p>Permits you to compress a folder (and its contents) that already exists somewhere on your server.  Supply a file path to the
-directory and the zip class will recursively read it and recreate it as a Zip archive.  All files contained within the
-supplied path will be encoded, as will any sub-folders contained within it.  Example:</p>
+<p>允许你压缩一个服务器某处存在的文件夹（以及它里面的文件和子文件夹）。提供一个文件夹路径，zip类将递归读取它并重新创建添加到存档。 你所提供的路径下面的所有文件都会被压缩进来，也包括所有子文件夹。例如:</p>
 
 <code>
 $path = '/path/to/your/directory/';<br /><br />
-$this->zip->read_dir($path);
+$this-&gt;zip-&gt;read_dir($path);
 <br /><br />
- // Download the file to your desktop.  Name it "my_backup.zip"<br />
-$this->zip->download('my_backup.zip');
+ // 将文件下载到你的桌面上，命名为 "my_backup.zip"<br />
+
+$this-&gt;zip-&gt;download('my_backup.zip');
 </code>
 
-<p>By default the Zip archive will place all directories listed in the first parameter inside the zip. If you want the tree preceding the target folder to be ignored
-you can pass <kbd>FALSE</kbd> (boolean) in the second parameter.  Example:</p>
+
+<p>默认Zip文件会把第一个参数的完整文件夹路径保存到Zip文件里。如果你想忽略目标路径之前的文件夹结构，你可以传递 <kbd>FALSE</kbd> (布尔值) 到第二个参数。  例如:</p>
 
 <code>
 $path = '/path/to/your/directory/';<br /><br />
-$this->zip->read_dir($path, FALSE);
+$this-&gt;zip-&gt;read_dir($path, FALSE);
 </code>
 
-<p>This will create a ZIP with the folder "directory" inside, then all sub-folders stored correctly inside that, but will not include the folders <samp>/path/to/your</samp>.</p>
+<p>这将创建一个包括"directory"在内的ZIP文件, 所有的子文件夹被正确地保存在里面, 但是不包括此文件夹 <samp>/path/to/your</samp>.</p>
 
 
+<h2>$this-&gt;zip-&gt;archive()</h2>
+
+<p>将Zip压缩文件写入服务器的一个目录下。请提交一个有效的服务器路径，以文件名作为结尾，并确保那个目录是可写的(权限为666或者777都可以)。例如:</p>
+
+<code>$this-&gt;zip-&gt;archive('/path/to/folder/myarchive.zip'); // 创建一个名为 myarchive.zip 的文件</code>
 
 
-<h2>$this->zip->archive()</h2>
+<h2>$this-&gt;zip-&gt;download()</h2>
 
-<p>Writes the Zip-encoded file to a directory on your server.  Submit a valid server path ending in the file name.  Make sure the
-directory is writable (666 or 777 is usually OK). Example:</p>
+<p>本函数将使用户从你的服务器上下载一个Zip文件。你必须把你想要使用的文件名作为参数传递给函数。例如:</p>
 
-<code>$this->zip->archive('/path/to/folder/myarchive.zip'); // Creates a file named myarchive.zip</code>
+<code>$this-&gt;zip-&gt;download('latest_stuff.zip'); // 文件将被命名为"latest_stuff.zip"</code>
 
-
-<h2>$this->zip->download()</h2>
-
-<p>Causes the Zip file to be downloaded from your server. The function must be passed the name you would like the zip file called.
-Example:</p>
-
-<code>$this->zip->download('latest_stuff.zip'); // File will be named "latest_stuff.zip"</code>
-
-<p class="important"><strong>Note:</strong>&nbsp; Do not display any data in the controller in which you call this function since it sends various server headers
-that cause the download to happen and the file to be treated as binary.</p>
+<p class="important"><strong>说明:</strong>&nbsp; 在调用本函数的控制器中不要显示任何数据，因为本函数将发送多个服务器header，从而使文件以二进制的形式被下载。</p>
 
 
-<h2>$this->zip->get_zip()</h2>
+<h2>$this-&gt;zip-&gt;get_zip()</h2>
 
-<p>Returns the Zip-compressed file data.  Generally you will not need this function unless you want to do something unique with the data.
-Example:</p>
+<p>返回经过Zip压缩后的文件数据。通常情况下你不需要用到本函数，除非你想对数据做特殊处理。例如:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);<br /><br />
+$this-&gt;zip-&gt;add_data($name, $data);<br /><br />
 
-$zip_file = $this->zip->get_zip();
+$zip_file = $this-&gt;zip-&gt;get_zip();
 </code>
 
 
-<h2>$this->zip->clear_data()</h2>
+<h2>$this-&gt;zip-&gt;clear_data()</h2>
 
-<p>The Zip class caches your zip data so that it doesn't need to recompile the Zip archive for each function you use above.
-If, however, you need to create multiple Zips, each with different data, you can clear the cache between calls. Example:</p>
+<p>Zip编码类会对你的zip数据进行缓存，因此，调用上面的各个函数时，你不需要每次都重新建立Zip文件。然而，如果你要创建多个有着各自不同数据的Zip文件的话，你可以在调用期间清理掉缓存。例如:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
 $data = 'I was born in an elevator...';<br />
 <br />
-$this->zip->add_data($name, $data);<br />
-$zip_file = $this->zip->get_zip();<br />
+$this-&gt;zip-&gt;add_data($name, $data);<br />
+$zip_file = $this-&gt;zip-&gt;get_zip();<br />
 <br />
-<kbd>$this->zip->clear_data();</kbd>
+<kbd>$this-&gt;zip-&gt;clear_data();</kbd>
 <br /><br />
 
 $name = 'photo.jpg';<br />
-$this->zip->read_file("/path/to/photo.jpg"); // Read the file's contents<br />
+$this-&gt;zip-&gt;read_file&#40;"/path/to/photo.jpg"&#41;; // 读取文件内容<br />
 <br /><br />
-$this->zip->download('myphotos.zip');
-</code>
-
-
-
-
-
-
-
-
-
-
-
-
-
+$this-&gt;zip-&gt;download('myphotos.zip');
+</code><p>&nbsp;</p>
+<div id="Contributors">
+翻译贡献者:
+architectcom, felee, Hex, lomatus, skey, xwjie, yinzhili, yygcom</div>
+<div id="DocDate">
+最后修改: 2012-02-08 20:23:04</div>
 </div>
 <!-- END CONTENT -->
-
-
 <div id="footer">
-<p>
-Previous Topic:&nbsp;&nbsp;<a href="xmlrpc.html"> XML-RPC Class</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Next Topic:&nbsp;&nbsp;<a href="caching.html">Caching Class</a>
-</p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+  <p>
+上一个主题:&nbsp;&nbsp;<a href="xmlrpc.html" tppabs="http://codeigniter.org.cn/user_guide/libraries/xmlrpc.html">XML-RPC 类</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="#top">页首</a>
+&nbsp;&middot;&nbsp;&nbsp;<a href="../index.html" tppabs="http://codeigniter.org.cn/user_guide/index.html">用户指南首页</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;下一个主题:&nbsp;&nbsp;<a href="../drivers/caching.html" tppabs="http://codeigniter.org.cn/user_guide/drivers/caching.html">缓存类</a>  </p>
+  <p><a href="javascript:if(confirm('http://codeigniter.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.com/'" tppabs="http://codeigniter.com/">CodeIgniter</a> &nbsp;&middot;&nbsp; 版权所有 &#169; 2006-2013 &nbsp;&middot;&nbsp; <a href="javascript:if(confirm('http://ellislab.com/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://ellislab.com/'" tppabs="http://ellislab.com/">Ellislab, Inc.</a></p>
+  <p>中文化: <a href="javascript:if(confirm('http://codeigniter.org.cn/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://codeigniter.org.cn/'" tppabs="http://codeigniter.org.cn/">CodeIgniter 中国</a> &nbsp;&middot;&nbsp; 制作: Hex &nbsp;&middot;&nbsp; 版本: 1.30 &nbsp;&middot;&nbsp; 鸣谢: 子非鱼</p>
 </div>
-
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-272152-3']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'yodao', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', 'codeigniter.org.cn']);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.src = (('https:' == document.location.protocol) ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+<div style="display:none"><script language="javascript" type="text/javascript" src="../../../js.users.51.la/3289908.js" tppabs="http://js.users.51.la/3289908.js"></script>
+<noscript><a href="javascript:if(confirm('http://www.51.la/?3289908  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.51.la/?3289908'" tppabs="http://www.51.la/?3289908" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="../../../web.51.la/go.asp-svid=5&id=3289908&style=-1&vpage=http---codeigniter.org.cn-user_guide-index.html&60478.8.gif" tppabs="http://img.users.51.la/3289908.asp" style="border:none" /></a></noscript></div>
 </body>
 </html>
