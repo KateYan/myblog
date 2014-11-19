@@ -71,6 +71,16 @@ class Model_get extends CI_Model
         $query=$this->db->query("SELECT @@IDENTITY AS 'Identity'");
         return $query;
     }
+
+    public function nameCheck($data){
+        $query=$this->db->query("SELECT * FROM user WHERE UserName='" . $data . "'");
+        return $query->num_rows();
+    }
+
+    public function emailCheck($data){
+        $query=$this->db->query("SELECT * FROM user WHERE Email='" . $data . "'");
+        return $query->num_rows();
+    }
 }
 /**
  * Created by PhpStorm.

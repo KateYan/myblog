@@ -1,7 +1,7 @@
 <div class="col-md-8 col-md-offset-2">
     <?php
     $attributes=array('id'=>'logininfo');
-    echo form_open('site/login_confirm',$attributes);
+    echo form_open('form_control/Login_confirm',$attributes);
     ?>
     <label class="control-label" for="username">Username:</label>
         <input form="logininfo" class="form-control" type="text" name="username" placeholder="Enter your username">

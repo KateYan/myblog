@@ -44,26 +44,33 @@ class Site extends MY_Controller {
         $this->load->view("admin/user/login");
         $this->load->view("admin/components/footer");
     }
-    public function Login_confirm(){
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $this->load->model("model_get");
-        $num=$this->model_get->logIn_match($username, $password);
-        if($num!=0){
-            $results=$this->model_get->logIn_user($username, $password);
-            foreach($results as $row){
-                $_SESSION['userid'] = $row->UserID;
-                $_SESSION['username'] = $row->UserName;
-
-                $home_url="loged";
-                header('Location:'.$home_url);
-            }
-        }
-        else {
-            echo "WRONG";
-        }
-
-    }
+//    public function Login_confirm(){
+//        if(null==$this->input->post('username')){
+//            echo "Please enter your username!";
+//        }
+//        elseif(null==$this->input->post('password')){
+//            echo "Please enter your password!";
+//        }
+//        else {
+//            $username = $this->input->post('username');
+//            $password = $this->input->post('password');
+//            $this->load->model("model_get");
+//            $num=$this->model_get->logIn_match($username, $password);
+//            if($num!=0){
+//                $results=$this->model_get->logIn_user($username, $password);
+//                foreach($results as $row){
+//                    $_SESSION['userid'] = $row->UserID;
+//                    $_SESSION['username'] = $row->UserName;
+//
+//                    $home_url="loged";
+//                    header('Location:'.$home_url);
+//                }
+//            }
+//            else {
+//                echo "Your username and password don't match!";
+//            }
+//        }
+//    }
 
     //For loged page which is also the user's control centre page
     //show all the user's article for update and delete
@@ -115,8 +122,6 @@ class Site extends MY_Controller {
 
     }
 
-
-
     public function Logout(){
         $_SESSION=array();
 
@@ -156,13 +161,23 @@ class Site extends MY_Controller {
     public function Signup_confirm(){
         $username=$this->input->post('username');
         $email=$this->input->post('email');
-        $upasw=$this->input->post('upasw');
-        $this->load->model('model_get');
-        $userid=$this->model_get->newUser($username,$email,$upasw);
-        $_SESSION['userid']=$userid;
+        $this->load->model("model_get");
+        $name_num=$this->model_get->nameCheck($username);
+        $email_num=$this->model_get->emailCheck($email);
+        if($name_num!=0){
+            echo "This username has been taken.";
+        }
+        elseif($email_num!=0){
+            echo "This email address has been used to register.";
+        }
+        else {
+            $upasw=$this->input->post('upasw');
+            $this->load->model('model_get');
+            $userid=$this->model_get->newUser($username,$email,$upasw);
+            $_SESSION['userid']=$userid;
 
-        $home_url="loged";
-        header('Location:'.$home_url);
-
+            $home_url="loged";
+            header('Location:'.$home_url);
+        }
     }
 }
