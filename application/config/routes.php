@@ -43,7 +43,7 @@
 
 $route['default_controller'] = "";
 $route['404_override'] = '';
-$route['form']="form/form_controller";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

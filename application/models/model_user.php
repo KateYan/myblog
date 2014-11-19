@@ -4,6 +4,8 @@
 
 class Model_user extends CI_Model
 {
+
+}
 /**
  * Created by PhpStorm.
  * User: cecil_000

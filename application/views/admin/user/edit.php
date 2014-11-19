@@ -1,7 +1,7 @@
 
     <?php
     $attributes=array('id'=>'editting','class'=>'col-md-10 col-md-offset-1');
-    echo form_open('site/edit_option',$attributes);
+    echo form_open('formcontrol/edit_save',$attributes);
     ?>
     <label class="control-label" for="title">Title: </label>
     <div class="controls">
@@ -27,9 +27,10 @@
 
 <!--<div >-->
     <?PHP
-    echo '<button style="width: 100%" class="btn btn-primary" name="save" value="Save">'."Save".'</button><br><br>';
+    echo '<button style="width: 100%" class="btn btn-primary" name="save" value="Save">'."Save".'</button>';
+    echo br(2);
+    echo anchor('index/home/main','Return to main','class="btn btn-success" name="goback" value="Go Back"');
     ?>
-    <a href="main" style="width: 100%" class="btn btn-success" name="goback" value="Go Back">Return to main page</a>
 <!--</div>-->
 
 <?php

@@ -4,7 +4,6 @@
 
 class Model_get extends CI_Model
 {
-
     // work for main page to show all the articles from database,
     // no need to choose based on id or userid
     public function getArticle(){
@@ -28,9 +27,9 @@ class Model_get extends CI_Model
         $this->db->insert('article',$data);
     }
 
-    //based on the input username and password
-    //once  "login " is clicked
-    //check if there is a math in "user"
+//    //based on the input username and password
+//    //once  "login " is clicked
+//    //check if there is a math in "user"
     public function logIn_match($data1,$data2){
         $query=$this->db->query("SELECT UserID, UserName FROM user WHERE Username='" . $data1 . "' AND UserPassword='" . $data2 . "'");
             return $query->num_rows();
@@ -46,7 +45,8 @@ class Model_get extends CI_Model
     //
     public function userArticle($data){
         $query=$this->db->query("SELECT Arti_ID, Arti_Title FROM article WHERE userID='".$data."'");
-        return $query->result();
+        return $query;
+
     }
 
     public function deleteArticle($data){

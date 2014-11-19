@@ -27,12 +27,13 @@
 <div class="col-md-4">
     <?php
     if(!isset($_SESSION['userid'])){
-        echo '<a class="btn btn-success" href="login" value="login">'."Log in to manage".'</a>';
+        echo anchor('admin/user/login','Log in to manage','class="btn btn-success", value="login"');
+//        echo '<a class="btn btn-success" href="login" value="login">'."Log in to manage".'</a>';
     }
     else {
-        echo '<a class="btn btn-success" href="newarticle" value="newarticle">'."Write a new one".'</a>';
-        echo '<br><br>';
-        echo '<a class="btn btn-primary" href="loged" value="manage center">'."Manage Center".'</a>';
+        echo anchor('admin/article/newarticle','Write a new one','class="btn btn-success", value="newarticle"');
+        echo br(2);
+        echo anchor('admin/user/loged','Manage Center','class="btn btn-primary", value="manage center"');
     }
     ?>
 </div>
