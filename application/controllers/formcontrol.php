@@ -21,8 +21,7 @@
                 if ($num != 0) {
                     $results = $this->model_get->logIn_user($username, $password);
                     foreach ($results as $row) {
-                        $_SESSION['userid'] = $row->UserID;
-                        $_SESSION['username'] = $row->UserName;
+                        $_SESSION['userid'] = $row->uid;
 
                         redirect('admin/user/loged');
                     }
@@ -38,22 +37,29 @@
 
             $title=$this->input->post('title');
             $content=$this->input->post('content');
-            $arti_id=$this->input->post('arti_id');
+            $aid=$this->input->post('aid');
 
-            $this->load->model("model_get");
-            $this->model_get->updateArticle($title,$content,$arti_id);
-
-            redirect('admin/user/loged');
+            $this->load->model("Post");
+            $updateData=array('aid'=>$aid,'title'=>$title,'content'=>$content,'authorID'=>$_SESSION['userid']);
+            if($this->Post->updatePost($updateData))
+            {
+                redirect('admin/user/loged');
+            }
+            die('Something error');
         }
 
         //save new article
         public function Newarticle_save(){
             $title=$this->input->post('title');
             $content=$this->input->post('content');
-            $this->load->model("model_get");
-            $this->model_get->saveArticle($title,$content,$_SESSION['userid']);
+            $this->load->model("Post");
+            $postData = array('title'=>$title,'content'=>$content,'authorID'=>$_SESSION['userid']);
+            if($this->Post->newPost($postData))
+            {
+                redirect('admin/user/loged');
+            }
+            die('Something error');
 
-            redirect('admin/user/loged');
         }
 
         //check info befor create a new user account

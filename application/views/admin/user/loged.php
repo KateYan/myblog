@@ -12,14 +12,14 @@
                 echo '<div class="col-md-5" style="width:70% ">';
                 echo '<input type="checkbox" style="display:none;"><span>';
 
-                echo anchor('index/home/articles?view='. $row->Arti_ID .'',$row->Arti_Title);
+                echo anchor('index/home/articles/'. $row->aid .'',$row->title);
                 echo '</span></div>';
 
                 echo '<div class="col-md-2" style="width:30%">';
 
-                echo anchor('admin/article/edit?edit_id='. $row->Arti_ID .'','Edit','class="btn btn-xs btn-primary"');
+                echo anchor('admin/article/edit/'. $row->aid .'','Edit','class="btn btn-xs btn-primary"');
                 echo " ";
-                echo anchor('admin/article/delete?delete_id='. $row->Arti_ID .'','Delete','class="btn btn-xs btn-success"');
+                echo anchor('admin/article/delete/'. $row->aid .'','Delete','class="btn btn-xs btn-success"');
 
                 echo '</div></div></li>';
             }

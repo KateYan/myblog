@@ -6,10 +6,9 @@
     <label class="control-label" for="title">Title: </label>
     <div class="controls">
         <?php
-            foreach ($results as $row){
-            echo '<input type="checkbx", style="display:none;", name="arti_id", value="'.$row->Arti_ID.'">';
+            echo '<input type="checkbx", style="display:none;", name="aid", value="'.$edit->aid.'">';
             echo '<input class="form-control" type="text" name="title" placeholder="Please type in the title" value="';
-            echo $row->Arti_Title;
+            echo $edit->title;
             echo '"><br>'
         ?>
     </div>
@@ -17,12 +16,11 @@
     <label class="control-label" for="content">Content: </label>
 
     <div class="controls">
+        <textarea class="form-control" rows="13" name="content">
         <?php
-        echo '<textarea class="form-control" rows="13" name="content">';
-        echo $row->Arti_Content;
-        echo '</textarea><br>';
-        }
+        echo $edit->content;
         ?>
+        </textarea><br>
     </div>
 
 <!--<div >-->

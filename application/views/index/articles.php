@@ -3,14 +3,14 @@
 
         <h2 class="modal-header">
         <?php
-        foreach ($articledetail as $row)
-        {
-             echo $row->Arti_Title;
+//        foreach ($articledetail as $row)
+//        {
+             echo $post->title;
              echo '</h2><br><p>';
-            echo $row->Arti_Content.'</p>';
-         }
+            echo $post->content.'</p>';
+//         }
         ?>
-            <a href="main" class="btn btn-primary" name="return" value="return">Return</a>
+            <a href="../main" class="btn btn-primary" name="return" value="return">Return</a>
     </div>
 </div>
 <?php

@@ -14,14 +14,16 @@ class Home extends MY_Controller{
         $data['results']=$this->model_get->getArticle();
         $this->load->view("index/main",$data);
     }
-    public function Articles(){
+
+    public function Articles($id){
         $data['pagename']="Articles";
         $data['pagetitle']="The Lost Diomend on the Beach:";
         $this->load->view("components/header",$data);
-        $artid=$this->input->get('view');
-        $this->load->model("model_get");
-        $data['articledetail']=$this->model_get->findArticle($artid);
+        $this->load->model('Post', 'post1');
+        $post = $this->post1->initiate($id);
+        $data['post'] = $post;
         $this->load->view("index/articles",$data);
+
     }
 }
 /**

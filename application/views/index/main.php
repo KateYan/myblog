@@ -7,8 +7,8 @@
             echo '<div class="col-md-6" style="width:80% ">';
             echo '<input type="checkbox" style="display:none;">';
             echo '<span>';
-            echo '<a href="articles?view=' . $row->Arti_ID . '"><span>';
-            echo $row->Arti_Title;
+            echo '<a href="articles/' . $row->aid . '"><span>';
+            echo $row->title;
             echo '</span></a>';
             echo '</span>';
             echo '</div>';

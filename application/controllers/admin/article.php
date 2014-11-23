@@ -3,7 +3,9 @@
 }
 
 class Article extends MY_Controller{
-
+    public function __construct(){
+        parent::__construct();
+    }
     public function index(){
 
     }
@@ -12,24 +14,22 @@ class Article extends MY_Controller{
     //Part one: show existing infor and waiting for change
     //(part two is located in controllers/formcontrol.php)
     //(part two is saving editted article)
-    public function Edit(){
+    public function Edit($id){
         $data['pagename']="Edit Article";
         $data['pagetitle']="Record Your Mind:";
         $this->load->view("components/header",$data);
-        $editid=$this->input->get('edit_id');
-        $this->load->model("model_get");
-        $data['results']=$this->model_get->findArticle($editid);
+        $this->load->model('Post', 'edit');
+        $edit = $this->edit->initiate($id);
+        $data['edit']=$edit;
         $this->load->view("admin/user/edit",$data);
         $this->load->view("components/footer");
     }
 
     // Once an article is deleted
     // reload the manage center to show the new list of article
-    public function Delete(){
-        $arti_id=$this->input->get('delete_id');
-        $this->load->model("model_get");
-        $this->model_get->deleteArticle($arti_id);
-
+    public function Delete($id){
+        $this->load->model('Post');
+        $this->Post->deletePost($id);
         redirect('admin/user/loged');
     }
     // create new article under current user's id
@@ -39,14 +39,6 @@ class Article extends MY_Controller{
         $data['pagetitle']="Record Your Mind:";
         $this->load->view("components/header",$data);
         $this->load->view("admin/user/newarticle");
-//        if($this->input->post('save')){
-//            $title=$this->input->post('title');
-//            $content=$this->input->post('content');
-//            $userid='2';
-//            $this->load->model("model_get");
-//            $this->model_get->saveArticle($title,$content,$userid);
-//        }
-
         $this->load->view("components/footer");
     }
 }
