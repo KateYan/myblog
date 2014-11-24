@@ -1,21 +1,21 @@
-<?php if (!defined('BASEPATH')) {
+<?php if (!defined('BASEPATH'))
     exit('No direct script access allowed');
-}
 
-class Post extends CI_Model
-{
+class Post extends CI_Model{
 
-    public $aid;
-    public $title;
-    public $content;
-    private $authorID;
-    public $author;
+    public  $aid;
+    public  $title;
+    public  $content;
+    public  $authorID;
+    public  $author;
 
 
-    public function __construct(){
+    function __construct(){
         parent::__construct();
     }
 
+
+    //Based on aid to realize an object article
     public function initiate($aid)
     {
         $sql = "SELECT article.title as title,article.content as content, user.uname as uname FROM article, user WHERE article.aid = '".$aid."' AND article.authorID=user.uid ";
@@ -34,6 +34,29 @@ class Post extends CI_Model
         }
     }
 
+    public function showAll(){
+
+        $sql="SELECT aid FROM article";
+        $query=$this->db->query($sql);
+
+        $i=0;
+        $num=$query->num_rows();
+
+        while($i<$num){
+            $id=$query->row($i);
+            $aid=$id->aid;
+            $all[$i]=$this->initiate($aid);
+            $i++;
+        }
+//        foreach($query->row() as $article){
+//            $id=$article->aid;
+//            $all[$i]=$this->initiate($id);
+//            $i++;
+//        }
+        return $all;
+    }
+
+    //get article object's propertie's value
     public function getProperty($property){
         if(isset($this->$property)){
             return $this->$property;
@@ -41,6 +64,9 @@ class Post extends CI_Model
         return null;
     }
 
+
+
+    // create new object with insert title, content and user id
     public function newPost($postData){
         $this->title = $postData['title'];
         $this->content = $postData['content'];
@@ -48,34 +74,35 @@ class Post extends CI_Model
         $this->authorID=$postData['authorID'];
         return $this->savePost();
     }
-
+    // create updated object with new title and content
     public function updatePost($updateData){
         $this->aid=$updateData['aid'];
         $this->title=$updateData['title'];
         $this->content=$updateData['content'];
         $this->authorID=$updateData['authorID'];
-        return $this->savePost();
+        return $this->saveUpdate();
     }
 
-
+    // insert new instance into database
     private function savePost(){
-        if(null==$this->aid){
             $sql = "INSERT into article VALUE ('".$this->aid."','".$this->title."','".$this->content."','".$this->authorID."')";
             $query = $this->db->query($sql);
             if($this->db->affected_rows()==1){
                 return true;
             }
                 return false;
-        }
-        else{
-            $sql="UPDATE article SET title='".$this->title."', content='".$this->content."' WHERE aid='".$this->aid."'";
-            $query = $this->db->query($sql);
-            if($this->db->affected_rows()==1){
-                return true;
-            }
-                return false;
-        }
     }
+
+    //update instance from database
+    public  function saveUpdate(){
+        $sql="UPDATE article SET title='".$this->title."', content='".$this->content."' WHERE aid='".$this->aid."'";
+        $query = $this->db->query($sql);
+        if($this->db->affected_rows()==1){
+            return true;
+        }
+        return false;
+    }
+    //delete instance from database
     public function deletePost($id){
         $sql="DELETE FROM article WHERE aid='".$id."'";
         $query = $this->db->query($sql);

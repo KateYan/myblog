@@ -23,14 +23,34 @@
                     foreach ($results as $row) {
                         $_SESSION['userid'] = $row->uid;
 
-                        redirect('admin/user/loged');
+                        redirect('admin/usercontrol/loged');
                     }
                 } else {
                     echo "Your username and password don't match!";
                 }
             }
         }
-
+        public function Postarticle(){
+            $title=$this->input->post('title');
+            $content=$this->input->post('content');
+            $this->load->model("Post");
+            if(null!=$this->input->post('aid')){
+                $aid=$this->input->post('aid');
+                $updateData=array('aid'=>$aid,'title'=>$title,'content'=>$content,'authorID'=>$_SESSION['userid']);
+                if($this->Post->updatePost($updateData))
+                {
+                    redirect('admin/usercontrol/loged');
+                }
+                die('Something error');
+            }else{
+                $postData = array('title'=>$title,'content'=>$content,'authorID'=>$_SESSION['userid']);
+                if($this->Post->newPost($postData))
+                {
+                    redirect('admin/usercontrol/loged');
+                }
+                die('Something error');
+            }
+        }
 
         //after user loged in to edit his existing article
         public function Edit_save(){
@@ -43,7 +63,7 @@
             $updateData=array('aid'=>$aid,'title'=>$title,'content'=>$content,'authorID'=>$_SESSION['userid']);
             if($this->Post->updatePost($updateData))
             {
-                redirect('admin/user/loged');
+                redirect('admin/usercontrol/loged');
             }
             die('Something error');
         }
@@ -56,7 +76,7 @@
             $postData = array('title'=>$title,'content'=>$content,'authorID'=>$_SESSION['userid']);
             if($this->Post->newPost($postData))
             {
-                redirect('admin/user/loged');
+                redirect('admin/usercontrol/loged');
             }
             die('Something error');
 
@@ -79,7 +99,7 @@
                 $userid = $this->model_get->newUser($username, $email, $upasw);
                 $_SESSION['userid'] = $userid;
 
-                redirect('admin/user/loged');
+                redirect('admin/usercontrol/loged');
             }
         }
     }

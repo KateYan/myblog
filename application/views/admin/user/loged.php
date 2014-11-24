@@ -36,7 +36,7 @@
         echo br(2);
         echo anchor('index/home/main','Back to main','class="btn btn-success"');
         echo br(2);
-        echo anchor('admin/user/logout','Log out','class="btn btn-primary"');
+        echo anchor('admin/usercontrol/logout','Log out','class="btn btn-primary"');
         ?>
     </div>
 

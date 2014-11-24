@@ -13,7 +13,7 @@
             <textarea class="form-control" rows="13" name="content"></textarea><br>
         </div>
         <button style="width: 100%" class="btn btn-primary" name="save" value="Save">Save</button><br><br>
-    <a href="main" style="width: 100%" class="btn btn-success" name="goback" value="Go Back">Return to main page</a>
+    <a href="../../index/home/main" style="width: 100%" class="btn btn-success" name="goback" value="Go Back">Return to main page</a>
 </div>
 <?php
 /**

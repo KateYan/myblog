@@ -30,7 +30,7 @@ class Article extends MY_Controller{
     public function Delete($id){
         $this->load->model('Post');
         $this->Post->deletePost($id);
-        redirect('admin/user/loged');
+        redirect('admin/usercontrol/loged');
     }
     // create new article under current user's id
     //Part One: show the create page for entering infor

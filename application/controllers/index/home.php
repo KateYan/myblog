@@ -10,8 +10,12 @@ class Home extends MY_Controller{
         $data['pagename']="Main";
         $data['pagetitle']="All Articles:";
         $this->load->view("components/header",$data);
-        $this->load->model("model_get");
-        $data['results']=$this->model_get->getArticle();
+        $this->load->model('Post');
+        $data['postall'] = $this->Post->showAll();
+//        $data['postall']=$postall;
+
+//        echo $postall->num_rows();
+//        $data['results']=$this->model_get->getArticle();
         $this->load->view("index/main",$data);
     }
 

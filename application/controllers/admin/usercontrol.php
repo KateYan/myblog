@@ -2,7 +2,7 @@
     exit('No direct script access allowed');
 }
 
-class User extends MY_Controller {
+class Usercontrol extends MY_Controller {
 
     public function index(){
 
