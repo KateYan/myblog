@@ -31,10 +31,11 @@ class Model_get extends CI_Model
 
     // work for main page to show all the articles from database,
     // no need to choose based on id or authorID
-    public function getArticle(){
-        $query=$this->db->query("SELECT aid, title,authorID FROM article");
-        return $query->result();
-    }
+//    public function getArticle(){
+//        $query=$this->db->query("SELECT aid, title,authorID FROM article");
+//        return $query->result();
+//    }
+
 
     // once the main page's article link is clicked
     //based on the article id collected by get method

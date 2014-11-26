@@ -7,7 +7,7 @@ class User extends CI_Model{
     private $uname;
     private $password;
     private $email;
-    public  $works;
+    public  $works=array();
 
     function __construct(){
         parent::__construct();

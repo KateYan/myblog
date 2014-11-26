@@ -1,7 +1,7 @@
 <div class="col-md-7 col-md-offset-1">
     <ul class="list-group">
         <?php
-        foreach($postall as $article){
+        foreach($results as $article){
             echo '<li class="list-group-item">';
             echo '<div class="row">';
             echo '<div class="col-md-6" style="width:80% ">';

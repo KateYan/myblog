@@ -8,10 +8,16 @@ class Post extends CI_Model{
     public  $content;
     public  $authorID;
     public  $author;
+    private $fillable = array('title','content');
 
 
-    function __construct(){
-        parent::__construct();
+    function __construct(Array $params=array()){
+        if(count($params)){
+            foreach($params as $key=>$value){
+                $this->$key=$value;
+            }
+        }
+
     }
 
 
@@ -34,35 +40,27 @@ class Post extends CI_Model{
         }
     }
 
-    public function showAll(){
-
-        $sql="SELECT aid FROM article";
-        $query=$this->db->query($sql);
-
-        $i=0;
-        $num=$query->num_rows();
-
-        while($i<$num){
-            $id=$query->row($i);
-            $aid=$id->aid;
-            $all[$i]=$this->initiate($aid);
-            $i++;
-        }
-//        foreach($query->row() as $article){
-//            $id=$article->aid;
-//            $all[$i]=$this->initiate($id);
-//            $i++;
-//        }
-        return $all;
-    }
-
     //get article object's propertie's value
-    public function getProperty($property){
-        if(isset($this->$property)){
-            return $this->$property;
-        }
-        return null;
-    }
+//    public function __set($name,$value){
+//        if(! in_array($name,$this->fillable)){
+//            return false;
+//        }
+//        if(isset($this->$name)){
+//            $this->$name = $value;
+//        }
+//    }
+//
+//    public function __get($name){
+//        return isset($this->$name)? $this->$name : NULL;
+//    }
+//
+
+//    public function getProperty($property){
+//        if(isset($this->$property)){
+//            return $this->$property;
+//        }
+//        return null;
+//    }
 
 
 

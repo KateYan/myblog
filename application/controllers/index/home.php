@@ -1,6 +1,7 @@
 <?php if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
+
 class Home extends MY_Controller{
     public function __construct(){
         parent::__construct();
@@ -10,14 +11,11 @@ class Home extends MY_Controller{
         $data['pagename']="Main";
         $data['pagetitle']="All Articles:";
         $this->load->view("components/header",$data);
-        $this->load->model('Post');
-        $data['postall'] = $this->Post->showAll();
-//        $data['postall']=$postall;
-
-//        echo $postall->num_rows();
-//        $data['results']=$this->model_get->getArticle();
+        $this->load->model('blog');
+        $data['results']=$this->blog->getall();
         $this->load->view("index/main",$data);
     }
+
 
     public function Articles($id){
         $data['pagename']="Articles";

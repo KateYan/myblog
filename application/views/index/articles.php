@@ -3,12 +3,9 @@
 
         <h2 class="modal-header">
         <?php
-//        foreach ($articledetail as $row)
-//        {
              echo $post->title;
              echo '</h2><br><p>';
             echo $post->content.'</p>';
-//         }
         ?>
             <a href="../main" class="btn btn-primary" name="return" value="return">Return</a>
     </div>
