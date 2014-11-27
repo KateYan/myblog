@@ -15,7 +15,7 @@
 
             echo '<div class="col-md-1" style="width:20%">';
             echo '<span style="float:right">';
-            echo '<a href="">' . "editor". '</a>';
+            echo '<a href="">' . "$article->author". '</a>';
             echo '</span>';
             echo '</div>';
             echo '</div>';

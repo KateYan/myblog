@@ -12,6 +12,7 @@ class Home extends MY_Controller{
         $data['pagetitle']="All Articles:";
         $this->load->view("components/header",$data);
         $this->load->model('blog');
+
         $data['results']=$this->blog->getall();
         $this->load->view("index/main",$data);
     }
@@ -21,9 +22,11 @@ class Home extends MY_Controller{
         $data['pagename']="Articles";
         $data['pagetitle']="The Lost Diomend on the Beach:";
         $this->load->view("components/header",$data);
-        $this->load->model('Post', 'post1');
-        $post = $this->post1->initiate($id);
-        $data['post'] = $post;
+        $this->load->model('Blog');
+        $dataset=$this->Blog->initiate($id);
+        $this->load->model('Post');
+        $article = new Post($dataset);
+        $data['article']=$article;
         $this->load->view("index/articles",$data);
 
     }

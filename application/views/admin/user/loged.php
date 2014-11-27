@@ -2,24 +2,24 @@
     <h3> All my articles:</h3>
     <div class="col-md-7">
         <?php
-        if($results->num_rows()!=0){
+        if($results!=null){
             $attributes=array('id'=>'edit');
             echo form_open('admin/user/loged',$attributes);
             echo '<ul class="list-group">';
-            foreach($results->result() as $row){
+            foreach($results as $uarticle){
                 echo '<li class="list-group-item">';
                 echo '<div class="row">';
                 echo '<div class="col-md-5" style="width:70% ">';
                 echo '<input type="checkbox" style="display:none;"><span>';
 
-                echo anchor('index/home/articles/'. $row->aid .'',$row->title);
+                echo anchor('index/home/articles/'. $uarticle->aid .'',$uarticle->title);
                 echo '</span></div>';
 
                 echo '<div class="col-md-2" style="width:30%">';
 
-                echo anchor('admin/article/edit/'. $row->aid .'','Edit','class="btn btn-xs btn-primary"');
+                echo anchor('admin/article/edit/'. $uarticle->aid .'','Edit','class="btn btn-xs btn-primary"');
                 echo " ";
-                echo anchor('admin/article/delete/'. $row->aid .'','Delete','class="btn btn-xs btn-success"');
+                echo anchor('admin/article/delete/'. $uarticle->aid .'','Delete','class="btn btn-xs btn-success"');
 
                 echo '</div></div></li>';
             }

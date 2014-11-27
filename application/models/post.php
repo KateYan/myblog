@@ -8,7 +8,7 @@ class Post extends CI_Model{
     public  $content;
     public  $authorID;
     public  $author;
-    private $fillable = array('title','content');
+//    private $fillable = array('title','content');
 
 
     function __construct(Array $params=array()){
@@ -17,28 +17,27 @@ class Post extends CI_Model{
                 $this->$key=$value;
             }
         }
-
     }
 
 
-    //Based on aid to realize an object article
-    public function initiate($aid)
-    {
-        $sql = "SELECT article.title as title,article.content as content, user.uname as uname FROM article, user WHERE article.aid = '".$aid."' AND article.authorID=user.uid ";
-        $query = $this->db->query($sql);
-        if($query->num_rows()==0){
-            return false;
-        }elseif($query->num_rows()>1){
-            return false;
-        } else{
-            $article=$query->row(0);
-            $this->aid=$aid;
-            $this->title = $article->title;
-            $this->content = $article->content;
-            $this->author = $article->uname;
-            return $this;
-        }
-    }
+//    Based on aid to realize an object article
+//    public function initiate($aid)
+//    {
+//        $sql = "SELECT article.title as title,article.content as content, user.uname as uname FROM article, user WHERE article.aid = '".$aid."' AND article.authorID=user.uid ";
+//        $query = $this->db->query($sql);
+//        if($query->num_rows()==0){
+//            return false;
+//        }elseif($query->num_rows()>1){
+//            return false;
+//        } else{
+//            $article=$query->row(0);
+//            $this->aid=$aid;
+//            $this->title = $article->title;
+//            $this->content = $article->content;
+//            $this->author = $article->uname;
+//            return $this;
+//        }
+//    }
 
     //get article object's propertie's value
 //    public function __set($name,$value){
@@ -55,12 +54,12 @@ class Post extends CI_Model{
 //    }
 //
 
-//    public function getProperty($property){
-//        if(isset($this->$property)){
-//            return $this->$property;
-//        }
-//        return null;
-//    }
+    public function getProperty($property){
+        if(isset($this->$property)){
+            return $this->$property;
+        }
+        return null;
+    }
 
 
 

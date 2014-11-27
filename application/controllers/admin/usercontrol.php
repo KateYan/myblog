@@ -32,8 +32,8 @@ class Usercontrol extends MY_Controller {
         $data['pagename']="Manage Centre";
         $data['pagetitle']="Welcome to your control centre";
         $this->load->view("components/header",$data);
-        $this->load->model("model_get");
-        $data['results']=$this->model_get->userArticle($_SESSION['userid']);
+        $this->load->model("blog");
+        $data['results']=$this->blog->getall($_SESSION['userid']);
         $this->load->view("admin/user/loged",$data);
         $this->load->view("components/footer");
     }
